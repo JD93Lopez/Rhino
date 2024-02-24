@@ -1,0 +1,450 @@
+.userCardChild,
+.vistaAdministradorUsuariosChild {
+  align-self: stretch;
+  height: -94px;
+  position: relative;
+  background-color: var(--color-black);
+  display: none;
+}
+.userCardChild {
+  height: 704px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+}
+.usuario {
+  position: relative;
+  z-index: 1;
+}
+.userInfoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-smi) 0 0;
+}
+.nombreCompleto {
+  position: relative;
+  z-index: 1;
+}
+.userInfoBox1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-6xs) 0 0;
+}
+.correoElectronico {
+  position: relative;
+  z-index: 1;
+}
+.userInfoBox2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-2xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.celular,
+.estado {
+  position: relative;
+  z-index: 1;
+}
+.nameAndImage,
+.userDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.userDetails {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.nameAndImage {
+  width: 1288px;
+  justify-content: flex-start;
+  padding: 0 var(--padding-4xs) 0 0;
+  box-sizing: border-box;
+}
+.cellNumberChild,
+.frameChild {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+}
+.cellNumberChild {
+  align-self: stretch;
+  height: 638px;
+  z-index: 1;
+}
+.frameChild {
+  height: 53px;
+  width: 1374px;
+  flex-shrink: 0;
+}
+.pepito87 {
+  position: relative;
+  z-index: 1;
+}
+.activeUser {
+  width: 162px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.pepitoPerez {
+  position: relative;
+  z-index: 1;
+}
+.adminName {
+  width: 227px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.pepitoperez87gmailcom {
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+.emailIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-6xs) 0 0;
+}
+.inactivestate {
+  position: relative;
+  z-index: 1;
+}
+.statusIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.activo {
+  position: relative;
+  z-index: 3;
+}
+.activestate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.frameItem,
+.rectangleParent {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+}
+.rectangleParent {
+  align-self: stretch;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-xs) var(--padding-49xl) var(--padding-3xs)
+    var(--padding-21xl);
+  gap: var(--gap-xl);
+  z-index: 2;
+}
+.frameItem {
+  height: 53px;
+  width: 1374px;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: none;
+}
+.pato3452 {
+  position: relative;
+  z-index: 1;
+}
+.pato3452Wrapper {
+  width: 175px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.pabloLopez {
+  position: relative;
+  z-index: 1;
+}
+.pabloLopezWrapper {
+  width: 255px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.pato3452gmailcom {
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+.pato3452gmailcomWrapper {
+  align-self: stretch;
+  width: 285px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+}
+.div {
+  position: relative;
+  z-index: 1;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+}
+.inactivo {
+  position: relative;
+  z-index: 4;
+}
+.rectangleGroup {
+  align-self: stretch;
+  height: 53px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  overflow-x: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-3xs) var(--padding-40xl) var(--padding-3xs)
+    var(--padding-21xl);
+  gap: var(--gap-xl);
+  z-index: 3;
+  margin-top: -2px;
+}
+.cellNumber,
+.userCard,
+.userGroup {
+  display: flex;
+  justify-content: flex-start;
+}
+.cellNumber {
+  align-self: stretch;
+  height: 638px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+  font-family: var(--font-arial);
+}
+.userCard,
+.userGroup {
+  max-width: 100%;
+}
+.userCard {
+  width: 1374px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-2xl) 0 0;
+  gap: 16px 0;
+}
+.userGroup {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.actualizarUsuarioChild {
+  height: 48px;
+  width: 163.2px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.actualizarUsuario1 {
+  height: 27px;
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.actualizarUsuario {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-smi) var(--padding-5xs)
+    var(--padding-base);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.actualizarUsuario:hover,
+.crearUsuario:hover,
+.crearUsuarioChild {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+.crearUsuarioChild {
+  height: 48px;
+  width: 170.9px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  display: none;
+}
+.crearNuevo {
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.crearUsuario {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.actualizarUsuarioParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 42px;
+  max-width: 100%;
+}
+.adminProfile,
+.userInfoFrameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.adminProfile {
+  width: 1527px;
+  gap: 68px 0;
+}
+.userInfoFrameParent {
+  flex: 1;
+  gap: 43px 0;
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+.vistaAdministradorUsuariosInner {
+  width: 1692px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-6xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.vistaAdministradorUsuarios {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-14xl) 0 var(--padding-10xl);
+  gap: 18px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1325px) {
+  .rectangleGroup,
+  .rectangleParent {
+    padding-right: var(--padding-15xl);
+    box-sizing: border-box;
+  }
+  .rectangleGroup {
+    padding-right: var(--padding-10xl);
+  }
+}
+@media screen and (max-width: 1125px) {
+  .userDetails {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .adminProfile {
+    gap: 68px 0;
+  }
+  .userInfoFrameParent {
+    gap: 43px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .activo,
+  .celular,
+  .correoElectronico,
+  .div,
+  .estado,
+  .inactivestate,
+  .inactivo,
+  .nombreCompleto,
+  .pabloLopez,
+  .pato3452,
+  .pato3452gmailcom,
+  .pepito87,
+  .pepitoPerez,
+  .pepitoperez87gmailcom,
+  .usuario {
+    font-size: var(--font-size-xl);
+  }
+  .actualizarUsuarioParent {
+    flex-wrap: wrap;
+    gap: 0 42px;
+  }
+  .adminProfile {
+    gap: 68px 0;
+  }
+}

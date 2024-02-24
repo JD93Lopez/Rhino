@@ -1,0 +1,99 @@
+.camionPlataformaChild {
+  height: 422px;
+  width: 1313px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.image10Icon {
+  height: 317px;
+  width: 536px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 1;
+}
+.blankLine,
+.caminPlataforma,
+.capacidadDeCarga,
+.kgM12001900,
+.p,
+.potenciaMximaHprpm,
+.toneladas,
+.torqueKgMrpm {
+  margin: 0;
+}
+.caminPlataformaPotenciaContainer {
+  align-self: stretch;
+  height: 333px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.caminPlataformaPotenciaMxWrapper,
+.camionPlataforma {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.caminPlataformaPotenciaMxWrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 var(--padding-10xs);
+  min-width: 432px;
+}
+.camionPlataforma {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  flex-direction: row;
+  align-items: flex-end;
+  padding: var(--padding-23xl) var(--padding-13xl) var(--padding-25xl)
+    var(--padding-31xl);
+  gap: var(--gap-12xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 1325px) {
+  .camionPlataforma {
+    padding-left: var(--padding-6xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .image10Icon {
+    flex: 1;
+  }
+  .camionPlataforma {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .caminPlataformaPotenciaContainer {
+    font-size: var(--font-size-7xl);
+  }
+  .caminPlataformaPotenciaMxWrapper {
+    min-width: 100%;
+  }
+  .camionPlataforma {
+    gap: var(--gap-12xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .caminPlataformaPotenciaContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .camionPlataforma {
+    padding-top: var(--padding-8xl);
+    padding-bottom: var(--padding-10xl);
+    box-sizing: border-box;
+  }
+}

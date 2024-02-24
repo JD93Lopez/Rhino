@@ -1,0 +1,101 @@
+.backButtonLabelChild {
+  height: 53.9px;
+  width: 161px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.atrs {
+  position: relative;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  white-space: pre-wrap;
+  text-align: left;
+  z-index: 1;
+}
+.backButtonLabel,
+.botonAtrs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.backButtonLabel {
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-xs) var(--padding-28xl) var(--padding-xs)
+    var(--padding-35xl);
+  background-color: var(--color-orange);
+  flex: 1;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+.adminProfileFrame:hover,
+.backButtonLabel:hover {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+.botonAtrs {
+  width: 161px;
+  justify-content: center;
+  padding: var(--padding-8xs) 0 var(--padding-7xs);
+  box-sizing: border-box;
+}
+.adminProfileFrameChild {
+  height: 53.9px;
+  width: 161px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.guardar {
+  position: relative;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.adminProfileFrame {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-xs) var(--padding-16xl) var(--padding-xs)
+    var(--padding-15xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.previousStepButton,
+.saveButtonFrame {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.previousStepButton {
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.saveButtonFrame {
+  width: 1606px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-10xs);
+  box-sizing: border-box;
+}
+@media screen and (max-width: 450px) {
+  .guardar {
+    font-size: var(--font-size-lgi);
+  }
+  .previousStepButton {
+    flex-wrap: wrap;
+  }
+}

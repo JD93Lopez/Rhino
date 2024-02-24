@@ -1,0 +1,149 @@
+.proyecto1Child {
+  width: 1434px;
+  height: 213px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.excavadora {
+  font-family: var(--font-arial);
+}
+.nombreDelProductoContainer {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.nombreDelProductoExcavadorWrapper {
+  width: 483px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.span {
+  font-family: var(--font-arial);
+}
+.identificacin49845 {
+  width: 336px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.identificacin49845Wrapper {
+  width: 377px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.span1 {
+  font-family: var(--font-arial);
+}
+.fecha23032024 {
+  width: 237px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.frameParent,
+.proyecto1Inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frameParent {
+  width: 1271px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.proyecto1Inner {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.frameChild {
+  height: 115px;
+  width: 1319px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.descripcin {
+  width: 166px;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-arial-rounded-mt-bold);
+  font-size: var(--font-size-6xl);
+  background-color: transparent;
+  height: 25px;
+  position: relative;
+  color: var(--color-gainsboro-100);
+  text-align: left;
+  display: inline-block;
+  z-index: 2;
+}
+.frameDiv,
+.proyecto1,
+.rectangleParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangleParent {
+  flex: 1;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  padding: var(--padding-7xs) var(--padding-lg) var(--padding-65xl);
+  z-index: 1;
+}
+.frameDiv,
+.proyecto1 {
+  align-self: stretch;
+  padding: 0 0 0 var(--padding-5xs);
+}
+.proyecto1 {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-lg) var(--padding-38xl) var(--padding-2xl)
+    var(--padding-29xl);
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 1325px) {
+  .frameParent {
+    flex-wrap: wrap;
+  }
+  .proyecto1 {
+    padding-left: var(--padding-5xl);
+    padding-right: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .descripcin,
+  .fecha23032024,
+  .identificacin49845,
+  .nombreDelProductoContainer {
+    font-size: var(--font-size-xl);
+  }
+}

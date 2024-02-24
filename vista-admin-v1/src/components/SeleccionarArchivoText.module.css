@@ -1,0 +1,40 @@
+.cargarSoat {
+  position: relative;
+}
+.frameCargarTecnicoMecanicaChild {
+  height: 29px;
+  width: 196px;
+  position: relative;
+  background-color: var(--color-gainsboro-100);
+  display: none;
+}
+.seleccionarArchivo {
+  position: relative;
+  z-index: 1;
+}
+.frameCargarTecnicoMecanica {
+  background-color: var(--color-gainsboro-100);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) 0 var(--padding-10xs) var(--padding-8xs);
+  white-space: nowrap;
+  font-size: var(--font-size-lgi);
+}
+.seleccionarArchivoText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px 0;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 450px) {
+  .cargarSoat {
+    font-size: var(--font-size-lgi);
+  }
+}

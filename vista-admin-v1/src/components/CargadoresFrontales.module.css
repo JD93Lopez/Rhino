@@ -1,0 +1,90 @@
+.cargadoresFrontalesChild {
+  height: 422px;
+  width: 1313px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.image17Icon {
+  height: 399px;
+  width: 531px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 2;
+}
+.blankLine,
+.caminDeTransporte,
+.motorTurboDisel,
+.potenciaDe130,
+.torqueDe317 {
+  margin: 0;
+}
+.caminDeTransporteContainer {
+  align-self: stretch;
+  height: 333px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.caminDeTransporteDeVidrioWrapper,
+.cargadoresFrontales {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.caminDeTransporteDeVidrioWrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-lg) 0 0;
+  min-width: 432px;
+}
+.cargadoresFrontales {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  flex-direction: row;
+  align-items: center;
+  padding: 0 var(--padding-13xl) var(--padding-4xl) var(--padding-32xl);
+  gap: var(--gap-16xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 1325px) {
+  .cargadoresFrontales {
+    padding-left: var(--padding-6xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .image17Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .caminDeTransporteContainer {
+    font-size: var(--font-size-7xl);
+  }
+  .caminDeTransporteDeVidrioWrapper {
+    min-width: 100%;
+  }
+  .cargadoresFrontales {
+    gap: var(--gap-16xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .caminDeTransporteContainer {
+    font-size: var(--font-size-lgi);
+  }
+}

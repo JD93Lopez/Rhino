@@ -1,0 +1,72 @@
+.vistaAdministradorMantenimChild {
+  align-self: stretch;
+  height: -94px;
+  position: relative;
+  background-color: var(--color-black);
+  display: none;
+}
+.mantenimiento {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.projectDetails {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 21px 0;
+}
+.mantenimientoParent,
+.projectDetails,
+.vistaAdministradorMantenimInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.mantenimientoParent {
+  width: 1434px;
+  flex-direction: column;
+  gap: 55px 0;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--color-black);
+  font-family: var(--font-impact);
+}
+.vistaAdministradorMantenimInner {
+  width: 1536px;
+  flex-direction: row;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.vistaAdministradorMantenim {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-14xl) 0 153px;
+  gap: 21px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 800px) {
+  .mantenimiento {
+    font-size: var(--font-size-32xl);
+  }
+  .mantenimientoParent {
+    gap: 55px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mantenimiento {
+    font-size: var(--font-size-19xl);
+  }
+}

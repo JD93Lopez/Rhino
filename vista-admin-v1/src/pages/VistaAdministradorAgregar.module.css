@@ -1,0 +1,300 @@
+.vistaAdministradorAgregarChild {
+  align-self: stretch;
+  height: -94px;
+  position: relative;
+  background-color: var(--color-black);
+  display: none;
+}
+.tituloCrearUsuario {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.createUserFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 76px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.nombreDelProducto {
+  width: 355.3px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.frame {
+  border: 1px solid var(--color-black);
+  outline: 0;
+  background-color: var(--color-white);
+  align-self: stretch;
+  height: 42px;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+.nombreIDFrame {
+  width: 543px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px 0;
+  max-width: 100%;
+}
+.idDelProducto {
+  width: 355.3px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.nombreIDFrameChild {
+  align-self: stretch;
+  height: 42px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nombreIDFrame1 {
+  width: 543px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px 0;
+  max-width: 100%;
+}
+.descripcin {
+  position: relative;
+}
+.mantenimientoText,
+.pRODUCTOS {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.mantenimientoText {
+  border: 1px solid var(--color-black);
+  background-color: var(--color-white);
+  height: 364px;
+  width: auto;
+  outline: 0;
+  align-self: stretch;
+  flex-direction: row;
+  padding: var(--padding-4xs);
+  font-family: var(--font-arial-rounded-mt-bold);
+  font-size: var(--font-size-5xl);
+  color: rgba(0, 0, 0, 0.1);
+}
+.pRODUCTOS {
+  width: 560px;
+  flex-direction: column;
+  padding: 0 0 var(--padding-mini);
+  gap: 13px 0;
+  max-width: 100%;
+}
+.cargarTcnicoMecnica {
+  position: relative;
+}
+.precioTipoFrameChild {
+  height: 29px;
+  width: 203px;
+  position: relative;
+  background-color: var(--color-gainsboro-100);
+  display: none;
+}
+.seleccionarArchivo {
+  position: relative;
+  z-index: 1;
+}
+.precioTipoFrame {
+  background-color: var(--color-gainsboro-100);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-6xs) var(--padding-10xs)
+    var(--padding-5xs);
+  white-space: nowrap;
+}
+.descargarSOAT,
+.imagenFrame {
+  display: flex;
+  justify-content: flex-start;
+}
+.imagenFrame {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-9xs) 0 0;
+  font-size: var(--font-size-lgi);
+}
+.descargarSOAT {
+  flex-direction: column;
+  align-items: center;
+  gap: 6px 0;
+}
+.frameCargarSOAT {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.tituloCrearUsuarioFrame {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-10xs);
+  box-sizing: border-box;
+}
+.iDProductoFrame,
+.rectangleProductInfo,
+.tituloCrearUsuarioFrame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.rectangleProductInfo {
+  flex: 1;
+  flex-direction: column;
+  gap: 30px 0;
+}
+.iDProductoFrame {
+  width: 627px;
+  flex-direction: row;
+  padding: 0 var(--padding-5xs);
+  box-sizing: border-box;
+}
+.descargarSoat {
+  position: relative;
+}
+.descargarSoatWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) 0 0;
+}
+.descargarTcnicoMecnica {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.nombreProductoFrame {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 53px 0;
+}
+.descriptionFrame,
+.nombreProductoFrame,
+.productInputFrame {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.productInputFrame {
+  width: 640px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-7xs) 0 0;
+  box-sizing: border-box;
+  min-width: 640px;
+}
+.descriptionFrame {
+  width: 1568px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+.productIDRectangle,
+.vistaAdministradorAgregar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+}
+.productIDRectangle {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 var(--padding-11xl);
+  max-width: 100%;
+}
+.vistaAdministradorAgregar {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-14xl) 0 var(--padding-49xl);
+  gap: 24px 0;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: var(--font-size-45xl);
+  color: var(--color-black);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1350px) {
+  .productInputFrame {
+    flex: 1;
+  }
+  .descriptionFrame {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .tituloCrearUsuario {
+    font-size: var(--font-size-32xl);
+  }
+  .createUserFrame {
+    padding-left: var(--padding-19xl);
+    padding-right: var(--padding-19xl);
+    box-sizing: border-box;
+  }
+  .frameCargarSOAT,
+  .frameParent {
+    flex-wrap: wrap;
+  }
+  .nombreProductoFrame {
+    gap: 53px 0;
+  }
+  .productInputFrame {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .tituloCrearUsuario {
+    font-size: var(--font-size-19xl);
+  }
+  .cargarTcnicoMecnica,
+  .descargarSoat,
+  .descargarTcnicoMecnica,
+  .descripcin,
+  .idDelProducto,
+  .nombreDelProducto {
+    font-size: var(--font-size-lgi);
+  }
+}

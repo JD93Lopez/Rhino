@@ -1,0 +1,189 @@
+.vistaBackgroundChild {
+  height: 96px;
+  width: 1748px;
+  position: relative;
+  background-color: var(--color-gold);
+  display: none;
+  max-width: 100%;
+}
+.logofinalRemovebgPreview1Icon {
+  height: 78px;
+  width: 127px;
+  position: relative;
+  object-fit: cover;
+  z-index: 2;
+}
+.usuarios {
+  height: 34px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.maintananceText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.proyectos {
+  height: 34px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.maintananceText1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) var(--padding-10xs) 0 0;
+}
+.createUserTitleChild,
+.productos {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.productos {
+  height: 34px;
+  display: inline-block;
+  cursor: pointer;
+}
+.createUserTitleChild {
+  align-self: stretch;
+  height: 5px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.createUserTitle {
+  height: 43px;
+  width: 154px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 9px 0;
+}
+.mantenimiento {
+  height: 34px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 2;
+}
+.productsFrame,
+.userProjecsFrame {
+  display: flex;
+  align-items: flex-start;
+}
+.productsFrame {
+  margin: 0;
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 var(--padding-11xs) 0 0;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-impact);
+}
+.userProjecsFrame {
+  width: 973px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.usuario1Icon {
+  height: 36px;
+  width: 36px;
+  position: relative;
+  object-fit: cover;
+  z-index: 2;
+}
+.perfilAdminChild {
+  height: 53px;
+  width: 217px;
+  position: relative;
+  border-radius: var(--br-2xs);
+  background-color: var(--color-gainsboro-200);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+}
+.administrador {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+}
+.adminProfilePicture,
+.perfilAdmin {
+  display: flex;
+  justify-content: flex-start;
+}
+.perfilAdmin {
+  cursor: pointer;
+  border: 2px solid var(--color-black);
+  padding: var(--padding-4xs) var(--padding-xs) var(--padding-5xs)
+    var(--padding-2xs);
+  background-color: var(--color-gainsboro-200);
+  border-radius: var(--br-2xs);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-3xs);
+  z-index: 1;
+}
+.adminProfilePicture {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 var(--padding-10xs);
+}
+.addProductFrame,
+.editProductFrame,
+.vistaBackground {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.vistaBackground {
+  width: 1748px;
+  background-color: var(--color-gold);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-3xs) var(--padding-18xl) var(--padding-5xs)
+    var(--padding-9xl);
+  gap: var(--gap-xl);
+  max-width: 101%;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.addProductFrame,
+.editProductFrame {
+  align-items: flex-start;
+  padding: 0;
+  max-width: 100%;
+}
+.editProductFrame {
+  width: 1730px;
+  justify-content: flex-start;
+}
+.addProductFrame {
+  justify-content: flex-end;
+}
+@media screen and (max-width: 1350px) {
+  .productsFrame {
+    display: none;
+  }
+  .userProjecsFrame {
+    width: 0;
+  }
+}

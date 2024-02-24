@@ -1,0 +1,53 @@
+.backButtonFrame,
+.contrasea {
+  position: relative;
+}
+.backButtonFrame {
+  border: 1px solid var(--color-black);
+  outline: 0;
+  background-color: var(--color-white);
+  align-self: stretch;
+  height: 42px;
+  box-sizing: border-box;
+  min-width: 227px;
+}
+.casillaContrasea,
+.casillasDeCreacionDeUsuari {
+  width: 379px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+  max-width: 100%;
+}
+.casillasDeCreacionDeUsuari {
+  width: 1236px;
+  align-items: center;
+  gap: var(--gap-lgi);
+}
+.inputUserForm {
+  width: 1390px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-xl) var(--padding-27xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 800px) {
+  .inputUserForm {
+    padding-bottom: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .contrasea {
+    font-size: var(--font-size-lgi);
+  }
+}

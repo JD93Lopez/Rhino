@@ -1,0 +1,126 @@
+.proyecto1Child {
+  width: 1434px;
+  height: 213px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.usuario21 {
+  height: 29px;
+  width: 29px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.darwingAfanador {
+  font-family: var(--font-arial);
+}
+.nombreDarwingAfanadorContainer {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  max-width: calc(100% - 52px);
+  z-index: 1;
+}
+.userNameFrame {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0 23px;
+  min-width: 290px;
+  max-width: 100%;
+}
+.span {
+  font-family: var(--font-arial);
+}
+.celular3016598487 {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.celular3016598487Wrapper {
+  width: 319px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-20xl) 0 0;
+  box-sizing: border-box;
+}
+.span1 {
+  font-family: var(--font-arial);
+}
+.cdula13235635826 {
+  width: 358px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+  z-index: 1;
+}
+.userNameFrameParent {
+  width: 1169px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0 23px;
+  max-width: 100%;
+}
+.encargadoALa,
+.proyecto {
+  margin: 0;
+}
+.proyectoEncargadoAContainer {
+  height: 88px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.proyecto1,
+.proyectoEncargadoALaEmpreWrapper {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.proyectoEncargadoALaEmpreWrapper {
+  width: 1038px;
+  flex-direction: row;
+  padding: 0 var(--padding-mini);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-inter);
+}
+.proyecto1 {
+  align-self: stretch;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  flex-direction: column;
+  padding: var(--padding-10xl) var(--padding-11xl) var(--padding-lg);
+  gap: var(--gap-28xl);
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 800px) {
+  .proyecto1 {
+    gap: var(--gap-28xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .cdula13235635826,
+  .celular3016598487,
+  .nombreDarwingAfanadorContainer {
+    font-size: var(--font-size-xl);
+  }
+}

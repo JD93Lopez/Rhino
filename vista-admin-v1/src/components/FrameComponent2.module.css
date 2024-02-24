@@ -1,0 +1,464 @@
+.imageUpload {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+}
+.productDetailsParent {
+  width: 519px;
+  height: 528px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px 0;
+  max-width: 100%;
+}
+.precio,
+.tipo {
+  width: 191px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.tipo {
+  width: 229.2px;
+}
+.dropdownTipo,
+.productPricing {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.dropdownTipo {
+  flex: 1;
+  justify-content: space-between;
+  padding: 0 var(--padding-12xs) 0 0;
+  gap: var(--gap-xl);
+}
+.productPricing {
+  align-self: stretch;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+}
+.productState {
+  border: 1px solid var(--color-black);
+  outline: 0;
+  background-color: var(--color-white);
+  height: 42px;
+  box-sizing: border-box;
+  min-width: 147px;
+}
+.modelo,
+.productState {
+  align-self: stretch;
+  position: relative;
+}
+.vendor {
+  width: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 53px 0;
+}
+.dropdownTipoChild,
+.seleccionar {
+  height: 32px;
+  width: 172px;
+  position: relative;
+  display: none;
+}
+.seleccionar {
+  display: inline-block;
+  flex-shrink: 0;
+}
+.frameChild {
+  height: 10px;
+  width: 13px;
+  position: absolute;
+  margin: 0 !important;
+  top: 11px;
+  left: 206px;
+  object-fit: contain;
+}
+.seleccionarParent,
+.selectDropdown {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.seleccionarParent {
+  justify-content: flex-start;
+  position: relative;
+  gap: 0 34px;
+}
+.selectDropdown {
+  border: 1px solid var(--color-black);
+  justify-content: center;
+  padding: var(--padding-10xs) var(--padding-5xs) var(--padding-10xs)
+    var(--padding-4xs);
+  z-index: 1;
+}
+.transporte {
+  align-self: stretch;
+  width: 172px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.frameWrapper,
+.transporteWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameWrapper {
+  flex: 1;
+  padding: var(--padding-10xs) var(--padding-3xs);
+  z-index: 0;
+}
+.maquinariaPesada {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+}
+.frameContainer,
+.maquinariaPesadaWrapper {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameContainer {
+  padding: var(--padding-10xs) var(--padding-3xs);
+  z-index: 1;
+}
+.frameInner,
+.frameItem {
+  width: 172px;
+  height: 32px;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.frameInner {
+  top: 37px;
+  z-index: 3;
+}
+.frameGroup {
+  height: 76px;
+  width: 245px;
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.dropdownTipo1,
+.productStatus {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.dropdownTipo1 {
+  width: 245px;
+  justify-content: center;
+  padding: 0 0 var(--padding-66xl);
+  box-sizing: border-box;
+}
+.productStatus {
+  align-self: stretch;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.stateDropdown {
+  border: 1px solid var(--color-black);
+  outline: 0;
+  background-color: var(--color-white);
+  align-self: stretch;
+  height: 42px;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 146px;
+}
+.stateDropdownWrapper {
+  width: 243px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-mid);
+  box-sizing: border-box;
+}
+.estadoDelProducto {
+  position: relative;
+}
+.frameProductInfo,
+.saveButton {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.saveButton {
+  flex: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.frameProductInfo {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.dropdownEstadoChild,
+.fabricante {
+  align-self: stretch;
+  position: relative;
+}
+.dropdownEstadoChild {
+  border: 1px solid var(--color-black);
+  outline: 0;
+  background-color: var(--color-white);
+  height: 42px;
+  box-sizing: border-box;
+  min-width: 146px;
+}
+.dropdownEstado,
+.labelFabricante {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dropdownEstado {
+  align-self: stretch;
+  align-items: flex-end;
+  gap: 8px 0;
+}
+.labelFabricante {
+  width: 243px;
+  align-items: flex-start;
+  padding: var(--padding-10xl) 0 0;
+  box-sizing: border-box;
+  min-width: 243px;
+}
+.seleccionar1 {
+  height: 36px;
+  position: relative;
+  display: inline-block;
+}
+.polygonIcon {
+  height: 10px;
+  width: 13px;
+  position: relative;
+  object-fit: contain;
+}
+.seleccionarGroup {
+  flex: 1;
+  border: 1px solid var(--color-black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-10xs) var(--padding-3xl) var(--padding-10xs)
+    var(--padding-3xs);
+  gap: var(--gap-xl);
+}
+.disponible {
+  align-self: stretch;
+  width: 126px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.disponibleWrapper {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-8xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) var(--padding-3xs);
+}
+.ocupado {
+  align-self: stretch;
+  width: 126px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ocupadoWrapper {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-8xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) var(--padding-3xs);
+}
+.fueraDeServicio {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+}
+.fueraDeServicioWrapper {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-8xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-10xs) var(--padding-3xs);
+}
+.dropdownEstado1,
+.frameDiv {
+  width: 225px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.frameDiv {
+  height: 126px;
+  border: 1px solid var(--color-black);
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: var(--font-arial);
+}
+.dropdownEstado1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 0 var(--padding-116xl);
+  min-width: 225px;
+}
+.labelFabricanteParent,
+.priceType {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.labelFabricanteParent {
+  width: 566px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.priceType {
+  width: 583px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-xs);
+  box-sizing: border-box;
+  gap: 7px 0;
+}
+.rectangleDiv {
+  height: 53.9px;
+  width: 161px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.guardar {
+  position: relative;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.rectangleParent {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-xs) var(--padding-16xl) var(--padding-xs)
+    var(--padding-15xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.rectangleParent:hover {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+.frameParent,
+.saveButtons {
+  display: flex;
+  align-items: flex-start;
+}
+.saveButtons {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.frameParent {
+  width: 658px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 26px 0;
+  min-width: 658px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 1350px) {
+  .frameParent {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 800px) {
+  .dropdownTipo,
+  .productStatus,
+  .saveButton {
+    flex-wrap: wrap;
+  }
+  .dropdownEstado1,
+  .labelFabricante {
+    flex: 1;
+  }
+  .labelFabricanteParent {
+    flex-wrap: wrap;
+  }
+  .frameParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .disponible,
+  .estadoDelProducto,
+  .fabricante,
+  .fueraDeServicio,
+  .guardar,
+  .maquinariaPesada,
+  .modelo,
+  .ocupado,
+  .precio,
+  .seleccionar,
+  .seleccionar1,
+  .tipo,
+  .transporte {
+    font-size: var(--font-size-lgi);
+  }
+}

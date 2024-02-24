@@ -1,0 +1,86 @@
+.cargadoresFrontalesChild {
+  height: 422px;
+  width: 1313px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.image5Icon {
+  height: 345px;
+  width: 550px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 2;
+}
+.blankLine,
+.bulldozers,
+.capacidadDelCucharn1921,
+.cargadorConRuedas,
+.fuerzaInicial9638Kg,
+.kIi,
+.pesoOperativo12622,
+.potenciaNetaDel {
+  margin: 0;
+}
+.bulldozers524kIiCargadorContainer {
+  height: 333px;
+  flex: 1;
+  position: relative;
+  line-height: 37.6px;
+  display: inline-block;
+  min-width: 432px;
+  max-width: 100%;
+  z-index: 1;
+}
+.cargadoresFrontales {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-17xl) var(--padding-13xl) var(--padding-22xl)
+    var(--padding-23xl);
+  gap: var(--gap-6xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+@media screen and (max-width: 1325px) {
+  .cargadoresFrontales {
+    padding-left: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .image5Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .bulldozers524kIiCargadorContainer {
+    font-size: var(--font-size-7xl);
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .bulldozers524kIiCargadorContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales {
+    padding-top: var(--padding-4xl);
+    padding-bottom: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+}

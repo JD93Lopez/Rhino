@@ -1,0 +1,922 @@
+.vistaAdministradorProductoChild {
+  align-self: stretch;
+  height: -94px;
+  position: relative;
+  background-color: var(--color-black);
+  display: none;
+}
+.tituloCrearUsuario {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.buscarUsuarioChild {
+  height: 47px;
+  width: 340px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  display: none;
+  max-width: 100%;
+}
+.lupa4Icon {
+  height: 32px;
+  width: 37px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.buscarProducto {
+  width: 121px;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-arial-rounded-mt-bold);
+  font-size: var(--font-size-mini);
+  background-color: transparent;
+  height: 17px;
+  position: relative;
+  color: var(--color-gray-100);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.buscarUsuario,
+.eliminarProductoBoton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.buscarUsuario {
+  width: 340px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  justify-content: flex-start;
+  padding: var(--padding-5xs) var(--padding-3xs) var(--padding-6xs);
+  box-sizing: border-box;
+}
+.eliminarProductoBoton {
+  flex: 1;
+  justify-content: space-between;
+}
+.actualizarProductoBoton {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.powerfulExcavatorChild {
+  height: 54px;
+  width: 208px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.actualizarProducto {
+  position: relative;
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.powerfulExcavator1,
+.powerfulExcavatorItem {
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+}
+.powerfulExcavator1 {
+  cursor: pointer;
+  padding: var(--padding-smi) var(--padding-sm) var(--padding-sm)
+    var(--padding-base);
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 135px;
+  white-space: nowrap;
+}
+.powerfulExcavator1:hover,
+.powerfulExcavator2:hover,
+.rectangleParent:hover {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+.powerfulExcavatorItem {
+  height: 54px;
+  width: 208px;
+  position: relative;
+  display: none;
+}
+.eliminarProducto {
+  position: relative;
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.frameChild,
+.powerfulExcavator2 {
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+}
+.powerfulExcavator2 {
+  cursor: pointer;
+  padding: var(--padding-smi) var(--padding-2xl) var(--padding-sm)
+    var(--padding-4xl);
+  flex: 0.9205;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 135px;
+  white-space: nowrap;
+}
+.frameChild {
+  height: 54px;
+  width: 188px;
+  position: relative;
+  display: none;
+}
+.agregarProducto {
+  position: relative;
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.botonGuardar,
+.rectangleParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.rectangleParent {
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-7xs) var(--padding-sm)
+    var(--padding-mid);
+  background-color: var(--color-orange);
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+.botonGuardar {
+  justify-content: center;
+  padding: var(--padding-8xs) 0;
+}
+.excavator,
+.powerfulExcavator {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.powerfulExcavator {
+  flex: 1;
+  align-items: center;
+  padding: 0 var(--padding-12xs) 0 0;
+  gap: 0 69px;
+}
+.excavator {
+  width: 767px;
+  align-items: flex-start;
+  padding: 0 var(--padding-xs);
+}
+.excavadoraChild,
+.image1Icon {
+  position: relative;
+  max-width: 100%;
+}
+.excavadoraChild {
+  height: 422px;
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+}
+.image1Icon {
+  height: 378px;
+  width: 465px;
+  object-fit: cover;
+  z-index: 1;
+}
+.blankLine,
+.excavadora1,
+.g,
+.kg48312,
+.kw159Cv,
+.m21Ft,
+.pesoOperativo,
+.potenciaNetaDel,
+.profundidadMxDe {
+  margin: 0;
+}
+.excavadora210gPotenciaContainer {
+  align-self: stretch;
+  height: 296px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.grabberCrane {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-8xl) 0 0;
+  box-sizing: border-box;
+  min-width: 432px;
+}
+.excavadora,
+.grabberCrane,
+.updateDeleteProduct {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.excavadora {
+  align-self: stretch;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--padding-3xl) var(--padding-12xl) var(--padding-3xl)
+    var(--padding-mini);
+  gap: var(--gap-119xl);
+}
+.updateDeleteProduct {
+  width: 1313px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 36px 0;
+}
+.cargadoresFrontalesChild {
+  height: 422px;
+  width: 1313px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.image2Icon {
+  height: 259px;
+  width: 532px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 1;
+}
+.blankLine1,
+.capacidadDelBalde,
+.cargadoresFrontales1,
+.hp142Kw,
+.kg38800Lb,
+.m41Yd,
+.pesoOperativo1,
+.potenciaNetaAl,
+.wa3806 {
+  margin: 0;
+}
+.cargadoresFrontalesWa3806Container {
+  height: 333px;
+  flex: 1;
+  position: relative;
+  line-height: 37.6px;
+  display: inline-block;
+  min-width: 392px;
+  max-width: 100%;
+  z-index: 1;
+}
+.cargadoresFrontales,
+.cargadoresFrontalesItem {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.cargadoresFrontales {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-23xl) var(--padding-12xl) var(--padding-28xl)
+    var(--padding-7xl);
+  gap: var(--gap-41xl);
+}
+.cargadoresFrontalesItem {
+  height: 422px;
+  position: relative;
+  display: none;
+  z-index: 0;
+}
+.alcanceM36,
+.blankLine2,
+.capacidadLb,
+.montacargas,
+.motorDiesel,
+.p {
+  margin: 0;
+}
+.montacargasCapacidadLbContainer {
+  height: 333px;
+  width: 664px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+  z-index: 1;
+}
+.image9Icon {
+  height: 414px;
+  width: 475px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: -5px;
+  left: 26px;
+  object-fit: cover;
+  z-index: 2;
+}
+.cargadoresFrontales2,
+.cargadoresFrontalesInner {
+  width: 1313px;
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.cargadoresFrontales2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--padding-23xl) var(--padding-12xl) var(--padding-28xl);
+}
+.cargadoresFrontalesInner {
+  height: 422px;
+  display: none;
+}
+.image11Icon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.image11Wrapper {
+  height: 348px;
+  width: 524px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-11xs);
+  box-sizing: border-box;
+  min-width: 524px;
+  max-width: 100%;
+}
+.blankLine3,
+.brocaPerforadora,
+.caminFurgnCon,
+.controlRemoto,
+.extensionesJib,
+.ganchoPortaEstibas,
+.horquillaParaTubos {
+  margin: 0;
+}
+.caminFurgnConContainer {
+  height: 333px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  min-width: 380px;
+  max-width: 100%;
+  z-index: 1;
+}
+.cargadoresFrontales3 {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-8xl) var(--padding-13xl) var(--padding-28xl) 56px;
+  gap: var(--gap-18xl);
+  max-width: 100%;
+}
+.image12Icon,
+.rectangleDiv {
+  position: relative;
+  max-width: 100%;
+}
+.rectangleDiv {
+  height: 422px;
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+}
+.image12Icon {
+  height: 226px;
+  width: 471px;
+  object-fit: cover;
+  z-index: 1;
+}
+.blankLine4,
+.camionMezcladorDe,
+.suministroDeAgua,
+.tipoDeSuministro,
+.velocidadDeAlimentacin,
+.velocidadDeDescarga,
+.volumenm14 {
+  margin: 0;
+}
+.camionMezcladorDeContainer {
+  height: 333px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  min-width: 432px;
+  max-width: 100%;
+  z-index: 1;
+}
+.cargadoresFrontales4 {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-23xl) var(--padding-13xl) var(--padding-28xl)
+    var(--padding-63xl);
+  gap: var(--gap-45xl);
+  max-width: 100%;
+}
+.blankLine5,
+.boom60Mts,
+.capacidad130Tons,
+.extensibleHasta95,
+.graTelescpica {
+  margin: 0;
+}
+.graTelescpicaBoomContainer {
+  height: 333px;
+  width: 664px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+  z-index: 1;
+}
+.extensibleBoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+.image16Icon {
+  position: absolute;
+  top: 72px;
+  left: 10px;
+  width: 629px;
+  height: 282px;
+  object-fit: cover;
+  z-index: 1;
+}
+.grabbingClaw {
+  height: 100%;
+  width: 1313px;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.boomReach,
+.cargadoresFrontalesChild1 {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.boomReach {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--padding-27xl) 0 var(--padding-24xl);
+}
+.cargadoresFrontalesChild1 {
+  height: 422px;
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  display: none;
+}
+.image13Icon {
+  height: 346px;
+  width: 413px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 2;
+}
+.arrastradorConTenaza,
+.blankLine6,
+.lIi,
+.parMotorBruto,
+.pesoOperativo19,
+.potenciaBruta163 {
+  margin: 0;
+}
+.arrastradorConTenazaContainer {
+  align-self: stretch;
+  height: 333px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.arrastradorConTenaza648lIiWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+  min-width: 432px;
+  max-width: 100%;
+}
+.cargadoresFrontales5,
+.cargadoresFrontalesChild2 {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.cargadoresFrontales5 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-19xl) var(--padding-13xl) var(--padding-19xl)
+    var(--padding-63xl);
+  gap: var(--gap-103xl);
+}
+.cargadoresFrontalesChild2 {
+  height: 422px;
+  position: relative;
+  display: none;
+}
+.image19Icon {
+  height: 357px;
+  width: 494px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 2;
+}
+.alcanceDeLa,
+.blankLine7,
+.cargaNominal15,
+.esfuerzoDeTraccin,
+.potenciaDelMotor,
+.transportadorDeTroncos {
+  margin: 0;
+}
+.transportadorDeTroncosContainer {
+  height: 333px;
+  flex: 1;
+  position: relative;
+  line-height: 37.6px;
+  display: inline-block;
+  min-width: 432px;
+  max-width: 100%;
+  z-index: 1;
+}
+.cargadoresFrontales6 {
+  width: 1313px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-lg) var(--padding-13xl) var(--padding-28xl)
+    var(--padding-23xl);
+  gap: var(--gap-62xl);
+  max-width: 100%;
+}
+.frontalLoaders,
+.rectangleShape {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frontalLoaders {
+  width: 1347px;
+  align-items: flex-start;
+  gap: 60px 0;
+  font-size: var(--font-size-13xl);
+  font-family: var(--font-arial-rounded-mt-bold);
+}
+.rectangleShape {
+  flex: 1;
+  align-items: flex-end;
+  gap: 2px 0;
+  text-align: left;
+  font-size: 96px;
+  color: var(--color-black);
+  font-family: var(--font-impact);
+}
+.gRUATElescopicaBoomText,
+.vistaAdministradorProducto {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.gRUATElescopicaBoomText {
+  width: 1643px;
+  flex-direction: row;
+  padding: 0 63px;
+  max-width: 100%;
+}
+.vistaAdministradorProducto {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--padding-14xl) 0 103px;
+  gap: 70px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1325px) {
+  .excavadora {
+    gap: var(--gap-119xl);
+  }
+  .cargadoresFrontales3 {
+    padding-left: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+  .cargadoresFrontales4,
+  .cargadoresFrontales5 {
+    padding-left: var(--padding-22xl);
+    box-sizing: border-box;
+  }
+  .cargadoresFrontales5 {
+    gap: var(--gap-103xl);
+  }
+  .cargadoresFrontales6 {
+    padding-left: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+  .gRUATElescopicaBoomText {
+    padding-left: var(--padding-12xl);
+    padding-right: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .eliminarProductoBoton {
+    flex-wrap: wrap;
+  }
+  .image1Icon {
+    flex: 1;
+  }
+  .excavadora {
+    flex-wrap: wrap;
+  }
+  .image2Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales {
+    flex-wrap: wrap;
+  }
+  .image11Icon {
+    align-self: stretch;
+    width: auto;
+  }
+  .image11Wrapper {
+    flex: 1;
+  }
+  .cargadoresFrontales3 {
+    flex-wrap: wrap;
+  }
+  .image12Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales4 {
+    flex-wrap: wrap;
+  }
+  .image13Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales5 {
+    flex-wrap: wrap;
+  }
+  .image19Icon {
+    flex: 1;
+  }
+  .cargadoresFrontales6 {
+    flex-wrap: wrap;
+  }
+  .vistaAdministradorProducto {
+    gap: 70px 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .tituloCrearUsuario {
+    font-size: var(--font-size-29xl);
+  }
+  .powerfulExcavator1,
+  .powerfulExcavator2 {
+    flex: 1;
+  }
+  .powerfulExcavator {
+    flex-wrap: wrap;
+    gap: 0 69px;
+  }
+  .excavadora210gPotenciaContainer {
+    font-size: var(--font-size-7xl);
+  }
+  .grabberCrane {
+    min-width: 100%;
+  }
+  .excavadora {
+    gap: var(--gap-119xl);
+  }
+  .updateDeleteProduct {
+    gap: 36px 0;
+  }
+  .cargadoresFrontalesWa3806Container {
+    font-size: var(--font-size-7xl);
+    min-width: 100%;
+  }
+  .cargadoresFrontales {
+    gap: var(--gap-41xl);
+  }
+  .montacargasCapacidadLbContainer {
+    font-size: var(--font-size-7xl);
+  }
+  .image11Wrapper {
+    min-width: 100%;
+  }
+  .caminFurgnConContainer {
+    font-size: var(--font-size-7xl);
+    min-width: 100%;
+  }
+  .cargadoresFrontales3 {
+    gap: var(--gap-18xl);
+  }
+  .camionMezcladorDeContainer {
+    font-size: var(--font-size-7xl);
+    min-width: 100%;
+  }
+  .cargadoresFrontales4 {
+    gap: var(--gap-45xl);
+  }
+  .arrastradorConTenazaContainer,
+  .graTelescpicaBoomContainer {
+    font-size: var(--font-size-7xl);
+  }
+  .arrastradorConTenaza648lIiWrapper {
+    min-width: 100%;
+  }
+  .cargadoresFrontales5 {
+    gap: var(--gap-103xl);
+  }
+  .transportadorDeTroncosContainer {
+    font-size: var(--font-size-7xl);
+    min-width: 100%;
+  }
+  .cargadoresFrontales6 {
+    gap: var(--gap-62xl);
+  }
+  .frontalLoaders {
+    gap: 60px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .tituloCrearUsuario {
+    font-size: var(--font-size-10xl);
+  }
+  .buscarUsuario {
+    flex-wrap: wrap;
+  }
+  .powerfulExcavator {
+    gap: 0 69px;
+  }
+  .excavadora210gPotenciaContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .excavadora {
+    gap: var(--gap-119xl);
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .cargadoresFrontalesWa3806Container {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales {
+    padding-top: var(--padding-8xl);
+    padding-bottom: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .montacargasCapacidadLbContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales2 {
+    padding-top: var(--padding-8xl);
+    padding-bottom: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .caminFurgnConContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales3 {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .camionMezcladorDeContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales4 {
+    gap: var(--gap-45xl);
+    padding-top: var(--padding-8xl);
+    padding-bottom: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .graTelescpicaBoomContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .boomReach {
+    padding-top: var(--padding-11xl);
+    padding-bottom: var(--padding-9xl);
+    box-sizing: border-box;
+  }
+  .arrastradorConTenazaContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales5 {
+    gap: var(--gap-103xl);
+    padding-top: var(--padding-6xl);
+    padding-bottom: var(--padding-6xl);
+    box-sizing: border-box;
+  }
+  .transportadorDeTroncosContainer {
+    font-size: var(--font-size-lgi);
+  }
+  .cargadoresFrontales6 {
+    gap: var(--gap-62xl);
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .vistaAdministradorProducto {
+    gap: 70px 0;
+  }
+}
