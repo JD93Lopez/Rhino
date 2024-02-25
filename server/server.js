@@ -41,6 +41,7 @@ server.get('/api/insert/usuarios/:JSONUsuario/:usuario/:contrasena', async (req,
     const contrasena = req.params.contrasena;
     //TODO comprobar usuario y contrasena
     const JSONUsuario = req.params.JSONUsuario;
+    console.log(JSONUsuario);
     const usuarioInsertar = JSON.parse(JSONUsuario)
     DBConnection.insertarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
     res.json({ DBRes: DBConnection.obtenerUsuarios() });
