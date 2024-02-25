@@ -1,0 +1,6 @@
+{
+    "port": 3001,
+    "corsLinks":[
+        "http://localhost:3000"
+    ]
+}

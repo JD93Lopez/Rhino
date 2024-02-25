@@ -1,0 +1,7 @@
+{
+    "user": "postgres",
+    "host": "localhost",
+    "database": "rhinodb",
+    "password": "password",
+    "port": 5432
+}
