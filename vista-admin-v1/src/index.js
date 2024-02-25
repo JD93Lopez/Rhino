@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./global.css";
 import axios from './axios.js';
 
-axios.apiPrueba('http://127.0.0.1:3001/api/ejemplo');
+axios.api('http://127.0.0.1:3001/api/get/usuarios/1/1');
 
 
 const container = document.getElementById("root");
