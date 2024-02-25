@@ -17,12 +17,12 @@ const UserNicknameFrame = ({
       <div className={styles.casillaCorreoWrapper}>
         <div className={styles.casillaCorreo}>
           <div className={styles.correoElectrnico}>{correoElectrnico}</div>
-          <input className={styles.inputIdentification} type="text" id= "inputcorreousuario" useref={ "inputcorreousuario"} />
+          <input className={styles.inputIdentification} type="text" id= "inputtelefonousuario" useref={"inputtelefonousuario"} />
         </div>
       </div>
       <div className={styles.casillaIdentificacin}>
         <div className={styles.identificacin}>{identificacin}</div>
-        <input className={styles.casillaIdentificacinChild} type="text" id= "inputidentificacionusuario" useref={ "inputidentificacionusuario"} />
+        <input className={styles.casillaIdentificacinChild} type="text"id= "inputtipodeusuario" uuseref={"inputtipodeusuario"} />
       </div>
     </div>
   );

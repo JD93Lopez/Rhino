@@ -5,11 +5,11 @@ const UserNicknameFrame1 = ({ nombreDeUsuario, direccin }) => {
     <div className={styles.userNicknameFrame}>
       <div className={styles.casillaNombreDeUsuario}>
         <div className={styles.nombreDeUsuario}>{nombreDeUsuario}</div>
-        <input className={styles.selectTypeUserFrame} type="text" id= "inputnombreusuario" useref={"inputnombreusuario"} />
+        <input className={styles.selectTypeUserFrame} type="text" id= "inputnombrerealusuario" useref={"inputnombrerealusuario"} />
       </div>
       <div className={styles.casillaDireccin}>
         <div className={styles.direccin}>{direccin}</div>
-        <input className={styles.userTypeFieldFrame} type="text" id= "inputdireccionusuario" useref={"inputdireccionusuario"} />
+        <input className={styles.userTypeFieldFrame} type="text" id= "inputtipoidentificacion" useref={"inputtipoidentificacion"} />
       </div>
     </div>
   );
