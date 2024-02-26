@@ -1,8 +1,16 @@
 const {Pool} = require ('pg');
-const FileReader = require ('C:/Users/maria/Desktop/Rhino/Rhino/server/FileReader.js');
-
+const FileReader = require ('./FileReader.js');
 const config = FileReader.readDBConfig()
+
+/*const config = {
+  user: 'postgres',
+  host: 'localhost',
+  database: 'rhinodb',
+  password: 'password',
+  port: 5432,
+};*/
 const pool = new Pool(config);
+
 const obtenerUsuarios = async () => {
   const pool = new Pool(config);
   const DBRes = await pool.query('select * from usuarios')
@@ -152,7 +160,9 @@ const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
 };
 
 
-//insertarUsuario(1,"juan", "1234", "Juan D Lopez", "Calle # Carrera", "300", "109", "juandavid.jdlea@gmail.com", "CEDULA", "ADMINISTRADOR");
+//insertarUsuario(2,"juan", "1234", "Juan D Lopez", "Calle # Carrera", "300", "109", "juandavid.jdlea@gmail.com", "CEDULA", "ADMINISTRADOR");
+//eliminarUsuario(2);
+
 module.exports = {obtenerUsuarios, insertarUsuario};
 
 // insertarUsuario();
