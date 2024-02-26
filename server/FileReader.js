@@ -11,7 +11,7 @@ const readFile = (rutaJSON) => {
 }
 
 // Ruta server config
-const rutaServerConfig = './server-config.json';
+const rutaServerConfig = './db-config.json';
 const readServerConfig = () => {
     return JSON.parse(readFile(rutaServerConfig))
 }
