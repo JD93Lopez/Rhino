@@ -1,182 +1,492 @@
-const {Pool} = require ('pg');
-const FileReader = require ('./FileReader.js');
+const { Pool } = require("pg");
+//const FileReader = require ('./FileReader.js');
+//const config = FileReader.readDBConfig();
 
-const config = FileReader.readDBConfig()
-/*const config = {
-  user: 'postgres',
-  host: 'localhost',
-  database: 'rhinodb',
-  password: 'password',
+const config = {
+  user: "postgres",
+  host: "localhost",
+  database: "rhinodb",
+  password: "password",
   port: 5432,
-};*/
+};
 const pool = new Pool(config);
 
-const obtenerUsuarios = async () => {
+const insertarUsuario = async (
+  nombre_usuario,
+  contrasena,
+  nombre_real,
+  direccion,
+  telefono,
+  identificacion,
+  correo,
+  tipo_identificacion,
+  tipo_usuario
+) => {
   const pool = new Pool(config);
-  const DBRes = await pool.query('select * from usuarios')
-  // console.log(DBRes.rows);
+  try {
+    const texto =
+      "insert into usuarios(nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario) values($1, $2, $3, $4, $5, $6, $7, $8, $9)";
+    const values = [
+      nombre_usuario,
+      contrasena,
+      nombre_real,
+      direccion,
+      telefono,
+      identificacion,
+      correo,
+      tipo_identificacion,
+      tipo_usuario,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al insertar el usuario");
+  }
   pool.end();
-  return DBRes
-}
-const insertarUsuario = async (idusuarios, nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario) => {
-  const pool = new Pool(config);
-  const texto = 'insert into usuarios(idusuarios, nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)'
-
-  const values = [idusuarios, nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario]
-  // [1,"juan", "1234", "Juan D Lopez", "Calle # Carrera", "300", "109", "juandavid.jdlea@gmail.com", "CEDULA", "ADMINISTRADOR"]
-
-  const DBRes = await pool.query(texto, values);
-  // console.log(DBRes);
-  pool.end();
-  return DBRes
-}
-
-
-const insertarProveedor = async (nombre, nit, direccion, descripcion, telefono) => {
-  const pool = new Pool(config);
-  const texto = 'INSERT INTO PROVEEDORES(nombre, nit, direccion, descripcion, telefono) VALUES($1, $2, $3, $4, $5)';
-  const values = [nombre, nit, direccion, descripcion, telefono];
-  const DBRes = await pool.query(texto, values);
-  pool.end();
-  return DBRes;
 };
 
-
-const insertarProducto = async (nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo) => {
+const actualizarUsuario = async (
+  idUsuarios,
+  nombre_usuario,
+  contrasena,
+  nombre_real,
+  direccion,
+  telefono,
+  identificacion,
+  correo,
+  tipo_identificacion,
+  tipo_usuario
+) => {
   const pool = new Pool(config);
-  const texto = 'INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo) VALUES($1, $2, $3, $4, $5, $6, $7, $8)';
-  const values = [nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto =
+      "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1";
+    const values = [
+      idUsuarios,
+      nombre_usuario,
+      contrasena,
+      nombre_real,
+      direccion,
+      telefono,
+      identificacion,
+      correo,
+      tipo_identificacion,
+      tipo_usuario,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar el usuario");
+  }
   pool.end();
-  return DBRes;
-};
-
-const insertarProyecto = async (nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance) => {
-  const pool = new Pool(config);
-  const texto = 'INSERT INTO PROYECTOS(nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance) VALUES($1, $2, $3, $4, $5, $6, $7)';
-  const values = [nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance];
-  const DBRes = await pool.query(texto, values);
-  pool.end();
-  return DBRes;
-};
-
-const insertarConductor = async (nombre, cedula, telefono) => {
-  const pool = new Pool(config);
-  const texto = 'INSERT INTO CONDUCTORES(nombre, cedula, telefono) VALUES($1, $2, $3)';
-  const values = [nombre, cedula, telefono];
-  const DBRes = await pool.query(texto, values);
-  pool.end();
-  return DBRes;
 };
 
 const eliminarUsuario = async (idUsuarios) => {
   const pool = new Pool(config);
-  const texto = 'DELETE FROM USUARIOS WHERE idUsuarios = $1';
-  const values = [idUsuarios];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto = "DELETE FROM USUARIOS WHERE idUsuarios = $1";
+    const values = [idUsuarios];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar el usuario");
+  }
   pool.end();
-  return DBRes;
 };
 
-const actualizarUsuario = async (idUsuarios, nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario) => {
+const obtenerUsuarios = async () => {
   const pool = new Pool(config);
-  const texto = 'UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1';
-  const values = [idUsuarios, nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const DBRes = await pool.query("select * from usuarios");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los usuarios");
+  }
   pool.end();
-  return DBRes;
+};
+
+const insertarProveedor = async (
+  nombre,
+  nit,
+  direccion,
+  descripcion,
+  telefono
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO PROVEEDORES(nombre, nit, direccion, descripcion, telefono) VALUES($1, $2, $3, $4, $5)";
+    const values = [nombre, nit, direccion, descripcion, telefono];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al ingresar el proveedor");
+  }
+  pool.end();
 };
 
 const eliminarProveedor = async (idProveedores) => {
   const pool = new Pool(config);
-  const texto = 'DELETE FROM PROVEEDORES WHERE idProveedores = $1';
-  const values = [idProveedores];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto = "DELETE FROM PROVEEDORES WHERE idProveedores = $1";
+    const values = [idProveedores];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar el proveedor");
+  }
   pool.end();
-  return DBRes;
 };
 
-const actualizarProveedor = async (idProveedores, nombre, nit, direccion, descripcion, telefono) => {
+const actualizarProveedor = async (
+  idProveedores,
+  nombre,
+  nit,
+  direccion,
+  descripcion,
+  telefono
+) => {
   const pool = new Pool(config);
-  const texto = 'UPDATE PROVEEDORES SET nombre = $2, nit = $3, direccion = $4, descripcion = $5, telefono = $6 WHERE idProveedores = $1';
-  const values = [idProveedores, nombre, nit, direccion, descripcion, telefono];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto =
+      "UPDATE PROVEEDORES SET nombre = $2, nit = $3, direccion = $4, descripcion = $5, telefono = $6 WHERE idProveedores = $1";
+    const values = [
+      idProveedores,
+      nombre,
+      nit,
+      direccion,
+      descripcion,
+      telefono,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar proveedor");
+  }
   pool.end();
-  return DBRes;
+};
+
+const obtenerProveedores = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query("select * from proveedores");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los proveedores");
+  }
+  pool.end();
+};
+
+const insertarProducto = async (
+  nombre,
+  descripcion,
+  identificacion,
+  precio_alquiler,
+  precio_compra,
+  marca,
+  modelo,
+  tipo_vehiculo
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo) VALUES($1, $2, $3, $4, $5, $6, $7, $8)";
+    const values = [
+      nombre,
+      descripcion,
+      identificacion,
+      precio_alquiler,
+      precio_compra,
+      marca,
+      modelo,
+      tipo_vehiculo,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al ingresar el producto");
+  }
+  pool.end();
 };
 
 const eliminarProducto = async (idProductos) => {
   const pool = new Pool(config);
-  const texto = 'DELETE FROM PRODUCTOS WHERE idProductos = $1';
-  const values = [idProductos];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto = "DELETE FROM PRODUCTOS WHERE idProductos = $1";
+    const values = [idProductos];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar el producto");
+  }
   pool.end();
-  return DBRes;
 };
 
-const actualizarProducto = async (idProductos, nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo) => {
+const actualizarProducto = async (
+  idProductos,
+  nombre,
+  descripcion,
+  identificacion,
+  precio_alquiler,
+  precio_compra,
+  marca,
+  modelo,
+  tipo_vehiculo
+) => {
   const pool = new Pool(config);
-  const texto = 'UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, precio_compra = $6, marca = $7, modelo = $8, tipo_vehiculo = $9 WHERE idProductos = $1';
-  const values = [idProductos, nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto =
+      "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, precio_compra = $6, marca = $7, modelo = $8, tipo_vehiculo = $9 WHERE idProductos = $1";
+    const values = [
+      idProductos,
+      nombre,
+      descripcion,
+      identificacion,
+      precio_alquiler,
+      precio_compra,
+      marca,
+      modelo,
+      tipo_vehiculo,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error  al actualizar el producto");
+  }
   pool.end();
-  return DBRes;
+};
+
+const obtenerProductos = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query("select * from productos");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los productos");
+  }
+  pool.end();
+};
+
+const insertarProyecto = async (
+  nombre,
+  identificacion,
+  tipo_identificacion,
+  telefono,
+  descripcion,
+  fecha_entrega,
+  estado_avance
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO PROYECTOS(nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance) VALUES($1, $2, $3, $4, $5, $6, $7)";
+    const values = [
+      nombre,
+      identificacion,
+      tipo_identificacion,
+      telefono,
+      descripcion,
+      fecha_entrega,
+      estado_avance,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al insertar el proyecto");
+  }
+  pool.end();
 };
 
 const eliminarProyecto = async (idProyectos) => {
   const pool = new Pool(config);
-  const texto = 'DELETE FROM PROYECTOS WHERE idProyectos = $1';
-  const values = [idProyectos];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto = "DELETE FROM PROYECTOS WHERE idProyectos = $1";
+    const values = [idProyectos];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar proyecto");
+  }
   pool.end();
-  return DBRes;
 };
 
-const actualizarProyecto = async (idProyectos, nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance) => {
+const actualizarProyecto = async (
+  idProyectos,
+  nombre,
+  identificacion,
+  tipo_identificacion,
+  telefono,
+  descripcion,
+  fecha_entrega,
+  estado_avance
+) => {
   const pool = new Pool(config);
-  const texto = 'UPDATE PROYECTOS SET nombre = $2, identificacion = $3, tipo_identificacion = $4, telefono = $5, descripcion = $6, fecha_entrega = $7, estado_avance = $8 WHERE idProyectos = $1';
-  const values = [idProyectos, nombre, identificacion, tipo_identificacion, telefono, descripcion, fecha_entrega, estado_avance];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto =
+      "UPDATE PROYECTOS SET nombre = $2, identificacion = $3, tipo_identificacion = $4, telefono = $5, descripcion = $6, fecha_entrega = $7, estado_avance = $8 WHERE idProyectos = $1";
+    const values = [
+      idProyectos,
+      nombre,
+      identificacion,
+      tipo_identificacion,
+      telefono,
+      descripcion,
+      fecha_entrega,
+      estado_avance,
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar el proyecto");
+  }
+
   pool.end();
-  return DBRes;
+};
+
+const obtenerProyectos = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query("select * from proyectos");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los proyectos");
+  }
+  pool.end();
+};
+
+const insertarConductor = async (nombre, cedula, telefono) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO CONDUCTORES(nombre, cedula, telefono) VALUES($1, $2, $3)";
+    const values = [nombre, cedula, telefono];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al insertar conductor");
+  }
+  pool.end();
 };
 
 const eliminarConductor = async (idConductores) => {
   const pool = new Pool(config);
-  const texto = 'DELETE FROM CONDUCTORES WHERE idConductores = $1';
-  const values = [idConductores];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto = "DELETE FROM CONDUCTORES WHERE idConductores = $1";
+    const values = [idConductores];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar el conductor");
+  }
   pool.end();
-  return DBRes;
 };
 
 const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
   const pool = new Pool(config);
-  const texto = 'UPDATE CONDUCTORES SET nombre = $2, cedula = $3, telefono = $4 WHERE idConductores = $1';
-  const values = [idConductores, nombre, cedula, telefono];
-  const DBRes = await pool.query(texto, values);
+  try {
+    const texto =
+      "UPDATE CONDUCTORES SET nombre = $2, cedula = $3, telefono = $4 WHERE idConductores = $1";
+    const values = [idConductores, nombre, cedula, telefono];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar conductor");
+  }
   pool.end();
-  return DBRes;
 };
 
+const obtenerConductores = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query("select * from conductores");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los conductores");
+  }
+  pool.end();
+};
 
-//insertarUsuario(2,"juan", "1234", "Juan D Lopez", "Calle # Carrera", "300", "109", "juandavid.jdlea@gmail.com", "CEDULA", "ADMINISTRADOR");
-//eliminarUsuario(2);
+const insertarHistoricoAlquileres = async (
+  PRODUCTOS_idProductos,
+  fecha,
+  ingreso
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO HISTORICO_ALQUILERES(PRODUCTOS_idProductos, fecha, ingreso) VALUES($1, $2, $3)";
+    const values = [PRODUCTOS_idProductos, fecha, ingreso];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al insertar conductor");
+  }
+  pool.end();
+};
 
-module.exports = {obtenerUsuarios, insertarUsuario, insertarProveedor, insertarProducto, insertarProyecto, insertarConductor};
+const obtenerHistoricoAlquileres = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query("select * from HISTORICO_ALQUILERES");
+    console.log(DBRes.rows);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los historicos de alquileres");
+  }
+  pool.end();
+};
 
-// insertarUsuario();
-/* 
-obtenerDependencias().then((result) => {
-  console.log(result);
-}); */
-
+const obtenerContrasenaUsuario = async (nombre_usuario) => {
+  const pool = new Pool(config);
+  try {
+    const texto = "SELECT contrasena FROM usuarios WHERE nombre_usuario = $1";
+    const values = [nombre_usuario];
+    const DBRes = await pool.query(texto, values);
+    console.log(DBRes.rows[0].contrasena);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los usuarios");
+  }
+  pool.end();
+};
 /*
-const obtenerDependencias = async () => {
-  const client = new Client(config);
-  await client.connect();
-  const res = await client.query("select * from usuarios");
-  const result = res.rows;
-  await client.end();
-  return result;
+const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
+  const pool = new Pool(config);
+  try {
+      const texto =
+    "UPDATE CONDUCTORES SET nombre = $2, cedula = $3, telefono = $4 WHERE idConductores = $1";
+  const values = [idConductores, nombre, cedula, telefono];
+  const DBRes = await pool.query(texto, values);
+  return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar conductor");
+  }
+  pool.end();
 };*/
+//insertarHistoricoAlquileres(1, "2024/02/25", 20);
+//obtenerHistoricoAlquileres();
+//PRUEBA DE LOS METODOS
+//obtenerUsuarios();
+//insertarUsuario("Daniel", "1234", "Juan Daniel", "Calle # Carrera", "200", "00", "correo", "CEDULA", "CLIENTE");
+//eliminarUsuario(4);
+//actualizarUsuario(3, "Dani", "contrasena", "nombre_real", "direccion", "telefono", "identificacion", "correo", "CEDULA","CLIENTE",);
+
+//insertarProveedor("nombreProveedor", "nitProveedor", "direccionProveedor", "descripcionProveedor", "telefonoProveedor");
+//obtenerProveedores();
+
+//insertarProducto("nombreProducto", "descripcionProducto", "identificacionProducto", 10000, 10000, "marca", "modelo", "TRANSPORTE");
+//obtenerProductos();
+
+//insertarProyecto("nombreProyecto", "identificacion", "CEDULA", "telefonoProyecto", "descripcionProyecto", "2024/02/26", "estado_avance");
+//obtenerProyecto();
+
+//insertarConductor("nombre", "cedula", "telefono");
+//obtenerConductores();
+
+//obtenerContrasenaUsuario('Daniel');
+//module.exports = {obtenerUsuarios, insertarUsuario};
