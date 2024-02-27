@@ -1,7 +1,7 @@
 const {Pool} = require ('pg');
 const FileReader = require ('./FileReader.js');
-const config = FileReader.readDBConfig()
 
+const config = FileReader.readDBConfig()
 /*const config = {
   user: 'postgres',
   host: 'localhost',
@@ -163,7 +163,7 @@ const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
 //insertarUsuario(2,"juan", "1234", "Juan D Lopez", "Calle # Carrera", "300", "109", "juandavid.jdlea@gmail.com", "CEDULA", "ADMINISTRADOR");
 //eliminarUsuario(2);
 
-module.exports = {obtenerUsuarios, insertarUsuario};
+module.exports = {obtenerUsuarios, insertarUsuario, insertarProveedor, insertarProducto, insertarProyecto, insertarConductor};
 
 // insertarUsuario();
 /* 

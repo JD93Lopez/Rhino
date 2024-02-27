@@ -43,7 +43,51 @@ server.get('/api/insert/usuarios/:JSONUsuario/:usuario/:contrasena', async (req,
     const JSONUsuario = req.params.JSONUsuario;
     const usuarioInsertar = JSON.parse(JSONUsuario)
     DBConnection.insertarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
-    res.json({ DBRes: DBConnection.obtenerUsuarios() });
+    res.json({ DBRes: "Insercion Finalizada" });
+});
+
+//Insertar proveedor
+server.get('/api/insert/proveedores/:JSONProveedor/:usuario/:contrasena', async (req, res) => {
+    const usuario = req.params.usuario;
+    const contrasena = req.params.contrasena;
+    //TODO comprobar usuario y contrasena
+    const JSONProveedor = req.params.JSONProveedor;
+    const proveedorInsertar = JSON.parse(JSONProveedor)
+    DBConnection.insertarProveedor(proveedorInsertar.nombre, proveedorInsertar.nit, proveedorInsertar.direccion, proveedorInsertar.descripcion, proveedorInsertar.telefono)
+    res.json({ DBRes: "Insercion Finalizada" });
+});
+
+//Insertar producto
+server.get('/api/insert/productos/:JSONObject/:usuario/:contrasena', async (req, res) => {
+    const usuario = req.params.usuario;
+    const contrasena = req.params.contrasena;
+    //TODO comprobar usuario y contrasena
+    const JSONObject = req.params.JSONObject;
+    const objetoAInsertar = JSON.parse(JSONObject)
+    DBConnection.insertarProducto(objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo)
+    res.json({ DBRes: "Insercion Finalizada" });
+});
+
+//Insertar proyecto
+server.get('/api/insert/proyectos/:JSONObject/:usuario/:contrasena', async (req, res) => {
+    const usuario = req.params.usuario;
+    const contrasena = req.params.contrasena;
+    //TODO comprobar usuario y contrasena
+    const JSONObject = req.params.JSONObject;
+    const objetoAInsertar = JSON.parse(JSONObject)
+    DBConnection.insertarProyecto(objetoAInsertar.nombre, objetoAInsertar.identificacion, objetoAInsertar.tipo_identificacion, objetoAInsertar.telefono, objetoAInsertar.descripcion, objetoAInsertar.fecha_entrega, objetoAInsertar.estado_avance)
+    res.json({ DBRes: "Insercion Finalizada" });
+});
+
+//Insertar conductor
+server.get('/api/insert/conductores/:JSONObject/:usuario/:contrasena', async (req, res) => {
+    const usuario = req.params.usuario;
+    const contrasena = req.params.contrasena;
+    //TODO comprobar usuario y contrasena
+    const JSONObject = req.params.JSONObject;
+    const objetoAInsertar = JSON.parse(JSONObject)
+    DBConnection.insertarConductor(objetoAInsertar.nombre, objetoAInsertar.cedula, objetoAInsertar.telefono)
+    res.json({ DBRes: "Insercion Finalizada" });
 });
 
 // Iniciar
