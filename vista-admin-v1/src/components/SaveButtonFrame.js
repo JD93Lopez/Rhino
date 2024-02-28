@@ -14,7 +14,6 @@ const SaveButtonFrame = () => {
     // Obtener los valores de los campos utilizando useRef
     const nombre_usuario = document.getElementById("inputnombreusuario").value;
     const direccion = document.getElementById("inputdireccionusuario").value;
-    const idusuarios = "2";
     const contrasena = document.getElementById("inputcontrasenausuario").value;
     const nombre_real = document.getElementById("inputnombrerealusuario").value;
     const telefono = document.getElementById("inputtelefonousuario").value;
@@ -25,7 +24,6 @@ const SaveButtonFrame = () => {
     
     // Crear el objeto de usuario
     const usuarioInsertar = {
-      idusuarios, 
       nombre_usuario, 
       contrasena, 
       nombre_real, 
