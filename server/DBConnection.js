@@ -1,14 +1,14 @@
 const { Pool } = require("pg");
-//const FileReader = require ('./FileReader.js');
-//const config = FileReader.readDBConfig();
+const FileReader = require ('./FileReader.js');
+const config = FileReader.readDBConfig();
 
-const config = {
-  user: "postgres",
-  host: "localhost",
-  database: "rhinodb",
-  password: "password",
-  port: 5432,
-};
+// const config = {
+//   user: "postgres",
+//   host: "localhost",
+//   database: "rhinodb",
+//   password: "password",
+//   port: 5432,
+// };
 const pool = new Pool(config);
 
 const insertarUsuario = async (
@@ -454,6 +454,28 @@ const obtenerContrasenaUsuario = async (nombre_usuario) => {
   }
   pool.end();
 };
+
+module.exports = {
+  obtenerUsuarios, insertarUsuario, 
+  actualizarUsuario, eliminarUsuario, 
+
+  obtenerProveedores, insertarProveedor,
+  actualizarProveedor, eliminarProveedor,
+
+  obtenerProductos, insertarProducto,
+  actualizarProducto, eliminarProducto,
+
+  obtenerProyectos, insertarProyecto,
+  actualizarProyecto, eliminarProyecto,
+
+  obtenerConductores, insertarConductor,
+  actualizarConductor, eliminarConductor,
+
+  insertarHistoricoAlquileres, obtenerHistoricoAlquileres,
+
+  obtenerContrasenaUsuario
+};
+
 /*
 const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
   const pool = new Pool(config);
@@ -489,4 +511,3 @@ const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
 //obtenerConductores();
 
 //obtenerContrasenaUsuario('Daniel');
-//module.exports = {obtenerUsuarios, insertarUsuario};
