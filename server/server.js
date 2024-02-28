@@ -27,6 +27,24 @@ server.get('/api/saludo/:nombre/:apellido', (req, res) => {
     res.json({ mensaje: `¡Hola, ${nombre} ${apellido}! Bienvenido a nuestra API.` });
 });
 
+//Inicio de sesion
+server.get('/api/signin/:usuario/:contrasena', async (req, res) => {
+    let bool = false
+    try {
+        const usuario = req.params.usuario;
+        const contrasena = req.params.contrasena;
+        //TODO comprobar usuario y contrasena
+        const contrasenaReal = DBConnection.obtenerContrasenaUsuario(usuario)
+
+        if(contrasenaReal){
+            bool = (contrasena === contrasenaReal)
+        }
+
+        res.json({ DBRes: bool });
+    } catch (error) {
+        res.json({ DBRes: bool, error });
+    }
+});
 
 //Insertar usuario
 server.get('/api/insert/usuarios/:JSONUsuario/:usuario/:contrasena', async (req, res) => {
