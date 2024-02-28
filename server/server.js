@@ -331,6 +331,29 @@ server.get('/api/delete/conductores/:id/:usuario/:contrasena', async (req, res) 
     }
 });
 
+//Consulta personalizada
+server.get('/api/sqlquery/:sqlQuery/:JSONValues/:usuario/:contrasena', async (req, res) => {
+    let bool = false
+    try {
+        
+        const usuario = req.params.usuario
+        const contrasena = req.params.contrasena
+        const sqlQuery = req.params.sqlQuery
+        const JSONValues = req.params.JSONValues
+        //TODO comprobar usuario y contrasena
+
+        if(JSONValues){
+            const values = JSON.parse(JSONValues)
+            res.json({ DBRes: await DBConnection.sqlQueryValues(sqlQuery, values) });
+        }else{
+            res.json({ DBRes: await DBConnection.sqlQuery(sqlQuery) });
+        }
+
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 // Iniciar
 server.listen(PORT, () => {
     // DBConnection.obtenerUsuarios().then((result) => {

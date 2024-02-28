@@ -447,7 +447,28 @@ const obtenerContrasenaUsuario = async (nombre_usuario) => {
     const texto = "SELECT contrasena FROM usuarios WHERE nombre_usuario = $1";
     const values = [nombre_usuario];
     const DBRes = await pool.query(texto, values);
-    console.log(DBRes.rows[0].contrasena);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los usuarios");
+  }
+  pool.end();
+};
+
+const sqlQuery = async (sqlQuery) => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query(sqlQuery);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al obtener los usuarios");
+  }
+  pool.end();
+};
+
+const sqlQueryValues = async (sqlQuery, values) => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query(sqlQuery, values);
     return DBRes;
   } catch (error) {
     console.log("Error al obtener los usuarios");
@@ -473,7 +494,9 @@ module.exports = {
 
   insertarHistoricoAlquileres, obtenerHistoricoAlquileres,
 
-  obtenerContrasenaUsuario
+  obtenerContrasenaUsuario,
+
+  sqlQuery, sqlQueryValues
 };
 
 /*
