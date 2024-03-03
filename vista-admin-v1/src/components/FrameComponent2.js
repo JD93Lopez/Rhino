@@ -1,7 +1,44 @@
+// FrameComponent2.js
+import React, { useState } from "react";
 import SeleccionarArchivoText from "./SeleccionarArchivoText";
 import styles from "./FrameComponent2.module.css";
 
 const FrameComponent2 = () => {
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationContent, setNotificationContent] = useState("");
+  const onSaveButtonClick = () => {
+  const nombre=document.getElementById("inputNombreProducto").value;
+  const descripcion =document.getElementById("inputdescripcionproducto").value;
+  const id =document.getElementById("inputIdProducto").value;
+  const precio =document.getElementById("inputprecioproducto").value;
+  const modelo =document.getElementById("inputmodeloproducto").value;
+  const fabricante =document.getElementById("inputfabricanteproducto").value;
+  const product = {
+    id,
+    nombre,
+    descripcion,
+    precio,
+    tipo: "",
+    modelo,
+    estado: "",
+    fabricante
+  };
+    //TODO conexion axios 
+    // Convertir el objeto de producto a JSON
+    const jsonProducto = JSON.stringify(product);
+    console.log(jsonProducto);
+ 
+    // Cambiar el contenido de la notificación
+    setNotificationContent("¡Guardadito exitoso!");
+
+    setShowNotification(true);
+
+    // Ocultar la notificación después de 2 segundos
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 2000);
+  };
+
   return (
     <div className={styles.frameParent}>
       <div className={styles.productDetailsParent}>
@@ -21,7 +58,7 @@ const FrameComponent2 = () => {
         </div>
         <div className={styles.productStatus}>
           <div className={styles.vendor}>
-            <input className={styles.productState} type="text" />
+            <input className={styles.productState} type="text" id= "inputprecioproducto" useref={ "inputprecioproducto"} />
             <div className={styles.modelo}>Modelo</div>
           </div>
           <div className={styles.dropdownTipo1}>
@@ -57,7 +94,7 @@ const FrameComponent2 = () => {
         <div className={styles.frameProductInfo}>
           <div className={styles.saveButton}>
             <div className={styles.stateDropdownWrapper}>
-              <input className={styles.stateDropdown} type="text" />
+              <input className={styles.stateDropdown} type="text" id= "inputmodeloproducto" useref={ "inputmodeloproducto"} />
             </div>
             <div className={styles.estadoDelProducto}>Estado del Producto</div>
           </div>
@@ -66,7 +103,7 @@ const FrameComponent2 = () => {
           <div className={styles.labelFabricante}>
             <div className={styles.dropdownEstado}>
               <div className={styles.fabricante}>Fabricante</div>
-              <input className={styles.dropdownEstadoChild} type="text" />
+              <input className={styles.dropdownEstadoChild} type="text" id= "inputfabricanteproducto" useref={ "inputfabricanteproducto"}/>
             </div>
           </div>
           <div className={styles.dropdownEstado1}>
@@ -89,11 +126,16 @@ const FrameComponent2 = () => {
         </div>
       </div>
       <div className={styles.saveButtons}>
-        <button className={styles.rectangleParent}>
+        <button className={styles.rectangleParent} onClick={onSaveButtonClick}>
           <div className={styles.rectangleDiv} />
           <div className={styles.guardar}>GUARDAR</div>
         </button>
       </div>
+      {showNotification && (
+        <div className={styles.notificationContainer}>
+          <div className={styles.notification}>{notificationContent}</div>
+        </div>
+      )}
     </div>
   );
 };

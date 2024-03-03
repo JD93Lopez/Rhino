@@ -1,3 +1,4 @@
+// VistaAdministradorAgregar.js
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
@@ -46,24 +47,16 @@ const VistaAdministradorAgregar = () => {
                     <div className={styles.nombreDelProducto}>
                       Nombre del Producto
                     </div>
-                    <input className={styles.frame} type="text" />
+                    <input className={styles.frame} type="text" id ="inputNombreProducto" useref={ "inputNombreProducto"} />
                   </div>
                   <div className={styles.nombreIDFrame1}>
                     <div className={styles.idDelProducto}>ID del Producto</div>
-                    <img
-                      className={styles.nombreIDFrameChild}
-                      alt=""
-                      src="/rectangle-23.svg"
-                    />
+                    <input className={styles.nombreIDFrame1} type="text" id ="inputIdProducto" useref={ "inputIdProducto"} />
                   </div>
                   <div className={styles.pRODUCTOS}>
                     <div className={styles.descripcin}>Descripción</div>
-                    <textarea
-                      className={styles.mantenimientoText}
-                      placeholder="Escribre"
-                      rows={18}
-                      cols={28}
-                    />
+                    <input className={styles.nombreIDFrame1} type="text" id ="inputdescripcionproducto" useref={ "inputdescripcionproducto"} />
+                    
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
