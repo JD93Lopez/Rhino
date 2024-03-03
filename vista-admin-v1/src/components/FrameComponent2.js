@@ -4,29 +4,31 @@ import SeleccionarArchivoText from "./SeleccionarArchivoText";
 import styles from "./FrameComponent2.module.css";
 
 const FrameComponent2 = () => {
+  
   const [showNotification, setShowNotification] = useState(false);
   const [notificationContent, setNotificationContent] = useState("");
+
   const onSaveButtonClick = () => {
-  const nombre=document.getElementById("inputNombreProducto").value;
-  const descripcion =document.getElementById("inputdescripcionproducto").value;
-  const id =document.getElementById("inputIdProducto").value;
-  const precio =document.getElementById("inputprecioproducto").value;
-  const modelo =document.getElementById("inputmodeloproducto").value;
-  const fabricante =document.getElementById("inputfabricanteproducto").value;
-  const product = {
-    id,
-    nombre,
-    descripcion,
-    precio,
-    tipo: "",
-    modelo,
-    estado: "",
-    fabricante
-  };
+    const nombre=document.getElementById("inputNombreProducto").value;
+    const descripcion =document.getElementById("inputdescripcionproducto").value;
+    const id =document.getElementById("inputIdProducto").value;
+    const precio =document.getElementById("inputprecioproducto").value;
+    const modelo =document.getElementById("inputmodeloproducto").value;
+    const fabricante =document.getElementById("inputfabricanteproducto").value;
+    const product = {
+      id,
+      nombre,
+      descripcion,
+      precio,
+      tipo: "",
+      modelo,
+      estado: "",
+      fabricante
+    };
     //TODO conexion axios 
     // Convertir el objeto de producto a JSON
     const jsonProducto = JSON.stringify(product);
-    console.log(jsonProducto);
+    console.log(jsonProducto);//TODO quitar console.log
  
     // Cambiar el contenido de la notificación
     setNotificationContent("¡Guardadito exitoso!");
