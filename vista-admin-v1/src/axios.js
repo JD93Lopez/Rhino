@@ -1,7 +1,13 @@
 import axios from 'axios'
 
 const api = async (apiUrl) => {
-    const res = await axios.get(apiUrl)
+    try {
+        const res = await axios.get(apiUrl)
+    } catch (error) {
+        if(error.code === 'ERR_NETWORK'){
+            //TODO mostrar error de conexión.
+        }
+    }
 }
 
 export default {api}
