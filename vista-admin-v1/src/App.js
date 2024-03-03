@@ -11,6 +11,7 @@ import VistaAdministradorMantenim from "./pages/VistaAdministradorMantenim";
 import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
+import {DataProvider} from "./components/DataProvider";
 
 function App() {
   const action = useNavigationType();
@@ -69,29 +70,31 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<VistaAdministradorUsuarios />} />
-      <Route
-        path="/vista-administrador-proyectos"
-        element={<VistaAdministradorProyecto />}
-      />
-      <Route
-        path="/vista-administrador-mantenimiento"
-        element={<VistaAdministradorMantenim />}
-      />
-      <Route
-        path="/vista-administrador-agregar-productoeditar-producto"
-        element={<VistaAdministradorAgregar />}
-      />
-      <Route
-        path="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
-        element={<VistaAdministradorUsuarios1 />}
-      />
-      <Route
-        path="/vista-administrador-productos"
-        element={<VistaAdministradorProducto />}
-      />
-    </Routes>
+    <DataProvider>
+      <Routes>
+        <Route path="/" element={<VistaAdministradorUsuarios />} />
+        <Route
+          path="/vista-administrador-proyectos"
+          element={<VistaAdministradorProyecto />}
+        />
+        <Route
+          path="/vista-administrador-mantenimiento"
+          element={<VistaAdministradorMantenim />}
+        />
+        <Route
+          path="/vista-administrador-agregar-productoeditar-producto"
+          element={<VistaAdministradorAgregar />}
+        />
+        <Route
+          path="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
+          element={<VistaAdministradorUsuarios1 />}
+        />
+        <Route
+          path="/vista-administrador-productos"
+          element={<VistaAdministradorProducto />}
+        />
+      </Routes>
+    </DataProvider>
   );
 }
 export default App;
