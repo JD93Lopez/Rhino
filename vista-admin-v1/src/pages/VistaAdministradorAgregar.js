@@ -55,8 +55,13 @@ const VistaAdministradorAgregar = () => {
                   </div>
                   <div className={styles.pRODUCTOS}>
                     <div className={styles.descripcin}>Descripción</div>
+                    <textarea
+                      className={styles.mantenimientoText}
+                      placeholder="Escribre"
+                      rows={18}
+                      cols={28}
+                    />
                     <input className={styles.nombreIDFrame1} type="text" id ="inputdescripcionproducto" useref={ "inputdescripcionproducto"} />
-                    
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
