@@ -1,7 +1,22 @@
-import Proyecto from "./Proyecto";
+import TarjetaProyectoAdministrador from "./TarjetaProyectoAdministrador";
 import styles from "./SearchProjectFrame.module.css";
+import { DataContext } from "./DataProvider";
+import { useContext } from "react";
 
 const SearchProjectFrame = () => {
+
+  const dataContext = useContext(DataContext)
+
+  if(!dataContext.Loaded){
+    return <div>Cargando... Por favor espere.</div>
+  }
+
+  const proyectos = dataContext.proyectos
+
+  const buscar = () => {
+    //TODO ordenar proyectos
+  }
+
   return (
     <section className={styles.searchProjectFrame}>
       <div className={styles.projectFrame}>
@@ -14,21 +29,20 @@ const SearchProjectFrame = () => {
               className={styles.buscarProyecto}
               placeholder="buscar proyecto"
               type="text"
+              onChange={buscar}
             />
           </div>
         </div>
         <div className={styles.projectFrame1}>
-          <Proyecto
-            darwingAfanador="Darwing Afanador"
-            prop="3016598487"
-            prop1="132.356.358.26"
-          />
-          <Proyecto
-            darwingAfanador="Marco Antonio"
-            prop="3016592857"
-            prop1="123.258.285.36"
-            propPadding="var(--padding-18xl) var(--padding-18xl) var(--padding-3xs)"
-          />
+          {proyectos.map(proyecto => {
+            return <TarjetaProyectoAdministrador
+              encargadoProyecto={proyecto.encargadoProyecto}
+              telefono={proyecto.telefono}
+              cedula={proyecto.cedula}
+              descripcion={proyecto.descripcion}
+            >
+            </TarjetaProyectoAdministrador>
+          })}
         </div>
       </div>
     </section>
