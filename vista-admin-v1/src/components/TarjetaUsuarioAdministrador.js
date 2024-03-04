@@ -1,16 +1,33 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from "../pages/VistaAdministradorUsuarios.module.css";
+import { DataContext } from './DataProvider';
 
 export const TarjetaUsuarioAdministrador = (params) => {
+
+  const dataContext = useContext(DataContext)
   
   const [selected, setSelected] = useState()
 
   const seleccionar = () => {
+
     if(selected){
       setSelected(false)
+      dataContext.selectedUsers.forEach(user => {
+        if(user.email === params.email){
+          dataContext.selectedUsers = dataContext.selectedUsers.filter(userF => { return user !== userF })
+        }
+      });
     }else{
       setSelected(true)
+      dataContext.selectedUsers.push({
+        nombreUsuario: params.nombreUsuario,
+        nombreCompleto: params.nombreCompleto,          
+        email: params.email,
+        telefono: params.telefono,
+        estado: params.estado,
+      })
     }
+
   }
 
   let estiloSeleccionado = {}

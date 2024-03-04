@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import FrameComponent from "../components/FrameComponent";
 import UserInfoFrame from "../components/UserInfoFrame";
 import { useNavigate } from "react-router-dom";
@@ -17,13 +17,19 @@ const VistaAdministradorUsuarios = () => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
 
+  //cargar usuarios de la lista
+
   const dataContext = useContext(DataContext)
 
   if(!dataContext.Loaded){
     return <div>Cargando... Por favor espere.</div>
   }
 
-  const usuarios = dataContext.usuarios
+  const usuarios = dataContext.usuarios  
+
+  //resetear seleccionados
+
+  dataContext.selectedUsers = []
 
   return (
     <div className={styles.vistaAdministradorUsuarios}>
@@ -64,6 +70,8 @@ const VistaAdministradorUsuarios = () => {
                       telefono = {usuario.telefono}
                       estado = {usuario.estado}
                       key = {usuario.email}
+                      id = {"usuario"+usuario.email}
+                      useref = {"usuario"+usuario.email}
                     ></TarjetaUsuarioAdministrador>
                   })}
                 </div>
