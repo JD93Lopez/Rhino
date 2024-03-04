@@ -213,9 +213,13 @@
   box-sizing: border-box;
   display: none;
 }
+.divImage {/*TODO acomodar imagenes de forma dinámica*/
+  height: 300px;
+  width: 500px;
+}
 .image1Icon {
-  height: 378px;
-  width: 465px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 1;
 }

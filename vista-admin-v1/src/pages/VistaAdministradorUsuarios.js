@@ -1,8 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import FrameComponent from "../components/FrameComponent";
 import UserInfoFrame from "../components/UserInfoFrame";
 import { useNavigate } from "react-router-dom";
 import styles from "./VistaAdministradorUsuarios.module.css";
+import { DataContext } from "../components/DataProvider";
+import { TarjetaUsuarioAdministrador } from "../components/TarjetaUsuarioAdministrador";
 
 const VistaAdministradorUsuarios = () => {
   const navigate = useNavigate();
@@ -14,6 +16,14 @@ const VistaAdministradorUsuarios = () => {
   const onCrearUsuarioClick = useCallback(() => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
+
+  const dataContext = useContext(DataContext)
+
+  if(!dataContext.Loaded){
+    return <div>Cargando... Por favor espere.</div>
+  }
+
+  const usuarios = dataContext.usuarios
 
   return (
     <div className={styles.vistaAdministradorUsuarios}>
@@ -46,45 +56,16 @@ const VistaAdministradorUsuarios = () => {
                   </div>
                 </div>
                 <div className={styles.cellNumber}>
-                  <div className={styles.cellNumberChild} />
-                  <div className={styles.rectangleParent}>
-                    <div className={styles.frameChild} />
-                    <div className={styles.activeUser}>
-                      <div className={styles.pepito87}>PEPITO87</div>
-                    </div>
-                    <div className={styles.adminName}>
-                      <div className={styles.pepitoPerez}>PEPITO PEREZ</div>
-                    </div>
-                    <div className={styles.emailIcon}>
-                      <div className={styles.pepitoperez87gmailcom}>
-                        pepitoperez87@gmail.com
-                      </div>
-                    </div>
-                    <div className={styles.statusIndicator}>
-                      <div className={styles.inactivestate}>3253692587</div>
-                    </div>
-                    <div className={styles.activestate}>
-                      <div className={styles.activo}>Activo</div>
-                    </div>
-                  </div>
-                  <div className={styles.rectangleGroup}>
-                    <div className={styles.frameItem} />
-                    <div className={styles.pato3452Wrapper}>
-                      <div className={styles.pato3452}>PATO3452</div>
-                    </div>
-                    <div className={styles.pabloLopezWrapper}>
-                      <div className={styles.pabloLopez}>PABLO LOPEZ</div>
-                    </div>
-                    <div className={styles.pato3452gmailcomWrapper}>
-                      <div className={styles.pato3452gmailcom}>
-                        pato3452@gmail.com
-                      </div>
-                    </div>
-                    <div className={styles.wrapper}>
-                      <div className={styles.div}>3253647887</div>
-                    </div>
-                    <div className={styles.inactivo}>Inactivo</div>
-                  </div>
+                  {usuarios.map(usuario => {
+                    return <TarjetaUsuarioAdministrador
+                      nombreUsuario = {usuario.nombreUsuario}
+                      nombreCompleto = {usuario.nombreCompleto}
+                      email = {usuario.email}
+                      telefono = {usuario.telefono}
+                      estado = {usuario.estado}
+                      key = {usuario.email}
+                    ></TarjetaUsuarioAdministrador>
+                  })}
                 </div>
               </div>
             </div>
