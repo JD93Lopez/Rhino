@@ -1,10 +1,3 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
 function calcularSimilitud(str1, str2) {
     const obtenerTokens = (str) => {
         return new Set(str.toLowerCase().split('').filter(token => token.match(/[a-z]/)));
@@ -57,13 +50,5 @@ function ordenarPorSimilitud(arr, comparador) {
         return { palabra: word, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
 }
-
-rl.question('Ingrese el string comparador: ', (comparador) => {
-    const palabras = ["camión", "trailer", "transporte", "carga", "vehículo", "pesado", "transportador", "logística", "entrega", "carretera"];
-    const palabrasOrdenadas = ordenarPorSimilitud(palabras, comparador);
-    console.log("Palabras ordenadas por similitud:");
-    palabrasOrdenadas.forEach(item => console.log(`${item.palabra}: ${item.similitud}%`));
-    rl.close();
-});
 
 export default {calcularSimilitud, ordenarPorSimilitud, levenshteinDistance}
