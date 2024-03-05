@@ -1,10 +1,41 @@
-import { useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import styles from "./Proyecto.module.css";
+import { DataContext } from "./DataProvider";
 
 const TarjetaProyectoAdministrador = ({ encargadoProyecto, telefono, cedula, descripcion }) => {
 
+  const dataContext = useContext(DataContext)
+  
+  const [selected, setSelected] = useState()
+
+  const seleccionar = () => {
+
+    if(selected){
+      setSelected(false)
+      dataContext.selectedProyects.forEach(user => {
+        if(user.cedula === cedula){
+          dataContext.selectedProyects = dataContext.selectedProyects.filter(userF => { return user !== userF })
+        }
+      });
+    }else{
+      setSelected(true)
+      dataContext.selectedProyects.push({
+        encargadoProyecto, 
+        telefono, 
+        cedula, 
+        descripcion
+      })
+    }
+
+  }
+
+  let estiloSeleccionado = {}
+  if(selected){
+    estiloSeleccionado = {backgroundColor: "rgb(255,220,84)"}
+  }
+
   return (
-    <div className={styles.proyecto1}>
+    <div className={styles.proyecto1} onClick={seleccionar} style={estiloSeleccionado}>
       <div className={styles.proyecto1Child} />
       <div className={styles.userNameFrameParent}>
         <div className={styles.userNameFrame}>

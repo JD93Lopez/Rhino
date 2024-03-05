@@ -66,12 +66,18 @@ export const DataProvider = (props) => {
 
         const selectedUsers = []
 
+        const selectedProyects = []
+
+        const selectedProducts = []
+
         setData({
             data1: data1Obtenida,
             usuarios,
             proyectos,
             productos,
             selectedUsers,
+            selectedProyects,
+            selectedProducts,
             Loaded: true
         })
     },[])

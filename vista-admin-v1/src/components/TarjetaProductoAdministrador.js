@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styles from "../pages/VistaAdministradorProducto.module.css";
+import { DataContext } from './DataProvider';
 
 export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, imagen}) => {
+
+  const dataContext = useContext(DataContext)
+  
+  const [selected, setSelected] = useState()
+
+  const seleccionar = () => {
+
+    if(selected){
+      setSelected(false)
+      dataContext.selectedProducts.forEach(user => {
+        if(user.nombreProducto === nombreProducto){
+          dataContext.selectedProducts = dataContext.selectedProducts.filter(userF => { return user !== userF })
+        }
+      });
+    }else{
+      setSelected(true)
+      dataContext.selectedProducts.push({
+        nombreProducto,
+        descripcion,
+        imagen
+      })
+    }
+
+  }
+
+  let estiloSeleccionado = {}
+  if(selected){
+    estiloSeleccionado = {backgroundColor: "rgb(255,220,84)"}
+  }
+
   return (
-    <div className={styles.excavadora}>
+    <div className={styles.excavadora} onClick={seleccionar} style={estiloSeleccionado}>
         <div className={styles.excavadoraChild} />
         <div className={styles.divImage}>
             <img
