@@ -4,8 +4,6 @@ import { DataContext } from "./DataProvider";
 import { useContext, useState } from "react";
 import orden from "../OrdenamientoSimilitud";
 
-let primera = true
-
 const SearchProjectFrame = () => {
   
   const dataContext = useContext(DataContext);
