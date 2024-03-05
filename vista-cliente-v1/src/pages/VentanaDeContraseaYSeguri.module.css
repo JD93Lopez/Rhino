@@ -1,0 +1,317 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.contraseaYSeguridad {
+  position: absolute;
+  top: 247px;
+  left: 473px;
+  font-size: var(--font-size-56xl);
+  font-family: var(--font-impact);
+}
+.ventanaDeContraseaYSeguriChild {
+  position: absolute;
+  top: 417px;
+  left: 162px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-300);
+  width: 1405px;
+  height: 633px;
+}
+.nombreCompleto {
+  position: absolute;
+  top: 477px;
+  left: 293px;
+}
+.div,
+.picoafanadorgmailcom,
+.sebastianPicoAfanador {
+  position: absolute;
+  top: 477px;
+  left: 1012px;
+}
+.div,
+.picoafanadorgmailcom {
+  top: 546px;
+}
+.div {
+  top: 615px;
+}
+.contrasea,
+.correo {
+  position: absolute;
+  top: 546px;
+  left: 293px;
+}
+.contrasea {
+  top: 615px;
+}
+.contraseaAntigua,
+.contraseaNueva,
+.repitaLaNueva {
+  position: absolute;
+  top: 729px;
+  left: 293px;
+  display: inline-block;
+  width: 369px;
+  height: 39px;
+}
+.contraseaNueva,
+.repitaLaNueva {
+  top: 794px;
+  width: 341px;
+}
+.repitaLaNueva {
+  top: 859px;
+  width: 531px;
+}
+.ventanaDeContraseaYSeguriItem {
+  position: absolute;
+  top: 947px;
+  left: 293px;
+  background-color: var(--color-white);
+  width: 1142px;
+  height: 2px;
+}
+.cambiarContrasea {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonCambiarContrasea {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-xs) 10px;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 965px;
+  left: 680px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.botonCambiarContrasea:hover {
+  cursor: pointer;
+}
+.botonCambiarContrasea:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.rectangleInput,
+.ventanaDeContraseaYSeguriChild1,
+.ventanaDeContraseaYSeguriInner {
+  border: 0;
+  outline: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 728px;
+  left: 921px;
+  border-radius: var(--br-8xs);
+  width: 507px;
+  height: 34px;
+}
+.rectangleInput:active,
+.rectangleInput:hover,
+.ventanaDeContraseaYSeguriChild1:active,
+.ventanaDeContraseaYSeguriChild1:hover,
+.ventanaDeContraseaYSeguriInner:active,
+.ventanaDeContraseaYSeguriInner:hover {
+  cursor: text;
+}
+.rectangleInput,
+.ventanaDeContraseaYSeguriChild1 {
+  top: 794px;
+}
+.ventanaDeContraseaYSeguriChild1 {
+  top: 859px;
+}
+.headerConraYSeguChild,
+.headerConraYSeguItem {
+  width: 1742px;
+  position: relative;
+  background-color: var(--color-black);
+  height: 50px;
+  z-index: 0;
+}
+.headerConraYSeguItem {
+  background-color: var(--color-darkkhaki);
+  height: 96px;
+  z-index: 1;
+}
+.botonLogo4 {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 127px;
+  position: absolute;
+  margin: 0 !important;
+  top: 59px;
+  left: 55px;
+  height: 78px;
+  background-image: url(/public/logo@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 2;
+}
+.botonLogo4,
+.botonLogo4:active,
+.botonLogo4:hover,
+.botonProductos4:hover {
+  cursor: pointer;
+}
+.botonProductos4 {
+  cursor: pointer;
+  width: 134px;
+  top: 81px;
+  left: 276px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 3;
+}
+.botonProductos4:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonLupa4,
+.botonProductos4,
+.botonSobreNosotros {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  margin: 0 !important;
+}
+.botonSobreNosotros {
+  cursor: pointer;
+  width: 196px;
+  top: 81px;
+  left: 467px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 4;
+}
+.botonSobreNosotros:hover {
+  cursor: pointer;
+}
+.botonSobreNosotros:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonLupa4 {
+  width: 43px;
+  top: 76px;
+  left: 1378px;
+  height: 43px;
+  background-image: url(/public/boton-de-buscar@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 5;
+}
+.botonLupa4,
+.botonLupa4:active,
+.botonLupa4:hover,
+.botonMiCuenta4:hover {
+  cursor: pointer;
+}
+.perfil1Icon {
+  width: 43px;
+  position: relative;
+  height: 43px;
+  object-fit: cover;
+}
+.miCuenta {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonMiCuenta4,
+.carritoDeCompras5Icon {
+  position: absolute;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.botonMiCuenta4 {
+  border: 2px solid var(--color-black);
+  padding: var(--padding-8xs) var(--padding-9xl);
+  background-color: var(--color-gainsboro);
+  top: 71px;
+  left: 1458px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 5px;
+  z-index: 6;
+}
+.botonMiCuenta4:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.carritoDeCompras5Icon {
+  width: 58px;
+  top: 66px;
+  left: 1283px;
+  height: 58px;
+  object-fit: cover;
+  z-index: 7;
+}
+.headerConraYSegu {
+  position: absolute;
+  top: 4px;
+  left: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ventanaDeContraseaYSeguri {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1117px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-16xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}

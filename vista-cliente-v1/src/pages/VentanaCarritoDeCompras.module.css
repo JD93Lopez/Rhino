@@ -1,0 +1,439 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.ventanaCarritoDeComprasChild,
+.ventanaCarritoDeComprasItem {
+  position: absolute;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gray-500);
+  border: 3px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  width: 1674px;
+}
+.ventanaCarritoDeComprasChild {
+  top: 171px;
+  left: calc(50% - 832px);
+  height: 400px;
+  display: none;
+}
+.ventanaCarritoDeComprasItem {
+  top: 165px;
+  left: calc(50% - 831px);
+  height: 947px;
+}
+.carrito {
+  position: absolute;
+  top: 182px;
+  left: 56px;
+}
+.ventanaCarritoDeComprasInner {
+  position: absolute;
+  top: 258px;
+  left: calc(50% - 808px);
+  background-color: var(--color-sandybrown-100);
+  width: 1616px;
+  height: 1px;
+}
+.anularLaSeleccin {
+  position: absolute;
+  top: 226px;
+  left: 56px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+}
+.imagenMaquinaCarrito {
+  position: absolute;
+  top: 309px;
+  left: 80px;
+  border-radius: var(--br-7xs);
+  width: 347px;
+  height: 209px;
+  object-fit: cover;
+}
+.textoCantidad,
+.textoInfo {
+  position: relative;
+}
+.textoCantidad {
+  font-weight: 500;
+}
+.inputCantidad {
+  border: 0;
+  outline: 0;
+  background-color: var(--color-white);
+  width: 95px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  height: 35px;
+}
+.inputCantidad:active,
+.inputCantidad:hover {
+  cursor: text;
+}
+.textoInfoParent {
+  position: absolute;
+  top: 336px;
+  left: 463px;
+  width: 765px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 25px 218px;
+  text-align: justify;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+}
+.consultarPrecio {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.consultarPrecio:hover {
+  cursor: pointer;
+}
+.consultarPrecio:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonConsultarPrecio {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-xs) 9px;
+  background-color: var(--color-darkkhaki);
+  position: absolute;
+  top: 381px;
+  left: 1391px;
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.contactenos {
+  position: relative;
+  z-index: 0;
+}
+.frameChild {
+  width: 277px;
+  position: absolute;
+  margin: 0 !important;
+  top: 52px;
+  left: 2px;
+  background-color: var(--color-darkkhaki);
+  height: 7px;
+  z-index: 1;
+}
+.contactenosParent,
+.footer4Inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.contactenosParent {
+  flex-direction: row;
+  position: relative;
+  gap: 0 10px;
+}
+.footer4Inner {
+  width: 1728px;
+  background-color: var(--color-gray-400);
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--padding-11xl) var(--padding-130xl) var(--padding-mini)
+    var(--padding-81xl);
+  box-sizing: border-box;
+  font-size: var(--font-size-31xl);
+  font-family: var(--font-impact);
+}
+.atencionalclienterhinocom {
+  margin: 0;
+  width: 445px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  display: inline-block;
+  height: 44px;
+  flex-shrink: 0;
+}
+.atencionalclienterhinocomWrapper {
+  width: 1728px;
+  background-color: var(--color-gray-400);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-130xl) var(--padding-11xl)
+    var(--padding-81xl);
+  box-sizing: border-box;
+}
+.textoCelular,
+.textoTelefono,
+.ul {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+.ul {
+  padding-left: var(--padding-21xl);
+}
+.textoCelular,
+.textoTelefono {
+  width: 227px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  height: 44px;
+  flex-shrink: 0;
+}
+.textoTelefono {
+  width: 177px;
+}
+.botonXChild {
+  width: 44px;
+  position: absolute;
+  margin: 0 !important;
+  top: 5px;
+  left: 4px;
+  background-color: var(--color-white);
+  height: 44px;
+  z-index: 0;
+}
+.gorjeo1Icon {
+  width: 54px;
+  position: relative;
+  height: 54px;
+  object-fit: cover;
+  z-index: 1;
+}
+.botonFacebook,
+.botonInsta,
+.botonX,
+.botonYt {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+}
+.botonX {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 10px;
+}
+.botonFacebook,
+.botonInsta,
+.botonYt {
+  width: 54px;
+  height: 54px;
+  background-image: url(/public/boton-yt@2x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.botonFacebook,
+.botonInsta {
+  background-image: url(/public/boton-insta@2x.png);
+}
+.botonFacebook {
+  background-image: url(/public/boton-facebook@2x.png);
+}
+.footer4,
+.textoCelularParent {
+  display: flex;
+  justify-content: flex-start;
+}
+.textoCelularParent {
+  width: 1728px;
+  background-color: var(--color-gray-400);
+  overflow: hidden;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: var(--padding-xl) var(--padding-40xl) var(--padding-xl)
+    var(--padding-83xl);
+  box-sizing: border-box;
+  gap: 0 182px;
+}
+.footer4 {
+  position: absolute;
+  top: 1148px;
+  left: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+.headerCarritoDeComprasChild {
+  width: 1774px;
+  position: relative;
+  background-color: var(--color-black);
+  height: 50px;
+  z-index: 0;
+}
+.headerCarritoDeComprasItem {
+  width: 1759px;
+  position: relative;
+  background-color: var(--color-sandybrown-100);
+  height: 96px;
+  z-index: 1;
+}
+.botonLogo9,
+.botonProductos9,
+.botonSobreNosotros {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  margin: 0 !important;
+}
+.botonLogo9 {
+  width: 129px;
+  top: 59px;
+  left: 56px;
+  height: 78px;
+  background-image: url(/public/boton-logo-9@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 2;
+}
+.botonLogo9:active,
+.botonLogo9:hover,
+.botonProductos9:hover {
+  cursor: pointer;
+}
+.botonProductos9,
+.botonSobreNosotros {
+  width: 136px;
+  top: 81px;
+  left: 281px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 3;
+}
+.botonProductos9:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonSobreNosotros {
+  width: 199px;
+  left: 476px;
+  z-index: 4;
+}
+.botonSobreNosotros:hover {
+  cursor: pointer;
+}
+.botonSobreNosotros:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.perfil1Icon {
+  width: 43.8px;
+  position: relative;
+  height: 43px;
+  object-fit: cover;
+}
+.miCuenta {
+  width: 106.9px;
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.botonMiCuenta9,
+.carritoDeCompras1Icon {
+  position: absolute;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.botonMiCuenta9 {
+  border: 2px solid var(--color-black);
+  padding: var(--padding-8xs) var(--padding-10xl);
+  background-color: var(--color-gainsboro);
+  top: 73px;
+  left: 1456px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 5px;
+  z-index: 5;
+}
+.botonMiCuenta9:hover {
+  cursor: pointer;
+}
+.botonMiCuenta9:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.carritoDeCompras1Icon {
+  width: 58px;
+  top: 68px;
+  left: 1348px;
+  height: 58px;
+  object-fit: cover;
+  z-index: 6;
+}
+.headerCarritoDeCompras {
+  position: absolute;
+  top: 0;
+  left: -28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ventanaCarritoDeCompras {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1437px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}

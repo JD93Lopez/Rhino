@@ -1,0 +1,254 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.ayudaYAsistencia {
+  margin: 0;
+  position: absolute;
+  top: 326px;
+  left: 566px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.botonBuscarAyudaChild,
+.inputAyudaYAsistencia {
+  border-radius: var(--br-3xs);
+  height: 108px;
+  overflow: hidden;
+}
+.inputAyudaYAsistencia {
+  border: 0;
+  outline: 0;
+  background-color: #282828;
+  position: absolute;
+  top: 678px;
+  left: calc(50% - 505px);
+  width: 1207px;
+}
+.inputAyudaYAsistencia:active,
+.inputAyudaYAsistencia:hover {
+  cursor: text;
+}
+.botonBuscarAyudaChild {
+  width: 120px;
+  position: relative;
+  background-color: #323232;
+  flex-shrink: 0;
+  z-index: 0;
+}
+.lupa5Icon {
+  width: 62px;
+  position: absolute;
+  margin: 0 !important;
+  top: 23px;
+  left: 29px;
+  height: 62px;
+  object-fit: cover;
+  z-index: 1;
+}
+.botonBuscarAyuda {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 678px;
+  left: 219px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 0;
+}
+.botonBuscarAyuda:active,
+.botonBuscarAyuda:hover,
+.botonLogo5:active,
+.botonLogo5:hover,
+.botonProductos5:hover {
+  cursor: pointer;
+}
+.enQuPodemos {
+  margin: 0;
+  position: absolute;
+  top: 528px;
+  left: 515px;
+  font-size: var(--font-size-33xl);
+  font-weight: 400;
+  font-family: var(--font-jura);
+}
+.headerVentanaAyudaChild,
+.headerVentanaAyudaItem {
+  width: 1742px;
+  position: relative;
+  background-color: var(--color-black);
+  height: 50px;
+  z-index: 0;
+}
+.headerVentanaAyudaItem {
+  background-color: var(--color-darkkhaki);
+  height: 96px;
+  z-index: 1;
+}
+.botonLogo5 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 127px;
+  position: absolute;
+  margin: 0 !important;
+  top: 59px;
+  left: 55px;
+  height: 78px;
+  background-image: url(/public/logo@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 2;
+}
+.botonProductos5 {
+  cursor: pointer;
+  width: 134px;
+  top: 81px;
+  left: 276px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 3;
+}
+.botonProductos5:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonLupa5,
+.botonProductos5,
+.botonSobreNosotros {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  margin: 0 !important;
+}
+.botonSobreNosotros {
+  cursor: pointer;
+  width: 196px;
+  top: 81px;
+  left: 467px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 4;
+}
+.botonSobreNosotros:hover {
+  cursor: pointer;
+}
+.botonSobreNosotros:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonLupa5 {
+  width: 43px;
+  top: 76px;
+  left: 1378px;
+  height: 43px;
+  background-image: url(/public/boton-de-buscar@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 5;
+}
+.botonLupa5,
+.botonLupa5:active,
+.botonLupa5:hover,
+.botonMiCuenta5:active,
+.botonMiCuenta5:hover {
+  cursor: pointer;
+}
+.perfil1Icon {
+  width: 43px;
+  position: relative;
+  height: 43px;
+  object-fit: cover;
+}
+.miCuenta {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonMiCuenta5,
+.carritoDeCompras1Icon {
+  position: absolute;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.botonMiCuenta5 {
+  border: 2px solid var(--color-black);
+  padding: var(--padding-8xs) var(--padding-9xl);
+  background-color: var(--color-gainsboro);
+  top: 71px;
+  left: 1458px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 5px;
+  z-index: 6;
+}
+.carritoDeCompras1Icon {
+  width: 58px;
+  top: 66px;
+  left: 1283px;
+  height: 58px;
+  object-fit: cover;
+  z-index: 7;
+}
+.headerVentanaAyuda {
+  position: absolute;
+  top: 0;
+  left: -14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ventanaDeAyudaYAsistencia {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1117px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-56xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}

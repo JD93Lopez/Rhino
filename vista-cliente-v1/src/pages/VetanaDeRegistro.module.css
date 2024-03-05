@@ -1,0 +1,264 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.b8c39214f0aadd21f0e370d549a1d0Icon {
+  position: absolute;
+  top: -83px;
+  left: 0;
+  width: 1800px;
+  height: 1200px;
+  object-fit: cover;
+}
+.groupChild,
+.vetanaDeRegistroInner {
+  position: absolute;
+  width: 758px;
+  height: 849px;
+}
+.groupChild {
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 7px solid var(--color-goldenrod);
+  box-sizing: border-box;
+}
+.vetanaDeRegistroInner {
+  top: 187px;
+  left: 106px;
+}
+.correo,
+.direccin,
+.usuario {
+  position: absolute;
+  top: 904px;
+  left: 196px;
+}
+.correo,
+.usuario {
+  top: 830px;
+}
+.usuario {
+  top: 386px;
+}
+.crearCuenta,
+.identificacin,
+.telfono {
+  position: absolute;
+  top: 682px;
+  left: 196px;
+}
+.crearCuenta,
+.telfono {
+  top: 756px;
+}
+.crearCuenta {
+  top: 268px;
+  left: 371px;
+  font-size: var(--font-size-21xl);
+  font-family: var(--font-impact);
+}
+.apellido,
+.contrasea,
+.nombre {
+  position: absolute;
+  top: 534px;
+  left: 196px;
+}
+.apellido,
+.contrasea {
+  top: 608px;
+}
+.contrasea {
+  top: 460px;
+}
+.infputAddress,
+.inputApellido,
+.inputContrasenia,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono,
+.inputUsuario {
+  border: 0;
+  outline: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 382px;
+  left: 485px;
+  border-radius: var(--br-10xs);
+  width: 322px;
+  height: 44px;
+}
+.infputAddress:active,
+.infputAddress:hover,
+.inputApellido:active,
+.inputApellido:hover,
+.inputContrasenia:active,
+.inputContrasenia:hover,
+.inputCorreo:active,
+.inputCorreo:hover,
+.inputIdentificacion:active,
+.inputIdentificacion:hover,
+.inputNombre:active,
+.inputNombre:hover,
+.inputTelefono:active,
+.inputTelefono:hover,
+.inputUsuario:active,
+.inputUsuario:hover {
+  cursor: text;
+}
+.infputAddress,
+.inputApellido,
+.inputContrasenia,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono {
+  top: 456px;
+}
+.infputAddress,
+.inputApellido,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono {
+  top: 530px;
+}
+.infputAddress,
+.inputApellido,
+.inputCorreo,
+.inputIdentificacion,
+.inputTelefono {
+  top: 604px;
+}
+.infputAddress,
+.inputCorreo,
+.inputIdentificacion,
+.inputTelefono {
+  top: 678px;
+}
+.infputAddress,
+.inputCorreo,
+.inputTelefono {
+  top: 752px;
+}
+.infputAddress,
+.inputCorreo {
+  top: 826px;
+}
+.infputAddress {
+  top: 900px;
+}
+.registrarse {
+  position: relative;
+  font-size: 70px;
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: center;
+}
+.botonRegistrarse2 {
+  cursor: pointer;
+  border: 0;
+  padding: 16px 118px;
+  background-color: var(--color-goldenrod);
+  position: absolute;
+  top: 643px;
+  left: 999px;
+  border-radius: var(--br-3xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.botonRegistrarse2:hover {
+  cursor: pointer;
+}
+.botonRegistrarse2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.bienvenido {
+  position: absolute;
+  top: 445px;
+  left: 963px;
+  font-size: 130px;
+  font-family: var(--font-impact);
+}
+.vetanaDeRegistroChild {
+  position: absolute;
+  top: 194px;
+  left: 424px;
+  width: 124px;
+  height: 35px;
+}
+.logoRegistroChild {
+  width: 203px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-goldenrod);
+  height: 203px;
+  transform: rotate(-180deg);
+  z-index: 0;
+}
+.logoIcon {
+  width: 107px;
+  position: absolute;
+  margin: 0 !important;
+  top: 24px;
+  left: 48px;
+  height: 66px;
+  object-fit: cover;
+  z-index: 1;
+}
+.logoRegistro {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 92px;
+  left: 384px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 10px;
+}
+.logoRegistro,
+.logoRegistro:active,
+.logoRegistro:hover {
+  cursor: pointer;
+}
+.vetanaDeRegistro {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1117px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}

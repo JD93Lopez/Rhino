@@ -1,0 +1,246 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.fondoInicioDeSesin1 {
+  position: absolute;
+  top: -7px;
+  left: -988px;
+  width: 3235px;
+  height: 1123px;
+  background-image: url(/public/fondo-inicio-de-sesin-1@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.logoIsChild {
+  width: 151px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-darkorange);
+  height: 151px;
+  z-index: 0;
+}
+.logoIcon {
+  width: 127px;
+  position: absolute;
+  margin: 0 !important;
+  top: 21px;
+  left: 12px;
+  height: 78px;
+  object-fit: cover;
+  z-index: 1;
+}
+.logoIs {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 40px;
+  left: 788px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 10px;
+}
+.logoIs,
+.logoIs:active,
+.logoIs:hover {
+  cursor: pointer;
+}
+.rectangleIs {
+  position: absolute;
+  top: calc(50% - 416.5px);
+  left: calc(50% - 286px);
+  border-radius: 23px;
+  background-color: var(--color-black);
+  border: 7px solid var(--color-darkorange);
+  box-sizing: border-box;
+  width: 572px;
+  height: 833px;
+}
+.textoBienvenido {
+  margin: 0;
+  position: absolute;
+  top: 172px;
+  left: 747px;
+  font-size: var(--font-size-31xl);
+  font-weight: 400;
+  font-family: var(--font-impact);
+}
+.iniciarSesin {
+  position: absolute;
+  top: 7px;
+  left: 127px;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonIniciosesion {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: #f90;
+  position: absolute;
+  top: 596px;
+  left: calc(50% - 236px);
+  border-radius: var(--br-8xs);
+  width: 471px;
+  height: 50px;
+}
+.botonIniciosesion:hover {
+  background-color: #ffa621;
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonIniciosesion:active {
+  cursor: pointer;
+}
+.registrarse {
+  position: absolute;
+  top: 7px;
+  left: 142px;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-darkorange);
+  text-align: left;
+}
+.botonIniciosesion:active,
+.registrarse:hover {
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonRegistrarse {
+  cursor: pointer;
+  border: 2px solid var(--color-darkorange);
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 854px;
+  left: 628px;
+  border-radius: var(--br-8xs);
+  box-sizing: border-box;
+  width: 471px;
+  height: 50px;
+}
+.botonRegistrarse:hover {
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+.botonRegistrarse:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.textoUsuario {
+  position: absolute;
+  top: 353px;
+  left: 628px;
+  font-weight: 600;
+}
+.inputContrasea,
+.inputUsuario {
+  border: 0;
+  outline: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 394px;
+  left: 628px;
+  border-radius: var(--br-8xs);
+  width: 471px;
+  height: 50px;
+}
+.inputContrasea:active,
+.inputContrasea:hover,
+.inputUsuario:active,
+.inputUsuario:hover {
+  cursor: text;
+}
+.inputUsuario {
+  top: 509px;
+  left: 627px;
+}
+.botonPregunta1,
+.textoContrasea {
+  position: absolute;
+  font-weight: 600;
+}
+.textoContrasea {
+  top: 468px;
+  left: 627px;
+}
+.botonPregunta1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 722px;
+  left: calc(50% - 146px);
+  font-size: var(--font-size-6xl);
+  display: inline-block;
+}
+.botonPregunta1:hover {
+  cursor: pointer;
+}
+.botonPregunta1:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonPregunta1,
+.botonPregunta2,
+.ventanaInicioDeSesin {
+  text-align: left;
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+.botonPregunta2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 768px;
+  left: calc(50% - 130px);
+  font-size: var(--font-size-6xl);
+  font-weight: 600;
+  display: inline-block;
+}
+.botonPregunta2:hover {
+  cursor: pointer;
+}
+.botonPregunta2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.ventanaInicioDeSesin {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1117px;
+  overflow: hidden;
+  font-size: var(--font-size-11xl);
+}

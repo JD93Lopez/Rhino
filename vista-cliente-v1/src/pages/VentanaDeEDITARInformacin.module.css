@@ -1,0 +1,301 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.informacinPersonal {
+  position: absolute;
+  top: 248px;
+  left: 497px;
+  font-size: var(--font-size-56xl);
+  font-family: var(--font-impact);
+}
+.ventanaDeEditarInformacinChild {
+  position: absolute;
+  top: 417px;
+  left: 162px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-300);
+  width: 1405px;
+  height: 590px;
+}
+.correo,
+.identificacin,
+.nombreCompleto {
+  position: absolute;
+  top: 484px;
+  left: 339px;
+}
+.correo,
+.identificacin {
+  top: 560px;
+}
+.correo {
+  top: 636px;
+}
+.direccin,
+.telfono {
+  position: absolute;
+  top: 712px;
+  left: 337px;
+}
+.direccin {
+  top: 788px;
+  left: 341px;
+}
+.ventanaDeEditarInformacinItem {
+  position: absolute;
+  top: 853px;
+  left: 293px;
+  background-color: var(--color-white);
+  width: 1142px;
+  height: 2px;
+}
+.guardarInformacin {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonGuardarInformacion {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-xs) var(--padding-mid);
+  background-color: var(--color-white);
+  position: absolute;
+  top: 896px;
+  left: 686px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.botonGuardarInformacion:hover {
+  cursor: pointer;
+}
+.botonGuardarInformacion:active {
+  animation: 1s ease 0s 1 normal none pulsate;
+  opacity: 1;
+}
+.inputAddress2,
+.inputCorreo2,
+.inputIdentificacin2,
+.inputNombreCompleto,
+.inputTelefono2 {
+  border: 0;
+  outline: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 488px;
+  left: 830px;
+  border-radius: var(--br-8xs);
+  width: 507px;
+  height: 34px;
+}
+.inputAddress2:active,
+.inputAddress2:hover,
+.inputCorreo2:active,
+.inputCorreo2:hover,
+.inputIdentificacin2:active,
+.inputIdentificacin2:hover,
+.inputNombreCompleto:active,
+.inputNombreCompleto:hover,
+.inputTelefono2:active,
+.inputTelefono2:hover {
+  cursor: text;
+}
+.inputAddress2,
+.inputCorreo2,
+.inputIdentificacin2,
+.inputTelefono2 {
+  top: 564px;
+}
+.inputAddress2,
+.inputCorreo2,
+.inputTelefono2 {
+  top: 640px;
+}
+.inputAddress2,
+.inputTelefono2 {
+  top: 716px;
+}
+.inputAddress2 {
+  top: 792px;
+}
+.headerEditarInfoPersonalChild,
+.headerEditarInfoPersonalItem {
+  width: 1742px;
+  position: relative;
+  background-color: var(--color-black);
+  height: 50px;
+  z-index: 0;
+}
+.headerEditarInfoPersonalItem {
+  background-color: var(--color-darkkhaki);
+  height: 96px;
+  z-index: 1;
+}
+.botonLogo6,
+.botonProductos6,
+.botonSobreNosotros {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  margin: 0 !important;
+}
+.botonLogo6 {
+  width: 127px;
+  top: 59px;
+  left: 55px;
+  height: 78px;
+  background-image: url(/public/logo@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 2;
+}
+.botonLogo6:active,
+.botonLogo6:hover,
+.botonProductos6:hover {
+  cursor: pointer;
+}
+.botonProductos6,
+.botonSobreNosotros {
+  width: 134px;
+  top: 81px;
+  left: 276px;
+  font-size: var(--font-size-9xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 3;
+}
+.botonProductos6:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonSobreNosotros {
+  width: 196px;
+  left: 467px;
+  z-index: 4;
+}
+.botonLupa6,
+.botonSobreNosotros:hover {
+  cursor: pointer;
+}
+.botonSobreNosotros:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonLupa6 {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 43px;
+  position: absolute;
+  margin: 0 !important;
+  top: 76px;
+  left: 1378px;
+  height: 43px;
+  background-image: url(/public/boton-de-buscar@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 5;
+}
+.perfil1Icon {
+  width: 43px;
+  position: relative;
+  height: 43px;
+  object-fit: cover;
+}
+.miCuenta {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonMiCuenta6,
+.carritoDeCompras3Icon {
+  position: absolute;
+  margin: 0 !important;
+  cursor: pointer;
+}
+.botonMiCuenta6 {
+  border: 2px solid var(--color-black);
+  padding: var(--padding-8xs) var(--padding-9xl);
+  background-color: var(--color-gainsboro);
+  top: 71px;
+  left: 1458px;
+  border-radius: var(--br-6xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 5px;
+  z-index: 6;
+}
+.botonMiCuenta6:hover {
+  cursor: pointer;
+}
+.botonMiCuenta6:active {
+  cursor: pointer;
+  animation: 1s ease 0s 1 normal none pulsate;
+  opacity: 1;
+}
+.carritoDeCompras3Icon {
+  width: 58px;
+  top: 69px;
+  left: 1283px;
+  height: 58px;
+  object-fit: cover;
+  z-index: 7;
+}
+.headerEditarInfoPersonal {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ventanaDeEditarInformacin {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  height: 1117px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-16xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
