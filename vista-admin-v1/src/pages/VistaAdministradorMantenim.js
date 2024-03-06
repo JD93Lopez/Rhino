@@ -27,6 +27,7 @@ const VistaAdministradorMantenim = () => {
               nombreMaquinaria = {mantenimiento.nombreMaquinaria}
               identificacion = {mantenimiento.identificacion}
               fecha = {mantenimiento.fecha}
+              key = {mantenimiento.identificacion}
             ></TarjetaMantenimiento>
             })}
           </div>
