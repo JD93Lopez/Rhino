@@ -1,21 +1,31 @@
 import TarjetaProyectoAdministrador from "./TarjetaProyectoAdministrador";
 import styles from "./SearchProjectFrame.module.css";
 import { DataContext } from "./DataProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import orden from "../OrdenamientoSimilitud";
 
 const SearchProjectFrame = () => {
-
-  const dataContext = useContext(DataContext)
-
-  if(!dataContext.Loaded){
-    return <div>Cargando... Por favor espere.</div>
+  
+  const dataContext = useContext(DataContext);
+  
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
   }
 
-  const proyectos = dataContext.proyectos
+  const [proyectos, setProyectos] = useState(dataContext.proyectos);
 
   const buscar = () => {
-    //TODO ordenar proyectos
-  }
+    const inputValue = document.getElementById("inputbuscarproyecto").value;
+    let nuevosProyectos = dataContext.proyectos.map((project) => {
+      const similitud = orden.calcularSimilitud(inputValue, project.nombreProyecto);
+      return { proyecto: project, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosProyectos = nuevosProyectos.map((proyectoSimilitud)=>{
+      return proyectoSimilitud.proyecto
+    })
+
+    setProyectos(nuevosProyectos);
+  };
 
   return (
     <section className={styles.searchProjectFrame}>
@@ -30,16 +40,19 @@ const SearchProjectFrame = () => {
               placeholder="buscar proyecto"
               type="text"
               onChange={buscar}
+              id= "inputbuscarproyecto"
+              useref= "inputbuscarproyecto"
             />
           </div>
         </div>
         <div className={styles.projectFrame1}>
           {proyectos.map(proyecto => {
             return <TarjetaProyectoAdministrador
-              encargadoProyecto={proyecto.encargadoProyecto}
+              encargadoProyecto={proyecto.nombreProyecto}
               telefono={proyecto.telefono}
               cedula={proyecto.cedula}
               descripcion={proyecto.descripcion}
+              key={proyecto.cedula}
             >
             </TarjetaProyectoAdministrador>
           })}
