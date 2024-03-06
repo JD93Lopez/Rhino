@@ -37,9 +37,11 @@ const SaveButtonFrame = () => {
 
     // Convertir el objeto de usuario a JSON
     const JsonUsuario = JSON.stringify(usuarioInsertar);
+
     console.log(JsonUsuario);
+    
     //axios.api(`http://127.0.0.1:3001/api/saludo/marco/prada`)
-    axios.api(`http://127.0.0.1:3001/api/insert/usuarios/${JsonUsuario}/1/1`)
+    // axios.api(`http://127.0.0.1:3001/api/insert/usuarios/${JsonUsuario}/1/1`) TODO des comentar esta linea para conexion con la API
   };
 
   return (

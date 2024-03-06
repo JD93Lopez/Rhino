@@ -25,9 +25,10 @@ const FrameComponent2 = () => {
       estado: "",
       fabricante
     };
-    //TODO conexion axios 
     // Convertir el objeto de producto a JSON
     const jsonProducto = JSON.stringify(product);
+    
+    //TODO conexion axios 
     console.log(jsonProducto);//TODO quitar console.log
  
     // Cambiar el contenido de la notificación
