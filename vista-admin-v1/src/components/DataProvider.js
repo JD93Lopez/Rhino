@@ -6,8 +6,6 @@ export const DataProvider = (props) => {
     const [data, setData] = useState([])
 
     useEffect(( ) => {
-        //Obtener data
-        const data1Obtenida = "linea 10 ./components/DataProvider.js"
 
         //usuarios de ejemplo TODO bajar usuarios de API
         const usuarios = [
@@ -64,6 +62,25 @@ export const DataProvider = (props) => {
             }
         ]
 
+        //Mantenimientos de ejemplo TODO bajar mantenimientos de API
+        const mantenimientos = [
+            {
+                nombreMaquinaria: "Excavadora",
+                identificacion: "49845",
+                fecha: "23/03/2024"
+            },
+            {
+                nombreMaquinaria: "Montacargas",
+                identificacion: "125678",
+                fecha: "15/04/2024"
+            },
+            {
+                nombreMaquinaria: "Excavadora",
+                identificacion: "49845",
+                fecha: "23/03/2024"
+            }
+        ]
+
         const selectedUsers = []
 
         const selectedProyects = []
@@ -71,10 +88,10 @@ export const DataProvider = (props) => {
         const selectedProducts = []
 
         setData({
-            data1: data1Obtenida,
             usuarios,
             proyectos,
             productos,
+            mantenimientos,
             selectedUsers,
             selectedProyects,
             selectedProducts,
