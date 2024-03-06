@@ -1,8 +1,19 @@
+import { useContext } from "react";
+import { DataContext } from "../components/DataProvider";
 import FrameComponent1 from "../components/FrameComponent1";
-import Proyecto1 from "../components/Proyecto1";
+import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
 import styles from "./VistaAdministradorMantenim.module.css";
 
 const VistaAdministradorMantenim = () => {
+
+  const dataContext = useContext(DataContext);
+  
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }
+
+  const mantenimientos = dataContext.mantenimientos
+
   return (
     <div className={styles.vistaAdministradorMantenim}>
       <div className={styles.vistaAdministradorMantenimChild} />
@@ -11,21 +22,13 @@ const VistaAdministradorMantenim = () => {
         <section className={styles.mantenimientoParent}>
           <h1 className={styles.mantenimiento}>MANTENIMIENTO</h1>
           <div className={styles.projectDetails}>
-            <Proyecto1
-              excavadora="Excavadora"
-              prop="49845"
-              prop1="23/03/2024"
-            />
-            <Proyecto1
-              excavadora="Montacargas"
-              prop="125678"
-              prop1="15/04/2024"
-            />
-            <Proyecto1
-              excavadora="Excavadora"
-              prop="49845"
-              prop1="23/03/2024"
-            />
+            {mantenimientos.map(mantenimiento => {
+              return <TarjetaMantenimiento
+              nombreMaquinaria = {mantenimiento.nombreMaquinaria}
+              identificacion = {mantenimiento.identificacion}
+              fecha = {mantenimiento.fecha}
+            ></TarjetaMantenimiento>
+            })}
           </div>
         </section>
       </main>

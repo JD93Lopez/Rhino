@@ -1,6 +1,6 @@
 import styles from "./Proyecto1.module.css";
 
-const Proyecto1 = ({ excavadora, prop, prop1 }) => {
+const TarjetaMantenimiento = ({ nombreMaquinaria, identificacion, fecha }) => {
   return (
     <div className={styles.proyecto1}>
       <div className={styles.proyecto1Child} />
@@ -9,25 +9,25 @@ const Proyecto1 = ({ excavadora, prop, prop1 }) => {
           <div className={styles.nombreDelProductoExcavadorWrapper}>
             <div className={styles.nombreDelProductoContainer}>
               <span>{`Nombre del Producto: `}</span>
-              <span className={styles.excavadora}>{excavadora}</span>
+              <span className={styles.excavadora}>{nombreMaquinaria}</span>
             </div>
           </div>
           <div className={styles.identificacin49845Wrapper}>
             <div className={styles.identificacin49845}>
               <span>{`Identificación: `}</span>
-              <span className={styles.span}>{prop}</span>
+              <span className={styles.span}>{identificacion}</span>
             </div>
           </div>
           <div className={styles.fecha23032024}>
             <span>{`Fecha: `}</span>
-            <span className={styles.span1}>{prop1}</span>
+            <span className={styles.span1}>{fecha}</span>
           </div>
         </div>
       </div>
       <div className={styles.frameDiv}>
         <div className={styles.rectangleParent}>
           <div className={styles.frameChild} />
-          <input
+          <input //TODO cambiar input por text area
             className={styles.descripcin}
             placeholder="Descripción..."
             type="text"
@@ -38,4 +38,4 @@ const Proyecto1 = ({ excavadora, prop, prop1 }) => {
   );
 };
 
-export default Proyecto1;
+export default TarjetaMantenimiento;
