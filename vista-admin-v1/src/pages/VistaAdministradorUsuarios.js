@@ -1,14 +1,21 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import FrameComponent from "../components/FrameComponent";
 import UserInfoFrame from "../components/UserInfoFrame";
 import { useNavigate } from "react-router-dom";
 import styles from "./VistaAdministradorUsuarios.module.css";
 import { DataContext } from "../components/DataProvider";
 import { TarjetaUsuarioAdministrador } from "../components/TarjetaUsuarioAdministrador";
+import orden from "../OrdenamientoSimilitud";
+
+export const SearchContext = React.createContext();
 
 const VistaAdministradorUsuarios = () => {
+  const { Loaded, usuarios: usuariosContext, setSelectedUsers } = useContext(DataContext);
+  if (!Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }
   const navigate = useNavigate();
-
+  const [busqueda, setBusqueda] = useState('');
   const onActualizarUsuarioClick = useCallback(() => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
@@ -19,19 +26,38 @@ const VistaAdministradorUsuarios = () => {
 
   //cargar usuarios de la lista
 
-  const dataContext = useContext(DataContext)
+  const [usuarios, setUsuarios] = useState([]);
 
-  if(!dataContext.Loaded){
-    return <div>Cargando... Por favor espere.</div>
-  }
 
-  const usuarios = dataContext.usuarios  
 
-  //resetear seleccionados
+  useEffect(() => {
+    if (Loaded) {
+      setUsuarios(usuariosContext);
+    }
+  }, [Loaded, usuariosContext]);
 
-  dataContext.selectedUsers = []
 
+  const buscar = useCallback(() => {
+    const inputValue = document.getElementById("inputbuscarusuario").value;
+    let nuevosUsuarios = usuariosContext.map((user) => {
+     const similitud = orden.calcularSimilitud(inputValue, user.nombreUsuario);
+     return { usuario: user, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
+     return usuarioSimilitud.usuario
+    })
+    
+    setUsuarios(nuevosUsuarios);
+   }, [usuariosContext]);
+  
+   useEffect(() => {
+    buscar();
+  }, [busqueda, usuariosContext]);
+  
   return (
+    
+    // Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'
+    <SearchContext.Provider value={{ busqueda, setBusqueda }}>
     <div className={styles.vistaAdministradorUsuarios}>
       <div className={styles.vistaAdministradorUsuariosChild} />
       <FrameComponent />
@@ -99,6 +125,8 @@ const VistaAdministradorUsuarios = () => {
         </section>
       </main>
     </div>
+    
+    </SearchContext.Provider>
   );
 };
 
