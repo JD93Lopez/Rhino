@@ -109,23 +109,12 @@ const FrameComponent2 = () => {
               <input className={styles.dropdownEstadoChild} type="text" id= "inputfabricanteproducto" useref={ "inputfabricanteproducto"}/>
             </div>
           </div>
-          <div className={styles.dropdownEstado1}>
-            <div className={styles.seleccionarGroup}>
-              <div className={styles.seleccionar1}>Seleccionar</div>
-              <img className={styles.polygonIcon} alt="" src="/polygon-2.svg" />
-            </div>
-            <div className={styles.frameDiv}>
-              <div className={styles.disponibleWrapper}>
-                <div className={styles.disponible}>Disponible</div>
-              </div>
-              <div className={styles.ocupadoWrapper}>
-                <div className={styles.ocupado}>Ocupado</div>
-              </div>
-              <div className={styles.fueraDeServicioWrapper}>
-                <div className={styles.fueraDeServicio}>Fuera de Servicio</div>
-              </div>
-            </div>
-          </div>
+          <select id="myDropdown" name="myDropdownName">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+
         </div>
       </div>
       <div className={styles.saveButtons}>
