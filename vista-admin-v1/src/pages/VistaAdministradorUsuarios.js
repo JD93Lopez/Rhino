@@ -10,7 +10,8 @@ import orden from "../OrdenamientoSimilitud";
 export const SearchContext = React.createContext();
 
 const VistaAdministradorUsuarios = () => {
-  const { Loaded, usuarios: usuariosContext, setSelectedUsers } = useContext(DataContext);
+  const dataContext = useContext(DataContext)
+  const { Loaded, usuarios: usuariosContext } = dataContext;
   if (!Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
@@ -24,11 +25,13 @@ const VistaAdministradorUsuarios = () => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
 
+  //resetear seleccionados
+
+  dataContext.selectedUsers = []
+
   //cargar usuarios de la lista
 
   const [usuarios, setUsuarios] = useState([]);
-
-
 
   useEffect(() => {
     if (Loaded) {
