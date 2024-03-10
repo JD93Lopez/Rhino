@@ -1,9 +1,10 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import styles from "./VistaAdministradorProducto.module.css";
 import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdministrador";
 import { DataContext } from "../components/DataProvider";
+import orden from "../OrdenamientoSimilitud";
 
 
 const VistaAdministradorProducto = () => {
@@ -25,13 +26,32 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-agregar-productoeditar-producto");
   }, [navigate]);
 
-  const dataContext = useContext(DataContext)
+  const dataContext = useContext(DataContext);
+  const [productos, setProductos] = useState(dataContext.productos);
 
-  if(!dataContext.Loaded){
-    return <div>Cargando... Por favor espere.</div>
-  }
+  useEffect(() => {
+    if (dataContext.Loaded) {
+      setProductos(dataContext.productos);
+    }
+  }, [dataContext.Loaded, dataContext.productos]);
 
-  const productos = dataContext.productos
+
+
+  const buscar = () => {
+    if (!dataContext.productos) {
+      return;
+    }
+    const inputValue = document.getElementById("inputbuscarproducto").value;
+    let nuevosProductos = dataContext.productos.map((product) => {
+      const similitud = orden.calcularSimilitud(inputValue, product.nombreProducto);
+      return { producto: product, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosProductos = nuevosProductos.map((productoSimilitud)=>{
+      return productoSimilitud.producto
+    })
+
+    setProductos(nuevosProductos);
+  };
 
   return (
     <div className={styles.vistaAdministradorProducto}>
@@ -54,6 +74,9 @@ const VistaAdministradorProducto = () => {
                   className={styles.buscarProducto}
                   placeholder="buscar producto"
                   type="text"
+                  onChange={buscar}
+                  id= "inputbuscarproducto"
+                  useref= "inputbuscarproducto"
                 />
               </div>
             </div>
@@ -88,15 +111,15 @@ const VistaAdministradorProducto = () => {
                 </div>
               </div>
             </div>
-            {productos.map(producto=>{
-              return <TarjetaProductoAdministrador
-                nombreProducto = {producto.nombreProducto}
-                descripcion = {producto.descripcion}
-                imagen = {producto.imagen}
-                key = {producto.nombreProducto}
-              >
-              </TarjetaProductoAdministrador>
-            })}
+            {productos && productos.map(producto=>{
+            return <TarjetaProductoAdministrador
+            nombreProducto = {producto.nombreProducto}
+             descripcion = {producto.descripcion}
+             imagen = {producto.imagen}
+             key = {producto.nombreProducto}
+  >
+  </TarjetaProductoAdministrador>
+})}
           </div>
         </section>
       </main>
