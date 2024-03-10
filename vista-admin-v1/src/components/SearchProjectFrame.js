@@ -52,7 +52,7 @@ const SearchProjectFrame = () => {
               telefono={proyecto.telefono}
               cedula={proyecto.cedula}
               descripcion={proyecto.descripcion}
-              key={proyecto.cedula}
+              key={proyecto.nombreProyecto}
             >
             </TarjetaProyectoAdministrador>
           })}
