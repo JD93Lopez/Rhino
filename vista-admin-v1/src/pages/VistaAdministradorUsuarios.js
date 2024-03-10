@@ -17,6 +17,20 @@ const VistaAdministradorUsuarios = () => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
 
+  // Manejar la eliminación de usuarios
+  const [selectedUser, setSelectedUser] = useState(null);
+  const onEliminarUsuarioClick = useCallback(() => {
+    if (!selectedUser) return;
+
+    // Eliminar el usuario del backend
+    dataContext.deleteUser(selectedUser.id).then(() => {
+      // Actualizar la lista de usuarios
+      const updatedUsuarios = usuarios.filter((usuario) => usuario.id !== selectedUser.id);
+      setDataContext({ ...dataContext, usuarios: updatedUsuarios });
+      setSelectedUser(null);
+    });
+  }, [selectedUser, dataContext, usuarios]);
+
   //cargar usuarios de la lista
 
   const dataContext = useContext(DataContext)
@@ -72,6 +86,7 @@ const VistaAdministradorUsuarios = () => {
                       key = {usuario.email}
                       id = {"usuario"+usuario.email}
                       useref = {"usuario"+usuario.email}
+                      onDeleteClick={() => setSelectedUser(usuario)}
                     ></TarjetaUsuarioAdministrador>
                   })}
                 </div>
@@ -94,10 +109,20 @@ const VistaAdministradorUsuarios = () => {
                 <div className={styles.crearUsuarioChild} />
                 <div className={styles.crearNuevo}>Crear Nuevo</div>
               </button>
+
             </div>
           </div>
         </section>
       </main>
+      <div className={styles.actualizarUsuarioParent}>
+        <button
+          className={styles.eliminarUsuario}
+          onClick={onEliminarUsuarioClick}
+          disabled={!selectedUser}
+        >
+          Eliminar Usuario
+        </button>
+      </div>     
     </div>
   );
 };
