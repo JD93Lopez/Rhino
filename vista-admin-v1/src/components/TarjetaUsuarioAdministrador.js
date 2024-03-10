@@ -26,7 +26,6 @@ export const TarjetaUsuarioAdministrador = (params) => {
         telefono: params.telefono,
         estado: params.estado,
       })
-      console.log(dataContext.selectedUsers)
     }
 
   }
