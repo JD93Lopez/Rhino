@@ -98,7 +98,7 @@ const obtenerUsuarios = async () => {
   const pool = new Pool(config);
   try {
     const DBRes = await pool.query("select * from usuarios");
-    console.log(DBRes.rows);
+    // console.log(DBRes.rows);
     return DBRes;
   } catch (error) {
     console.log("Error al obtener los usuarios");
@@ -444,7 +444,7 @@ const obtenerHistoricoAlquileres = async () => {
 const obtenerContrasenaUsuario = async (nombre_usuario) => {
   const pool = new Pool(config);
   try {
-    const texto = "SELECT contrasena FROM usuarios WHERE nombre_usuario = $1";
+    const texto = "SELECT contrasena, tipo_usuario FROM usuarios WHERE nombre_usuario = $1";
     const values = [nombre_usuario];
     const DBRes = await pool.query(texto, values);
     return DBRes;
