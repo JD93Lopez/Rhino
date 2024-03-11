@@ -8,6 +8,8 @@ import { TarjetaUsuarioAdministrador } from "../components/TarjetaUsuarioAdminis
 
 const VistaAdministradorUsuarios = () => {
   const navigate = useNavigate();
+  const dataContext = useContext(DataContext);
+  const [usuariosSeleccionados, setUsuariosSeleccionados] = useState([]);
 
   const onActualizarUsuarioClick = useCallback(() => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
@@ -17,33 +19,35 @@ const VistaAdministradorUsuarios = () => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
 
-  // Manejar la eliminación de usuarios
-  const [selectedUser, setSelectedUser] = useState(null);
-  const onEliminarUsuarioClick = useCallback(() => {
-    if (!selectedUser) return;
+  const eliminarUsuariosSeleccionados = useCallback(() => {
+    const nuevosUsuarios = dataContext.usuarios.filter(
+      (usuario) => !usuariosSeleccionados.includes(usuario.email)
+    );
+    dataContext.setUsuarios(nuevosUsuarios);
+    setUsuariosSeleccionados([]);
+  }, [dataContext, usuariosSeleccionados]);
 
-    // Eliminar el usuario del backend
-    dataContext.deleteUser(selectedUser.id).then(() => {
-      // Actualizar la lista de usuarios
-      const updatedUsuarios = usuarios.filter((usuario) => usuario.id !== selectedUser.id);
-      setDataContext({ ...dataContext, usuarios: updatedUsuarios });
-      setSelectedUser(null);
-    });
-  }, [selectedUser, dataContext, usuarios]);
+  const manejarSeleccionUsuario = useCallback(
+    (email, seleccionado) => {
+      if (seleccionado) {
+        setUsuariosSeleccionados((prevSeleccionados) => [
+          ...prevSeleccionados,
+          email,
+        ]);
+      } else {
+        setUsuariosSeleccionados((prevSeleccionados) =>
+          prevSeleccionados.filter((usuario) => usuario !== email)
+        );
+      }
+    },
+    []
+  );
 
-  //cargar usuarios de la lista
-
-  const dataContext = useContext(DataContext)
-
-  if(!dataContext.Loaded){
-    return <div>Cargando... Por favor espere.</div>
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
   }
 
-  const usuarios = dataContext.usuarios  
-
-  //resetear seleccionados
-
-  dataContext.selectedUsers = []
+  const usuarios = dataContext.usuarios;
 
   return (
     <div className={styles.vistaAdministradorUsuarios}>
@@ -62,33 +66,30 @@ const VistaAdministradorUsuarios = () => {
                       <div className={styles.usuario}>USUARIO</div>
                     </div>
                     <div className={styles.userInfoBox1}>
-                      <div className={styles.nombreCompleto}>
-                        NOMBRE COMPLETO
-                      </div>
+                      <div className={styles.nombreCompleto}>NOMBRE COMPLETO</div>
                     </div>
                     <div className={styles.userInfoBox2}>
-                      <div className={styles.correoElectronico}>
-                        CORREO ELECTRONICO
-                      </div>
+                      <div className={styles.correoElectronico}>CORREO ELECTRONICO</div>
                     </div>
                     <div className={styles.celular}>CELULAR</div>
                     <div className={styles.estado}>ESTADO</div>
                   </div>
                 </div>
                 <div className={styles.cellNumber}>
-                  {usuarios.map(usuario => {
-                    return <TarjetaUsuarioAdministrador
-                      nombreUsuario = {usuario.nombreUsuario}
-                      nombreCompleto = {usuario.nombreCompleto}
-                      email = {usuario.email}
-                      telefono = {usuario.telefono}
-                      estado = {usuario.estado}
-                      key = {usuario.email}
-                      id = {"usuario"+usuario.email}
-                      useref = {"usuario"+usuario.email}
-                      onDeleteClick={() => setSelectedUser(usuario)}
-                    ></TarjetaUsuarioAdministrador>
-                  })}
+                  {usuarios.map((usuario) => (
+                    <TarjetaUsuarioAdministrador
+                      nombreUsuario={usuario.nombreUsuario}
+                      nombreCompleto={usuario.nombreCompleto}
+                      email={usuario.email}
+                      telefono={usuario.telefono}
+                      estado={usuario.estado}
+                      key={usuario.email}
+                      id={"usuario" + usuario.email}
+                      useref={"usuario" + usuario.email}
+                      onSeleccionarUsuario={manejarSeleccionUsuario}
+                      seleccionado={usuariosSeleccionados.includes(usuario.email)}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -98,31 +99,24 @@ const VistaAdministradorUsuarios = () => {
                 onClick={onActualizarUsuarioClick}
               >
                 <div className={styles.actualizarUsuarioChild} />
-                <div className={styles.actualizarUsuario1}>
-                  Actualizar Usuario
-                </div>
+                <div className={styles.actualizarUsuario1}>Actualizar Usuario</div>
               </button>
-              <button
-                className={styles.crearUsuario}
-                onClick={onCrearUsuarioClick}
-              >
+              <button className={styles.crearUsuario} onClick={onCrearUsuarioClick}>
                 <div className={styles.crearUsuarioChild} />
                 <div className={styles.crearNuevo}>Crear Nuevo</div>
               </button>
-
+              <button
+                className={styles.eliminarUsuarios}
+                onClick={eliminarUsuariosSeleccionados}
+                disabled={usuariosSeleccionados.length === 0}
+              >
+                <div className={styles.eliminarUsuariosChild} />
+                <div className={styles.eliminarUsuarios1}>Eliminar</div>
+              </button>
             </div>
           </div>
         </section>
       </main>
-      <div className={styles.actualizarUsuarioParent}>
-        <button
-          className={styles.eliminarUsuario}
-          onClick={onEliminarUsuarioClick}
-          disabled={!selectedUser}
-        >
-          Eliminar Usuario
-        </button>
-      </div>     
     </div>
   );
 };

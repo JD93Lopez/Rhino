@@ -1,13 +1,14 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import styles from "./VistaAdministradorProducto.module.css";
 import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdministrador";
 import { DataContext } from "../components/DataProvider";
 
-
 const VistaAdministradorProducto = () => {
   const navigate = useNavigate();
+  const dataContext = useContext(DataContext);
+  const [productosSeleccionados, setProductosSeleccionados] = useState([]);
 
   const onUSUARIOSTextClick = useCallback(() => {
     navigate("/");
@@ -25,13 +26,35 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-agregar-productoeditar-producto");
   }, [navigate]);
 
-  const dataContext = useContext(DataContext)
+  const eliminarProductosSeleccionados = useCallback(() => {
+    const nuevosProductos = dataContext.productos.filter(
+      (producto) => !productosSeleccionados.includes(producto.nombreProducto)
+    );
+    dataContext.setProductos(nuevosProductos);
+    setProductosSeleccionados([]);
+  }, [dataContext, productosSeleccionados]);
 
-  if(!dataContext.Loaded){
-    return <div>Cargando... Por favor espere.</div>
+  const manejarSeleccionProducto = useCallback(
+    (nombreProducto, seleccionado) => {
+      if (seleccionado) {
+        setProductosSeleccionados((prevSeleccionados) => [
+          ...prevSeleccionados,
+          nombreProducto,
+        ]);
+      } else {
+        setProductosSeleccionados((prevSeleccionados) =>
+          prevSeleccionados.filter((producto) => producto !== nombreProducto)
+        );
+      }
+    },
+    []
+  );
+
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
   }
 
-  const productos = dataContext.productos
+  const productos = dataContext.productos;
 
   return (
     <div className={styles.vistaAdministradorProducto}>
@@ -68,10 +91,14 @@ const VistaAdministradorProducto = () => {
                       Actualizar Producto
                     </div>
                   </button>
-                  <button className={styles.powerfulExcavator2}>
+                  <button
+                    className={styles.powerfulExcavator2}
+                    onClick={eliminarProductosSeleccionados}
+                    disabled={productosSeleccionados.length === 0}
+                  >
                     <div className={styles.powerfulExcavatorItem} />
                     <div className={styles.eliminarProducto}>
-                      Eliminar Producto
+                      Eliminar Seleccionados
                     </div>
                   </button>
                   <div
@@ -88,15 +115,18 @@ const VistaAdministradorProducto = () => {
                 </div>
               </div>
             </div>
-            {productos.map(producto=>{
-              return <TarjetaProductoAdministrador
-                nombreProducto = {producto.nombreProducto}
-                descripcion = {producto.descripcion}
-                imagen = {producto.imagen}
-                key = {producto.nombreProducto}
-              >
-              </TarjetaProductoAdministrador>
-            })}
+            {productos.map((producto) => (
+              <TarjetaProductoAdministrador
+                nombreProducto={producto.nombreProducto}
+                descripcion={producto.descripcion}
+                imagen={producto.imagen}
+                key={producto.nombreProducto}
+                onSeleccionarProducto={manejarSeleccionProducto}
+                seleccionado={productosSeleccionados.includes(
+                  producto.nombreProducto
+                )}
+              />
+            ))}
           </div>
         </section>
       </main>
