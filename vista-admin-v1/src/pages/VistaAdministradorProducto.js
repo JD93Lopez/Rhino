@@ -1,9 +1,10 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import styles from "./VistaAdministradorProducto.module.css";
 import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdministrador";
 import { DataContext } from "../components/DataProvider";
+import orden from "../OrdenamientoSimilitud";
 
 const VistaAdministradorProducto = () => {
   const navigate = useNavigate();
@@ -26,35 +27,32 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-agregar-productoeditar-producto");
   }, [navigate]);
 
-  const eliminarProductosSeleccionados = useCallback(() => {
-    const nuevosProductos = dataContext.productos.filter(
-      (producto) => !productosSeleccionados.includes(producto.nombreProducto)
-    );
-    dataContext.setProductos(nuevosProductos);
-    setProductosSeleccionados([]);
-  }, [dataContext, productosSeleccionados]);
+  const dataContext = useContext(DataContext);
+  const [productos, setProductos] = useState(dataContext.productos);
 
-  const manejarSeleccionProducto = useCallback(
-    (nombreProducto, seleccionado) => {
-      if (seleccionado) {
-        setProductosSeleccionados((prevSeleccionados) => [
-          ...prevSeleccionados,
-          nombreProducto,
-        ]);
-      } else {
-        setProductosSeleccionados((prevSeleccionados) =>
-          prevSeleccionados.filter((producto) => producto !== nombreProducto)
-        );
-      }
-    },
-    []
-  );
+  useEffect(() => {
+    if (dataContext.Loaded) {
+      setProductos(dataContext.productos);
+    }
+  }, [dataContext.Loaded, dataContext.productos]);
 
-  if (!dataContext.Loaded) {
-    return <div>Cargando... Por favor espere.</div>;
-  }
 
-  const productos = dataContext.productos;
+
+  const buscar = () => {
+    if (!dataContext.productos) {
+      return;
+    }
+    const inputValue = document.getElementById("inputbuscarproducto").value;
+    let nuevosProductos = dataContext.productos.map((product) => {
+      const similitud = orden.calcularSimilitud(inputValue, product.nombreProducto);
+      return { producto: product, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosProductos = nuevosProductos.map((productoSimilitud)=>{
+      return productoSimilitud.producto
+    })
+
+    setProductos(nuevosProductos);
+  };
 
   return (
     <div className={styles.vistaAdministradorProducto}>
@@ -77,6 +75,9 @@ const VistaAdministradorProducto = () => {
                   className={styles.buscarProducto}
                   placeholder="buscar producto"
                   type="text"
+                  onChange={buscar}
+                  id= "inputbuscarproducto"
+                  useref= "inputbuscarproducto"
                 />
               </div>
             </div>
@@ -115,18 +116,15 @@ const VistaAdministradorProducto = () => {
                 </div>
               </div>
             </div>
-            {productos.map((producto) => (
-              <TarjetaProductoAdministrador
-                nombreProducto={producto.nombreProducto}
-                descripcion={producto.descripcion}
-                imagen={producto.imagen}
-                key={producto.nombreProducto}
-                onSeleccionarProducto={manejarSeleccionProducto}
-                seleccionado={productosSeleccionados.includes(
-                  producto.nombreProducto
-                )}
-              />
-            ))}
+            {productos && productos.map(producto=>{
+            return <TarjetaProductoAdministrador
+            nombreProducto = {producto.nombreProducto}
+             descripcion = {producto.descripcion}
+             imagen = {producto.imagen}
+             key = {producto.nombreProducto}
+  >
+  </TarjetaProductoAdministrador>
+})}
           </div>
         </section>
       </main>
