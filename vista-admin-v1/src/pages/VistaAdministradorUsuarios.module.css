@@ -300,6 +300,9 @@
   z-index: 1;
 }
 .actualizarUsuario {
+  position: absolute;
+  top: 165px;
+  right: 1000px;
   cursor: pointer;
   border: 1px solid var(--color-gray-200);
   padding: var(--padding-smi) var(--padding-smi) var(--padding-5xs)
@@ -311,6 +314,7 @@
   justify-content: center;
   white-space: nowrap;
 }
+.eliminarUsuarios:hover,
 .actualizarUsuario:hover,
 .crearUsuario:hover,
 .crearUsuarioChild {
@@ -335,6 +339,9 @@
   z-index: 1;
 }
 .crearUsuario {
+  position: absolute;
+  top: 165px;
+  right: 800px;
   cursor: pointer;
   border: 1px solid var(--color-gray-200);
   padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
@@ -354,6 +361,40 @@
   gap: 0 42px;
   max-width: 100%;
 }
+.eliminarUsuarios1{
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+
+.eliminarUsuariosChild{
+  height: 48px;
+  width: 163.2px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.eliminarUsuarios{
+  position: absolute;
+  top: 165px;
+  right: 630px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; 
+}
+
 .adminProfile,
 .userInfoFrameParent {
   display: flex;
@@ -399,6 +440,21 @@
   gap: 18px 0;
   letter-spacing: normal;
 }
+
+.eliminarButton {
+  /* Estilos para el botón de eliminar */
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1325px) {
   .rectangleGroup,
   .rectangleParent {
