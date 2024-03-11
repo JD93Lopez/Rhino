@@ -1,13 +1,6 @@
-import TarjetaUsuarioAdministrador from "./TarjetaUsuarioAdministrador.js";
 import styles from "./UserInfoFrame.module.css";
-import { DataContext } from "./DataProvider";
-import { useContext, useState } from "react";
-import { buscar as buscarExport } from '../pages/VistaAdministradorUsuarios.js';
-import { SearchContext } from '../pages/VistaAdministradorUsuarios.js';
 
 const UserInfoFrame = () => {
-  const { setBusqueda } = useContext(SearchContext);
-  
   return (
     <div className={styles.userInfoFrame}>
       <div className={styles.usuariosParent}>
@@ -17,13 +10,10 @@ const UserInfoFrame = () => {
             <div className={styles.buscarUsuarioChild} />
             <img className={styles.lupa4Icon} alt="" src="/lupa-4@2x.png" />
             <input
-        className={styles.buscarUsuario1}
-        placeholder="buscar usuario"
-        type="text"
-        id= "inputbuscarusuario"
-        useref= "inputbuscarusuario"
-        onChange={(event) => setBusqueda(event.target.value)} // Usar 'setBusqueda' para actualizar el valor de búsqueda
-      />
+              className={styles.buscarUsuario1}
+              placeholder="buscar usuario"
+              type="text"
+            />
           </div>
         </div>
       </div>

@@ -34,13 +34,10 @@ server.get('/api/signin/:usuario/:contrasena', async (req, res) => {
         const usuario = req.params.usuario;
         const contrasena = req.params.contrasena;
         //TODO comprobar usuario y contrasena
-        const dbRes = await DBConnection.obtenerContrasenaUsuario(usuario)
-        if(dbRes && dbRes.rows && dbRes.rows[0]){
-            const contrasenaReal = dbRes.rows[0].contrasena
-    
-            if(contrasenaReal){
-                bool = (contrasena === contrasenaReal)
-            }
+        const contrasenaReal = DBConnection.obtenerContrasenaUsuario(usuario)
+
+        if(contrasenaReal){
+            bool = (contrasena === contrasenaReal)
         }
 
         res.json({ DBRes: bool });
@@ -356,35 +353,6 @@ server.get('/api/sqlquery/:sqlQuery/:JSONValues/:usuario/:contrasena', async (re
         res.json({ DBRes: error });
     }
 });
-
-server.get('/api/permiso/:usuario/:contrasena/:tipoUsuario', async (req, res) => {
-    try {
-        
-        const usuario = req.params.usuario
-        const contrasena = req.params.contrasena
-        const tipoUsuario = req.params.tipoUsuario
-
-        res.json({ DBRes: await comprobarPermisos(usuario,contrasena,tipoUsuario) });
-
-    } catch (error) {
-        res.json({ DBRes: error });
-    }
-});
-
-const comprobarPermisos = async (usuario,contrasena,tipoUsuarioPermitido) => {
-    let res = false
-
-    const dbRes = await DBConnection.obtenerContrasenaUsuario(usuario)
-    if(dbRes && dbRes.rows && dbRes.rows[0]){
-        if(dbRes.rows[0].contrasena === contrasena){
-            if(dbRes.rows[0].tipo_usuario === tipoUsuarioPermitido){
-                res = true
-            }
-        }
-    }
-
-    return res
-}
 
 // Iniciar
 server.listen(PORT, () => {
