@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import SeleccionarArchivoText from "./SeleccionarArchivoText";
 import styles from "./FrameComponent2.module.css";
+import Select from 'react-select';
 
 const FrameComponent2 = () => {
-  
+
   const [showNotification, setShowNotification] = useState(false);
   const [notificationContent, setNotificationContent] = useState("");
 
@@ -42,6 +43,21 @@ const FrameComponent2 = () => {
     }, 2000);
   };
 
+  const drowpdownTipo = [
+    { label: 'Transporte', value: 'Transporte' },
+    { label: 'Maquinaria Pesada', value: 'Maquinaria Pesada' },
+  ]
+
+  const drowpdownEstado = [
+    { label: 'Disponible', value: 'Disponible' },
+    { label: 'Ocupado', value: 'Ocupado' },
+    { label: 'Fuera de Servicio', value: 'Fuera de Servicio' },
+  ]
+
+    function handleSelectChange(value) {
+      console.log(value);
+    }
+
   return (
     <div className={styles.frameParent}>
       <div className={styles.productDetailsParent}>
@@ -64,35 +80,14 @@ const FrameComponent2 = () => {
             <input className={styles.productState} type="text" id= "inputprecioproducto" useref={ "inputprecioproducto"} />
             <div className={styles.modelo}>Modelo</div>
           </div>
-          <div className={styles.dropdownTipo1}>
-            <div className={styles.dropdownTipoChild} />
-            <div className={styles.selectDropdown}>
-              <div className={styles.seleccionarParent}>
-                <div className={styles.seleccionar}>Seleccionar</div>
-                <img
-                  className={styles.frameChild}
-                  alt=""
-                  src="/polygon-2.svg"
-                />
-              </div>
-            </div>
-            <div className={styles.frameGroup}>
-              <div className={styles.frameWrapper}>
-                <div className={styles.transporteWrapper}>
-                  <div className={styles.transporte}>Transporte</div>
-                </div>
-              </div>
-              <div className={styles.frameContainer}>
-                <div className={styles.maquinariaPesadaWrapper}>
-                  <div className={styles.maquinariaPesada}>
-                    Maquinaria pesada
-                  </div>
-                </div>
-              </div>
-              <div className={styles.frameItem} />
-              <div className={styles.frameInner} />
-            </div>
-          </div>
+
+          <div className = " dropdown-Tipo ">
+            <Select
+                options = { drowpdownTipo }
+                onChange = { handleSelectChange }
+            />
+        </div>          
+          
         </div>
         <div className={styles.frameProductInfo}>
           <div className={styles.saveButton}>
@@ -109,12 +104,16 @@ const FrameComponent2 = () => {
               <input className={styles.dropdownEstadoChild} type="text" id= "inputfabricanteproducto" useref={ "inputfabricanteproducto"}/>
             </div>
           </div>
-          <select id="myDropdown" name="myDropdownName">
-  <option value="option1">Option 1</option>
-  <option value="option2">Option 2</option>
-  <option value="option3">Option 3</option>
-</select>
+          <div>
+            
+          <div className = " dropdown-Estado ">
+            <Select
+                options = { drowpdownEstado }
+                onChange = { handleSelectChange }
+            />
+        </div>
 
+          </div>
         </div>
       </div>
       <div className={styles.saveButtons}>

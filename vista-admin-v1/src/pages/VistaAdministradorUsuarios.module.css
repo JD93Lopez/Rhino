@@ -1,3 +1,5 @@
+
+
 .userCardChild,
 .vistaAdministradorUsuariosChild {
   align-self: stretch;
@@ -300,6 +302,9 @@
   z-index: 1;
 }
 .actualizarUsuario {
+  position: absolute;
+  top: 165px;
+  right: 1000px;
   cursor: pointer;
   border: 1px solid var(--color-gray-200);
   padding: var(--padding-smi) var(--padding-smi) var(--padding-5xs)
@@ -311,6 +316,7 @@
   justify-content: center;
   white-space: nowrap;
 }
+.eliminarUsuariosSeleccionados:hover,
 .actualizarUsuario:hover,
 .crearUsuario:hover,
 .crearUsuarioChild {
@@ -326,6 +332,7 @@
   border: 1px solid var(--color-gray-200);
   display: none;
 }
+.EliminarSeleccionados,
 .crearNuevo {
   position: relative;
   font-size: var(--font-size-mid);
@@ -335,6 +342,9 @@
   z-index: 1;
 }
 .crearUsuario {
+  position: absolute;
+  top: 165px;
+  right: 800px;
   cursor: pointer;
   border: 1px solid var(--color-gray-200);
   padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
@@ -354,6 +364,22 @@
   gap: 0 42px;
   max-width: 100%;
 }
+.eliminarUsuariosSeleccionados{
+  position: absolute;
+  top: 165px;
+  right: 625px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
 .adminProfile,
 .userInfoFrameParent {
   display: flex;

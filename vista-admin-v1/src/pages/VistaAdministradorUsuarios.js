@@ -1,3 +1,4 @@
+// VistaAdminstradorUsuario.js
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import FrameComponent from "../components/FrameComponent";
 import UserInfoFrame from "../components/UserInfoFrame";
@@ -10,13 +11,15 @@ import orden from "../OrdenamientoSimilitud";
 export const SearchContext = React.createContext();
 
 const VistaAdministradorUsuarios = () => {
-  const dataContext = useContext(DataContext)
+  const dataContext = useContext(DataContext);
   const { Loaded, usuarios: usuariosContext } = dataContext;
   if (!Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState('');
+  const [usuariosSeleccionados, setUsuariosSeleccionados] = useState([]);
+
   const onActualizarUsuarioClick = useCallback(() => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
@@ -24,6 +27,26 @@ const VistaAdministradorUsuarios = () => {
   const onCrearUsuarioClick = useCallback(() => {
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
   }, [navigate]);
+
+
+  const manejarSeleccionUsuario = (usuario) => {
+    setUsuariosSeleccionados((prevSeleccionados) => {
+      const usuarioExiste = prevSeleccionados.some((u) => u.email === usuario.email);
+  
+      if (usuarioExiste) {
+        return prevSeleccionados.filter((u) => u.email !== usuario.email);
+      } else {
+        return [...prevSeleccionados, usuario];
+      }
+    });
+  };
+
+  const eliminarUsuariosSeleccionados = (usuariosSeleccionados) => {
+    // Lógica para eliminar los usuarios seleccionados
+    console.log('Usuarios seleccionados a eliminar:', usuariosSeleccionados);
+    // Después de eliminarlos, resetea el estado de usuariosSeleccionados
+    setUsuariosSeleccionados([]);
+  };
 
   //resetear seleccionados
 
@@ -58,8 +81,8 @@ const VistaAdministradorUsuarios = () => {
   }, [busqueda, usuariosContext]);
   
   return (
-    
-    // Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'
+/*Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'*/
+<DataContext.Provider value={{ Loaded, usuarios: usuariosContext, manejarSeleccionUsuario, usuariosSeleccionados }}>
     <SearchContext.Provider value={{ busqueda, setBusqueda }}>
     <div className={styles.vistaAdministradorUsuarios}>
       <div className={styles.vistaAdministradorUsuariosChild} />
@@ -123,6 +146,12 @@ const VistaAdministradorUsuarios = () => {
                 <div className={styles.crearUsuarioChild} />
                 <div className={styles.crearNuevo}>Crear Nuevo</div>
               </button>
+              <button 
+                className={styles.eliminarUsuariosSeleccionados}  
+                onClick={() => eliminarUsuariosSeleccionados(usuariosSeleccionados)}>
+                <div calssName={styles.eliminarusuarioChild} />
+                <div className={styles.EliminarSeleccionados} >Eliminar</div>
+              </button>
             </div>
           </div>
         </section>
@@ -130,6 +159,7 @@ const VistaAdministradorUsuarios = () => {
     </div>
     
     </SearchContext.Provider>
+    </DataContext.Provider>
   );
 };
 
