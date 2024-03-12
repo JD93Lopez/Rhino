@@ -1,0 +1,284 @@
+.informacinPersonal {
+  margin: 0;
+  width: 734px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.rectangleEditInfo {
+  width: 1390px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.fullnameframeChild {
+  width: 1405px;
+  height: 590px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-200);
+  display: none;
+  max-width: 100%;
+}
+.nombreCompleto {
+  position: relative;
+  z-index: 1;
+}
+.nombrecompletoframe {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-11xs);
+}
+.identificacin {
+  position: relative;
+  z-index: 1;
+}
+.nombrecompletoframe1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+}
+.correo1 {
+  position: relative;
+  z-index: 1;
+}
+.nombrecompletoframe2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+}
+.direccin,
+.telfono {
+  position: relative;
+  z-index: 1;
+}
+.correo,
+.nombrecompletoframe3 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.nombrecompletoframe3 {
+  flex-direction: row;
+  padding: 0 var(--padding-9xs);
+}
+.correo {
+  flex-direction: column;
+  gap: 35px 0;
+  min-width: 333px;
+  max-width: 100%;
+}
+.sebastianPicoAfanador {
+  display: inline-block;
+  max-width: 100%;
+}
+.editinfobutton,
+.sebastianPicoAfanador {
+  position: relative;
+  z-index: 1;
+}
+.picoafanadorgmailcom {
+  white-space: nowrap;
+}
+.cll18,
+.editinfobutton1,
+.picoafanadorgmailcom {
+  position: relative;
+  z-index: 1;
+}
+.accountinfoframe {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 35px 0;
+  min-width: 416px;
+  max-width: 100%;
+}
+.addressframe,
+.identificationframe {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.identificationframe {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.addressframe {
+  width: 979px;
+  justify-content: flex-start;
+  padding: 0 var(--padding-25xl);
+  box-sizing: border-box;
+}
+.editarinformacinframe {
+  align-self: stretch;
+  height: 2px;
+  position: relative;
+  background-color: var(--color-white);
+  z-index: 1;
+}
+.emailframe {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px 0;
+  max-width: 100%;
+}
+.botnEdiotarInformacinChild {
+  height: 59px;
+  width: 355px;
+  position: relative;
+  border-radius: var(--br-6xs);
+  background-color: var(--color-white);
+  display: none;
+  max-width: 100%;
+}
+.editarInformacin {
+  position: relative;
+  z-index: 1;
+}
+.botnEdiotarInformacin,
+.profilepictureframe {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.botnEdiotarInformacin {
+  border-radius: var(--br-6xs);
+  background-color: var(--color-white);
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-5xl) var(--padding-xs)
+    var(--padding-3xs);
+  box-sizing: border-box;
+  white-space: nowrap;
+  z-index: 1;
+}
+.profilepictureframe {
+  width: 1127px;
+  justify-content: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-black);
+}
+.frameFullNameIDAddressEm,
+.fullnameframe {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.fullnameframe {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-200);
+  align-items: flex-end;
+  padding: var(--padding-48xl) var(--padding-120xl) var(--padding-29xl)
+    var(--padding-105xl);
+  box-sizing: border-box;
+  gap: 45px 0;
+  font-size: var(--font-size-16xl);
+  font-family: var(--font-jura);
+}
+.frameFullNameIDAddressEm {
+  width: 1405px;
+  align-items: flex-start;
+  gap: 78px 0;
+  text-align: left;
+  font-size: var(--font-size-56xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1225px) {
+  .correo {
+    flex: 1;
+  }
+  .accountinfoframe {
+    flex: 1;
+    min-width: 100%;
+  }
+  .identificationframe {
+    flex-wrap: wrap;
+  }
+  .addressframe,
+  .fullnameframe {
+    padding-left: var(--padding-3xl);
+    padding-right: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .fullnameframe {
+    padding-left: var(--padding-43xl);
+    padding-right: var(--padding-50xl);
+  }
+}
+@media screen and (max-width: 850px) {
+  .informacinPersonal {
+    font-size: var(--font-size-41xl);
+  }
+  .cll18,
+  .correo1,
+  .direccin,
+  .editinfobutton,
+  .editinfobutton1,
+  .identificacin,
+  .nombreCompleto,
+  .picoafanadorgmailcom,
+  .sebastianPicoAfanador,
+  .telfono {
+    font-size: var(--font-size-9xl);
+  }
+  .fullnameframe {
+    gap: 22px 0;
+    padding: var(--padding-25xl) var(--padding-15xl) var(--padding-12xl)
+      var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .frameFullNameIDAddressEm {
+    gap: 39px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .informacinPersonal {
+    font-size: var(--font-size-26xl);
+  }
+  .correo1,
+  .direccin,
+  .identificacin,
+  .nombreCompleto,
+  .telfono {
+    font-size: var(--font-size-2xl);
+  }
+  .correo {
+    gap: 17px 0;
+  }
+  .cll18,
+  .editinfobutton,
+  .editinfobutton1,
+  .picoafanadorgmailcom,
+  .sebastianPicoAfanador {
+    font-size: var(--font-size-2xl);
+  }
+  .accountinfoframe {
+    gap: 17px 0;
+  }
+  .frameFullNameIDAddressEm {
+    gap: 19px 0;
+  }
+}

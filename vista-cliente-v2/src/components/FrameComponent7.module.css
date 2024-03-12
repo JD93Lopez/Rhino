@@ -1,0 +1,158 @@
+.ayudaYAsistencia {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.searchHelpButton {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-32xl);
+}
+.enQuPodemos {
+  margin: 0;
+  position: relative;
+  font-size: var(--font-size-33xl);
+  font-weight: 400;
+  font-family: var(--font-jura);
+}
+.buttonSearchFrame,
+.helpAndAssistanceZone {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.helpAndAssistanceZone {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 111px 0;
+}
+.buttonSearchFrame {
+  width: 985px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.frameChild,
+.lupa5Icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.frameChild {
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gray-100);
+}
+.lupa5Icon {
+  object-fit: cover;
+}
+.botonBuscarAyuda {
+  position: absolute;
+  width: calc(100% - 26px);
+  top: 9px;
+  right: 13px;
+  left: 13px;
+  height: 62px;
+  background-image: url(/public/lupa-5@2x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.botonBuscarAyuda:active,
+.botonBuscarAyuda:hover {
+  cursor: pointer;
+}
+.rectangleParent,
+.searchHelpInputField {
+  height: 80px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gray-100);
+}
+.rectangleParent {
+  width: 88px;
+}
+.searchHelpInputField {
+  flex: 1;
+  min-width: 664px;
+  max-width: 100%;
+}
+.helpFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0 13px;
+  max-width: 100%;
+}
+.helpSearchFrame {
+  width: 1122px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 102px 0;
+  max-width: 100%;
+}
+.helpTextFrame {
+  width: 1592px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-56xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1225px) {
+  .helpSearchFrame {
+    gap: 51px 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .ayudaYAsistencia {
+    font-size: var(--font-size-41xl);
+  }
+  .searchHelpButton {
+    padding-left: var(--padding-6xl);
+    padding-right: var(--padding-6xl);
+    box-sizing: border-box;
+  }
+  .enQuPodemos {
+    font-size: var(--font-size-23xl);
+  }
+  .helpAndAssistanceZone {
+    gap: 55px 0;
+  }
+  .searchHelpInputField {
+    min-width: 100%;
+  }
+  .helpSearchFrame {
+    gap: 25px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .ayudaYAsistencia {
+    font-size: var(--font-size-26xl);
+  }
+  .enQuPodemos {
+    font-size: var(--font-size-12xl);
+  }
+  .helpAndAssistanceZone {
+    gap: 28px 0;
+  }
+}

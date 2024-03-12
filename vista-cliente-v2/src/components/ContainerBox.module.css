@@ -1,0 +1,346 @@
+.powerCapacityEfficiency {
+  height: 513px;
+  width: 1279px;
+  right: -1px;
+  bottom: -659px;
+  object-fit: cover;
+}
+.groupFrameChild,
+.powerCapacityEfficiency,
+.rendimiento {
+  position: absolute;
+  margin: 0 !important;
+}
+.rendimiento {
+  top: 370px;
+  right: 113px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.groupFrameChild {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.potencia {
+  margin: 0;
+  width: 218px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.groupFrame,
+.groupFrameItem {
+  max-width: 100%;
+  overflow: hidden;
+}
+.groupFrame {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-129xl) var(--padding-xl) var(--padding-128xl)
+    var(--padding-12xl);
+  box-sizing: border-box;
+  position: relative;
+  min-width: 391px;
+}
+.groupFrameItem {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  object-fit: cover;
+}
+.eficiencia {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 1;
+}
+.groupFrame1 {
+  width: 572px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-129xl) var(--padding-xl) var(--padding-128xl)
+    var(--padding-42xl);
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+  z-index: 2;
+}
+.groupFrameInner {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 609px;
+  object-fit: cover;
+  z-index: 3;
+}
+.rendimiento1 {
+  margin: 0;
+  position: absolute;
+  top: 148px;
+  left: 161px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 4;
+}
+.groupFrame2 {
+  height: 361px;
+  width: 552px;
+  position: relative;
+  max-width: 100%;
+}
+.infoButtonFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 20px;
+  max-width: 100%;
+}
+.maquinariaPesada {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameChild {
+  height: 82px;
+  width: 304px;
+  position: relative;
+  border-radius: var(--br-lg);
+  background-color: var(--color-gainsboro);
+  border: 8px solid var(--color-darkkhaki);
+  box-sizing: border-box;
+  display: none;
+}
+.maquinariaPesadaParent,
+.phoneNumberFrame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.maquinariaPesadaParent {
+  cursor: pointer;
+  border: 8px solid var(--color-darkkhaki);
+  padding: var(--padding-7xl) var(--padding-xl);
+  background-color: var(--color-gainsboro);
+  border-radius: var(--br-lg);
+  flex-direction: row;
+  z-index: 1;
+}
+.phoneNumberFrame {
+  width: 322px;
+  flex-direction: column;
+  padding: 0 var(--padding-lg) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.marcas {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameItem,
+.marcasParent {
+  border: 8px solid var(--color-darkkhaki);
+  background-color: var(--color-gainsboro);
+  width: 304px;
+  border-radius: var(--br-lg);
+  box-sizing: border-box;
+}
+.frameItem {
+  height: 82px;
+  position: relative;
+  display: none;
+}
+.marcasParent {
+  cursor: pointer;
+  padding: var(--padding-7xl) var(--padding-xl) var(--padding-7xl)
+    var(--padding-2xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1;
+}
+.vehculos {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameInner {
+  height: 82px;
+  width: 304px;
+  position: relative;
+  border-radius: var(--br-lg);
+  background-color: var(--color-gainsboro);
+  border: 8px solid var(--color-darkkhaki);
+  box-sizing: border-box;
+  display: none;
+}
+.moreFrame,
+.possibleImpossibleFrame,
+.vehculosParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.vehculosParent {
+  cursor: pointer;
+  border: 8px solid var(--color-darkkhaki);
+  padding: var(--padding-7xl) var(--padding-59xl) var(--padding-7xl)
+    var(--padding-60xl);
+  background-color: var(--color-gainsboro);
+  border-radius: var(--br-lg);
+  justify-content: flex-start;
+  z-index: 1;
+}
+.moreFrame,
+.possibleImpossibleFrame {
+  max-width: 100%;
+}
+.moreFrame {
+  width: 1468px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.possibleImpossibleFrame {
+  width: 1686px;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.containerBox,
+.powerFrame,
+.wheelLoaderFrame {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.wheelLoaderFrame {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 45px 0;
+}
+.containerBox,
+.powerFrame {
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.powerFrame {
+  flex: 1;
+  padding: 0 0 var(--padding-319xl) var(--padding-10xs);
+}
+.containerBox {
+  align-self: stretch;
+  height: 488px;
+  padding: 0 var(--padding-12xs) 0 0;
+  position: relative;
+  text-align: left;
+  font-size: var(--font-size-35xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1350px) {
+  .containerBox {
+    height: auto;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .moreFrame {
+    flex-wrap: wrap;
+  }
+  .powerFrame {
+    padding-bottom: var(--padding-201xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  .eficiencia,
+  .potencia,
+  .rendimiento,
+  .rendimiento1 {
+    font-size: var(--font-size-24xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .potencia,
+  .rendimiento {
+    font-size: var(--font-size-13xl);
+  }
+  .groupFrame {
+    padding-top: var(--padding-77xl);
+    padding-bottom: var(--padding-77xl);
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .eficiencia {
+    font-size: var(--font-size-13xl);
+  }
+  .groupFrame1 {
+    padding-left: var(--padding-xl);
+    padding-top: var(--padding-77xl);
+    padding-bottom: var(--padding-77xl);
+    box-sizing: border-box;
+  }
+  .rendimiento1 {
+    font-size: var(--font-size-13xl);
+  }
+  .maquinariaPesada,
+  .marcas,
+  .vehculos {
+    font-size: var(--font-size-xl);
+  }
+  .vehculosParent {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .wheelLoaderFrame {
+    gap: 22px 0;
+  }
+  .powerFrame {
+    padding-bottom: var(--padding-124xl);
+    box-sizing: border-box;
+  }
+}

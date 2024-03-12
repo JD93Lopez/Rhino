@@ -1,0 +1,212 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.rentalos {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.cargadorDeCadenasSinFonod,
+.compactadoraSinFondo1 {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: cover;
+  z-index: 1;
+}
+.compactadoraSinFondo1 {
+  height: 302px;
+  width: 529px;
+  top: -169px;
+  right: 85px;
+}
+.cargadorDeCadenasSinFonod {
+  height: 352px;
+  width: 528px;
+  bottom: -281px;
+  left: 55px;
+}
+.maquinaSinFondo2 {
+  height: 374px;
+  width: 499px;
+  bottom: -268px;
+  left: 606px;
+}
+.camionobrasSinFondo1,
+.cargadoraDeRuedasSinFondo,
+.maquinaSinFondo2 {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: cover;
+  z-index: 1;
+}
+.cargadoraDeRuedasSinFondo {
+  height: 433px;
+  width: 577px;
+  right: 14px;
+  bottom: -321px;
+}
+.camionobrasSinFondo1 {
+  height: 356px;
+  width: 474px;
+  top: -197px;
+  left: 604px;
+}
+.facebookButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.signoMasEnUnCirculoBlanco,
+.signoMasEnUnCirculoBlanco1,
+.signoMasEnUnCirculoBlanco2 {
+  position: absolute;
+  top: 286px;
+  width: 51px;
+  height: 51px;
+  background-image: url(/public/boton-info-maq@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.signoMasEnUnCirculoBlanco {
+  left: 304px;
+  cursor: pointer;
+}
+.signoMasEnUnCirculoBlanco1:active,
+.signoMasEnUnCirculoBlanco2:active,
+.signoMasEnUnCirculoBlanco:active {
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.signoMasEnUnCirculoBlanco1,
+.signoMasEnUnCirculoBlanco2 {
+  left: 816px;
+}
+.signoMasEnUnCirculoBlanco2 {
+  left: 1395px;
+}
+.youtubeButton {
+  height: calc(100% - 332px);
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 332px;
+  left: 0;
+  font-size: var(--font-size-441xl);
+  color: var(--color-gray-500);
+  font-family: var(--font-impact);
+}
+.manipuladorDeMetales {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 2;
+}
+.caminDeObras {
+  position: relative;
+  z-index: 1;
+}
+.manipuladorDeMetalesParent {
+  width: 798px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 223px;
+  max-width: 100%;
+}
+.aplanadora {
+  position: relative;
+  z-index: 1;
+}
+.cellularAndTelephone {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-152xl) var(--padding-205xl) 0 var(--padding-140xl);
+  box-sizing: border-box;
+  position: relative;
+  min-height: 893px;
+  max-width: 100%;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1500px) {
+  .cellularAndTelephone {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1225px) {
+  .manipuladorDeMetalesParent {
+    flex-wrap: wrap;
+  }
+  .cellularAndTelephone {
+    padding-left: var(--padding-60xl);
+    padding-right: var(--padding-93xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 850px) {
+  .rentalos {
+    font-size: var(--font-size-165xl);
+  }
+  .manipuladorDeMetalesParent {
+    gap: 0 111px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rentalos {
+    font-size: var(--font-size-96xl);
+  }
+  .caminDeObras,
+  .manipuladorDeMetales {
+    font-size: var(--font-size-xl);
+  }
+  .manipuladorDeMetalesParent {
+    gap: 0 56px;
+  }
+  .aplanadora {
+    font-size: var(--font-size-xl);
+  }
+  .cellularAndTelephone {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

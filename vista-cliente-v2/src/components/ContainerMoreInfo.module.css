@@ -1,0 +1,345 @@
+.rectangleBaseIcon {
+  height: 513px;
+  width: 1279px;
+  right: -1px;
+  bottom: -726px;
+  object-fit: cover;
+}
+.nestedFramesIcon,
+.rectangleBaseIcon,
+.rendimiento {
+  position: absolute;
+  margin: 0 !important;
+}
+.rendimiento {
+  top: 148px;
+  right: 114px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.nestedFramesIcon {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.potencia {
+  margin: 0;
+  width: 218px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.rectanglePotencyEfficiencyR {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-129xl) var(--padding-xl) var(--padding-128xl)
+    var(--padding-12xl);
+  box-sizing: border-box;
+  position: relative;
+  min-width: 391px;
+  max-width: 100%;
+}
+.rectanglePotencyEfficiencyRChild {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.eficiencia {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 1;
+}
+.rectanglePotencyEfficiencyR1 {
+  width: 572px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-129xl) var(--padding-xl) var(--padding-128xl)
+    var(--padding-42xl);
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+  z-index: 2;
+}
+.rectanglePotencyEfficiencyRItem {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  width: 609px;
+  object-fit: cover;
+  z-index: 3;
+}
+.rendimiento1 {
+  margin: 0;
+  position: absolute;
+  top: 148px;
+  left: 161px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 4;
+}
+.rectanglePotencyEfficiencyR2 {
+  height: 361px;
+  width: 553px;
+  position: relative;
+  max-width: 100%;
+}
+.textMarksVehicles {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 20px;
+  max-width: 100%;
+}
+.maquinariaPesada {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameChild {
+  height: 82px;
+  width: 304px;
+  position: relative;
+  border-radius: var(--br-lg);
+  background-color: var(--color-gainsboro);
+  border: 8px solid var(--color-darkkhaki);
+  box-sizing: border-box;
+  display: none;
+}
+.frameHeavyEquipment,
+.maquinariaPesadaParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.maquinariaPesadaParent {
+  cursor: pointer;
+  border: 8px solid var(--color-darkkhaki);
+  padding: var(--padding-7xl) var(--padding-xl);
+  background-color: var(--color-gainsboro);
+  border-radius: var(--br-lg);
+  flex-direction: row;
+  z-index: 1;
+}
+.frameHeavyEquipment {
+  width: 322px;
+  flex-direction: column;
+  padding: 0 var(--padding-lg) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.marcas {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameItem,
+.marcasParent {
+  border: 8px solid var(--color-darkkhaki);
+  background-color: var(--color-gainsboro);
+  width: 304px;
+  border-radius: var(--br-lg);
+  box-sizing: border-box;
+}
+.frameItem {
+  height: 82px;
+  position: relative;
+  display: none;
+}
+.marcasParent {
+  cursor: pointer;
+  padding: var(--padding-7xl) var(--padding-xl) var(--padding-7xl)
+    var(--padding-2xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1;
+}
+.vehculos {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameInner,
+.vehculosParent {
+  border: 8px solid var(--color-darkkhaki);
+  background-color: var(--color-gainsboro);
+  border-radius: var(--br-lg);
+}
+.frameInner {
+  height: 82px;
+  width: 304px;
+  position: relative;
+  box-sizing: border-box;
+  display: none;
+}
+.vehculosParent {
+  cursor: pointer;
+  padding: var(--padding-7xl) var(--padding-59xl) var(--padding-7xl)
+    var(--padding-60xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+}
+.groupMarksVehiclesHeavyEqu,
+.nestedFrames {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.groupMarksVehiclesHeavyEqu {
+  width: 1468px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.nestedFrames {
+  width: 1706px;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.containerMoreInfo,
+.frameGroup,
+.groupMarkVehicles {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.groupMarkVehicles {
+  flex: 1;
+  flex-direction: column;
+  gap: 71px 0;
+}
+.containerMoreInfo,
+.frameGroup {
+  flex-direction: row;
+}
+.frameGroup {
+  flex: 1;
+  padding: 0 0 var(--padding-386xl) var(--padding-11xs);
+  box-sizing: border-box;
+}
+.containerMoreInfo {
+  align-self: stretch;
+  height: 514px;
+  position: relative;
+  text-align: left;
+  font-size: var(--font-size-35xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1500px) {
+  .containerMoreInfo {
+    height: auto;
+  }
+}
+@media screen and (max-width: 1225px) {
+  .groupMarksVehiclesHeavyEqu {
+    flex-wrap: wrap;
+  }
+  .groupMarkVehicles {
+    gap: 35px 0;
+  }
+  .frameGroup {
+    padding-bottom: var(--padding-244xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 850px) {
+  .eficiencia,
+  .potencia,
+  .rendimiento,
+  .rendimiento1 {
+    font-size: var(--font-size-24xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .potencia,
+  .rendimiento {
+    font-size: var(--font-size-13xl);
+  }
+  .rectanglePotencyEfficiencyR {
+    padding-top: var(--padding-77xl);
+    padding-bottom: var(--padding-77xl);
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .eficiencia {
+    font-size: var(--font-size-13xl);
+  }
+  .rectanglePotencyEfficiencyR1 {
+    padding-left: var(--padding-xl);
+    padding-top: var(--padding-77xl);
+    padding-bottom: var(--padding-77xl);
+    box-sizing: border-box;
+  }
+  .rendimiento1 {
+    font-size: var(--font-size-13xl);
+  }
+  .maquinariaPesada,
+  .marcas,
+  .vehculos {
+    font-size: var(--font-size-xl);
+  }
+  .vehculosParent {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .groupMarkVehicles {
+    gap: 18px 0;
+  }
+  .frameGroup {
+    padding-bottom: var(--padding-152xl);
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,221 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.imagenMaquinaCarrito {
+  width: 347px;
+  border-radius: var(--br-7xs);
+  max-height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+.imagenMaquinaCarrito,
+.textoInfo {
+  position: relative;
+  z-index: 1;
+}
+.botonEliminarProducto,
+.textoInfo1 {
+  position: relative;
+  font-weight: 500;
+  z-index: 1;
+}
+.infoTextProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px 0;
+}
+.textoCantidad {
+  position: relative;
+  font-weight: 500;
+  z-index: 1;
+}
+.productContainer {
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.inputCantidad {
+  height: 35px;
+  width: 95px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-white);
+  z-index: 1;
+}
+.inputCantidad:active,
+.inputCantidad:hover {
+  cursor: text;
+}
+.consultPriceButton {
+  align-self: stretch;
+  flex-direction: row;
+  gap: 0 62px;
+}
+.cartBorder,
+.consultPriceButton,
+.deleteProductButton,
+.infoText {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.deleteProductButton {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 25px 0;
+}
+.cartBorder,
+.infoText {
+  max-width: 100%;
+}
+.cartBorder {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-8xl) 0 0;
+  box-sizing: border-box;
+  min-width: 497px;
+}
+.infoText {
+  width: 1148px;
+  flex-direction: row;
+  gap: 0 36px;
+}
+.yTButtonChild {
+  height: 48px;
+  width: 279px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-sandybrown-100);
+  display: none;
+}
+.consultarPrecio {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.consultarPrecio:hover {
+  cursor: pointer;
+}
+.consultarPrecio:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonConsultarPrecio {
+  flex-direction: row;
+  cursor: pointer;
+  z-index: 2;
+}
+.botonConsultarPrecio,
+.socialMediaFrame,
+.yTButton {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.yTButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-4xs) var(--padding-mid);
+  background-color: var(--color-sandybrown-100);
+  border-radius: var(--br-8xs);
+  flex-direction: row;
+  z-index: 1;
+}
+.socialMediaFrame {
+  flex-direction: column;
+  padding: var(--padding-56xl) 0 0;
+}
+.backgroundFrame,
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.imageContainer {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.backgroundFrame {
+  align-self: stretch;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xl) 0 var(--padding-5xl);
+  box-sizing: border-box;
+  text-align: justify;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1575px) {
+  .imageContainer {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1275px) {
+  .imagenMaquinaCarrito {
+    flex: 1;
+  }
+  .infoText {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 825px) {
+  .botonEliminarProducto,
+  .textoCantidad,
+  .textoInfo,
+  .textoInfo1 {
+    font-size: var(--font-size-5xl);
+  }
+  .consultPriceButton {
+    flex-wrap: wrap;
+    gap: 0 31px;
+  }
+  .cartBorder {
+    min-width: 100%;
+  }
+  .infoText {
+    gap: 0 18px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .botonEliminarProducto,
+  .textoCantidad,
+  .textoInfo,
+  .textoInfo1 {
+    font-size: var(--font-size-lg);
+  }
+  .consultPriceButton {
+    gap: 0 15px;
+  }
+  .consultarPrecio {
+    font-size: var(--font-size-xl);
+  }
+}

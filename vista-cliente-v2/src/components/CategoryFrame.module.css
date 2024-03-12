@@ -1,0 +1,857 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.machineNameFrame,
+.machineryFrameChild {
+  height: 38px;
+  position: relative;
+  border-radius: var(--br-8xs);
+}
+.machineNameFrame {
+  align-self: stretch;
+  background-color: var(--color-white);
+}
+.machineryFrameChild {
+  width: 399px;
+  background-color: var(--color-sandybrown-100);
+  display: none;
+  max-width: 100%;
+}
+.cartButtonFrame,
+.maquinaria {
+  position: relative;
+  z-index: 1;
+}
+.cartButtonFrame {
+  width: 26px;
+  height: 8.8px;
+}
+.vectorFrame1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xs) 0 0;
+}
+.machineNameFrameChild,
+.machineryFrame {
+  border-radius: var(--br-8xs);
+  background-color: var(--color-sandybrown-100);
+  max-width: 100%;
+}
+.machineryFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-10xs) var(--padding-smi) var(--padding-9xs)
+    var(--padding-2xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+}
+.machineNameFrameChild {
+  height: 38px;
+  width: 399px;
+  position: relative;
+  display: none;
+}
+.groupFrameIcon,
+.vehculos {
+  position: relative;
+  z-index: 1;
+}
+.groupFrameIcon {
+  width: 26px;
+  height: 8.8px;
+}
+.machineNameFrame1,
+.vectorFrame2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xs) 0 0;
+}
+.machineNameFrame1 {
+  flex: 1;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-sandybrown-100);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--padding-10xs) var(--padding-sm) var(--padding-9xs)
+    var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.productItemFrame,
+.vectorFrame,
+.wheelsFrame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.wheelsFrame {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+.productItemFrame,
+.vectorFrame {
+  flex-direction: column;
+}
+.vectorFrame {
+  align-self: stretch;
+  gap: 9px 0;
+}
+.productItemFrame {
+  width: 400px;
+  gap: 30px 0;
+  min-width: 400px;
+}
+.materialesSinFondo2 {
+  width: 476px;
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+.frameChild {
+  align-self: stretch;
+  height: 698px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  display: none;
+}
+.manipuladoraDe,
+.materialesDeRuedas,
+.mh3050 {
+  margin: 0;
+}
+.nombreMaquina {
+  height: 105px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(-0.52deg);
+}
+.detallesFrame {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-36xl) 0 var(--padding-35xl);
+}
+.detalles {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonDetalles,
+.productBox {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.botonDetalles {
+  cursor: pointer;
+  border: 0;
+  padding: 7.2000000000000455px var(--padding-xl) 7.299999999999955px;
+  background-color: var(--color-sandybrown-100);
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: center;
+  transform: rotate(-0.52deg);
+}
+.botonDetalles:hover {
+  background-color: var(--color-darkgoldenrod);
+  cursor: pointer;
+}
+.botonDetalles:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.productBox {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 9.3px 0;
+}
+.anadirAlCarrito1Icon {
+  height: 45px;
+  width: 45px;
+  position: relative;
+  object-fit: contain;
+  transform: rotate(0.52deg);
+}
+.botonAgregarCarrito,
+.vectorElement {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.botonAgregarCarrito {
+  cursor: pointer;
+  border: 3px solid var(--color-sandybrown-100);
+  padding: var(--padding-6xs) var(--padding-17xl) var(--padding-6xs)
+    var(--padding-22xl);
+  background-color: var(--color-sandybrown-200);
+  width: 127.5px;
+  border-radius: var(--br-7xs);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: rotate(-0.52deg);
+}
+.botonAgregarCarrito:hover {
+  cursor: pointer;
+}
+.botonAgregarCarrito:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.vectorElement {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.addToCartButtonFrame {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16.2px 0;
+  max-width: 100%;
+}
+.detailsButtonFrame,
+.materialesSinFondo2Parent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.detailsButtonFrame {
+  width: 455.4px;
+  height: 244.1px;
+  flex-direction: row;
+  padding: 0 var(--padding-lgi);
+}
+.materialesSinFondo2Parent {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  flex-direction: column;
+  padding: var(--padding-33xl) 0 18.899999999999977px;
+  gap: var(--gap-7xl);
+  z-index: 1;
+}
+.cargadoraDeRuedasSinFondo {
+  width: 465px;
+  position: relative;
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  z-index: 2;
+}
+.wheeledEquipmentBoxChild {
+  align-self: stretch;
+  height: 698px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  display: none;
+}
+.nombreMaquina1 {
+  position: relative;
+  transform: rotate(-0.52deg);
+}
+.addToCartButton {
+  height: 49.8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-19xl) 11.700000000000044px var(--padding-18xl);
+  box-sizing: border-box;
+}
+.detalles1 {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonDetalles1 {
+  cursor: pointer;
+  border: 0;
+  padding: 7.2000000000000455px var(--padding-xl) 7.299999999999955px;
+  background-color: var(--color-sandybrown-100);
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  transform: rotate(-0.52deg);
+}
+.botonDetalles1:hover {
+  background-color: var(--color-darkgoldenrod);
+  cursor: pointer;
+}
+.botonDetalles1:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.anadirAlCarrito1Icon1 {
+  height: 45px;
+  width: 45px;
+  position: relative;
+  object-fit: contain;
+  transform: rotate(0.52deg);
+}
+.botonAgregarCarrito1,
+.cartIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.botonAgregarCarrito1 {
+  cursor: pointer;
+  border: 3px solid var(--color-sandybrown-100);
+  padding: var(--padding-6xs) var(--padding-17xl) var(--padding-6xs)
+    var(--padding-22xl);
+  background-color: var(--color-sandybrown-200);
+  width: 127.5px;
+  border-radius: var(--br-7xs);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: rotate(-0.52deg);
+}
+.botonAgregarCarrito1:hover {
+  cursor: pointer;
+}
+.botonAgregarCarrito1:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.cartIcon {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.detailedView {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16.2px 0;
+}
+.contactInfoFrame,
+.detailedView,
+.machineName,
+.wheeledEquipmentBox {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.machineName {
+  width: 439.4px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-2xs);
+  box-sizing: border-box;
+}
+.contactInfoFrame,
+.wheeledEquipmentBox {
+  align-self: stretch;
+  flex-direction: column;
+}
+.wheeledEquipmentBox {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  align-items: flex-start;
+  padding: var(--padding-38xl) 0 18.90000000000009px var(--padding-5xs);
+  gap: 80px 0;
+  z-index: 1;
+}
+.contactInfoFrame {
+  align-items: flex-end;
+  gap: 87px 0;
+}
+.backgroundFrame,
+.groupFrame {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.backgroundFrame {
+  width: 486px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+  min-width: 486px;
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+}
+.groupFrame {
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.camionobrasSinFondo3,
+.frameItem {
+  align-self: stretch;
+  position: relative;
+}
+.camionobrasSinFondo3 {
+  flex: 1;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+.frameItem {
+  height: 698px;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  display: none;
+}
+.nombreMaquina2 {
+  flex: 1;
+  position: relative;
+  transform: rotate(-0.52deg);
+}
+.nombreMaquinaWrapper {
+  align-self: stretch;
+  height: 37.3px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-57xl) 0 var(--padding-56xl);
+  box-sizing: border-box;
+}
+.detalles2 {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonDetalles2 {
+  cursor: pointer;
+  border: 0;
+  padding: 7.2000000000000455px var(--padding-xl) 7.299999999999955px;
+  background-color: var(--color-sandybrown-100);
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  transform: rotate(-0.52deg);
+}
+.botonDetalles2:hover {
+  background-color: var(--color-darkgoldenrod);
+  cursor: pointer;
+}
+.botonDetalles2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.anadirAlCarrito1Icon2 {
+  height: 45px;
+  width: 45px;
+  position: relative;
+  object-fit: contain;
+  transform: rotate(0.52deg);
+}
+.botonAgregarCarrito2,
+.vectorElement1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.botonAgregarCarrito2 {
+  cursor: pointer;
+  border: 3px solid var(--color-sandybrown-100);
+  padding: var(--padding-6xs) var(--padding-17xl) var(--padding-6xs)
+    var(--padding-22xl);
+  background-color: var(--color-sandybrown-200);
+  width: 127.5px;
+  border-radius: var(--br-7xs);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: rotate(-0.52deg);
+}
+.botonAgregarCarrito2:hover {
+  cursor: pointer;
+}
+.botonAgregarCarrito2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.vectorElement1 {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.detailsButton {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16.45px 0;
+  max-width: 100%;
+}
+.camionobrasSinFondo3Parent,
+.detailedView1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-7xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.camionobrasSinFondo3Parent {
+  flex: 1;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  flex-direction: column;
+  padding: var(--padding-17xl) var(--padding-10xs) 18.899999999999977px;
+  gap: 106px 0;
+  z-index: 1;
+}
+.compactadoraSinFondo2 {
+  width: 464px;
+  position: relative;
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  z-index: 2;
+}
+.contactUsChild {
+  align-self: stretch;
+  height: 698px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  display: none;
+}
+.nombreMaquina3 {
+  position: relative;
+  transform: rotate(-0.52deg);
+}
+.nombreMaquinaContainer {
+  align-self: stretch;
+  height: 36.7px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.detalles3 {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+}
+.botonDetalles3 {
+  cursor: pointer;
+  border: 0;
+  padding: 7.2000000000000455px var(--padding-xl) 7.299999999999955px;
+  background-color: var(--color-sandybrown-100);
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  transform: rotate(-0.52deg);
+}
+.botonDetalles3:hover {
+  background-color: var(--color-darkgoldenrod);
+  cursor: pointer;
+}
+.botonDetalles3:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.anadirAlCarrito1Icon3 {
+  height: 45px;
+  width: 45px;
+  position: relative;
+  object-fit: contain;
+  transform: rotate(0.52deg);
+}
+.addToCartButton1,
+.botonAgregarCarrito3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.botonAgregarCarrito3 {
+  cursor: pointer;
+  border: 3px solid var(--color-sandybrown-100);
+  padding: var(--padding-6xs) var(--padding-17xl) var(--padding-6xs)
+    var(--padding-22xl);
+  background-color: var(--color-sandybrown-200);
+  width: 127.5px;
+  border-radius: var(--br-7xs);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: rotate(-0.52deg);
+}
+.botonAgregarCarrito3:hover {
+  cursor: pointer;
+}
+.botonAgregarCarrito3:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.addToCartButton1 {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.frameParent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16.1px 0;
+  max-width: 100%;
+}
+.contactUs,
+.contactUsInner {
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+.contactUsInner {
+  width: 459.4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--padding-2xl);
+  max-width: 100%;
+}
+.contactUs {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gainsboro);
+  border: 5px solid var(--color-sandybrown-100);
+  flex-direction: column;
+  padding: var(--padding-71xl) var(--padding-12xs) 18.90000000000009px
+    var(--padding-5xs);
+  gap: 144.3px 0;
+  z-index: 1;
+}
+.categoryFrame,
+.contactFrame,
+.contactUs {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.contactFrame {
+  height: 1483px;
+  width: 483px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 87px 0;
+  min-width: 483px;
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+}
+.categoryFrame {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0 74px;
+  text-align: left;
+  font-size: var(--font-size-7xl);
+  color: var(--color-black);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1275px) {
+  .contactFrame {
+    flex: 1;
+  }
+  .categoryFrame {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .backgroundFrame,
+  .productItemFrame {
+    flex: 1;
+  }
+  .groupFrame {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 750px) {
+  .productItemFrame {
+    min-width: 100%;
+  }
+  .detalles,
+  .nombreMaquina {
+    font-size: var(--font-size-5xl);
+  }
+  .materialesSinFondo2Parent {
+    padding-top: var(--padding-15xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .detalles1,
+  .nombreMaquina1 {
+    font-size: var(--font-size-5xl);
+  }
+  .wheeledEquipmentBox {
+    gap: 40px 0;
+    padding-top: var(--padding-18xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .contactInfoFrame {
+    gap: 43px 0;
+  }
+  .backgroundFrame,
+  .groupFrame {
+    min-width: 100%;
+  }
+  .detalles2,
+  .nombreMaquina2 {
+    font-size: var(--font-size-5xl);
+  }
+  .camionobrasSinFondo3Parent {
+    gap: 53px 0;
+    padding-top: var(--padding-4xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .detalles3,
+  .nombreMaquina3 {
+    font-size: var(--font-size-5xl);
+  }
+  .contactUs {
+    gap: 72px 0;
+    padding-top: var(--padding-39xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .contactFrame {
+    gap: 43px 0;
+    min-width: 100%;
+  }
+  .categoryFrame {
+    gap: 0 37px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .maquinaria,
+  .vehculos {
+    font-size: var(--font-size-2xl);
+  }
+  .nombreMaquina {
+    font-size: var(--font-size-lg);
+  }
+  .detallesFrame {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .detalles,
+  .detalles1,
+  .nombreMaquina1,
+  .nombreMaquina2 {
+    font-size: var(--font-size-lg);
+  }
+  .nombreMaquinaWrapper {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .detalles2,
+  .detalles3,
+  .nombreMaquina3 {
+    font-size: var(--font-size-lg);
+  }
+  .categoryFrame {
+    gap: 0 18px;
+  }
+}

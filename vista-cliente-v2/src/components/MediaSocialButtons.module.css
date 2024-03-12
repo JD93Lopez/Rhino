@@ -1,0 +1,139 @@
+.ul {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: var(--padding-21xl);
+}
+.textoCelular {
+  align-self: stretch;
+  height: 44px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.textoCelular:hover {
+  font-weight: 700;
+  font-family: var(--font-jura);
+  text-align: left;
+}
+.textoCelular:active {
+  cursor: default;
+}
+.frameGroups {
+  width: 227px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+}
+.ul1 {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: var(--padding-21xl);
+}
+.textoTelefono {
+  align-self: stretch;
+  height: 44px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.frameGroups1 {
+  width: 177px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+}
+.botonXChild {
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  margin: 0 !important;
+  top: 5px;
+  left: 4px;
+  background-color: var(--color-white);
+}
+.gorjeo1Icon {
+  height: 54px;
+  width: 54px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.botonX {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  gap: 0 10px;
+}
+.botonFacebookIcon:active,
+.botonFacebookIcon:hover,
+.botonInstaIcon:active,
+.botonInstaIcon:hover,
+.botonX:active,
+.botonX:hover,
+.botonYtIcon:active,
+.botonYtIcon:hover {
+  cursor: pointer;
+}
+.botonFacebookIcon,
+.botonInstaIcon,
+.botonYtIcon {
+  height: 54px;
+  width: 54px;
+  position: relative;
+  object-fit: cover;
+  min-height: 54px;
+}
+.mediaSocialButtons {
+  align-self: stretch;
+  background-color: var(--color-gray-400);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-xl) var(--padding-77xl) var(--padding-xl)
+    var(--padding-83xl);
+  gap: var(--gap-xl);
+  z-index: 2;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1225px) {
+  .mediaSocialButtons {
+    flex-wrap: wrap;
+    padding-left: var(--padding-32xl);
+    padding-right: var(--padding-29xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 850px) {
+  .textoCelular,
+  .textoTelefono {
+    font-size: var(--font-size-5xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .textoCelular,
+  .textoTelefono {
+    font-size: var(--font-size-lg);
+  }
+  .mediaSocialButtons {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

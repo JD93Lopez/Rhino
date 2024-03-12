@@ -1,0 +1,303 @@
+.nombre {
+  position: relative;
+  font-weight: 600;
+}
+.apellidoTelfonoDireccionBox {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+}
+.apellidoTelfonoDireccionBox:active,
+.apellidoTelfonoDireccionBox:hover,
+.contactInfoRectangle:active,
+.contactInfoRectangle:hover,
+.nombreEmpresaRectangleChild:active,
+.nombreEmpresaRectangleChild:hover,
+.plazoCompraTextChild:active,
+.plazoCompraTextChild:hover,
+.plazoCompraTextItem:active,
+.plazoCompraTextItem:hover,
+.vector:active,
+.vector:hover {
+  cursor: text;
+}
+.nombreEmpresaRectangle1 {
+  align-self: stretch;
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px 0;
+}
+.correoElectrnico {
+  position: relative;
+  font-weight: 600;
+}
+.contactInfoRectangle {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+  max-width: 100%;
+}
+.attentionToClientText,
+.buyingInfoVector {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.attentionToClientText {
+  flex: 1;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.buyingInfoVector {
+  height: 113px;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.empresa {
+  position: relative;
+  font-weight: 600;
+}
+.nombreEmpresaRectangleChild {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+}
+.firstLastAddressBox,
+.nombreEmpresaRectangle2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.nombreEmpresaRectangle2 {
+  align-self: stretch;
+  height: 113px;
+  align-items: flex-start;
+  gap: 16px 0;
+}
+.firstLastAddressBox {
+  flex: 1;
+  align-items: flex-end;
+  gap: 51.5px 0;
+  min-width: 437px;
+  max-width: 100%;
+}
+.apellido {
+  width: 144px;
+  border: 0;
+  outline: 0;
+  font-weight: 600;
+  font-family: var(--font-jura);
+  font-size: var(--font-size-14xl);
+  background-color: transparent;
+  height: 39px;
+  position: relative;
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  padding: 0;
+}
+.vector {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+}
+.plazoCompraText {
+  align-self: stretch;
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px 0;
+}
+.telfono {
+  position: relative;
+  font-weight: 600;
+}
+.plazoCompraTextChild {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+}
+.plazoCompraText1 {
+  align-self: stretch;
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px 0;
+}
+.direccinDeLa {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  max-width: 100%;
+}
+.plazoCompraTextItem {
+  align-self: stretch;
+  height: 58px;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+}
+.plazoCompraText2 {
+  align-self: stretch;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.apellidoTelFoneAddressFram,
+.nombreEmpresaRectangle,
+.plazoCompraText2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.apellidoTelFoneAddressFram {
+  flex: 1;
+  flex-direction: column;
+  gap: 51.5px 0;
+  min-width: 434px;
+}
+.nombreEmpresaRectangle {
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 178px;
+}
+.plazoDeCompra {
+  position: relative;
+  font-weight: 600;
+}
+.frameChild {
+  height: 58px;
+  width: 667px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  display: none;
+  max-width: 100%;
+}
+.contactUsGroup {
+  height: 9px;
+  width: 29px;
+  position: relative;
+  z-index: 1;
+}
+.contactInfoFrame,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.rectangleParent {
+  align-self: stretch;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: var(--padding-10xl) var(--padding-6xl) var(--padding-xl);
+  box-sizing: border-box;
+}
+.contactInfoFrame {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px 0;
+}
+.contactUsFrame {
+  width: 677px;
+  flex-direction: row;
+  padding: 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.contactUsFrame,
+.logoButtonRectangle,
+.productsAndAboutUsFrame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.productsAndAboutUsFrame {
+  flex: 1;
+  flex-direction: column;
+  gap: 52px 0;
+}
+.logoButtonRectangle {
+  width: 1627px;
+  flex-direction: row;
+  padding: 0 var(--padding-36xl) var(--padding-9xs);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-14xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1200px) {
+  .nombreEmpresaRectangle {
+    gap: 0 89px;
+  }
+  .logoButtonRectangle {
+    padding-left: var(--padding-8xl);
+    padding-right: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .apellido,
+  .correoElectrnico,
+  .direccinDeLa,
+  .empresa,
+  .nombre,
+  .plazoDeCompra,
+  .telfono {
+    font-size: var(--font-size-7xl);
+  }
+}
+@media screen and (max-width: 750px) {
+  .apellidoTelFoneAddressFram,
+  .firstLastAddressBox {
+    gap: 26px 0;
+    min-width: 100%;
+  }
+  .nombreEmpresaRectangle {
+    gap: 0 44px;
+  }
+  .productsAndAboutUsFrame {
+    gap: 26px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .apellido,
+  .correoElectrnico,
+  .direccinDeLa,
+  .empresa,
+  .nombre,
+  .telfono {
+    font-size: var(--font-size-xl);
+  }
+  .nombreEmpresaRectangle {
+    gap: 0 22px;
+  }
+  .plazoDeCompra {
+    font-size: var(--font-size-xl);
+  }
+}

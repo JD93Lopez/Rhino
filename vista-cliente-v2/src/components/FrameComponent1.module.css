@@ -1,0 +1,134 @@
+.alquilaMaquinaria,
+.desataTuGrandeza {
+  margin: 0;
+}
+.alquilaMaquinariaDesataContainer {
+  position: absolute;
+  top: 122px;
+  left: 408px;
+  font-weight: 600;
+  display: inline-block;
+  width: 415px;
+  height: 61px;
+  z-index: 1;
+}
+.haciendoPosibleLo {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.textVision {
+  position: absolute;
+  top: 98px;
+  left: 376px;
+  background-color: var(--color-sandybrown-100);
+  width: 283px;
+  height: 7px;
+  z-index: 1;
+}
+.haciendoPosibleLoImposibleParent {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 794px;
+  font-size: var(--font-size-71xl);
+  font-family: var(--font-impact);
+}
+.alquilaMaquinariaDesataTuParent {
+  height: 244px;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+}
+.frameContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-2xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.visin {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.visionTextChild {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 160px;
+  height: 5px;
+  z-index: 2;
+}
+.visionText {
+  width: 163px;
+  height: 73px;
+  position: relative;
+  font-size: var(--font-size-41xl);
+  font-family: var(--font-impact);
+}
+.frameParent {
+  width: 834px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 19px 0;
+  max-width: 100%;
+}
+.frameWrapper {
+  width: 1412px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-8xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-16xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 900px) {
+  .alquilaMaquinariaDesataContainer {
+    font-size: var(--font-size-9xl);
+  }
+  .haciendoPosibleLo {
+    font-size: var(--font-size-26xl);
+  }
+  .visin {
+    font-size: var(--font-size-29xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .alquilaMaquinariaDesataContainer {
+    font-size: var(--font-size-2xl);
+  }
+  .haciendoPosibleLo {
+    font-size: var(--font-size-8xl);
+  }
+  .visin {
+    font-size: var(--font-size-17xl);
+  }
+}

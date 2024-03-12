@@ -1,0 +1,348 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.rectangleIs {
+  width: 572px;
+  height: 833px;
+  position: relative;
+  border-radius: var(--br-4xl);
+  background-color: var(--color-black);
+  border: 7px solid var(--color-darkorange);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.textoBienvenido {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 3;
+}
+.loginButton {
+  width: 474px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 var(--padding-42xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.textoUsuario {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-weight: 600;
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+  z-index: 3;
+}
+.inputContrasea {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  z-index: 3;
+}
+.inputContrasea:active,
+.inputContrasea:hover,
+.inputUsuario:active,
+.inputUsuario:hover {
+  cursor: text;
+}
+.grouplogin,
+.passwordInput {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.grouplogin {
+  flex: 1;
+  flex-direction: column;
+  gap: 6px 0;
+}
+.passwordInput {
+  height: 91px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+.textoContrasea {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-weight: 600;
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+  z-index: 3;
+}
+.inputUsuario {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  z-index: 3;
+}
+.frameregister {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-8xs);
+  gap: 6px 0;
+}
+.frameChild {
+  height: 50px;
+  width: 471px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-orange);
+  display: none;
+  max-width: 100%;
+}
+.inicarSesin {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.rectangleParent {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-6xs) var(--padding-xl) var(--padding-5xs)
+    var(--padding-15xl);
+  background-color: var(--color-orange);
+  flex: 1;
+  border-radius: var(--br-8xs);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  max-width: 100%;
+  z-index: 3;
+}
+.rectangleParent:hover {
+  background-color: var(--color-chocolate);
+}
+.labelpassword,
+.registrationFrame {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.registrationFrame {
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.labelpassword {
+  margin: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px 0;
+}
+.botonPregunta1,
+.botonPregunta2 {
+  position: relative;
+  font-weight: 600;
+  z-index: 3;
+}
+.botonPregunta1:hover {
+  cursor: pointer;
+}
+.botonPregunta1:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonPregunta2:hover {
+  cursor: pointer;
+}
+.botonPregunta2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonPregunta2Wrapper {
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--padding-base);
+}
+.botonPregunta2Wrapper,
+.inputFieldGroup,
+.questionButtons {
+  display: flex;
+  align-items: flex-start;
+}
+.questionButtons {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px 0;
+}
+.inputFieldGroup {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.inputusername {
+  width: 473px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 84px 0;
+  max-width: 100%;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+}
+.frameItem {
+  height: 50px;
+  width: 471px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-black);
+  border: 1px solid var(--color-orange);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.registrarse {
+  position: relative;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+  color: var(--color-orange);
+  text-align: left;
+  z-index: 1;
+}
+.framebutton,
+.rectangleGroup,
+.registrationFrame1 {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.rectangleGroup {
+  cursor: pointer;
+  border: 1px solid var(--color-orange);
+  padding: var(--padding-6xs) var(--padding-xl) var(--padding-5xs)
+    var(--padding-12xl);
+  background-color: var(--color-black);
+  flex: 1;
+  border-radius: var(--br-8xs);
+  flex-direction: row;
+  justify-content: center;
+  z-index: 3;
+}
+.rectangleGroup:hover {
+  background-color: var(--color-darkslategray);
+  border: 1px solid var(--color-chocolate);
+  box-sizing: border-box;
+}
+.framebutton,
+.registrationFrame1 {
+  justify-content: flex-start;
+}
+.registrationFrame1 {
+  width: 474px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs) 0 var(--padding-11xs);
+}
+.framebutton {
+  align-self: stretch;
+  flex: 1;
+  border-radius: var(--br-4xl);
+  background-color: var(--color-black);
+  border: 7px solid var(--color-darkorange);
+  flex-direction: column;
+  padding: var(--padding-15xl) var(--padding-23xl) var(--padding-45xl);
+  gap: 59px 0;
+  z-index: 2;
+  text-align: left;
+  font-size: var(--font-size-31xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1025px) {
+  .textoBienvenido {
+    font-size: var(--font-size-21xl);
+  }
+  .registrarse,
+  .textoContrasea,
+  .textoUsuario {
+    font-size: var(--font-size-5xl);
+  }
+  .framebutton {
+    padding-top: var(--padding-3xl);
+    padding-bottom: var(--padding-23xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .inputusername {
+    gap: 42px 0;
+  }
+  .framebutton {
+    gap: 29px 0;
+    padding-left: var(--padding-2xl);
+    padding-right: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .textoBienvenido {
+    font-size: var(--font-size-11xl);
+  }
+  .textoContrasea,
+  .textoUsuario {
+    font-size: var(--font-size-lg);
+  }
+  .botonPregunta1,
+  .botonPregunta2 {
+    font-size: var(--font-size-xl);
+  }
+  .registrarse {
+    font-size: var(--font-size-lg);
+  }
+  .framebutton {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+}

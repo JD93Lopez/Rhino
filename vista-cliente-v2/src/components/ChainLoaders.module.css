@@ -1,0 +1,230 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.rentalos {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.cargadorDeCadenasSinFonod,
+.compactadoraSinFondo1 {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: cover;
+  z-index: 1;
+}
+.compactadoraSinFondo1 {
+  height: 302px;
+  width: 529px;
+  top: -169px;
+  right: 85px;
+}
+.cargadorDeCadenasSinFonod {
+  height: 352px;
+  width: 528px;
+  bottom: -368px;
+  left: 40px;
+}
+.maquinaSinFondo2 {
+  height: 374px;
+  width: 499px;
+  bottom: -355px;
+  left: 591px;
+}
+.camionobrasSinFondo1,
+.cargadoraDeRuedasSinFondo,
+.maquinaSinFondo2 {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: cover;
+  z-index: 1;
+}
+.cargadoraDeRuedasSinFondo {
+  height: 433px;
+  width: 577px;
+  right: 29px;
+  bottom: -408px;
+}
+.camionobrasSinFondo1 {
+  height: 356px;
+  width: 474px;
+  top: 25px;
+  left: 604px;
+}
+.motorGrade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.botonInfoMaq,
+.botonInfoMaq2,
+.botonInfoMaq3 {
+  position: absolute;
+  top: 230px;
+  width: 51px;
+  height: 51px;
+  background-image: url(/public/boton-info-maq@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.botonInfoMaq {
+  left: 304px;
+}
+.botonInfoMaq,
+.botonInfoMaq:hover {
+  cursor: pointer;
+}
+.botonInfoMaq:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonInfoMaq2,
+.botonInfoMaq3 {
+  left: 816px;
+}
+.botonInfoMaq2:hover {
+  cursor: pointer;
+}
+.botonInfoMaq2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonInfoMaq3 {
+  left: 1395px;
+}
+.botonInfoMaq3:hover {
+  cursor: pointer;
+}
+.botonInfoMaq3:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.wheeledLoader {
+  height: calc(100% - 197px);
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 197px;
+  left: 0;
+  font-size: var(--font-size-441xl);
+  color: var(--color-gray-500);
+  font-family: var(--font-impact);
+}
+.manipuladorDeMetales {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 2;
+}
+.caminDeObras {
+  position: relative;
+  z-index: 1;
+}
+.metalWorksVehicle {
+  width: 798px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 223px;
+  max-width: 100%;
+}
+.aplanadora {
+  position: relative;
+  z-index: 1;
+}
+.chainLoaders {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-152xl) var(--padding-205xl) 0 var(--padding-140xl);
+  box-sizing: border-box;
+  position: relative;
+  min-height: 758px;
+  max-width: 100%;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1350px) {
+  .chainLoaders {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .metalWorksVehicle {
+    flex-wrap: wrap;
+  }
+  .chainLoaders {
+    padding-left: var(--padding-60xl);
+    padding-right: var(--padding-93xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  .rentalos {
+    font-size: var(--font-size-165xl);
+  }
+  .metalWorksVehicle {
+    gap: 0 111px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rentalos {
+    font-size: var(--font-size-96xl);
+  }
+  .caminDeObras,
+  .manipuladorDeMetales {
+    font-size: var(--font-size-xl);
+  }
+  .metalWorksVehicle {
+    gap: 0 56px;
+  }
+  .aplanadora {
+    font-size: var(--font-size-xl);
+  }
+  .chainLoaders {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,126 @@
+.descripcinGeneral {
+  position: relative;
+}
+.productDetailsFrame {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  background-color: var(--color-darkkhaki);
+  max-width: 100%;
+}
+.contactinfogroup,
+.specsframe {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.contactinfogroup {
+  align-self: stretch;
+  height: 3px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+  margin-top: -1.7px;
+}
+.specsframe {
+  width: 336px;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.mayorProductividad {
+  margin: 0;
+  position: relative;
+  font-size: var(--font-size-31xl);
+  font-weight: 400;
+  font-family: var(--font-krona-one);
+}
+.generaldescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6px 0;
+  max-width: 100%;
+}
+.amplioSeAsegura,
+.deHasta18,
+.deMaterialesGarantizando,
+.dimensionesALa,
+.elCatMh3050,
+.opcionesDePluma,
+.provenientesDeLas,
+.queSeEspera {
+  margin: 0;
+}
+.elCatMh3050Container {
+  align-self: stretch;
+  position: relative;
+  font-weight: 500;
+}
+.elCatMh3050DestacaPorSuWrapper {
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-12xs);
+  box-sizing: border-box;
+  text-align: justify;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-jura);
+}
+.detailspanel,
+.headerframe {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.detailspanel {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 9px 0;
+}
+.headerframe {
+  width: 1471px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-631xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1275px) {
+  .headerframe {
+    padding-bottom: var(--padding-403xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 900px) {
+  .descripcinGeneral {
+    font-size: var(--font-size-13xl);
+  }
+  .mayorProductividad {
+    font-size: var(--font-size-21xl);
+  }
+  .elCatMh3050Container {
+    font-size: var(--font-size-5xl);
+  }
+  .headerframe {
+    padding-bottom: var(--padding-255xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .descripcinGeneral {
+    font-size: var(--font-size-5xl);
+  }
+  .mayorProductividad {
+    font-size: var(--font-size-11xl);
+  }
+  .elCatMh3050Container {
+    font-size: var(--font-size-lg);
+  }
+}

@@ -1,0 +1,162 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.bienvenido {
+  margin: 0;
+  width: 678px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  z-index: 1;
+}
+.b8c39214f0aadd21f0e370d549a1d0Icon,
+.logoIcon {
+  position: absolute;
+  top: -83px;
+  left: 0;
+  width: 1800px;
+  height: 1200px;
+  object-fit: cover;
+}
+.logoIcon {
+  top: 298px;
+  left: 1183px;
+  width: 238px;
+  height: 147px;
+  z-index: 2;
+}
+.b8c39214f0aadd21f0e370d549a1d0Parent {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.botnRegistrarseChild {
+  height: 108px;
+  width: 539px;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-goldenrod);
+  display: none;
+  max-width: 100%;
+}
+.registrarse {
+  flex: 1;
+  position: relative;
+  font-size: 70px;
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: center;
+}
+.botnRegistrarse,
+.botonRegistrarse2 {
+  cursor: pointer;
+  flex-direction: row;
+  max-width: 100%;
+}
+.botonRegistrarse2 {
+  width: 371px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+}
+.botonRegistrarse2:hover {
+  cursor: pointer;
+}
+.botonRegistrarse2:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botnRegistrarse {
+  border: 0;
+  padding: var(--padding-2xs) var(--padding-xl) var(--padding-xs);
+  background-color: var(--color-goldenrod);
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  justify-content: center;
+  z-index: 2;
+}
+.botnRegistrarse,
+.registerButton,
+.vetanaDeRegistro {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.registerButton {
+  width: 539px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 158px 0 0;
+  max-width: 100%;
+  margin-left: -608px;
+}
+.vetanaDeRegistro {
+  width: 100%;
+  height: 1117px;
+  position: relative;
+  background-color: var(--color-black);
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 445px 87px 406px;
+  letter-spacing: normal;
+  text-align: center;
+  font-size: 130px;
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 750px) {
+  .bienvenido {
+    font-size: var(--font-size-33xl);
+  }
+  .registrarse {
+    font-size: 56px;
+  }
+  .vetanaDeRegistro {
+    padding-left: var(--padding-24xl);
+    padding-right: var(--padding-24xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .bienvenido {
+    font-size: var(--font-size-13xl);
+  }
+  .registrarse {
+    font-size: var(--font-size-23xl);
+  }
+  .vetanaDeRegistro {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

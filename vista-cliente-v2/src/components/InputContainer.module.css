@@ -1,0 +1,314 @@
+.contraseaYSeguridad {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.securityInfoFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.nameEmailFrameChild {
+  width: 1405px;
+  height: 633px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-200);
+  display: none;
+  max-width: 100%;
+}
+.contrasea,
+.correo,
+.nombreCompleto {
+  position: relative;
+  z-index: 1;
+}
+.emailRectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px 0;
+  max-width: 100%;
+}
+.sebastianPicoAfanador {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.picoafanadorgmailcom {
+  white-space: nowrap;
+}
+.div,
+.picoafanadorgmailcom {
+  position: relative;
+  z-index: 1;
+}
+.emailRectangle1,
+.fullNameRectangle {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.emailRectangle1 {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px 0;
+}
+.fullNameRectangle {
+  width: 1135px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.contraseaAntigua {
+  position: relative;
+  z-index: 1;
+}
+.accountButtonText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-12xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.contraseaYSeguridadText {
+  height: 34px;
+  width: 507px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  max-width: 100%;
+  z-index: 1;
+}
+.contraseaYSeguridadText:active,
+.contraseaYSeguridadText:hover,
+.newPassFrameChild:active,
+.newPassFrameChild:hover,
+.saveButtonText:active,
+.saveButtonText:hover {
+  cursor: text;
+}
+.profilePicFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.contraseaNueva,
+.saveButtonText {
+  position: relative;
+  max-width: 100%;
+  z-index: 1;
+}
+.contraseaNueva {
+  display: inline-block;
+}
+.saveButtonText {
+  height: 34px;
+  width: 507px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+}
+.newPassFrame {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.newPassFrameChild,
+.repitaLaNueva {
+  position: relative;
+  max-width: 100%;
+  z-index: 1;
+}
+.repitaLaNueva {
+  width: 531px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.newPassFrameChild {
+  height: 34px;
+  width: 507px;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+}
+.newPassFrame1,
+.oldPassRectangle {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.newPassFrame1 {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.oldPassRectangle {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 26px 0;
+}
+.botnEdiotarInformacinChild,
+.saveInfoButton {
+  position: relative;
+  background-color: var(--color-white);
+}
+.saveInfoButton {
+  align-self: stretch;
+  height: 2px;
+  z-index: 1;
+}
+.botnEdiotarInformacinChild {
+  height: 59px;
+  width: 383px;
+  border-radius: var(--br-6xs);
+  display: none;
+  max-width: 100%;
+}
+.guardarInformacin {
+  position: relative;
+  z-index: 1;
+}
+.botnEdiotarInformacin {
+  border-radius: var(--br-6xs);
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-4xs) var(--padding-xs)
+    var(--padding-sm);
+  box-sizing: border-box;
+  white-space: nowrap;
+  max-width: 100%;
+  z-index: 1;
+}
+.editInfoButtonText,
+.inputGroupFrame {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.inputGroupFrame {
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.editInfoButtonText {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 22px 0;
+  font-size: var(--font-size-11xl);
+  color: var(--color-black);
+}
+.securitySettingsFrame {
+  width: 1142px;
+  align-items: flex-start;
+  gap: 49px 0;
+}
+.inputContainer,
+.nameEmailFrame,
+.securitySettingsFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.nameEmailFrame {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-200);
+  align-items: center;
+  padding: var(--padding-41xl) var(--padding-xl) var(--padding-xl);
+  box-sizing: border-box;
+  gap: 72px 0;
+  font-size: var(--font-size-16xl);
+  font-family: var(--font-jura);
+}
+.inputContainer {
+  width: 1405px;
+  align-items: flex-start;
+  gap: 79px 0;
+  text-align: left;
+  font-size: var(--font-size-56xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1225px) {
+  .fullNameRectangle {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .newPassFrame,
+  .newPassFrame1,
+  .profilePicFrame {
+    flex-wrap: wrap;
+  }
+  .nameEmailFrame {
+    gap: 36px 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .contraseaYSeguridad {
+    font-size: var(--font-size-41xl);
+  }
+  .contrasea,
+  .contraseaAntigua,
+  .contraseaNueva,
+  .correo,
+  .div,
+  .nombreCompleto,
+  .picoafanadorgmailcom,
+  .repitaLaNueva,
+  .sebastianPicoAfanador {
+    font-size: var(--font-size-9xl);
+  }
+  .securitySettingsFrame {
+    gap: 24px 0;
+  }
+  .nameEmailFrame {
+    gap: 18px 0;
+    padding-top: var(--padding-20xl);
+    box-sizing: border-box;
+  }
+  .inputContainer {
+    gap: 39px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .contraseaYSeguridad {
+    font-size: var(--font-size-26xl);
+  }
+  .contrasea,
+  .contraseaAntigua,
+  .contraseaNueva,
+  .correo,
+  .div,
+  .nombreCompleto,
+  .picoafanadorgmailcom,
+  .repitaLaNueva,
+  .sebastianPicoAfanador {
+    font-size: var(--font-size-2xl);
+  }
+  .inputContainer {
+    gap: 20px 0;
+  }
+}

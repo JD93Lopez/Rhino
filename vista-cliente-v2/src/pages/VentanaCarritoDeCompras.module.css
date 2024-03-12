@@ -1,0 +1,123 @@
+.cancelSelectionButtonChild,
+.ventanaCarritoDeComprasChild {
+  width: 1674px;
+  height: 400px;
+  position: relative;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gray-500);
+  border: 3px solid var(--color-sandybrown-100);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.cancelSelectionButtonChild {
+  height: 947px;
+}
+.carrito,
+.carrito1 {
+  position: relative;
+  z-index: 1;
+}
+.carrito1 {
+  z-index: 2;
+  margin-left: -138px;
+}
+.cartItemsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.anularLaSeleccin {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  z-index: 1;
+  margin-top: -5px;
+}
+.backgroundRectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.logoButton {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  background-color: var(--color-sandybrown-100);
+  max-width: 100%;
+  z-index: 1;
+}
+.productsFrame {
+  width: 1616px;
+  height: 49px;
+  flex-direction: row;
+  padding: 0 0 var(--padding-29xl);
+}
+.cancelSelectionButton,
+.productsFrame,
+.shoppingCartSymbol {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.cancelSelectionButton {
+  flex: 1;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-gray-500);
+  border: 3px solid var(--color-sandybrown-100);
+  flex-direction: column;
+  padding: var(--padding-mid) var(--padding-xl) 594px;
+  gap: 2px 0;
+}
+.shoppingCartSymbol {
+  width: 1715px;
+  flex-direction: row;
+  padding: 0 var(--padding-2xl) var(--padding-mid) var(--padding-xl);
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+.ventanaCarritoDeCompras {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 19px 0;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1275px) {
+  .cancelSelectionButton {
+    padding-top: var(--padding-xl);
+    padding-bottom: 386px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 825px) {
+  .carrito,
+  .carrito1 {
+    font-size: var(--font-size-13xl);
+  }
+  .cancelSelectionButton {
+    padding-bottom: 251px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .carrito,
+  .carrito1 {
+    font-size: var(--font-size-5xl);
+  }
+  .anularLaSeleccin {
+    font-size: var(--font-size-xl);
+  }
+}

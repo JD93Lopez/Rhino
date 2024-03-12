@@ -1,0 +1,224 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.cargadoraDeRuedas,
+.mototralas {
+  position: relative;
+}
+.motoTrailasLabel {
+  width: 239px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cargadoraDeRuedas1 {
+  position: relative;
+}
+.productHighlights {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.botonInfoMaq4,
+.botonInfoMaq5 {
+  width: 51px;
+  position: relative;
+  background-image: url(/public/boton-info-maq@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.botonInfoMaq4 {
+  height: 51px;
+}
+.botonInfoMaq4:hover {
+  cursor: pointer;
+}
+.botonInfoMaq4:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonInfoMaq5 {
+  flex: 1;
+}
+.botonInfoMaq5:hover {
+  cursor: pointer;
+}
+.botonInfoMaq5:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.contactUs {
+  height: 51px;
+  width: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.botonInfoMaq6 {
+  height: 51px;
+  width: 51px;
+  position: relative;
+  background-image: url(/public/boton-info-maq@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.botonInfoMaq6:hover {
+  cursor: pointer;
+}
+.botonInfoMaq6:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.atencionAlCliente {
+  width: 1142px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.groupMarcasVehiculos,
+.infoButtonGroup {
+  align-self: stretch;
+  display: flex;
+  max-width: 100%;
+}
+.infoButtonGroup {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.groupMarcasVehiculos {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 30px 0;
+}
+.verMs {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-white);
+  text-align: left;
+}
+.frameChild,
+.verMsParent {
+  border: 8px solid var(--color-darkkhaki);
+  background-color: var(--color-gainsboro);
+  border-radius: var(--br-lg);
+}
+.frameChild {
+  height: 82px;
+  width: 276px;
+  position: relative;
+  box-sizing: border-box;
+  display: none;
+}
+.verMsParent {
+  cursor: pointer;
+  padding: var(--padding-7xl) var(--padding-55xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+}
+.frameTextoCelularTextotelef {
+  width: 1374px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.frameTextoCelularTextotelef,
+.motorTrailas,
+.wheeledLoader {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.wheeledLoader {
+  width: 1393px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 93px 0;
+}
+.motorTrailas {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-105xl) var(--padding-20xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1125px) {
+  .productHighlights {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .wheeledLoader {
+    gap: 46px 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .cargadoraDeRuedas,
+  .cargadoraDeRuedas1,
+  .mototralas {
+    font-size: var(--font-size-xl);
+  }
+  .atencionAlCliente {
+    flex-wrap: wrap;
+  }
+  .verMs {
+    font-size: var(--font-size-xl);
+  }
+  .verMsParent {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .wheeledLoader {
+    gap: 23px 0;
+  }
+  .motorTrailas {
+    padding-bottom: var(--padding-62xl);
+    box-sizing: border-box;
+  }
+}

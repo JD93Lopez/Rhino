@@ -1,0 +1,201 @@
+.manipuladorafondo1Icon {
+  margin-left: -92px;
+  height: 738px;
+  width: 1106px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+}
+.manipuladoraDe,
+.materialesDeRuedas {
+  margin: 0;
+}
+.manipuladoraDeMaterialesContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.mh3050 {
+  position: relative;
+}
+.specstab,
+.wheelstext {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.specstab {
+  flex-direction: row;
+  padding: 0 var(--padding-10xs);
+  font-size: var(--font-size-29xl);
+  font-family: var(--font-jura);
+}
+.wheelstext {
+  flex-direction: column;
+  max-width: 100%;
+  font-size: var(--font-size-33xl);
+  font-family: var(--font-impact);
+}
+.especificacionesPrincipales {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.alcanceMximo,
+.blankLine,
+.blankLine1,
+.c93bCat,
+.kg,
+.mm,
+.modeloDelMotor,
+.pesoEnOrdenDeTrabajoMxim {
+  margin: 0;
+}
+.modeloDelMotorContainer {
+  position: relative;
+}
+.materialsslide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 27.5px 0;
+  max-width: 100%;
+}
+.frameChild {
+  height: 51px;
+  width: 617px;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-sandybrown-100);
+  display: none;
+  max-width: 100%;
+}
+.agregarAlCarrito {
+  position: relative;
+  z-index: 1;
+}
+.frameItem,
+.rectangleParent {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-sandybrown-100);
+  max-width: 100%;
+}
+.rectangleParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-xl);
+  box-sizing: border-box;
+}
+.frameItem {
+  height: 51px;
+  width: 617px;
+  position: relative;
+  display: none;
+}
+.consultarPrecio {
+  position: relative;
+  z-index: 1;
+}
+.addcartgroup,
+.rectangleGroup {
+  align-self: stretch;
+  align-items: flex-start;
+}
+.rectangleGroup {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-sandybrown-100);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.addcartgroup {
+  flex-direction: column;
+  gap: 23px 0;
+  font-size: var(--font-size-11xl);
+  color: var(--color-black);
+}
+.addcartgroup,
+.framemotorinfo,
+.mHbackground {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.mHbackground {
+  width: 617px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 53px 0;
+  min-width: 617px;
+}
+.framemotorinfo {
+  width: 1695px;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0 var(--padding-xl) 116.09999999999992px 0;
+  box-sizing: border-box;
+  gap: 0 44px;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 1650px) {
+  .mHbackground,
+  .manipuladorafondo1Icon {
+    flex: 1;
+  }
+  .framemotorinfo {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 900px) {
+  .manipuladoraDeMaterialesContainer {
+    font-size: var(--font-size-23xl);
+  }
+  .mh3050 {
+    font-size: var(--font-size-19xl);
+  }
+  .agregarAlCarrito,
+  .consultarPrecio {
+    font-size: var(--font-size-5xl);
+  }
+  .mHbackground {
+    gap: 26px 0;
+    min-width: 100%;
+  }
+  .framemotorinfo {
+    gap: 0 22px;
+    padding-bottom: var(--padding-56xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .manipuladoraDeMaterialesContainer {
+    font-size: var(--font-size-12xl);
+  }
+  .mh3050 {
+    font-size: var(--font-size-10xl);
+  }
+  .especificacionesPrincipales,
+  .modeloDelMotorContainer {
+    font-size: var(--font-size-3xl);
+  }
+  .agregarAlCarrito,
+  .consultarPrecio {
+    font-size: var(--font-size-lg);
+  }
+  .framemotorinfo {
+    padding-bottom: var(--padding-30xl);
+    box-sizing: border-box;
+  }
+}

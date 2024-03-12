@@ -1,0 +1,29 @@
+.rectangleShape {
+  align-self: stretch;
+  height: 50px;
+  position: relative;
+  background-color: var(--color-black);
+}
+.passwordVerificationFrame,
+.ventanaDeContraseaYSeguri {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.passwordVerificationFrame {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+  max-width: 100%;
+}
+.ventanaDeContraseaYSeguri {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-48xl);
+  letter-spacing: normal;
+}

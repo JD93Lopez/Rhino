@@ -1,0 +1,196 @@
+.frameChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-mini);
+  background-color: var(--color-gray-600);
+  border: 7px solid var(--color-goldenrod);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.correo,
+.direccin {
+  position: absolute;
+  top: 717px;
+  left: 90px;
+  z-index: 2;
+}
+.correo {
+  top: 643px;
+}
+.crearCuenta,
+.identificacin,
+.telfono,
+.usuario {
+  position: absolute;
+  top: 199px;
+  left: 90px;
+  z-index: 2;
+}
+.crearCuenta,
+.identificacin,
+.telfono {
+  top: 495px;
+}
+.crearCuenta,
+.telfono {
+  top: 569px;
+}
+.crearCuenta {
+  top: 81px;
+  left: 265px;
+  font-size: var(--font-size-21xl);
+  font-family: var(--font-impact);
+}
+.apellido,
+.contrasea,
+.nombre {
+  position: absolute;
+  top: 347px;
+  left: 90px;
+  z-index: 2;
+}
+.apellido,
+.contrasea {
+  top: 421px;
+}
+.contrasea {
+  top: 273px;
+}
+.infputAddress,
+.inputApellido,
+.inputContrasenia,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono,
+.inputUsuario {
+  position: absolute;
+  top: 195px;
+  left: 379px;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-white);
+  width: 322px;
+  height: 44px;
+  z-index: 2;
+}
+.infputAddress:active,
+.infputAddress:hover,
+.inputApellido:active,
+.inputApellido:hover,
+.inputContrasenia:active,
+.inputContrasenia:hover,
+.inputCorreo:active,
+.inputCorreo:hover,
+.inputIdentificacion:active,
+.inputIdentificacion:hover,
+.inputNombre:active,
+.inputNombre:hover,
+.inputTelefono:active,
+.inputTelefono:hover,
+.inputUsuario:active,
+.inputUsuario:hover {
+  cursor: text;
+}
+.infputAddress,
+.inputApellido,
+.inputContrasenia,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono {
+  top: 269px;
+}
+.infputAddress,
+.inputApellido,
+.inputCorreo,
+.inputIdentificacion,
+.inputNombre,
+.inputTelefono {
+  top: 343px;
+}
+.infputAddress,
+.inputApellido,
+.inputCorreo,
+.inputIdentificacion,
+.inputTelefono {
+  top: 417px;
+}
+.infputAddress,
+.inputCorreo,
+.inputIdentificacion,
+.inputTelefono {
+  top: 491px;
+}
+.infputAddress,
+.inputCorreo,
+.inputTelefono {
+  top: 565px;
+}
+.infputAddress,
+.inputCorreo {
+  top: 639px;
+}
+.infputAddress {
+  top: 713px;
+}
+.logo,
+.rectangleParent {
+  position: absolute;
+  top: 7px;
+  left: 318px;
+  width: 124px;
+  height: 35px;
+  z-index: 2;
+}
+.rectangleParent {
+  top: 187px;
+  left: 106px;
+  border-radius: var(--br-mini);
+  background-color: var(--color-gray-600);
+  border: 7px solid var(--color-goldenrod);
+  box-sizing: border-box;
+  width: 758px;
+  height: 849px;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-jura);
+}
+@media screen and (max-width: 750px) {
+  .correo,
+  .direccin,
+  .identificacin,
+  .telfono,
+  .usuario {
+    font-size: var(--font-size-5xl);
+  }
+  .crearCuenta {
+    font-size: var(--font-size-13xl);
+  }
+  .apellido,
+  .contrasea,
+  .nombre {
+    font-size: var(--font-size-5xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .correo,
+  .direccin,
+  .identificacin,
+  .telfono,
+  .usuario {
+    font-size: var(--font-size-lg);
+  }
+  .crearCuenta {
+    font-size: var(--font-size-5xl);
+  }
+  .apellido,
+  .contrasea,
+  .nombre {
+    font-size: var(--font-size-lg);
+  }
+}
