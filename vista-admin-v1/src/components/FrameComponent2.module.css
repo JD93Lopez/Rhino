@@ -65,33 +65,12 @@
   justify-content: flex-start;
   gap: 53px 0;
 }
-.dropdownTipoChild,
-.seleccionar {
-  height: 32px;
-  width: 172px;
-  position: relative;
-  display: none;
-}
+
 .seleccionar {
   display: inline-block;
   flex-shrink: 0;
 }
-.frameChild {
-  height: 10px;
-  width: 13px;
-  position: absolute;
-  margin: 0 !important;
-  top: 11px;
-  left: 206px;
-  object-fit: contain;
-}
-.seleccionarParent,
-.selectDropdown {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+
 .seleccionarParent {
   justify-content: flex-start;
   position: relative;
@@ -104,86 +83,35 @@
     var(--padding-4xs);
   z-index: 1;
 }
-.transporte {
-  align-self: stretch;
-  width: 172px;
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.frameWrapper,
-.transporteWrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
+
 .frameWrapper {
   flex: 1;
   padding: var(--padding-10xs) var(--padding-3xs);
   z-index: 0;
 }
-.maquinariaPesada {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-}
-.frameContainer,
-.maquinariaPesadaWrapper {
-  align-self: stretch;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
+
 .frameContainer {
   padding: var(--padding-10xs) var(--padding-3xs);
   z-index: 1;
 }
-.frameInner,
-.frameItem {
-  width: 172px;
-  height: 32px;
-  position: absolute;
-  margin: 0 !important;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
+
 .frameInner {
   top: 37px;
   z-index: 3;
 }
-.frameGroup {
-  height: 76px;
-  width: 245px;
-  border: 1px solid var(--color-black);
-  box-sizing: border-box;
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: relative;
-}
-.dropdownTipo1,
+
 .productStatus {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-.dropdownTipo1 {
-  width: 245px;
-  justify-content: center;
-  padding: 0 0 var(--padding-66xl);
-  box-sizing: border-box;
-}
+
 .productStatus {
   align-self: stretch;
   justify-content: space-between;
   gap: var(--gap-xl);
 }
+
 .stateDropdown {
   border: 1px solid var(--color-black);
   outline: 0;
@@ -203,9 +131,14 @@
   padding: 0 0 var(--padding-mid);
   box-sizing: border-box;
 }
+
 .estadoDelProducto {
-  position: relative;
+  position: absolute;
+  display: inline-block;
+  flex-shrink: 0;
+  right: 135px;
 }
+
 .frameProductInfo,
 .saveButton {
   display: flex;
@@ -225,6 +158,7 @@
   padding: 0 0 0 var(--padding-11xs);
   box-sizing: border-box;
 }
+
 .dropdownEstadoChild,
 .fabricante {
   align-self: stretch;
@@ -255,83 +189,6 @@
   padding: var(--padding-10xl) 0 0;
   box-sizing: border-box;
   min-width: 243px;
-}
-.seleccionar1 {
-  height: 36px;
-  position: relative;
-  display: inline-block;
-}
-.polygonIcon {
-  height: 10px;
-  width: 13px;
-  position: relative;
-  object-fit: contain;
-}
-.seleccionarGroup {
-  flex: 1;
-  border: 1px solid var(--color-black);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--padding-10xs) var(--padding-3xl) var(--padding-10xs)
-    var(--padding-3xs);
-  gap: var(--gap-xl);
-}
-.disponible {
-  align-self: stretch;
-  width: 126px;
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.disponibleWrapper {
-  align-self: stretch;
-  flex: 1;
-  border-radius: var(--br-8xs);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--padding-10xs) var(--padding-3xs);
-}
-.ocupado {
-  align-self: stretch;
-  width: 126px;
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.ocupadoWrapper {
-  align-self: stretch;
-  flex: 1;
-  border-radius: var(--br-8xs);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--padding-10xs) var(--padding-3xs);
-}
-.fueraDeServicio {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-}
-.fueraDeServicioWrapper {
-  align-self: stretch;
-  flex: 1;
-  border-radius: var(--br-8xs);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--padding-10xs) var(--padding-3xs);
-}
-.dropdownEstado1,
-.frameDiv {
-  width: 225px;
-  align-items: flex-start;
-  box-sizing: border-box;
 }
 .frameDiv {
   height: 126px;
@@ -368,34 +225,38 @@
   box-sizing: border-box;
   gap: 7px 0;
 }
-.rectangleDiv {
-  height: 53.9px;
-  width: 161px;
-  position: relative;
-  background-color: var(--color-orange);
-  border: 1px solid var(--color-gray-200);
-  box-sizing: border-box;
-  display: none;
-}
-.guardar {
-  position: relative;
-  font-size: var(--font-size-5xl);
-  font-family: var(--font-impact);
-  color: var(--color-black);
-  text-align: left;
-  z-index: 1;
-}
-.rectangleParent {
-  cursor: pointer;
-  border: 1px solid var(--color-gray-200);
-  padding: var(--padding-xs) var(--padding-16xl) var(--padding-xs)
-    var(--padding-15xl);
-  background-color: var(--color-orange);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+  .rectangleDiv {
+    height: 53.9px;
+    width: 161px;
+    position: absolute;
+    bottom: 20px;  /* Ajusta según sea necesario para la distancia desde el borde inferior */
+    right: 20px; 
+    background-color: var(--color-orange);
+    border: 1px solid var(--color-gray-200);
+    box-sizing: border-box;
+    display: none;
+  }
+  .guardar {
+    position: relative;
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-impact);
+    color: var(--color-black);
+    text-align: left;
+    z-index: 1;
+  }
+  .rectangleParent {
+    cursor: pointer;
+    position: relative;
+    top: 60px;
+    border: 1px solid var(--color-gray-200);
+    padding: var(--padding-xs) var(--padding-16xl) var(--padding-xs)
+      var(--padding-15xl);
+    background-color: var(--color-orange);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 .rectangleParent:hover {
   background-color: var(--color-darkgoldenrod);
   border: 1px solid var(--color-darkslategray);
@@ -445,12 +306,10 @@
   }
 }
 @media screen and (max-width: 800px) {
-  .dropdownTipo,
   .productStatus,
   .saveButton {
     flex-wrap: wrap;
   }
-  .dropdownEstado1,
   .labelFabricante {
     flex: 1;
   }
@@ -478,3 +337,7 @@
     font-size: var(--font-size-lgi);
   }
 }
+
+
+
+
