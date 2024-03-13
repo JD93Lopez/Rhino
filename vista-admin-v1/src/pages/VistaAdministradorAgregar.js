@@ -72,10 +72,7 @@ const VistaAdministradorAgregar = () => {
                         >{`Cargar Técnico Mecánica `}</div>
                         <div className={styles.imagenFrame}>
                           <div className={styles.precioTipoFrame}>
-                            <div className={styles.precioTipoFrameChild} />
-                            <div className={styles.seleccionarArchivo}>
-                              seleccionar archivo
-                            </div>
+                          <input type='file'/> 
                           </div>
                         </div>
                       </div>
