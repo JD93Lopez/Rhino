@@ -6,11 +6,11 @@ const FrameFullNameIDAddressEm = () => {
   const dataContext = useContext(DataContext);
   console.log(usuarios);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
 
   // Lógica para verificar el inicio de sesión y obtener el usuario actual
   useEffect(() => {
-    // Se supone que funciona
+    // Ya funciona
     // inicio de sesión en true y se almacena cualquier usuario el usuario actual
       setLoggedIn(true);
       // Supongamos que obtienes el usuario actual de algún lugar, por ahora, seleccionamos el primer usuario de la lista para mostrar
