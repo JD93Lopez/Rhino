@@ -498,39 +498,3 @@ module.exports = {
 
   sqlQuery, sqlQueryValues
 };
-
-/*
-const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
-  const pool = new Pool(config);
-  try {
-      const texto =
-    "UPDATE CONDUCTORES SET nombre = $2, cedula = $3, telefono = $4 WHERE idConductores = $1";
-  const values = [idConductores, nombre, cedula, telefono];
-  const DBRes = await pool.query(texto, values);
-  return DBRes;
-  } catch (error) {
-    console.log("Error al actualizar conductor");
-  }
-  pool.end();
-};*/
-//insertarHistoricoAlquileres(1, "2024/02/25", 20);
-//obtenerHistoricoAlquileres();
-//PRUEBA DE LOS METODOS
-//obtenerUsuarios();
-//insertarUsuario("Daniel", "1234", "Juan Daniel", "Calle # Carrera", "200", "00", "correo", "CEDULA", "CLIENTE");
-//eliminarUsuario(4);
-//actualizarUsuario(3, "Dani", "contrasena", "nombre_real", "direccion", "telefono", "identificacion", "correo", "CEDULA","CLIENTE",);
-
-//insertarProveedor("nombreProveedor", "nitProveedor", "direccionProveedor", "descripcionProveedor", "telefonoProveedor");
-//obtenerProveedores();
-
-//insertarProducto("nombreProducto", "descripcionProducto", "identificacionProducto", 10000, 10000, "marca", "modelo", "TRANSPORTE");
-//obtenerProductos();
-
-//insertarProyecto("nombreProyecto", "identificacion", "CEDULA", "telefonoProyecto", "descripcionProyecto", "2024/02/26", "estado_avance");
-//obtenerProyecto();
-
-//insertarConductor("nombre", "cedula", "telefono");
-//obtenerConductores();
-
-//obtenerContrasenaUsuario('Daniel');
