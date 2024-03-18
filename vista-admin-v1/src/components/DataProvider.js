@@ -82,7 +82,7 @@ export const DataProvider = (props) => {
             },
             {
                 nombreMaquinaria: "Excavadora",
-                identificacion: "49845",
+                identificacion: "498456",
                 fecha: "23/03/2024"
             }
         ]
