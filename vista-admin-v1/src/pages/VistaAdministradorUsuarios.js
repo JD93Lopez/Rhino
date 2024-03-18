@@ -42,6 +42,7 @@ const VistaAdministradorUsuarios = () => {
   };
 
   const eliminarUsuariosSeleccionados = (usuariosSeleccionados) => {
+    dataContext.usuarios
     // Lógica para eliminar los usuarios seleccionados
     console.log('Usuarios seleccionados a eliminar:', usuariosSeleccionados);
     // Después de eliminarlos, resetea el estado de usuariosSeleccionados

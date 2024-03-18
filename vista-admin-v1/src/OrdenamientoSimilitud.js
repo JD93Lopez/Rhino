@@ -1,6 +1,6 @@
 function calcularSimilitud(str1, str2) {
     const obtenerTokens = (str) => {
-        return new Set(str.toLowerCase().split('').filter(token => token.match(/[a-z]/)));
+        return new Set(str.toString().toLowerCase().split('').filter(token => token.match(/[a-z0-9]/)));
     };
 
     const tokensStr1 = obtenerTokens(str1);

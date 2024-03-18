@@ -78,6 +78,7 @@ const VistaAdministradorProducto = () => {
                   id= "inputbuscarproducto"
                   useref= "inputbuscarproducto"
                 />
+                
               </div>
             </div>
           </div>
