@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import SeleccionarArchivoText from "./SeleccionarArchivoText";
 import styles from "./FrameComponent2.module.css";
 import Select from 'react-select';
+import ImageUpload from './ImageUpload';
 
 const FrameComponent2 = () => {
 
@@ -61,12 +62,8 @@ const FrameComponent2 = () => {
   return (
     <div className={styles.frameParent}>
       <div className={styles.productDetailsParent}>
-        <SeleccionarArchivoText
-          cargarSOAT="Imagen"
-          propPadding="0px var(--padding-12xs) 0px 0px"
-          propPadding1="var(--padding-9xs) var(--padding-12xs) var(--padding-10xs) var(--padding-6xs)"
-        />
-        <div className={styles.imageUpload} />
+
+      <ImageUpload />
       </div>
       <div className={styles.priceType}>
         <div className={styles.productPricing}>
