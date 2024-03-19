@@ -5,6 +5,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import VistaAdministradorLogin from "./pages/VistaAdministradorLogin";
 import VistaAdministradorUsuarios from "./pages/VistaAdministradorUsuarios";
 import VistaAdministradorProyecto from "./pages/VistaAdministradorProyecto";
 import VistaAdministradorMantenim from "./pages/VistaAdministradorMantenim";
@@ -29,6 +30,10 @@ function App() {
     let metaDescription = "";
 
     switch (pathname) {
+      case "/login":
+        title = "";
+        metaDescription = "";
+        break;
       case "/":
         title = "";
         metaDescription = "";
@@ -72,7 +77,11 @@ function App() {
   return (
     <DataProvider>
       <Routes>
-        <Route path="/" element={<VistaAdministradorUsuarios />} />
+      <Route path="/login" element={<VistaAdministradorLogin />} /> 
+        <Route path="/" element={<VistaAdministradorLogin />} />
+        <Route 
+        path="/vista-administrador-usuarios" 
+        element={<VistaAdministradorUsuarios />} />
         <Route
           path="/vista-administrador-proyectos"
           element={<VistaAdministradorProyecto />}
