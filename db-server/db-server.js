@@ -304,6 +304,20 @@ server.get('/dbapi/sqlquery/:sqlQuery/:JSONValues', async (req, res) => {
     }
 });
 
+//Consulta personalizada
+server.get('/dbapi/sqlquery/:sqlQuery', async (req, res) => {
+    let bool = false
+    try {
+        
+        const sqlQuery = req.params.sqlQuery
+        
+        res.json({ DBRes: await DBConnection.sqlQuery(sqlQuery) });
+
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 // Iniciar
 server.listen(PORT, () => {
 /*     DBConnection.obtenerUsuarios().then((result) => {
