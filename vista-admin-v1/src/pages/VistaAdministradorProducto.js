@@ -27,6 +27,14 @@ const VistaAdministradorProducto = () => {
   }, [navigate]);
 
   const dataContext = useContext(DataContext);
+
+  const onBotonActualizarClick = useCallback(() => {
+      navigate("/vista-administrador-productoeditar-producto");
+
+    
+  }, [navigate]);
+
+  
   const [productos, setProductos] = useState(dataContext.productos);
 
   useEffect(() => {
@@ -86,7 +94,7 @@ const VistaAdministradorProducto = () => {
             <div className={styles.updateDeleteProduct}>
               <div className={styles.excavator}>
                 <div className={styles.powerfulExcavator}>
-                  <button className={styles.powerfulExcavator1}>
+                  <button className={styles.powerfulExcavator1} onClick={onBotonActualizarClick}>
                     <div className={styles.powerfulExcavatorChild} />
                     <div className={styles.actualizarProducto}>
                       Actualizar Producto

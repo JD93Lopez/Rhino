@@ -5,10 +5,12 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import VistaAdministradorLogin from "./pages/VistaAdministradorLogin";
 import VistaAdministradorUsuarios from "./pages/VistaAdministradorUsuarios";
 import VistaAdministradorProyecto from "./pages/VistaAdministradorProyecto";
 import VistaAdministradorMantenim from "./pages/VistaAdministradorMantenim";
 import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
+import VistaAdministradorActualizar from "./pages/VistaAdministradorActualizar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import {DataProvider} from "./components/DataProvider";
@@ -29,6 +31,10 @@ function App() {
     let metaDescription = "";
 
     switch (pathname) {
+      case "/login":
+        title = "";
+        metaDescription = "";
+        break;
       case "/":
         title = "";
         metaDescription = "";
@@ -72,7 +78,11 @@ function App() {
   return (
     <DataProvider>
       <Routes>
-        <Route path="/" element={<VistaAdministradorUsuarios />} />
+      <Route path="/login" element={<VistaAdministradorLogin />} /> 
+        <Route path="/" element={<VistaAdministradorLogin />} />
+        <Route 
+        path="/vista-administrador-usuarios" 
+        element={<VistaAdministradorUsuarios />} />
         <Route
           path="/vista-administrador-proyectos"
           element={<VistaAdministradorProyecto />}
@@ -84,6 +94,10 @@ function App() {
         <Route
           path="/vista-administrador-agregar-productoeditar-producto"
           element={<VistaAdministradorAgregar />}
+        />
+        <Route
+          path="/vista-administrador-productoeditar-producto"
+          element={<VistaAdministradorActualizar />}
         />
         <Route
           path="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
