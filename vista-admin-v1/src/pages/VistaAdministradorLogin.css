@@ -1,0 +1,80 @@
+/* VistaAdministradorLogin.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ajustado para mejor separación */
+    padding: 2em; /* Simplificado para aplicar un padding uniforme */
+    background-color: #ffffff;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+    width: 100%; /* Asegura que el formulario se ajuste al contenedor */
+    max-width: 400px; /* Máximo ancho para el formulario */
+    margin: auto; /* Centra el formulario en la página */
+  }
+  
+  .form:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Suave sombra para destacar */
+  }
+  
+  #heading {
+    text-align: center;
+    margin-bottom: 1em; /* Ajustado para menos espacio después del título */
+    color: rgb(0, 0, 0);
+    font-size: 2em; /* Aumentado para destacar más el título */
+    font-family: var(--font-impact);
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Aumentado para más espacio entre ícono y campo de texto */
+    border-radius: 25px;
+    padding: 10px; /* Aumentado para un mejor enfoque visual */
+    background-color: #f0f0f0; /* Fondo más suave para los campos */
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.1); /* Suaviza la sombra interior */
+  }
+  
+  .input-icon {
+    height: 20px; /* Ajustado para mejor visibilidad */
+    width: 20px; /* Ajustado para mejor visibilidad */
+  }
+  
+  .input-field {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #000000;
+    background: none; /* Asegurando que no hay fondo */
+  }
+  
+  .form .btn {
+    display: flex;
+    justify-content: space-around; /* Cambiado para una mejor distribución */
+    flex-direction: row;
+    gap: 10px; /* Añadido espacio entre botones */
+  }
+  
+  .button1, .button2, .button3 {
+    padding: 10px 20px; /* Uniformidad en el padding de los botones */
+    border-radius: 5px;
+    border: 2px solid transparent; /* Añade un borde transparente para mantener el tamaño durante el hover */
+    outline: none;
+    transition: .4s ease-in-out;
+    cursor: pointer; /* Indica que es clickable */
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold; /* Añadido para destacar el texto */
+  }
+  
+  .button1:hover, .button2:hover {
+    background-color: var(--color-gold);
+  }
+  
+  .button3:hover {
+    background-color: rgb(255, 0, 0);
+    color: #ffffff; /* Cambio para mejor contraste */
+  }
+
+
+  
