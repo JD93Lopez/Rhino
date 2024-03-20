@@ -9,6 +9,7 @@ import VistaAdministradorUsuarios from "./pages/VistaAdministradorUsuarios";
 import VistaAdministradorProyecto from "./pages/VistaAdministradorProyecto";
 import VistaAdministradorMantenim from "./pages/VistaAdministradorMantenim";
 import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
+import VistaAdministradorActualizar from "./pages/VistaAdministradorActualizar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import {DataProvider} from "./components/DataProvider";
@@ -84,6 +85,10 @@ function App() {
         <Route
           path="/vista-administrador-agregar-productoeditar-producto"
           element={<VistaAdministradorAgregar />}
+        />
+        <Route
+          path="/vista-administrador-productoeditar-producto"
+          element={<VistaAdministradorActualizar />}
         />
         <Route
           path="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"

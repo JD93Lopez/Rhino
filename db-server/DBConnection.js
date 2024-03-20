@@ -188,6 +188,7 @@ const insertarProducto = async (
   marca,
   modelo,
   tipo_vehiculo
+  //TODO ESTADO DEL PRODUCTO
 ) => {
   const pool = new Pool(config);
   try {
