@@ -121,14 +121,15 @@ const VistaAdministradorProducto = () => {
               </div>
             </div>
             {productos && productos.map(producto=>{
-            return <TarjetaProductoAdministrador
-            nombreProducto = {producto.nombreProducto}
-             descripcion = {producto.descripcion}
-             imagen = {producto.imagen}
-             key = {producto.nombreProducto}
-  >
-  </TarjetaProductoAdministrador>
-})}
+              return <TarjetaProductoAdministrador
+              object = {producto}
+              nombreProducto = {producto.nombreProducto}
+              descripcion = {producto.descripcion}
+              imagen = {producto.imagen}
+              key = {producto.nombreProducto}
+              >
+              </TarjetaProductoAdministrador>
+            })}
           </div>
         </section>
       </main>

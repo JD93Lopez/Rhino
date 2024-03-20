@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from "../pages/VistaAdministradorProducto.module.css";
 import { DataContext } from './DataProvider';
 
-export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, imagen}) => {
+export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, imagen, object}) => {
 
   const dataContext = useContext(DataContext)
   
@@ -19,11 +19,14 @@ export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, image
       });
     }else{
       setSelected(true)
-      dataContext.selectedProducts.push({
+      dataContext.selectedProducts.push(
+        object
+      )
+/*       dataContext.selectedProducts.push({
         nombreProducto,
         descripcion,
         imagen
-      })
+      }) */
     }
 
   }
