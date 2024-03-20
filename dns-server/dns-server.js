@@ -35,6 +35,11 @@ function handleDnsQuery(req, res) {
 // Crear el servidor DNS
 const server = dnsd.createServer(handleDnsQuery);
 
+// Listener de errores para el servidor DNS
+server.on('error', (err) => {
+  console.error('Error en el servidor DNS:', err);
+});
+
 // Iniciar el servidor
 server.listen(port, ipAddress, () => {
   console.log(`Servidor DNS escuchando en ${ipAddress}:${port}`);
