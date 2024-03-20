@@ -38,15 +38,14 @@ server.get('/api/signin/:usuario/:contrasena', async (req, res) => {
         const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${usuario}`)).DBRes
         if(dbRes && dbRes.rows && dbRes.rows[0]){
             const contrasenaReal = dbRes.rows[0].contrasena
-    
             if(contrasenaReal){
                 bool = (contrasena === contrasenaReal)
             }
         }
 
-        res.json({ Res: bool });
+        res.json({ Res: {usuario: dbRes.rows[0], bool} });
     } catch (error) {
-        res.json({ Res: bool, error });
+        res.json({ Res: {error,bool} });
     }
 });
 
@@ -405,4 +404,3 @@ server.listen(PORT, () => {
     }) */
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-

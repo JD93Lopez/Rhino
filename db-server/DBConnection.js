@@ -444,7 +444,7 @@ const obtenerHistoricoAlquileres = async () => {
 const obtenerContrasenaUsuario = async (nombre_usuario) => {
   const pool = new Pool(config);
   try {
-    const texto = "SELECT contrasena, tipo_usuario FROM usuarios WHERE nombre_usuario = $1";
+    const texto = "SELECT * FROM usuarios WHERE nombre_usuario = $1";
     const values = [nombre_usuario];
     const DBRes = await pool.query(texto, values);
     return DBRes;
