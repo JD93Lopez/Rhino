@@ -65,6 +65,7 @@ const VistaAdministradorMantenim = () => {
               <div className={styles.projectDetails}>
                 {mantenimientos.map(mantenimiento => {
                   return <TarjetaMantenimiento
+                    object = {mantenimiento}
                     nombreMaquinaria = {mantenimiento.nombreMaquinaria}
                     identificacion = {mantenimiento.identificacion}
                     fecha = {mantenimiento.fecha}
