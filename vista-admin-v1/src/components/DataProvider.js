@@ -10,26 +10,41 @@ export const DataProvider = (props) => {
         //usuarios de ejemplo TODO bajar usuarios de API
         const usuarios = [
             {
-                nombreUsuario:"Usuario1",
-                nombreCompleto:"1",
-                email:"1",
-                telefono:"1",
-                estado:"1"
+                nombre_usuario: "Usuario Completo",
+                direccion: "Carrera #2",
+                contrasena: "********",
+                nombre_real: "Nombre Real",
+                telefono: "300",
+                identificacion: "110",
+                correo: "user1@example.com",
+                tipo_identificacion: "CEDULA",
+                tipo_usuario: "ADMINISTRADOR",
+                estado: "ACTIVAO"
             },
             {
-                nombreUsuario:"Usuario2",
-                nombreCompleto:"2",
-                email:"2",
-                telefono:"2",
-                estado:"2"
+                nombre_usuario: "Usuario Completo2",
+                direccion: "Carrera #22",
+                contrasena: "********",
+                nombre_real: "Nombre Real2",
+                telefono: "3002",
+                identificacion: "1102",
+                correo: "user1@example.com2",
+                tipo_identificacion: "CEDULA2",
+                tipo_usuario: "ADMINISTRADOR2",
+                estado: "ACTIVAO2"
             },
             {
-                nombreUsuario:"Usuario3",
-                nombreCompleto:"Nombre Completo",
-                email:"email.usuario3@gmail.com",
-                telefono:"3003333333",
-                estado:"ACTIVAO"
-            }
+                nombre_usuario: "Usuario Completo3",
+                direccion: "Carrera #23",
+                contrasena: "********",
+                nombre_real: "Nombre Real3",
+                telefono: "3003",
+                identificacion: "1103",
+                correo: "user1@example.com3",
+                tipo_identificacion: "CEDULA3",
+                tipo_usuario: "ADMINISTRADOR3",
+                estado: "ACTIVAO3"
+            },
         ]
 
         //proyectos ejemplo TODO bajar proyectos API

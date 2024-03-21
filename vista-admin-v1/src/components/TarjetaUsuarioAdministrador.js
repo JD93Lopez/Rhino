@@ -9,17 +9,20 @@ export const TarjetaUsuarioAdministrador = (params) => {
   const { manejarSeleccionUsuario, usuariosSeleccionados = [] } = dataContext;
 
   const esUsuarioSeleccionado = usuariosSeleccionados.some(
-    (usuario) => usuario.email === params.email
+    (usuario) => usuario.correo === params.usuario.correo
   );
 
   const toggleSeleccionUsuario = () => {
-    const usuario = {
+
+    const usuario = params.usuario;
+
+/*     const usuario = {
       nombreUsuario: params.nombreUsuario,
       nombreCompleto: params.nombreCompleto,
       email: params.email,
       telefono: params.telefono,
       estado: params.estado,
-    };
+    }; */
 
     if (esUsuarioSeleccionado) {
       // Si el usuario ya está seleccionado, deseleccionarlo
