@@ -15,18 +15,16 @@ const navigate = useNavigate();
   return (
     <form className="form" onSubmit={handleSubmit}>
       <p id="heading">Inicio de Sesion Administrador</p>
+      <img src="/logofinalremovebgpreview-1@2x.png" alt="Logo" className="logo" />
       <div className="field">
-        <input autoComplete="off" placeholder="Username" className="input-field" type="text" />
+        <input autoComplete="off" placeholder="Usuario" className="input-field" type="text" />
       </div>
       <div className="field">
-        <input placeholder="Password" className="input-field" type="password" />
+        <input placeholder="Contraseña" className="input-field" type="password" />
       </div>
       <div className="btn">
-        <button type="submit" className="button1">Login</button>
-        <button type="button" className="button2">Sign Up</button>
-      </div>
-      <button type="button" className="button3">Forgot Password</button>
-      
+        <button type="submit" className="button1">Iniciar Sesion</button>
+      </div>     
     </form>
     
   );

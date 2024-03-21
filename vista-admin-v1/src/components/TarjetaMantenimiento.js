@@ -27,8 +27,8 @@ const TarjetaMantenimiento = ({ nombreMaquinaria, identificacion, fecha }) => {
       <div className={styles.frameDiv}>
         <div className={styles.rectangleParent}>
           <div className={styles.frameChild} />
-          <input //TODO cambiar input por text area
-            className={styles.descripcin}
+          <textarea
+            className={`${styles.descripcin} ${styles.textArea}`} // Agregar una nueva clase para el textarea
             placeholder="Descripción..."
             type="text"
           />

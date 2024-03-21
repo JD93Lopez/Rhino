@@ -11,7 +11,7 @@ const VistaAdministradorProducto = () => {
   const navigate = useNavigate();
 
   const onUSUARIOSTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/vista-administrador-usuarios");
   }, [navigate]);
 
   const onPROYECTOSTextClick = useCallback(() => {

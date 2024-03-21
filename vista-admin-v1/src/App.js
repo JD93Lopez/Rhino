@@ -38,6 +38,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/vista-administrador-usuarios":
+        title = "";
+        metaDescription = "";
+        break;
       case "/vista-administrador-proyectos":
         title = "";
         metaDescription = "";

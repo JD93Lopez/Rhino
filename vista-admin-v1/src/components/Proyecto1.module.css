@@ -70,6 +70,7 @@
   align-self: stretch;
   justify-content: flex-start;
 }
+.descripcin,
 .frameChild {
   height: 115px;
   width: 1319px;
@@ -80,20 +81,8 @@
   display: none;
   max-width: 100%;
 }
-.descripcin {
-  width: 166px;
-  border: 0;
-  outline: 0;
-  font-family: var(--font-arial-rounded-mt-bold);
-  font-size: var(--font-size-6xl);
-  background-color: transparent;
-  height: 25px;
-  position: relative;
-  color: var(--color-gainsboro-100);
-  text-align: left;
-  display: inline-block;
-  z-index: 2;
-}
+
+.descripcin,
 .frameDiv,
 .proyecto1,
 .rectangleParent {
@@ -104,13 +93,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.rectangleParent {
-  flex: 1;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-black);
-  padding: var(--padding-7xs) var(--padding-lg) var(--padding-65xl);
-  z-index: 1;
-}
+
 .frameDiv,
 .proyecto1 {
   align-self: stretch;
@@ -146,4 +129,11 @@
   .nombreDelProductoContainer {
     font-size: var(--font-size-xl);
   }
+}
+.descripcin,
+.textArea {
+  width: 500; /* Ajustar el ancho según sea necesario */
+  height: 200; /* Ajustar la altura según sea necesario */
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
 }

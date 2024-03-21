@@ -6,7 +6,7 @@ const FrameComponent1 = () => {
   const navigate = useNavigate();
 
   const onUSUARIOSTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/vista-administrador-usuarios");
   }, [navigate]);
 
   const onPROYECTOSTextClick = useCallback(() => {
