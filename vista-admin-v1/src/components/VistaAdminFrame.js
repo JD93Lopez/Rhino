@@ -6,7 +6,7 @@ const VistaAdminFrame = () => {
   const navigate = useNavigate();
 
   const onUSUARIOSContainerClick = useCallback(() => {
-    navigate("/");
+    navigate("/vista-administrador-usuarios");
   }, [navigate]);
 
   const onPROYECTOSTextClick = useCallback(() => {

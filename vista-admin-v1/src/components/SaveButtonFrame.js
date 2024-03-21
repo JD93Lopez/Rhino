@@ -7,7 +7,7 @@ const SaveButtonFrame = () => {
   const navigate = useNavigate();
 
   const onBotonAtrsContainerClick = useCallback(() => {
-    navigate("/");
+    navigate("/vista-administrador-usuarios");
   }, [navigate]);
 
   const onSaveButtonClick = () => {

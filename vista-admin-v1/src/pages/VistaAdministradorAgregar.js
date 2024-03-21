@@ -10,7 +10,7 @@ const VistaAdministradorAgregar = () => {
   const navigate = useNavigate();
 
   const onUSUARIOSTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/vista-administrador-usuarios");
   }, [navigate]);
 
   const onPROYECTOSTextClick = useCallback(() => {
@@ -21,9 +21,11 @@ const VistaAdministradorAgregar = () => {
     navigate("/vista-administrador-productos");
   }, [navigate]);
 
-  const onMantenimientoTextClick = useCallback(() => {
+  const onMANTENIMIENTOTextClick = useCallback(() => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
+
+
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -32,7 +34,7 @@ const VistaAdministradorAgregar = () => {
         onUSUARIOSTextClick={onUSUARIOSTextClick}
         onPROYECTOSTextClick={onPROYECTOSTextClick}
         onPRODUCTOSTextClick={onPRODUCTOSTextClick}
-        onMantenimientoTextClick={onMantenimientoTextClick}
+        onMANTENIMIENTOTextClick={onMANTENIMIENTOTextClick}
       />
       <div className={styles.createUserFrame}>
         <h1 className={styles.tituloCrearUsuario}>Agregar Producto</h1>

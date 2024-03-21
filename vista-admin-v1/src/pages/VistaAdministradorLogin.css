@@ -10,8 +10,9 @@
     width: 100%; /* Asegura que el formulario se ajuste al contenedor */
     max-width: 400px; /* Máximo ancho para el formulario */
     margin: auto; /* Centra el formulario en la página */
+    margin-top: 100px;
   }
-  
+
   .form:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Suave sombra para destacar */
@@ -55,7 +56,7 @@
     gap: 10px; /* Añadido espacio entre botones */
   }
   
-  .button1, .button2, .button3 {
+  .button1{
     padding: 10px 20px; /* Uniformidad en el padding de los botones */
     border-radius: 5px;
     border: 2px solid transparent; /* Añade un borde transparente para mantener el tamaño durante el hover */
@@ -67,14 +68,17 @@
     font-weight: bold; /* Añadido para destacar el texto */
   }
   
-  .button1:hover, .button2:hover {
+  .button1:hover {
     background-color: var(--color-gold);
   }
-  
-  .button3:hover {
-    background-color: rgb(255, 0, 0);
-    color: #ffffff; /* Cambio para mejor contraste */
-  }
 
+  .logo {
+    width: 90px; /* ajusta el ancho según sea necesario */
+    height: auto; /* mantiene la proporción de aspecto */
+    margin: auto; /* Centra horizontalmente */
+    display: block; /* Permite alinear horizontalmente dentro del contenedor */
+    margin-bottom: 2em;
+  }
+  
 
   
