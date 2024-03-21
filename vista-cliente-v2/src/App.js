@@ -148,6 +148,10 @@ function App() {
         path="/ventana-de-ayuda-y-asistencia"
         element={<VentanaDeAyudaYAsistencia />}
       />
+      <Route
+        path="/ventana-inicio-sesion"
+        element={<VentanaInicioDeSesin />}
+      />
     </Routes>
   );
 }
