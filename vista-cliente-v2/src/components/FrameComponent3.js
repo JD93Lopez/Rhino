@@ -18,6 +18,9 @@ const FrameComponent3 = () => {
     navigate("/ventana-sobre-nosotros");
   }, [navigate]);
 
+  const onBotonMiCuentaClick = useCallback(() => {
+    navigate("/ventana-inicio-sesion");
+  }, [navigate]);
   return (
     <header className={styles.logoFrameParent}>
       <img
@@ -32,6 +35,7 @@ const FrameComponent3 = () => {
           onBotonLogo6Click={onBotonLogo6Click}
           onBotonProductos6Click={onBotonProductos6Click}
           onBotonSobreNosotrosClick={onBotonSobreNosotrosClick}
+          onBotonMiCuentaClick={onBotonMiCuentaClick}
         />
       </div>
     </header>

@@ -4,6 +4,7 @@ const LogoButton = ({
   onBotonLogo6Click,
   onBotonProductos6Click,
   onBotonSobreNosotrosClick,
+  onBotonMiCuentaClick,
 }) => {
   return (
     <div className={styles.logoButton}>
@@ -35,7 +36,7 @@ const LogoButton = ({
           <div className={styles.frameChild} />
           <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
           <div className={styles.myAccountText}>
-            <div className={styles.miCuenta}>MI CUENTA</div>
+            <div className={styles.miCuenta} onClick={onBotonMiCuentaClick}>MI CUENTA</div>
           </div>
         </button>
       </div>
