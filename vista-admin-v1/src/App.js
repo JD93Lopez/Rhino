@@ -14,6 +14,7 @@ import VistaAdministradorActualizar from "./pages/VistaAdministradorActualizar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
+import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
 import {DataProvider} from "./components/DataProvider";
 
 function App() {
@@ -45,6 +46,10 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-proyectos":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-agregar-proyect":
         title = "";
         metaDescription = "";
         break;
@@ -91,6 +96,10 @@ function App() {
         <Route
           path="/vista-administrador-proyectos"
           element={<VistaAdministradorProyecto />}
+        />
+        <Route
+          path="/vista-administrador-agregar-proyect"
+          element={<VistaAdministradorAgregarProyect />}
         />
         <Route
           path="/vista-administrador-mantenimiento"
