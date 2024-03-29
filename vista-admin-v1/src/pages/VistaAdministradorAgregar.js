@@ -56,25 +56,27 @@ const VistaAdministradorAgregar = () => {
                     <input className={styles.nombreIDFrame1} type="text" id ="inputIdProducto" useref={ "inputIdProducto"} />
                   </div>
                   <div className={styles.pRODUCTOS}>
-                    <div className={styles.descripcin}>Descripción</div>
+                  <div className={styles.descripcin}>Descripción</div>
                     <textarea
                       className={styles.mantenimientoText}
-                      placeholder="Escribre"
+                      placeholder="Escribe"
                       rows={18}
                       cols={28}
+                      style={{color:"black"}}
+                      id ="inputdescripcionproducto" useref={ "inputdescripcionproducto"}
                     />
-                    <input className={styles.nombreIDFrame1} type="text" id ="inputdescripcionproducto" useref={ "inputdescripcionproducto"} />
+                   
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
-                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T " />
+                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T "/>
                       <div className={styles.descargarSOAT}>
                         <div
                           className={styles.cargarTcnicoMecnica}
                         >{`Cargar Técnico Mecánica `}</div>
                         <div className={styles.imagenFrame}>
                           <div className={styles.precioTipoFrame}>
-                          <input type='file'/> 
+                          <input type='file' id ="inputTecnoMecanica" useref={ "inputTecnoMecanica"}/> 
                           </div>
                         </div>
                       </div>

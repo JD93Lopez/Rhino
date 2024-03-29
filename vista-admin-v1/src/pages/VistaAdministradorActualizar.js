@@ -1,5 +1,6 @@
 // VistaAdministradorAgregar.js
-import { useCallback } from "react";
+import { useCallback, useContext, useEffect } from "react";
+import { DataContext } from "../components/DataProvider";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import SeleccionarArchivoText from "../components/SeleccionarArchivoText";
@@ -25,7 +26,32 @@ const VistaAdministradorActualizar = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
-  const product = Selected
+  const dataContext = useContext(DataContext);
+  let product
+  if(dataContext.selectedProducts.length !== 0){
+    product = dataContext.selectedProducts[0];
+  }
+  
+  useEffect(() => {
+    const selectedProducts= dataContext.selectedProducts
+    if (dataContext.Loaded) {
+      document.getElementById("inputNombreProducto").value = selectedProducts[0].nombre;
+      document.getElementById("inputdescripcionproducto").value = selectedProducts[0].descripcion;
+      document.getElementById("inputIdProducto").value = selectedProducts[0].identificacion;
+      document.getElementById("inputprecioproducto").value = selectedProducts[0].precio;
+      document.getElementById("inputmodeloproducto").value = selectedProducts[0].modelo ;
+      document.getElementById("inputfabricanteproducto").value = selectedProducts[0].marca;
+      document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
+     // document.getElementById("selectTipoProducto").defaultValue = { label: selectedProducts[0].tipo_vehiculo, value: selectedProducts[0].tipo_vehiculo };
+      //TODO drowpdowns para mostrar
+
+     document.getElementById("selectTipoProducto").defaultValue = dataContext.drowpdownTipo[1]
+     document.getElementById("selectEstadoProducto").value = selectedProducts[0].estado;
+
+    }
+  }, [dataContext.Loaded, dataContext]);
+
+
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -76,7 +102,7 @@ const VistaAdministradorActualizar = () => {
                         >{`Cargar Técnico Mecánica `}</div>
                         <div className={styles.imagenFrame}>
                           <div className={styles.precioTipoFrame}>
-                          <input type='file'/> 
+                          <input type='file' id ="inputImagenProducto" useref={ "inputImagenProducto"}/> 
                           </div>
                         </div>
                       </div>
