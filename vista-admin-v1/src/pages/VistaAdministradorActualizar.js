@@ -28,8 +28,14 @@ const VistaAdministradorActualizar = () => {
 
   const dataContext = useContext(DataContext);
   let product
-  if(dataContext.selectedProducts.length !== 0){
-    product = dataContext.selectedProducts[0];
+  if(dataContext.Loaded && dataContext.selectedProducts){
+    if(dataContext.selectedProducts.length !== 0){
+      product = dataContext.selectedProducts[0];
+    }
+  }else{
+    useEffect(() => {
+      navigate("/vista-administrador-productos");
+    }, [navigate]);
   }
   
   useEffect(() => {
@@ -38,16 +44,10 @@ const VistaAdministradorActualizar = () => {
       document.getElementById("inputNombreProducto").value = selectedProducts[0].nombre;
       document.getElementById("inputdescripcionproducto").value = selectedProducts[0].descripcion;
       document.getElementById("inputIdProducto").value = selectedProducts[0].identificacion;
-      document.getElementById("inputprecioproducto").value = selectedProducts[0].precio;
+      document.getElementById("inputprecioproducto").value = selectedProducts[0].precio_alquiler;
       document.getElementById("inputmodeloproducto").value = selectedProducts[0].modelo ;
       document.getElementById("inputfabricanteproducto").value = selectedProducts[0].marca;
       document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
-     // document.getElementById("selectTipoProducto").defaultValue = { label: selectedProducts[0].tipo_vehiculo, value: selectedProducts[0].tipo_vehiculo };
-      //TODO drowpdowns para mostrar
-
-     document.getElementById("selectTipoProducto").defaultValue = dataContext.drowpdownTipo[1]
-     document.getElementById("selectEstadoProducto").value = selectedProducts[0].estado;
-
     }
   }, [dataContext.Loaded, dataContext]);
 

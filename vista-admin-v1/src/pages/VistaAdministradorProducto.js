@@ -22,11 +22,12 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
-  const onBotonGuardarContainerClick = useCallback(() => {
-    navigate("/vista-administrador-agregar-productoeditar-producto");
-  }, [navigate]);
-
   const dataContext = useContext(DataContext);
+
+  const onBotonGuardarContainerClick = useCallback(() => {
+    dataContext.selectedProducts = []
+    navigate("/vista-administrador-agregar-productoeditar-producto");
+  }, [navigate, dataContext]);
 
   const onBotonActualizarClick = useCallback(() => { 
       if (dataContext.selectedProducts.length === 1) {

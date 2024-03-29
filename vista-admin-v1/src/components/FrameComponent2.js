@@ -29,9 +29,7 @@ const FrameComponent2 = () => {
       modelo,
       tipo_vehiculo,
       imagen,
-      estado,
-
-      
+      estado
     };
     // Convertir el objeto de producto a JSON
     console.log(product.imagen);
@@ -65,12 +63,28 @@ const FrameComponent2 = () => {
   
   dataContext.drowpdownEstado = drowpdownEstado;
 
-    function handleSelectChange(value) {
-      dataContext.tipoProducto = value.value
+  function handleSelectChange(value) {
+    dataContext.tipoProducto = value.value
+  }
+  function handleSelectChangeEstado(value){
+    dataContext.estadoProducto = value.value
+  }
+
+  let defaultTipo = () => {
+    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+      const product = dataContext.selectedProducts[0]
+      return { label: product.tipo_vehiculo, value: product.tipo_vehiculo }
     }
-    function handleSelectChangeEstado(value){
-      dataContext.estadoProducto = value.value
+    return 
+  }
+
+  let defaultEstado = () => {
+    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+      const product = dataContext.selectedProducts[0]
+      return { label: product.estado, value: product.estado }
     }
+    return 
+  }
 
   return (
     <div className={styles.frameParent}>
@@ -81,7 +95,7 @@ const FrameComponent2 = () => {
       <div className={styles.priceType}>
         <div className={styles.productPricing}>
           <div className={styles.dropdownTipo}>
-            <div className={styles.precio}>Precio</div>
+            <div className={styles.precio}>Precio Alquiler</div>
             <div className={styles.tipo}>Tipo</div>
           </div>
         </div>
@@ -93,11 +107,11 @@ const FrameComponent2 = () => {
 
           <div className = " dropdown-Tipo ">
             <Select
-                
-                options = { drowpdownTipo }
-                onChange = { handleSelectChange }
-                id= "selectTipoProducto"
-                useref= "selectTipoProducto"
+              defaultValue={ defaultTipo }
+              options = { drowpdownTipo }
+              onChange = { handleSelectChange }
+              id= "selectTipoProducto"
+              useref= "selectTipoProducto"
             />
         </div>          
           
@@ -121,10 +135,11 @@ const FrameComponent2 = () => {
             
           <div className = " dropdown-Estado ">
             <Select
-                options = { drowpdownEstado }
-                onChange = { handleSelectChangeEstado }
-                id= "selectEstadoProducto"
-                useref= "selectEstadoProducto"
+              defaultValue={ defaultEstado }
+              options = { drowpdownEstado }
+              onChange = { handleSelectChangeEstado }
+              id= "selectEstadoProducto"
+              useref= "selectEstadoProducto"
             />
         </div>
 

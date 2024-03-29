@@ -72,7 +72,6 @@ export const DataProvider = (props) => {
         //Productos de ejemplo TODO bajar productos de API
         const productos = [  //TODO ESTADO DEL PRODUCTO, TECNOMECANICA, SOAT en back
             {
-
                 nombre:"EXCAVADORA DE PRUEBA" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "1",
@@ -82,8 +81,7 @@ export const DataProvider = (props) => {
                 modelo: "2020",
                 tipo_vehiculo: "Transporte",
                 imagen: "/image-1@2x.png",
-
-
+                estado: "Disponible"
 
             },
             {
@@ -96,6 +94,7 @@ export const DataProvider = (props) => {
                 modelo: "2020",
                 tipo_vehiculo: "Transporte",
                 imagen: "/image-2@2x.png",
+                estado: "Ocupado"
             },
             {
                 nombre:"CARGADOR FRONTAL DE PRUEBita" ,
@@ -107,6 +106,7 @@ export const DataProvider = (props) => {
                 modelo: "2020",
                 tipo_vehiculo: "Maquinaria Pesada",
                 imagen: null,
+                estado: "Fuera de Servicio"
             }
         ]
 
