@@ -22,7 +22,7 @@ const SeleccionarArchivoText = ({ cargarSOAT, propPadding, propPadding1 }) => {
     >
       <div className={styles.cargarSoat}>{cargarSOAT}</div>
 
-        <input type='file'/> 
+        <input type='file' id ="inputSoat" useref={ "inputSoat"} /> 
 
     </div>
   );

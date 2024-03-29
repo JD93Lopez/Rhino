@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './FrameComponent2.module.css'; // Asegúrate de importar el archivo de estilos correspondiente
+import { DataContext } from "../components/DataProvider";
+
 
 const ImageUpload = () => {
-  const [image, setImage] = useState(null);
+  const dataContext = useContext(DataContext);
+  const [image, setImage] = useState("/logofinalremovebgpreview-1@2x.png");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-
+    dataContext.imagenProducto = file
     reader.onloadend = () => {
       setImage(reader.result);
     };
@@ -15,6 +18,7 @@ const ImageUpload = () => {
     if (file) {
       reader.readAsDataURL(file);
     }
+    
   };
 
   return (
@@ -30,6 +34,8 @@ const ImageUpload = () => {
           src={image}
           alt="Uploaded"
           className={styles.imageUpload}
+          id= "imagenProducto"
+          useref="imagenProducto"
         />
       )}
     </div>

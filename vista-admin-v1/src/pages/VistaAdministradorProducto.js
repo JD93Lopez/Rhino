@@ -28,13 +28,18 @@ const VistaAdministradorProducto = () => {
 
   const dataContext = useContext(DataContext);
 
-  const onBotonActualizarClick = useCallback(() => {
-      navigate("/vista-administrador-productoeditar-producto");
+  const onBotonActualizarClick = useCallback(() => { 
+      if (dataContext.selectedProducts.length === 1) {
+        navigate("/vista-administrador-productoeditar-producto");
+      }
 
     
-  }, [navigate]);
+  }, [navigate, dataContext]);
 
-  
+  //resetear seleccionados
+  dataContext.selectedProducts = []
+
+
   const [productos, setProductos] = useState(dataContext.productos);
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const VistaAdministradorProducto = () => {
     }
     const inputValue = document.getElementById("inputbuscarproducto").value;
     let nuevosProductos = dataContext.productos.map((product) => {
-      const similitud = orden.calcularSimilitud(inputValue, product.nombreProducto);
+      const similitud = orden.calcularSimilitud(inputValue, product.nombre);
       return { producto: product, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosProductos = nuevosProductos.map((productoSimilitud)=>{
@@ -123,10 +128,10 @@ const VistaAdministradorProducto = () => {
             {productos && productos.map(producto=>{
               return <TarjetaProductoAdministrador
               object = {producto}
-              nombreProducto = {producto.nombreProducto}
+              nombreProducto = {producto.nombre}
               descripcion = {producto.descripcion}
               imagen = {producto.imagen}
-              key = {producto.nombreProducto}
+              key = {producto.nombre}
               >
               </TarjetaProductoAdministrador>
             })}

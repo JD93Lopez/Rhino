@@ -26,14 +26,12 @@ const VistaAdministradorMantenim = () => {
   
     let nuevosMantenimientos = mantenimientosContext.map((mantenimiento) => {
       const similitud = orden.calcularSimilitud(busqueda, mantenimiento.identificacion);
-      console.log(`Similitud entre ${busqueda} y ${mantenimiento.identificacion}: ${similitud}`); // Imprime la similitud
       return { mantenimiento: mantenimiento, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosMantenimientos = nuevosMantenimientos.map((mantenimientoSimilitud)=>{
       return mantenimientoSimilitud.mantenimiento
     })
     
-    console.log(nuevosMantenimientos); // Imprime el resultado de la búsqueda
   
     setMantenimientos(nuevosMantenimientos);
   }, [mantenimientosContext, busqueda]);

@@ -12,9 +12,9 @@ export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, image
 
     if(selected){
       setSelected(false)
-      dataContext.selectedProducts.forEach(user => {
-        if(user.nombreProducto === nombreProducto){
-          dataContext.selectedProducts = dataContext.selectedProducts.filter(userF => { return user !== userF })
+      dataContext.selectedProducts.forEach(product => {
+        if(product.nombre === nombreProducto){
+          dataContext.selectedProducts = dataContext.selectedProducts.filter(productF => { return product !== productF })
         }
       });
     }else{
