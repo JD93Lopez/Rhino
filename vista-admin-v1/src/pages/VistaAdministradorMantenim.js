@@ -9,7 +9,7 @@ export const SearchContext = React.createContext();
 
 const VistaAdministradorMantenim = () => {
   const dataContext = useContext(DataContext);
-  const { Loaded, mantenimientos: mantenimientosContext } = dataContext;
+  const { Loaded, mantenimientos: mantenimientosContext, usuarios } = dataContext;
   const [busqueda, setBusqueda] = useState('');
   const [mantenimientos, setMantenimientos] = useState([]);
 
@@ -44,7 +44,7 @@ const VistaAdministradorMantenim = () => {
     return <div>Cargando... Por favor espere.</div>;
   }
   return (
-    <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext }}>
+    <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
       <SearchContext.Provider value={{ busqueda, setBusqueda }}>
         <div className={styles.vistaAdministradorMantenim}>
           <div className={styles.vistaAdministradorMantenimChild} />

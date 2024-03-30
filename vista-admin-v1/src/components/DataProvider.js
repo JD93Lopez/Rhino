@@ -135,6 +135,21 @@ export const DataProvider = (props) => {
 
         const selectedProducts = []
 
+        const usuarioIniciado = {
+            nombre_usuario: "No Iniciado",
+            direccion: "Carrera #2",
+            contrasena: "********",
+            nombre_real: "Nombre Real",
+            telefono: "300",
+            identificacion: "119",
+            correo: "user1@example.com",
+            tipo_identificacion: "CEDULA",
+            tipo_usuario: "ADMINISTRADOR",
+            estado: "ACTIVAO"
+        }
+
+        usuarios.usuarioIniciado = usuarioIniciado
+
         setData({
             usuarios,
             proyectos,
