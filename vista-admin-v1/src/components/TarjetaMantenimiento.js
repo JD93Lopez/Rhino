@@ -1,6 +1,6 @@
 import styles from "./Proyecto1.module.css";
 
-const TarjetaMantenimiento = ({ nombreMaquinaria, identificacion, fecha }) => {
+const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha }) => {
   return (
     <div className={styles.proyecto1}>
       <div className={styles.proyecto1Child} />

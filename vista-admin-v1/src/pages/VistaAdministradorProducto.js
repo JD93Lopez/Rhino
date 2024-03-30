@@ -22,11 +22,25 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
-  const onBotonGuardarContainerClick = useCallback(() => {
-    navigate("/vista-administrador-agregar-productoeditar-producto");
-  }, [navigate]);
-
   const dataContext = useContext(DataContext);
+
+  const onBotonGuardarContainerClick = useCallback(() => {
+    dataContext.selectedProducts = []
+    navigate("/vista-administrador-agregar-productoeditar-producto");
+  }, [navigate, dataContext]);
+
+  const onBotonActualizarClick = useCallback(() => { 
+      if (dataContext.selectedProducts.length === 1) {
+        navigate("/vista-administrador-productoeditar-producto");
+      }
+
+    
+  }, [navigate, dataContext]);
+
+  //resetear seleccionados
+  dataContext.selectedProducts = []
+
+
   const [productos, setProductos] = useState(dataContext.productos);
 
   useEffect(() => {
@@ -43,7 +57,7 @@ const VistaAdministradorProducto = () => {
     }
     const inputValue = document.getElementById("inputbuscarproducto").value;
     let nuevosProductos = dataContext.productos.map((product) => {
-      const similitud = orden.calcularSimilitud(inputValue, product.nombreProducto);
+      const similitud = orden.calcularSimilitud(inputValue, product.nombre);
       return { producto: product, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosProductos = nuevosProductos.map((productoSimilitud)=>{
@@ -78,6 +92,7 @@ const VistaAdministradorProducto = () => {
                   id= "inputbuscarproducto"
                   useref= "inputbuscarproducto"
                 />
+                
               </div>
             </div>
           </div>
@@ -85,7 +100,7 @@ const VistaAdministradorProducto = () => {
             <div className={styles.updateDeleteProduct}>
               <div className={styles.excavator}>
                 <div className={styles.powerfulExcavator}>
-                  <button className={styles.powerfulExcavator1}>
+                  <button className={styles.powerfulExcavator1} onClick={onBotonActualizarClick}>
                     <div className={styles.powerfulExcavatorChild} />
                     <div className={styles.actualizarProducto}>
                       Actualizar Producto
@@ -112,14 +127,15 @@ const VistaAdministradorProducto = () => {
               </div>
             </div>
             {productos && productos.map(producto=>{
-            return <TarjetaProductoAdministrador
-            nombreProducto = {producto.nombreProducto}
-             descripcion = {producto.descripcion}
-             imagen = {producto.imagen}
-             key = {producto.nombreProducto}
-  >
-  </TarjetaProductoAdministrador>
-})}
+              return <TarjetaProductoAdministrador
+              object = {producto}
+              nombreProducto = {producto.nombre}
+              descripcion = {producto.descripcion}
+              imagen = {producto.imagen}
+              key = {producto.nombre}
+              >
+              </TarjetaProductoAdministrador>
+            })}
           </div>
         </section>
       </main>

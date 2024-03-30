@@ -123,7 +123,7 @@ function App() {
         element={<VentanaSobreNosotros />}
       />
       <Route path="/vetana-de-registro" element={<VetanaDeRegistro />} />
-      <Route path="/ventana-principal-2" element={<VentanaParaClientes />} />
+      <Route path="/ventana-principal-2" element={<VentanaPrincipal />} />
       <Route
         path="/ventana-inicio-de-sesin"
         element={<VentanaInicioDeSesin />}
@@ -147,6 +147,10 @@ function App() {
       <Route
         path="/ventana-de-ayuda-y-asistencia"
         element={<VentanaDeAyudaYAsistencia />}
+      />
+      <Route
+        path="/ventana-inicio-sesion"
+        element={<VentanaInicioDeSesin />}
       />
     </Routes>
   );

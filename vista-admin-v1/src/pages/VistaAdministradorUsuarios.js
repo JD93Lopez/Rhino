@@ -21,27 +21,35 @@ const VistaAdministradorUsuarios = () => {
   const [usuariosSeleccionados, setUsuariosSeleccionados] = useState([]);
 
   const onActualizarUsuarioClick = useCallback(() => {
-    navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
-  }, [navigate]);
+    console.log(usuariosSeleccionados.length)
+    if( usuariosSeleccionados.length === 1 ){
+      dataContext.selectedUsers = usuariosSeleccionados
+      navigate("/vista-administrador-usuarios-actualizar-usuario");
+    }
+  }, [navigate, usuariosSeleccionados]);
+    
+  
 
   const onCrearUsuarioClick = useCallback(() => {
+    dataContext.selectedUsers = []
     navigate("/vista-administrador-usuarios-crear-usuarioactualizar-usuario");
-  }, [navigate]);
-
+  }, [navigate],dataContext.selectedUsers);
 
   const manejarSeleccionUsuario = (usuario) => {
     setUsuariosSeleccionados((prevSeleccionados) => {
-      const usuarioExiste = prevSeleccionados.some((u) => u.email === usuario.email);
+      const usuarioExiste = prevSeleccionados.some((u) => u.correo === usuario.correo);
   
       if (usuarioExiste) {
-        return prevSeleccionados.filter((u) => u.email !== usuario.email);
+        return prevSeleccionados.filter((u) => u.correo !== usuario.correo);
       } else {
         return [...prevSeleccionados, usuario];
       }
     });
+    console.log(usuariosSeleccionados)
   };
-
+  
   const eliminarUsuariosSeleccionados = (usuariosSeleccionados) => {
+    dataContext.usuarios
     // Lógica para eliminar los usuarios seleccionados
     console.log('Usuarios seleccionados a eliminar:', usuariosSeleccionados);
     // Después de eliminarlos, resetea el estado de usuariosSeleccionados
@@ -62,11 +70,10 @@ const VistaAdministradorUsuarios = () => {
     }
   }, [Loaded, usuariosContext]);
 
-
   const buscar = useCallback(() => {
     const inputValue = document.getElementById("inputbuscarusuario").value;
     let nuevosUsuarios = usuariosContext.map((user) => {
-     const similitud = orden.calcularSimilitud(inputValue, user.nombreUsuario);
+     const similitud = orden.calcularSimilitud(inputValue, user.nombre_usuario);
      return { usuario: user, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
@@ -114,16 +121,17 @@ const VistaAdministradorUsuarios = () => {
                   </div>
                 </div>
                 <div className={styles.cellNumber}>
-                  {usuarios.map(usuario => {
+                {usuarios.map(usuario => {
                     return <TarjetaUsuarioAdministrador
-                      nombreUsuario = {usuario.nombreUsuario}
-                      nombreCompleto = {usuario.nombreCompleto}
-                      email = {usuario.email}
+                      usuario = { usuario }
+                      nombreUsuario = {usuario.nombre_usuario}
+                      nombreCompleto = {usuario.nombre_real}
+                      email = {usuario.correo}
                       telefono = {usuario.telefono}
                       estado = {usuario.estado}
-                      key = {usuario.email}
-                      id = {"usuario"+usuario.email}
-                      useref = {"usuario"+usuario.email}
+                      key = {usuario.correo}
+                      id = {"usuario"+usuario.correo}
+                      useref = {"usuario"+usuario.correo}
                     ></TarjetaUsuarioAdministrador>
                   })}
                 </div>

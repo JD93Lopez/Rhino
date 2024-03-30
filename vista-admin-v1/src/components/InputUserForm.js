@@ -3,8 +3,27 @@ import UserNicknameFrame2 from "./UserNicknameFrame2";
 import UserNicknameFrame3 from "./UserNicknameFrame3";
 import UserNicknameFrame from "./UserNicknameFrame";
 import styles from "./InputUserForm.module.css";
+import { useContext, useEffect } from "react";
+import { DataContext } from "./DataProvider";
 
 const InputUserForm = () => {
+  const dataContext = useContext(DataContext)
+  const { Loaded, selectedUsers } = dataContext;
+  if (!Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }
+  useEffect(() => {
+    if(selectedUsers.length !== 0){
+      document.getElementById("inputnombreusuario").value = selectedUsers[0].nombre_usuario
+      document.getElementById("inputdireccionusuario").value = selectedUsers[0].direccion
+      document.getElementById("inputnombrerealusuario").value = selectedUsers[0].nombre_real
+      document.getElementById("inputtelefonousuario").value = selectedUsers[0].telefono
+      document.getElementById("inputidentificacionusuario").value = selectedUsers[0].identificacion
+      document.getElementById("inputcorreousuario").value = selectedUsers[0].correo
+      document.getElementById("inputtipoidentificacion").value = selectedUsers[0].tipo_identificacion
+      document.getElementById("inputtipodeusuario").value = selectedUsers[0].tipo_usuario
+    }
+  }, [ selectedUsers]);
   return (
     <section className={styles.inputUserForm}>
       <div className={styles.casillasDeCreacionDeUsuari}>
