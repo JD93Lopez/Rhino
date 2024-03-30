@@ -57,6 +57,104 @@
   gap: 21px 0;
   letter-spacing: normal;
 }
+
+.actualizarUsuarioChild {
+  height: 48px;
+  width: 163.2px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  box-sizing: border-box;
+  display: none;
+}
+.actualizarUsuario1 {
+  height: 27px;
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
+.actualizarUsuario {
+  position: absolute;
+  top: 165px;
+  right: 850px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-smi) var(--padding-5xs)
+    var(--padding-base);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.eliminarUsuariosSeleccionados:hover,
+.actualizarUsuario:hover,
+.crearUsuario:hover,
+.crearUsuarioChild {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+.crearUsuarioChild {
+  height: 48px;
+  width: 170.9px;
+  position: relative;
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-gray-200);
+  display: none;
+}
+.EliminarSeleccionados,
+.crearNuevo {
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  z-index: 1;
+}
+.crearUsuario {
+  position: absolute;
+  top: 165px;
+  right: 670px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.actualizarUsuarioParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0 42px;
+  max-width: 100%;
+}
+.eliminarUsuariosSeleccionados{
+  position: absolute;
+  top: 165px;
+  right: 500px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
 @media screen and (max-width: 800px) {
   .mantenimiento {
     font-size: var(--font-size-32xl);
