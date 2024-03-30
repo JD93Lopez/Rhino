@@ -59,7 +59,7 @@ server.get('/dbapi/insert/productos/:JSONObject', async (req, res) => {
         
         const JSONObject = req.params.JSONObject;
         const objetoAInsertar = JSON.parse(JSONObject)
-        DBConnection.insertarProducto(objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado)
+        DBConnection.insertarProducto(objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen)
         res.json({ DBRes: "Insercion Finalizada" });
     } catch (error) {
         res.json({ DBRes: error });
@@ -185,7 +185,7 @@ server.get('/dbapi/update/productos/:JSONObject', async (req, res) => {
         
         const JSONObject = req.params.JSONObject;
         const objetoAInsertar = JSON.parse(JSONObject)
-        DBConnection.actualizarProducto(objetoAInsertar.idProductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado)
+        DBConnection.actualizarProducto(objetoAInsertar.idProductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
         res.json({ DBRes: error });

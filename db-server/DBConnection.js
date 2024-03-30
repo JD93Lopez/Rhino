@@ -71,7 +71,7 @@ const actualizarUsuario = async (
       identificacion,
       correo,
       tipo_identificacion,
-      tipo_usuario,
+      tipo_usuario
     ];
     const DBRes = await pool.query(texto, values);
     return DBRes;
@@ -188,13 +188,14 @@ const insertarProducto = async (
   marca,
   modelo,
   tipo_vehiculo,
-  estado
+  estado,
+  imagen
   //TODO ESTADO DEL PRODUCTO
 ) => {
   const pool = new Pool(config);
   try {
     const texto =
-      "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)";
+      "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado, imagen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
     const values = [
       nombre,
       descripcion,
@@ -204,7 +205,8 @@ const insertarProducto = async (
       marca,
       modelo,
       tipo_vehiculo,
-      estado
+      estado,
+      imagen
     ];
     const DBRes = await pool.query(texto, values);
     return DBRes;
@@ -237,12 +239,13 @@ const actualizarProducto = async (
   marca,
   modelo,
   tipo_vehiculo,
-  estado
+  estado,
+  imagen
 ) => {
   const pool = new Pool(config);
   try {
     const texto =
-      "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, precio_compra = $6, marca = $7, modelo = $8, tipo_vehiculo = $9, estado = $10 WHERE idProductos = $1";
+      "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, precio_compra = $6, marca = $7, modelo = $8, tipo_vehiculo = $9, estado = $10, imagen = $11 WHERE idProductos = $1";
     const values = [
       idProductos,
       nombre,
@@ -253,7 +256,8 @@ const actualizarProducto = async (
       marca,
       modelo,
       tipo_vehiculo,
-      estado
+      estado,
+      imagen
     ];
     const DBRes = await pool.query(texto, values);
     return DBRes;
