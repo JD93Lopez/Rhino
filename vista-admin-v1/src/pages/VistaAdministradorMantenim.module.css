@@ -155,6 +155,53 @@
   justify-content: center;
   white-space: nowrap;
 }
+
+.buscarUsuario {
+  position: absolute;
+  top: 165px;
+  right: 60px;
+  width: 340px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  justify-content: flex-start;
+  padding: var(--padding-5xs) var(--padding-3xs) var(--padding-6xs);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-xl);
+  max-width: 100%;
+}
+.buscarUsuarioChild {
+  height: 47px;
+  width: 340px;
+  position: relative;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gainsboro-100);
+  display: none;
+  max-width: 100%;
+}
+.lupa4Icon {
+  height: 32px;
+  width: 37px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.buscarMantenimiento{
+  width: 121px;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-arial-rounded-mt-bold);
+  font-size: var(--font-size-mini);
+  background-color: transparent;
+  height: 17px;
+  position: relative;
+  color: var(--color-gray-100);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+}
 @media screen and (max-width: 800px) {
   .mantenimiento {
     font-size: var(--font-size-32xl);
