@@ -22,14 +22,35 @@ const VistaAdministradorMantenim = () => {
         <section className={styles.mantenimientoParent}>
           <h1 className={styles.mantenimiento}>MANTENIMIENTO</h1>
           <div className={styles.projectDetails}>
-            {mantenimientos.map(mantenimiento => {
-              return <TarjetaMantenimiento
-              nombreMaquinaria = {mantenimiento.nombreMaquinaria}
-              identificacion = {mantenimiento.identificacion}
-              fecha = {mantenimiento.fecha}
-              key = {mantenimiento.identificacion}
-            ></TarjetaMantenimiento>
-            })}
+            {mantenimientos.map(mantenimiento => (
+              <TarjetaMantenimiento
+                nombreMaquinaria={mantenimiento.nombreMaquinaria}
+                identificacion={mantenimiento.identificacion}
+                fecha={mantenimiento.fecha}
+                key={mantenimiento.identificacion}
+              />
+            ))}
+            <div className={styles.actualizarUsuarioParent}>
+              <button
+                className={styles.actualizarUsuario}
+              >
+                <div className={styles.actualizarUsuarioChild} />
+                <div className={styles.actualizarUsuario1}>
+                  Agregar Mantenimiento
+                </div>
+              </button>
+              <button
+                className={styles.crearUsuario}
+              >
+                <div className={styles.crearUsuarioChild} />
+                <div className={styles.crearNuevo}>Actualizar</div>
+              </button>
+              <button 
+                className={styles.eliminarUsuariosSeleccionados}>
+                <div calssName={styles.eliminarusuarioChild} />
+                <div className={styles.EliminarSeleccionados} >Eliminar</div>
+              </button>
+            </div>
           </div>
         </section>
       </main>
