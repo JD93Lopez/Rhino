@@ -31,12 +31,12 @@ const LogoButton = ({
       <div className={styles.imageFrame}>
         <div className={styles.botonLupa6} />
       </div>
-      <div className={styles.groupOne}>
+      <div className={styles.groupOne}onClick={onBotonMiCuentaClick}>
         <button className={styles.rectangleParent}>
           <div className={styles.frameChild} />
           <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
           <div className={styles.myAccountText}>
-            <div className={styles.miCuenta} onClick={onBotonMiCuentaClick}>MI CUENTA</div>
+            <div className={styles.miCuenta} >MI CUENTA</div>
           </div>
         </button>
       </div>

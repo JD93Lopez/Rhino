@@ -1,6 +1,31 @@
+import { useCallback, useState, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./AddressFrame.module.css";
+import { DataContext } from "../components/DataProvider.js";
 
 const AddressFrame = () => {
+  const navigate = useNavigate();
+  const dataContext = useContext(DataContext);
+
+  const [nombreCompleto, setNombreCompleto] = useState("");
+  const [identificacion, setIdentificacion] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [direccion, setDireccion] = useState("");
+
+  const onBotonGuardarInformacionClick = useCallback(() => {
+    const usuario = {
+      nombreCompleto,
+      identificacion,
+      correo,
+      telefono,
+      direccion
+    };
+    console.log(usuario);
+
+    navigate("/ventana-de-informacin-personal");
+  }, [nombreCompleto, identificacion, correo, telefono, direccion, navigate]);
+
   return (
     <div className={styles.addressFrame}>
       <div className={styles.nameAndIDContainer}>
@@ -13,25 +38,25 @@ const AddressFrame = () => {
             <div className={styles.identificationInputFrame}>
               <b className={styles.nombreCompleto}>{`Nombre Completo: `}</b>
               <div className={styles.telefonoInputFrame}>
-                <div className={styles.inputNombreCompleto} />
+                <input className={styles.inputNombreCompleto} value={nombreCompleto} onChange={(e) => setNombreCompleto(e.target.value)} />
               </div>
             </div>
             <div className={styles.identificationInputFrame1}>
               <b className={styles.identificacin}>{`Identificación: `}</b>
               <div className={styles.inputIdentificacin2Wrapper}>
-                <div className={styles.inputIdentificacin2} />
+                <input className={styles.inputIdentificacin2} value={identificacion} onChange={(e) => setIdentificacion(e.target.value)} />
               </div>
             </div>
             <div className={styles.identificationInputFrame2}>
               <b className={styles.correo}>{`Correo: `}</b>
               <div className={styles.inputCorreo2Wrapper}>
-                <div className={styles.inputCorreo2} />
+                <input className={styles.inputCorreo2} value={correo} onChange={(e) => setCorreo(e.target.value)} />
               </div>
             </div>
             <div className={styles.identificationInputFrame3}>
               <b className={styles.telfono}>{`Teléfono: `}</b>
               <div className={styles.inputTelefono2Wrapper}>
-                <div className={styles.inputTelefono2} />
+                <input className={styles.inputTelefono2} value={telefono} onChange={(e) => setTelefono(e.target.value)} />
               </div>
             </div>
           </div>
@@ -41,7 +66,7 @@ const AddressFrame = () => {
             <div className={styles.directionTextFrame}>
               <b className={styles.direccin}>{`Dirección: `}</b>
               <div className={styles.inputAddress2Wrapper}>
-                <div className={styles.inputAddress2} />
+                <input className={styles.inputAddress2} value={direccion} onChange={(e) => setDireccion(e.target.value)} />
               </div>
             </div>
           </div>
@@ -50,7 +75,7 @@ const AddressFrame = () => {
         <div className={styles.editBtnFrame}>
           <div className={styles.botnEdiotarInformacin}>
             <div className={styles.botnEdiotarInformacinChild} />
-            <b className={styles.guardarInformacin}>GUARDAR INFORMACIÓN</b>
+            <button className={styles.guardarInformacin} onClick={onBotonGuardarInformacionClick}>GUARDAR INFORMACIÓN</button>
           </div>
         </div>
       </div>

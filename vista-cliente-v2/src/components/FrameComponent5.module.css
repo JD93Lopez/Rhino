@@ -159,7 +159,7 @@
 }
 .miCuenta,
 .rectangleGroup,
-.sebastianPicoAfanador {
+.cerrarSesion {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -175,7 +175,7 @@
   gap: var(--gap-8xs);
   z-index: 2;
 }
-.sebastianPicoAfanador {
+.cerrarSesion {
   flex-direction: column;
   padding: var(--padding-smi) 0 0;
 }

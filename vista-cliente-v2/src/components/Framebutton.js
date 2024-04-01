@@ -71,7 +71,7 @@ const Framebutton = () => {
           <div className={styles.questionButtons}>
             <div className={styles.botonPregunta1}>¿Olvidó su contraseña?</div>
             <div className={styles.botonPregunta2Wrapper}>
-              <div className={styles.botonPregunta2}>¿No está registrado?</div>
+              <div className={styles.botonPregunta2} onClick={onBotonRegistrarse2Click}>¿No está registrado?</div>
             </div>
           </div>
         </div>
