@@ -48,6 +48,7 @@ const SearchProjectFrame = () => {
         <div className={styles.projectFrame1}>
           {proyectos.map(proyecto => {
             return <TarjetaProyectoAdministrador
+              object = { proyecto }
               encargadoProyecto={proyecto.nombreProyecto}
               telefono={proyecto.telefono}
               cedula={proyecto.cedula}

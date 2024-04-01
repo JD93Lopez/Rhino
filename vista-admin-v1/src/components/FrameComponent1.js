@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./FrameComponent1.module.css";
+import { DataContext } from "./DataProvider";
 
 const FrameComponent1 = () => {
   const navigate = useNavigate();
@@ -16,6 +17,16 @@ const FrameComponent1 = () => {
   const onPRODUCTOSTextClick = useCallback(() => {
     navigate("/vista-administrador-productos");
   }, [navigate]);
+
+  const dataContext = useContext(DataContext);
+
+  let nombre_usuario
+
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }else{
+    nombre_usuario = dataContext.usuarios.usuarioIniciado.nombre_usuario
+  }
 
   return (
     <header className={styles.emptyFrameWrapper}>
@@ -67,7 +78,7 @@ const FrameComponent1 = () => {
                 src="/usuario-1@2x.png"
               />
               <div className={styles.perfilAdminChild} />
-              <div className={styles.administrador}>Administrador</div>
+              <div className={styles.administrador}>{nombre_usuario}</div>
             </button>
           </div>
         </div>

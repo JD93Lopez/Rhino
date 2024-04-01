@@ -1,33 +1,38 @@
 // FrameComponent2.js
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SeleccionarArchivoText from "./SeleccionarArchivoText";
 import styles from "./FrameComponent2.module.css";
 import Select from 'react-select';
 import ImageUpload from './ImageUpload';
-
+import { DataContext, DataProvider } from "../components/DataProvider";
 const FrameComponent2 = () => {
 
   const [showNotification, setShowNotification] = useState(false);
   const [notificationContent, setNotificationContent] = useState("");
-
+  const dataContext = useContext(DataContext);
   const onSaveButtonClick = () => {
     const nombre=document.getElementById("inputNombreProducto").value;
     const descripcion =document.getElementById("inputdescripcionproducto").value;
-    const id =document.getElementById("inputIdProducto").value;
+    const identificacion =document.getElementById("inputIdProducto").value;
     const precio =document.getElementById("inputprecioproducto").value;
     const modelo =document.getElementById("inputmodeloproducto").value;
-    const fabricante =document.getElementById("inputfabricanteproducto").value;
+    const marca =document.getElementById("inputfabricanteproducto").value;
+    const estado = dataContext.estadoProducto;
+    const tipo_vehiculo = dataContext.tipoProducto;
+    const imagen = dataContext.imagenProducto;
     const product = {
-      id,
       nombre,
       descripcion,
+      identificacion,
       precio,
-      tipo: "",
+      marca, 
       modelo,
-      estado: "",
-      fabricante
+      tipo_vehiculo,
+      imagen,
+      estado
     };
     // Convertir el objeto de producto a JSON
+    console.log(product.imagen);
     const jsonProducto = JSON.stringify(product);
     
     //TODO conexion axios 
@@ -48,16 +53,38 @@ const FrameComponent2 = () => {
     { label: 'Transporte', value: 'Transporte' },
     { label: 'Maquinaria Pesada', value: 'Maquinaria Pesada' },
   ]
+  dataContext.drowpdownTipo = drowpdownTipo;
 
   const drowpdownEstado = [
     { label: 'Disponible', value: 'Disponible' },
     { label: 'Ocupado', value: 'Ocupado' },
     { label: 'Fuera de Servicio', value: 'Fuera de Servicio' },
   ]
+  
+  dataContext.drowpdownEstado = drowpdownEstado;
 
-    function handleSelectChange(value) {
-      console.log(value);
+  function handleSelectChange(value) {
+    dataContext.tipoProducto = value.value
+  }
+  function handleSelectChangeEstado(value){
+    dataContext.estadoProducto = value.value
+  }
+
+  let defaultTipo = () => {
+    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+      const product = dataContext.selectedProducts[0]
+      return { label: product.tipo_vehiculo, value: product.tipo_vehiculo }
     }
+    return 
+  }
+
+  let defaultEstado = () => {
+    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+      const product = dataContext.selectedProducts[0]
+      return { label: product.estado, value: product.estado }
+    }
+    return 
+  }
 
   return (
     <div className={styles.frameParent}>
@@ -68,7 +95,7 @@ const FrameComponent2 = () => {
       <div className={styles.priceType}>
         <div className={styles.productPricing}>
           <div className={styles.dropdownTipo}>
-            <div className={styles.precio}>Precio</div>
+            <div className={styles.precio}>Precio Alquiler</div>
             <div className={styles.tipo}>Tipo</div>
           </div>
         </div>
@@ -80,8 +107,11 @@ const FrameComponent2 = () => {
 
           <div className = " dropdown-Tipo ">
             <Select
-                options = { drowpdownTipo }
-                onChange = { handleSelectChange }
+              defaultValue={ defaultTipo }
+              options = { drowpdownTipo }
+              onChange = { handleSelectChange }
+              id= "selectTipoProducto"
+              useref= "selectTipoProducto"
             />
         </div>          
           
@@ -105,8 +135,11 @@ const FrameComponent2 = () => {
             
           <div className = " dropdown-Estado ">
             <Select
-                options = { drowpdownEstado }
-                onChange = { handleSelectChange }
+              defaultValue={ defaultEstado }
+              options = { drowpdownEstado }
+              onChange = { handleSelectChangeEstado }
+              id= "selectEstadoProducto"
+              useref= "selectEstadoProducto"
             />
         </div>
 
