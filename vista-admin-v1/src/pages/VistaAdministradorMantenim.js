@@ -52,6 +52,9 @@ const VistaAdministradorMantenim = () => {
           <main className={styles.vistaAdministradorMantenimInner}>
             <section className={styles.mantenimientoParent}>
               <h1 className={styles.mantenimiento}>MANTENIMIENTO</h1>
+            <div className={styles.buscarUsuario}>
+              <div className={styles.buscarUsuarioChild} />
+              <img className ={styles.lupa4Icon} alt="" src="/lupa-4@2x.png"/>
             <input
               className={styles.buscarMantenimiento}
               placeholder="buscar mantenimiento"
@@ -60,6 +63,7 @@ const VistaAdministradorMantenim = () => {
               id = "inputbuscarmantenimiento"
               useref= "inputbuscarmantenimiento"
             />
+            </div>
               <div className={styles.projectDetails}>
                 {mantenimientos.map(mantenimiento => {
                   return <TarjetaMantenimiento
@@ -71,6 +75,27 @@ const VistaAdministradorMantenim = () => {
                   ></TarjetaMantenimiento>
                 })}
               </div>
+              <div className={styles.actualizarUsuarioParent}>
+              <button
+                className={styles.actualizarUsuario}
+              >
+                <div className={styles.actualizarUsuarioChild} />
+                <div className={styles.actualizarUsuario1}>
+                  Agregar Mantenimiento
+                </div>
+              </button>
+              <button
+                className={styles.crearUsuario}
+              >
+                <div className={styles.crearUsuarioChild} />
+                <div className={styles.crearNuevo}>Actualizar</div>
+              </button>
+              <button 
+                className={styles.eliminarUsuariosSeleccionados}>
+                <div calssName={styles.eliminarusuarioChild} />
+                <div className={styles.EliminarSeleccionados} >Eliminar</div>
+              </button>
+            </div>
             </section>
           </main>
         </div>
