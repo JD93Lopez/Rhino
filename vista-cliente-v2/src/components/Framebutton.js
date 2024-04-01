@@ -1,6 +1,14 @@
 import styles from "./Framebutton.module.css";
-
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 const Framebutton = () => {
+  const navigate = useNavigate();
+  const onBotonIniciarSesionClick = useCallback(() => {
+    navigate("/ventana-de-informacin-personal"); 
+  }, [navigate]);
+  const onBotonRegistrarse2Click = useCallback(() => {
+    navigate("/vetana-de-registro");
+  }, [navigate]);
   return (
     <div className={styles.framebutton}>
       <div className={styles.rectangleIs} />
@@ -20,10 +28,7 @@ const Framebutton = () => {
             <div className={styles.inputUsuario} />
           </div>
           <div className={styles.registrationFrame}>
-            <button className={styles.rectangleParent}>
-              <div className={styles.frameChild} />
-              <b className={styles.inicarSesin}>INICAR SESIÓN</b>
-            </button>
+          <button className={styles.rectangleParent}onClick={onBotonIniciarSesionClick}>INICIAR SESIÓN</button>
           </div>
         </form>
         <div className={styles.inputFieldGroup}>
@@ -36,8 +41,9 @@ const Framebutton = () => {
         </div>
       </div>
       <div className={styles.registrationFrame1}>
-        <button className={styles.rectangleGroup}>
+        <button className={styles.rectangleGroup} onClick={onBotonRegistrarse2Click}>  
           <div className={styles.frameItem} />
+          
           <b className={styles.registrarse}>REGISTRARSE</b>
         </button>
       </div>
