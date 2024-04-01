@@ -1,8 +1,9 @@
 import styles from "./FrameFullNameIDAddressEm.module.css";
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect, useCallback} from 'react';
+import { useNavigate } from "react-router-dom";
 import { DataContext, usuarios } from "../components/DataProvider.js";
 const FrameFullNameIDAddressEm = () => {
-  //DESDE ACÁ INICIA MAJO
+  const navigate = useNavigate();
   const dataContext = useContext(DataContext);
   console.log(usuarios);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,8 +17,11 @@ const FrameFullNameIDAddressEm = () => {
       // Supongamos que obtienes el usuario actual de algún lugar, por ahora, seleccionamos el primer usuario de la lista para mostrar
       setCurrentUser(usuarios[2]);
   }, []);
+  const onBotonEditarInformacionClick = useCallback(() => {
+    navigate("/ventana-de-editar-informacin-personal");
+  }, [navigate]);
 
-  //ACA FINALIZA MAJO (LOS OTROS CAMBIOS FUERON SOLO EN LO QUE MUESTRA DE INFO)
+
   return (
     <div className={styles.frameFullNameIDAddressEm}>
       <div className={styles.rectangleEditInfo}>
@@ -66,8 +70,8 @@ const FrameFullNameIDAddressEm = () => {
         </div>
         <div className={styles.profilepictureframe}>
           <div className={styles.botnEdiotarInformacin}>
-            <div className={styles.botnEdiotarInformacinChild} />
-            <b className={styles.editarInformacin}>EDITAR INFORMACIÓN</b>
+            <button className={styles.botnEdiotarInformacinChild} />
+            <b className={styles.editarInformacin}onClick={onBotonEditarInformacionClick}>EDITAR INFORMACIÓN</b>
           </div>
         </div>
       </div>

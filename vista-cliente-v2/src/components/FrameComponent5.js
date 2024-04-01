@@ -9,6 +9,7 @@ const FrameComponent5 = ({
   onBotonProductos6Click,
   onBotonSobreNosotrosClick,
   onCarritoDeCompras3ImageClick,
+  onCerrarSesionClick,
 }) => {
   const frameSectionStyle = useMemo(() => {
     return {
@@ -61,12 +62,12 @@ const FrameComponent5 = ({
         <div className={styles.iNFORMACINPERSO}>
           <div className={styles.botonLupa6} />
         </div>
-        <div className={styles.sebastianPicoAfanador}>
-          <button className={styles.rectangleGroup}>
+        <div className={styles.cerrarSesion}>
+          <button className={styles.rectangleGroup}onClick={onCerrarSesionClick}>
             <div className={styles.frameItem} />
             <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
             <div className={styles.miCuenta}>
-              <div className={styles.miCuenta1}>MI CUENTA</div>
+              <div className={styles.miCuenta1}>CERRAR SESION</div>
             </div>
           </button>
         </div>
