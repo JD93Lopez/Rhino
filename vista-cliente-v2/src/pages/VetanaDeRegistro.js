@@ -7,7 +7,7 @@ const VetanaDeRegistro = () => {
   const navigate = useNavigate();
 
   const onBotonRegistrarse2Click = useCallback(() => {
-    navigate("/ventana-inicio-de-sesin");
+    navigate("/ventana-de-informacin-personal");
   }, [navigate]);
 
   return (
