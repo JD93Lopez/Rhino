@@ -7,7 +7,7 @@ const VentanaInicioDeSesin = () => {
   const navigate = useNavigate();
 
   const onLogoISContainerClick = useCallback(() => {
-    navigate("/ventana-principal-2");
+    navigate("/ventana-principal");
   }, [navigate]);
 
   return (

@@ -28,7 +28,7 @@ const VetanaDeRegistro = () => {
     console.log(objUsuario);
 */
 console.log(usuario)
-    navigate("/ventana-de-informacin-personal");
+    navigate("/ventana-inicio-de-sesin");
   }, [navigate, document]);
 
   return (
