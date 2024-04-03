@@ -1,4 +1,4 @@
-.logoFrameIcon {
+.logoFrameIcon {/*imagen de fondo de empiece a contruir*/
   height: 556px;
   width: 1742px;
   position: absolute;
@@ -7,27 +7,27 @@
   left: -14px;
   object-fit: cover;
 }
-.logoButtonChild {
+.logoButtonChild {/*altura del header*/
   align-self: stretch;
   height: 50px;
   position: relative;
   background-color: var(--color-black);
 }
 .logoButton,
-.logoFrameParent {
+.logoFrameParent {/*la anchura de la barra amarilla*/
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.logoButton {
+.logoButton {/*la anchura de la barra amarilla*/
   height: 368px;
   width: 1728px;
   flex-direction: column;
   padding: 0 0 var(--padding-203xl) 0;
   box-sizing: border-box;
 }
-.logoFrameParent {
+.logoFrameParent {/*la anchura de la barra amarilla*/
   height: 146px;
   flex-direction: row;
   position: relative;

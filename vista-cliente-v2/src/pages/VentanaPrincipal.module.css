@@ -1,4 +1,8 @@
-.empieceAConstruir {
+.empieceAConstruir {/*titulo empiece a contruir*/
+  height: 71x;
+  width: 471px;
+  top: 190px;
+  left: 0px;
   margin: 0;
   position: relative;
   font-size: inherit;
@@ -6,7 +10,9 @@
   font-family: inherit;
   z-index: 1;
 }
-.searchFrame {
+.searchFrame {/*barra amarilla empiece a contruir*/
+  top: 192px;
+  left: 0px;
   align-self: stretch;
   flex: 1;
   position: relative;
@@ -41,8 +47,10 @@
   margin: 0;
   white-space: pre-wrap;
 }
-.potenciaTusProyectosContainer {
+.potenciaTusProyectosContainer {/*parrafo introductorio*/
   position: relative;
+  top: 200px;
+  left: 0px;
   font-size: var(--font-size-11xl);
   font-family: var(--font-advent-pro);
   z-index: 1;
@@ -80,20 +88,25 @@
   cursor: pointer;
   z-index: 1;
 }
-.productosDestacados {
+.productosDestacados {/*titulo productos destacados*/
+  top: 150px;
+  left: 0px;
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
+  z-index: 9999;
 }
-.buildWithUsFrame {
+.buildWithUsFrame {/*barra amarilla del titulo productos destacados*/
+  top: 150px;
+  left: 0px;
   align-self: stretch;
   width: 369px;
   position: relative;
   background-color: var(--color-goldenrod);
   max-width: 100%;
-  z-index: 1;
+  z-index: 9999;
 }
 .compactadoraFrame {
   align-self: stretch;
@@ -348,7 +361,7 @@
     font-size: var(--font-size-lg);
   }
   .attentiontoclient {
-    padding-left: var(--padding-xl);
+    padding-left: var(--padding-xl);         
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
