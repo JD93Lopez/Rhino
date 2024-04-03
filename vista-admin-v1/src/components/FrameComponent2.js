@@ -38,7 +38,7 @@ const FrameComponent2 = () => {
     //TODO conexion axios 
     console.log(jsonProducto);//TODO quitar console.log
  
-    // Cambiar el contenido de la notificación
+    //TODO Cambiar el contenido de la notificación
     setNotificationContent("¡Guardadito exitoso!");
 
     setShowNotification(true);
