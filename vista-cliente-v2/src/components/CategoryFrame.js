@@ -1,10 +1,14 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CategoryFrame.module.css";
 import { TarjetaProducto } from "./TarjetaProducto";
+import orden from "../OrdenamientoSimilitud";
+import { DataContext } from "./DataProvider";
 
 const CategoryFrame = () => {
   const navigate = useNavigate();
+  console.log(DataContext)
+  const dataContext = useContext(DataContext)
 
   const onMaterialesSinFondo2Click = useCallback(() => {
     navigate("/informacin-de-cada-producto");
@@ -26,40 +30,24 @@ const CategoryFrame = () => {
     navigate("/informacin-de-cada-producto");
   }, [navigate]);
 
-  let productos = [
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    },
-    {
-      nombre: "Grua manipuladora de metales",
-      imagen: "/materiales-sin-fondo-2@2x.png"
-    }
-  ]
+  console.log(dataContext)
+  const [productos, setProductos] = useState(dataContext.productos)
+
+  const buscar = useCallback(() => {
+    const inputValue = document.getElementById("inputbuscarproductos").value;
+    let nuevosUsuarios = productos.map((user) => {
+      const similitud = orden.calcularSimilitud(inputValue, user.nombre);
+      return { usuario: user, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
+      return usuarioSimilitud.usuario
+    })
+    setProductos(nuevosUsuarios);
+  }, [productos, setProductos]);
+  
+  useEffect(() => {
+    buscar();
+  }, [buscar]);
 
   let dibujarProductos = () => {
     let productosTemp = []
@@ -107,7 +95,7 @@ const CategoryFrame = () => {
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
         <div className={styles.productItemFrame}>
-          <input className={styles.machineNameFrame} />
+          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos"/>
 
           <div className={styles.vectorFrame}>
             <div className={styles.machineryFrame}>

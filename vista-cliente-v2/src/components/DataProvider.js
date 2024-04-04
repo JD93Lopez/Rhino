@@ -27,68 +27,47 @@ export const usuarios = [
     }
 ];
 
-export const proyectos = [
-    {
-        nombreProyecto: "Proyecto 1", 
-        telefono: "Telefono 1", 
-        cedula: "Cedula 1",
-        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        nombreProyecto: "Proyecto 2", 
-        telefono: "Telefono 2", 
-        cedula: "Cedula 2",
-        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        nombreProyecto: "Proyecto 3", 
-        telefono: "Telefono 3", 
-        cedula: "Cedula 3",
-        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-];
-
-export const productos = [
-    {
-        nombreProducto: "EXCAVADORA DE PRUEBA", 
-        descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
-        imagen: "/image-1@2x.png"
-    },
-    {
-        nombreProducto: "CARGADOR FRONTAL DE PRUEBA", 
-        descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
-        imagen: "/image-2@2x.png"
-    }
-];
-
-export const mantenimientos = [
-    {
-        nombreMaquinaria: "Excavadora",
-        identificacion: "49845",
-        fecha: "23/03/2024"
-    },
-    {
-        nombreMaquinaria: "Montacargas",
-        identificacion: "125678",
-        fecha: "15/04/2024"
-    },
-    {
-        nombreMaquinaria: "Excavadora",
-        identificacion: "49845",
-        fecha: "23/03/2024"
-    }
-];
-
 // Exporta el contexto y los arrays de datos
 export const DataProvider = (props) => {
+
+    let productos = [
+        {
+            nombre: "Grua manipuladora de metales",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales2",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales3",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales MAJo",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        },
+        {
+            nombre: "Grua manipuladora de metales",
+            imagen: "/materiales-sin-fondo-2@2x.png"
+        }
+    ]
+
     const [data, setData] = useState({
         usuarios,
-        proyectos,
         productos,
-        mantenimientos,
-        selectedUsers: [],
-        selectedProyects: [],
-        selectedProducts: [],
         Loaded: true
     });
 
