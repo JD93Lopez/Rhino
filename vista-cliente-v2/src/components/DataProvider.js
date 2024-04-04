@@ -36,16 +36,16 @@ export const DataProvider = (props) => {
             imagen: "/materiales-sin-fondo-2@2x.png"
         },
         {
-            nombre: "Grua manipuladora de metales2",
-            imagen: "/materiales-sin-fondo-2@2x.png"
+            nombre: "Cargador de cadenas",
+            imagen: "/cargador-de-cadenas-sin-fonod-2@2x.png"
         },
         {
-            nombre: "Grua manipuladora de metales3",
-            imagen: "/materiales-sin-fondo-2@2x.png"
+            nombre: "Cargadora de Ruedas",
+            imagen: "/cargadora-de-ruedas-sin-fondo-1@2x.png"
         },
         {
-            nombre: "Grua manipuladora de metales",
-            imagen: "/materiales-sin-fondo-2@2x.png"
+            nombre: "Compactadora",
+            imagen: "/compactadora-sin-fondo-1@2x.png"
         },
         {
             nombre: "Grua manipuladora de metales",
