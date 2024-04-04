@@ -19,6 +19,14 @@ const VistaAdministradorProyecto = () => {
         <div className={styles.agregarProyecto} />
         <div className={styles.AgrProyecto}>Agregar Proyecto</div>
       </button>
+      <button className={styles.ActualizarProyecto}>
+        <div className={styles.actualizarProyecto} />
+        <div className={styles.ActuProyecto}>Actualizar</div>
+      </button>
+      <button className={styles.EliminarProyecto}>
+        <div className={styles.eliminarProyecto} />
+        <div className={styles.ElimProyecto}>Eliminar</div>
+      </button>
       <ProjectFrame />
       <SearchProjectFrame />
     </div>
