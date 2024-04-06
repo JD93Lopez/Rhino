@@ -15,6 +15,7 @@ import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
+import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import {DataProvider} from "./components/DataProvider";
 
 function App() {
@@ -124,6 +125,10 @@ function App() {
         <Route
           path="/vista-administrador-productos"
           element={<VistaAdministradorProducto />}
+        />
+        <Route
+          path="/vista-mantenimiento-producto"
+          element={<VistaMantenimProducto/>}
         />
       </Routes>
     </DataProvider>

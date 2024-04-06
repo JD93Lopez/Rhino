@@ -45,14 +45,14 @@ const VistaAdministradorAgregar = () => {
             <div className={styles.nombreProductoFrame}>
               <div className={styles.iDProductoFrame}>
                 <div className={styles.rectangleProductInfo}>
-                  <div className={styles.nombreIDFrame}>
+                  <div className={styles.nombreIDFrame}>w
                     <div className={styles.nombreDelProducto}>
                       Nombre del Producto
                     </div>
                     <input className={styles.frame} type="text" id ="inputNombreProducto" useref={ "inputNombreProducto"} />
                   </div>
                   <div className={styles.nombreIDFrame1}>
-                    <div className={styles.idDelProducto}>ID del Producto</div>
+                    <div className={styles.idDelProducto}>Identificador del Producto</div>
                     <input className={styles.nombreIDFrame1} type="text" id ="inputIdProducto" useref={ "inputIdProducto"} />
                   </div>
                   <div className={styles.pRODUCTOS}>
@@ -85,14 +85,6 @@ const VistaAdministradorAgregar = () => {
                 </div>
               </div>
               <div className={styles.frameParent}>
-                <div className={styles.descargarSoatWrapper}>
-                  <div
-                    className={styles.descargarSoat}
-                  >{`Descargar S.O.A.T `}</div>
-                </div>
-                <div
-                  className={styles.descargarTcnicoMecnica}
-                >{`Descargar Técnico Mecánica `}</div>
               </div>
             </div>
           </div>

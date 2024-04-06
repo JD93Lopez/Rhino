@@ -26,6 +26,10 @@ const VistaAdministradorActualizar = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
+  const mantenimientos = useCallback(() => {
+    navigate("/vista-mantenimiento-producto");
+  }, [navigate]);
+
   const dataContext = useContext(DataContext);
   let product
   if(dataContext.Loaded && dataContext.selectedProducts){
@@ -47,11 +51,11 @@ const VistaAdministradorActualizar = () => {
       document.getElementById("inputprecioproducto").value = selectedProducts[0].precio_alquiler;
       document.getElementById("inputmodeloproducto").value = selectedProducts[0].modelo ;
       document.getElementById("inputfabricanteproducto").value = selectedProducts[0].marca;
-      document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
+      if(selectedProducts[0].imagen!=null){
+        document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
+      }
     }
   }, [dataContext.Loaded, dataContext]);
-
-
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -78,7 +82,7 @@ const VistaAdministradorActualizar = () => {
                     <input className={styles.frame} type="text" id ="inputNombreProducto" useref={ "inputNombreProducto"} />
                   </div>
                   <div className={styles.nombreIDFrame1}>
-                    <div className={styles.idDelProducto}>ID del Producto</div>
+                    <div className={styles.idDelProducto}>Identificador del Producto</div>
                     <input className={styles.nombreIDFrame1} type="text" id ="inputIdProducto" useref={ "inputIdProducto"} />
                   </div>
                   <div className={styles.pRODUCTOS}>
@@ -115,10 +119,19 @@ const VistaAdministradorActualizar = () => {
                   <div
                     className={styles.descargarSoat}
                   >{`Descargar S.O.A.T `}</div>
+                  <button>Descargar</button>
                 </div>
                 <div
                   className={styles.descargarTcnicoMecnica}
-                >{`Descargar Técnico Mecánica `}</div>
+                >
+                  {`Descargar Técnico Mecánica `}
+                  <button>Descargar</button>
+                </div>
+              </div>
+              <div>
+                <button onClick={mantenimientos} style={{fontSize: "25px", backgroundColor: "orange"}}>
+                  Historial de Mantenimientos
+                </button>
               </div>
             </div>
           </div>
