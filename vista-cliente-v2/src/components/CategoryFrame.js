@@ -7,7 +7,6 @@ import { DataContext } from "./DataProvider";
 
 const CategoryFrame = () => {
   const navigate = useNavigate();
-  console.log(DataContext)
   const dataContext = useContext(DataContext)
 
   const onMaterialesSinFondo2Click = useCallback(() => {
@@ -30,10 +29,13 @@ const CategoryFrame = () => {
     navigate("/informacin-de-cada-producto");
   }, [navigate]);
 
-  console.log(dataContext)
-  const [productos, setProductos] = useState(dataContext.productos)
+  if(!dataContext.Loaded){
+    return <p>Cargando...</p>
+  }
 
-  const buscar = useCallback(() => {
+  const [productos, setProductos] = useState(dataContext.productos)
+ 
+  const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproductos").value;
     let nuevosUsuarios = productos.map((user) => {
       const similitud = orden.calcularSimilitud(inputValue, user.nombre);
@@ -43,22 +45,19 @@ const CategoryFrame = () => {
       return usuarioSimilitud.usuario
     })
     setProductos(nuevosUsuarios);
-  }, [productos, setProductos]);
-  
-  useEffect(() => {
-    buscar();
-  }, [buscar]);
+  }
 
   let dibujarProductos = () => {
     let productosTemp = []
     let oldP
-    for( let i=0 ; i<productos.length ; i++ ){
+    let i = 0
+    for( i=0 ; i<productos.length ; i++ ){
       if( i%2 === 0 ){
         oldP = productos[i]
       }else{
         const p = productos[i]
         productosTemp.push( 
-          <tr> 
+          <tr key={i/2}> 
             <td>
               <TarjetaProducto
                 nombre={oldP.nombre}
@@ -78,7 +77,7 @@ const CategoryFrame = () => {
     }
     if(oldP){
       productosTemp.push( 
-        <tr> 
+        <tr key={i/2}> 
           <td>
             <TarjetaProducto
               nombre={oldP.nombre}
@@ -126,9 +125,11 @@ const CategoryFrame = () => {
         </div>
         < div >
           <table>
-            {dibujarProductos().map((tr)=>{
-              return tr
-            })}
+            <tbody>
+              {dibujarProductos().map((tr)=>{
+                return tr
+              })}
+            </tbody>
           </table>
         </div>
       </div>
