@@ -1,36 +1,29 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import styles from "./GroupComponent.module.css";
-import { useNavigate } from "react-router-dom";
+import VetanaDeRegistro from "../pages/VetanaDeRegistro";
 
 const GroupComponent = ({ onBotonRegistrarseClick }) => {
-  const navigate = useNavigate();
-  const [direccion, setDireccion] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [usuario, setUsuario] = useState("");
-  const [identificacion, setIdentificacion] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [contrasenia, setContrasenia] = useState("");
+  
+  const [usuarioData, setUsuarioData] = useState({
+    usuario: "",
+    nombre: "",
+    apellido: "",
+    correo: "",
+    contrasenia: "",
+    identificacion: "",
+    telefono: ""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUsuarioData({ ...usuarioData, [name]: value });
+    console.log("Usuario data",usuarioData)
+  };
+  const handleRegistroClick = () => {
+    onBotonRegistrarseClick(usuarioData);
+  };
 
 
-  const onBotonRegistrarse2Click = useCallback(() => {
-    const usuario = {
-      direccion, 
-      correo,
-      usuario, 
-      identificacion,
-      telefono,
-      nombre,
-      apellido,
-      contrasenia
-    };
-    console.log(usuario);
-
-    navigate("/ventana-de-informacin-personal");
-  }, [direccion, correo, usuario, identificacion,telefono, nombre, apellido,contrasenia, navigate]);
-
-//añadir campo de direccion con los estilos adecuados
   return (
     <div className={styles.rectangleParent}>
       <div className={styles.frameChild} />
@@ -38,13 +31,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.usuario}>Usuario:</b>
         <input
           type="text"
-          id = "inputUsuario"
-          useref = "inputUsuario"
-          value={usuario}
-          onChange={(e) => {
-            setUsuario(e.target.value)
-            console.log(e.target.value)
-          }}
+          id="inputUsuario"
+          name="usuario"
+          value={usuarioData.usuario}
+          onChange={handleInputChange}
           className={styles.inputUsuario}
         />
       </div>
@@ -52,9 +42,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.nombre}>Nombre:</b>
         <input
           type="text"
-          id = "inputNombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          id="inputNombre"
+          name="nombre"
+          value={usuarioData.nombre}
+          onChange={handleInputChange}
           className={styles.inputNombre}
         />
       </div>
@@ -62,9 +53,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.apellido}>Apellido:</b>
         <input
           type="text"
-          id = "inputApellido"
-          value={apellido}
-          onChange={(e) => setApellido(e.target.value)}
+          id="inputApellido"
+          name="apellido"
+          value={usuarioData.apellido}
+          onChange={handleInputChange}
           className={styles.inputApellido}
         />
       </div>
@@ -72,9 +64,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.correo}>Correo:</b>
         <input
           type="email"
-          id = "inputEmail"
-          value={correo}
-          onChange={(e) => setCorreo(e.target.value)}
+          id="inputEmail"
+          name="correo"
+          value={usuarioData.correo}
+          onChange={handleInputChange}
           className={styles.inputCorreo}
         />
       </div>
@@ -82,9 +75,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.contrasea}>Contraseña:</b>
         <input
           type="password"
-          id = "inputPassword"
-          value={contrasenia}
-          onChange={(e) => setContrasenia(e.target.value)}
+          id="inputPassword"
+          name="contrasenia"
+          value={usuarioData.contrasenia}
+          onChange={handleInputChange}
           className={styles.inputContrasenia}
         />
       </div>
@@ -92,9 +86,10 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.identificacin}>Identificación:</b>
         <input
           type="text"
-          id = "inputIdentificacion"
-          value={identificacion}
-          onChange={(e) => setIdentificacion(e.target.value)}
+          id="inputIdentificacion"
+          name="identificacion"
+          value={usuarioData.identificacion}
+          onChange={handleInputChange}
           className={styles.inputIdentificacion}
         />
       </div>
@@ -102,17 +97,18 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <b className={styles.telfono}>Teléfono:</b>
         <input
           type="tel"
-          id = "inputTelefono"
-          value={telefono}
-          onChange={(e) => setTelefono(e.target.value)}
+          id="inputTelefono"
+          name="telefono"
+          value={usuarioData.telefono}
+          onChange={handleInputChange}
           className={styles.inputTelefono}
         />
       </div>
-
-      <div className={styles.crearCuenta}>CREAR CUENTA</div>
+      <div className={styles.crearCuenta} onClick={handleRegistroClick}>
+        CREAR CUENTA
+      </div>
 
       <div className={styles.logo} />
-      
     </div>
   );
 };

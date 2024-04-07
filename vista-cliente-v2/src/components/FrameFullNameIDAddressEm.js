@@ -1,11 +1,11 @@
 import styles from "./FrameFullNameIDAddressEm.module.css";
 import React, {useState, useContext, useEffect, useCallback} from 'react';
 import { useNavigate } from "react-router-dom";
-import { DataContext, usuarios } from "../components/DataProvider.js";
+import { DataContext} from "../components/DataProvider.js";
 const FrameFullNameIDAddressEm = () => {
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
-  console.log(usuarios);
+  console.log(dataContext.usuarios);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -15,7 +15,7 @@ const FrameFullNameIDAddressEm = () => {
     // inicio de sesión en true y se almacena cualquier usuario el usuario actual
       setLoggedIn(true);
       // Supongamos que obtienes el usuario actual de algún lugar, por ahora, seleccionamos el primer usuario de la lista para mostrar
-      setCurrentUser(usuarios[2]);
+      setCurrentUser(dataContext.usuarios[2]);
   }, []);
   const onBotonEditarInformacionClick = useCallback(() => {
     navigate("/ventana-de-editar-informacin-personal");

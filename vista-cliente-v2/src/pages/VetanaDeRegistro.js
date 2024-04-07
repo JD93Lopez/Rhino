@@ -1,42 +1,38 @@
-import { useCallback } from "react";
+import { useCallback, useContext, useState } from "react";
 import GroupComponent from "../components/GroupComponent";
 import { useNavigate } from "react-router-dom";
 import styles from "./VetanaDeRegistro.module.css";
+import { DataContext } from "../components/DataProvider";
 
 const VetanaDeRegistro = () => {
   const navigate = useNavigate();
- 
- /* const nombre=document.getElementById("inputNombre").value;
-  const apellido=document.getElementById("inputApellido").value;
-  const email=document.getElementById("inputEmail").value;
-  const password=document.getElementById("inputPassword").value;
-  const direccion=document.getElementById("inputDireccion").value;
-  const identificacion=document.getElementById("inputIdentificacion").value;
-  const telefono=document.getElementById("inputTelefono").value;*/
-  const onBotonRegistrarse2Click = useCallback(() => {
-    const usuario=document.getElementById("inputUsuario").value;
-    /*const objUsuario = {
-      usuario, 
-      nombre,
-      apellido,
-      email,
-      password,
-      direccion, 
-      identificacion,
-      telefono
-    };
-    console.log(objUsuario);
-*/
-console.log(usuario)
-    navigate("/ventana-inicio-de-sesin");
-  }, [navigate, document]);
+  const userContext = useContext(DataContext);
+  console.log(userContext)
+  const onBotonRegistrarseClick = useCallback((usuarioData) => {
+    console.log("usuario de PRUEBA:", usuarioData);
+      const nuevoUsuario = {
+        nombreUsuario: usuarioData.usuario,
+        nombreCompleto: `${usuarioData.nombre} ${usuarioData.apellido}`,
+        email: usuarioData.correo,
+        contrasenia: usuarioData.contrasenia,
+        identificacion: usuarioData.identificacion,
+        telefono: usuarioData.telefono,
+        estado: "ACTIVO",
+      };
+
+      // Agregar el nuevo usuario al contexto
+      userContext.agregarUsuario(nuevoUsuario);
+      console.log("Usuario registrado:", nuevoUsuario);
+      navigate("/ventana-inicio-de-sesin");
+    },
+    [userContext.agregarUsuario, navigate]
+  );
 
   return (
-
     <div className={styles.vetanaDeRegistro}>
       <h1 className={styles.bienvenido}>¡BIENVENIDO!</h1>
       <main className={styles.b8c39214f0aadd21f0e370d549a1d0Parent}>
-      <GroupComponent onBotonRegistrarse2Click={onBotonRegistrarse2Click} />
+        <GroupComponent onBotonRegistrarseClick={onBotonRegistrarseClick} />
 
         <img
           className={styles.b8c39214f0aadd21f0e370d549a1d0Icon}
@@ -52,11 +48,13 @@ console.log(usuario)
         />
       </main>
       <div className={styles.registerButton}>
-      <button className={styles.botnRegistrarse} onClick={onBotonRegistrarse2Click}>
-  <div className={styles.botnRegistrarseChild} />
-  <div className={styles.registrarse}>REGISTRARSE</div>
-</button>
-
+        <button
+          className={styles.botnRegistrarse}
+          onClick={onBotonRegistrarseClick}
+        >
+          <div className={styles.botnRegistrarseChild} />
+          <div className={styles.registrarse}>REGISTRARSE</div>
+        </button>
       </div>
     </div>
   );
