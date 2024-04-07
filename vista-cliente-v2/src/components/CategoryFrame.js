@@ -95,32 +95,45 @@ const CategoryFrame = () => {
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
         <div className={styles.productItemFrame}>
-          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos"/>
+          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos" onChange={buscar}/>
 
           <div className={styles.vectorFrame}>
-            <div className={styles.machineryFrame}>
-              <div className={styles.machineryFrameChild} />
-              <b className={styles.maquinaria}>MAQUINARIA</b>
-              <div className={styles.vectorFrame1}>
-                <img
-                  className={styles.cartButtonFrame}
-                  alt=""
-                  src="/cart-button-frame.svg"
-                />
-              </div>
-            </div>
+            {/* <div className={styles.machineryFrame}>
+            </div> */}
+            <ListaDesplegable1
+              className={styles.maquinaria}
+              titulo={"TIPOS DE MAQUINARIA"}
+              opciones={
+                [
+                  {value: "Vehiculo 1", label:"Vehiculo1"},
+                  {value: "Vehiculo 2", label:"Vehiculo2"},
+                  {value: "Vehiculo 3", label:"Vehiculo3"},
+                  {value: "Vehiculo 4", label:"Vehiculo4"}
+                ]
+              }
+            ></ListaDesplegable1>
+            <div>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+            </div>         
+            <ListaDesplegable1
+              className={styles.maquinaria}
+              titulo={"TIPOS DE TRANSPORTE"}
+              opciones={
+                [
+                  {value: "Transporte 1", label:"Transporte1"},
+                  {value: "Transporte 2", label:"Transporte2"},
+                  {value: "Transporte 3", label:"Transporte3"},
+                  {value: "Transporte 4", label:"Transporte4"}
+                ]
+              }
+            ></ListaDesplegable1>
             <div className={styles.wheelsFrame}>
-              <div className={styles.machineNameFrame1}>
-                <div className={styles.machineNameFrameChild} />
-                <b className={styles.vehculos}>VEHÍCULOS</b>
-                <div className={styles.vectorFrame2}>
-                  <img
-                    className={styles.groupFrameIcon}
-                    alt=""
-                    src="/cart-button-frame.svg"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>

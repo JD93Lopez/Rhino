@@ -12,8 +12,7 @@ const animatedComponents= makeAnimate()
 
 function ListaDesplegable1(){
     return(
-        <div style={{width: "27%"}}>
-
+        <div style={{width: "100%"}}>
             <Select
             closeMenuOnSelect={false}
             options={opciones}

@@ -1,24 +1,18 @@
 import Select from 'react-select'
 import makeAnimate from 'react-select/animated'
 
-const opciones = [
-    {value: "Vehiculo 1", label:"Vehiculo1"},
-    {value: "Vehiculo 2", label:"Vehiculo2"},
-    {value: "Vehiculo 3", label:"Vehiculo3"},
-    {value: "Vehiculo 4", label:"Vehiculo4"}
-]
+const animatedComponents = makeAnimate()
 
-const animatedComponents= makeAnimate()
-
-function ListaDesplegable1(){
+function ListaDesplegable1({className, titulo, opciones}){
     return(
-        <div style={{width: "27%"}}>
-
+        <div style={{width: "100%"}}>
             <Select 
-            isMulti
-            closeMenuOnSelect={false}
-            options={opciones}
-            components={animatedComponents}
+                placeholder={titulo}
+                isMulti
+                className={className}
+                closeMenuOnSelect={false}
+                options={opciones}
+                components={animatedComponents}
             />
         </div>
     )
