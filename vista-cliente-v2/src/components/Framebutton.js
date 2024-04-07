@@ -13,7 +13,7 @@ const Framebutton = () => {
     };
     console.log("Datos del usuario:", usuario);
 
-    navigate("/ventana-de-informacin-personal");
+    navigate("/ventana-principal-2");
   }, [userData, navigate]);
 
   const handleInputChange = (event) => {
