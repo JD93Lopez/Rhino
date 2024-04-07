@@ -15,8 +15,8 @@ import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
+import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
 import {DataProvider} from "./components/DataProvider";
-
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -124,7 +124,11 @@ function App() {
         <Route
           path="/vista-administrador-productos"
           element={<VistaAdministradorProducto />}
-        />
+        />       
+        <Route
+        path="/vista-administrador-actualizar-proyect"
+        element={<VistaAdministradorActualizarProyect />}
+      />
       </Routes>
     </DataProvider>
   );

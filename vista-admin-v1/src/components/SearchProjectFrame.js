@@ -49,11 +49,11 @@ const SearchProjectFrame = () => {
           {proyectos.map(proyecto => {
             return <TarjetaProyectoAdministrador
               object = { proyecto }
-              encargadoProyecto={proyecto.nombreProyecto}
+              encargadoProyecto={proyecto.nombre}
               telefono={proyecto.telefono}
-              cedula={proyecto.cedula}
+              cedula={proyecto.identificacion}
               descripcion={proyecto.descripcion}
-              key={proyecto.nombreProyecto}
+              key={proyecto.nombre}
             >
             </TarjetaProyectoAdministrador>
           })}
