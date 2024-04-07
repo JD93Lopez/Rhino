@@ -1,13 +1,12 @@
-import ProjectFrame from "../components/ProjectFrame";
+import ProjectFrame from "../components/ProjectFrame.js";
 import styles from "./VistaAdministradorAgregarProyect.module.css";
 import Select from "react-select";
 import axios from "../axios.js";
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataContext, DataProvider } from "../components/DataProvider";
-const VistaAdministradorAgregarProyect = () => {
+import { DataContext, DataProvider } from "../components/DataProvider.js";
+const VistaAdministradorActualizarProyect = () => {
   const navigate = useNavigate();
-
   const onBotonAtrsContainerClick = useCallback(() => {
     navigate("/vista-administrador-proyectos");
   }, [navigate]);
@@ -34,23 +33,43 @@ const VistaAdministradorAgregarProyect = () => {
 
     // Convertir el objeto de usuario a JSON
     const JsonUsuario = JSON.stringify(usuarioInsertar);
-
-    console.log(JsonUsuario);
   };
 
   const dataContext = useContext(DataContext);
+  let proyect
+  if(dataContext.Loaded && dataContext.selectedProyects){
+    if(dataContext.selectedProyects.length !== 0){
+      proyect = dataContext.selectedProyects[0];
+    }
+  }else{
+    useEffect(() => {
+      navigate("/vista-administrador-actualizar-proyect");
+    }, [navigate]);
+  }
+  
+  useEffect(() => {
+    const selectedProyects= dataContext.selectedProyects
+    if (dataContext.Loaded) {
+      document.getElementById("inputnombreusuario").value = selectedProyects[0].nombre;
+      document.getElementById("inputidentificacionusuario").value = selectedProyects[0].identificacion;
+      document.getElementById("inputtipoidescripcion").value = selectedProyects[0].descripcion;
+      document.getElementById("inputtelefonousuario").value = selectedProyects[0].telefono;
+      document.getElementById("inputtipoidescripcion").value = selectedProyects[0].descripcion;
+      document.getElementById("inputtipofecha").value = selectedProyects[0].fecha_entrega;
+    }
+  }, [dataContext.Loaded, dataContext]);
 
 
   const drowpdownTipoidentificacion = [
-    { label: "Cedula", value: "Cedula" },
-    { label: "Nit", value: "Nit" },
+    { label: 'Cedula', value: 'Cedula' },
+    { label: 'Nit', value: 'Nit' },
   ];
   dataContext.drowpdownTipoidentificacion = drowpdownTipoidentificacion;
 
   const drowpdownEstadoAvance = [
-    { label: "Por Iniciar", value: "Por Iniciar" },
-    { label: "Iniciado", value: "Iniciado" },
-    { label: "Terminado", value: "Terminado" },
+    { label: 'Por Iniciar', value: 'Por Iniciar' },
+    { label: 'Iniciado', value: 'Iniciado' },
+    { label: 'Terminado', value: 'Terminado' },
   ];
   dataContext.drowpdownEstadoAvance = drowpdownEstadoAvance;
 
@@ -62,7 +81,24 @@ const VistaAdministradorAgregarProyect = () => {
     dataContext.tipoId = value.value
   }
 
+
+  let defaultEstado = () => {
+    if(dataContext.selectedProyects && dataContext.selectedProyects[0]){
+      const proyect = dataContext.selectedProyects[0]
+      return { label: proyect.estado_avance, value: proyect.estado_avance }
+    }
+    return 
+  }
+  let defaultTipo = () => {
+    if(dataContext.selectedProyects && dataContext.selectedProyects[0]){
+      const proyect = dataContext.selectedProyects[0]
+      return { label: proyect.tipo_identificacion, value: proyect.tipo_identificacion }
+    }
+    return 
+  }
+
   return (
+    
     <div className={styles.vistaadminadd}>
       <div className={styles.vistaadminaddchild} />
       <ProjectFrame />
@@ -77,20 +113,21 @@ const VistaAdministradorAgregarProyect = () => {
       <div className=" dropdown-Tipo/identificacion ">
         <div className={styles.tipoidentificacion}>Tipo Identificación</div>
         <Select
-          defaultValue={ defaultTipo }
           className={styles.dropdownidentificacion}
+          defaultValue={ defaultTipo }
           options={drowpdownTipoidentificacion}
           onChange={handleSelectChangeId}
           id = "inputtipoidentificacion"
           useref = "inputtipoidentificacion"
         />
       </div>
+      
 
       <div className=" dropdown-Estado/Avance">
         <div className={styles.avance}>Estado</div>
         <Select
-          defaultValue={ defaultEstado }
           className={styles.dropdownAvance}
+          defaultValue={ defaultEstado }
           options={drowpdownEstadoAvance}
           onChange={handleSelectChangeEstado}
           id = "inputtipoestado"  
@@ -106,6 +143,7 @@ const VistaAdministradorAgregarProyect = () => {
 
       <div className={styles.Fecha}>Fecha</div>
       <input className={styles.inputFecha} type="date" id = "inputtipofecha" useref = "inputtipofecha"/>
+      
 
       <footer className={styles.saveButtonFrame}>
         <div className={styles.previousStepButton}>
@@ -117,8 +155,7 @@ const VistaAdministradorAgregarProyect = () => {
           </div>
           <button
             className={styles.adminProfileFrame}
-            onClick={onSaveButtonClick}
-          >
+            onClick={onSaveButtonClick}>
             <div className={styles.adminProfileFrameChild} />
             <div className={styles.guardar}>GUARDAR</div>
           </button>
@@ -128,4 +165,4 @@ const VistaAdministradorAgregarProyect = () => {
   );
 };
 
-export default VistaAdministradorAgregarProyect;
+export default VistaAdministradorActualizarProyect;
