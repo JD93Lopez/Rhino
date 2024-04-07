@@ -5,7 +5,6 @@ import { TarjetaProducto } from "./TarjetaProducto";
 import orden from "../OrdenamientoSimilitud";
 import { DataContext } from "./DataProvider";
 import ListaDesplegable1 from "./ListaDesplegable1";
-ListaDesplegable1
 
 const CategoryFrame = () => {
   const navigate = useNavigate();
