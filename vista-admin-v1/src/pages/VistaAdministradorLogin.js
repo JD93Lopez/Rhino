@@ -15,23 +15,29 @@ const VistaAdministradorLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes agregar la lógica para manejar el envío del formulario
-    dataContext.usuarios.usuarioIniciado.nombre_usuario = document.getElementById("campoNombre").value
-    dataContext.usuarios.usuarioIniciado.contrasena = document.getElementById("campoConstrasena").value
+
     //TODO iniciar sesion AXIOS
 
-    navigate('/vista-administrador-usuarios'); 
+    navigate('/vista-administrador-usuarios'); //TODO solo cambia pantalla si se inicia sesion
   };
 
+  let nombreChange = (e)=>{
+    dataContext.usuarios.usuarioIniciado.nombre_usuario = e.target.value
+  }
+
+  let constrasenaChange = (e)=>{
+    dataContext.usuarios.usuarioIniciado.contrasena = e.target.value
+  }
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       <p id="heading">Inicio de Sesion Administrador</p>
       <img src="/logofinalremovebgpreview-1@2x.png" alt="Logo" className="logo" />
       <div className="field">
-        <input autoComplete="off" placeholder="Usuario" className="input-field" type="text" id='campoNombre' useref='campoNombre'/>
+        <input autoComplete="off" placeholder="Usuario" className="input-field" type="text" id='campoNombre' useref='campoNombre' onChange={nombreChange}/>
       </div>
       <div className="field">
-        <input placeholder="Contraseña" className="input-field" type="password" id='campoContrasena' useref='campoContrasena' />
+        <input placeholder="Contraseña" className="input-field" type="password" id='campoContrasena' useref='campoContrasena' onChange={constrasenaChange}/>
       </div>
       <div className="btn">
         <button type="submit" className="button1">Iniciar Sesion</button>
