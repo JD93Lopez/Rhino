@@ -1,9 +1,13 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoButton from "./LogoButton";
 import styles from "./FrameComponent3.module.css";
+import { DataContext } from "./DataProvider";
 
 const FrameComponent3 = () => {
+
+  const dataContext = useContext(DataContext)
+
   const navigate = useNavigate();
 
   const onBotonLogo6Click = useCallback(() => {
@@ -19,8 +23,10 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onBotonMiCuentaClick = useCallback(() => {
-    navigate("/ventana-inicio-sesion");
-  }, [navigate]);
+    if(!dataContext.usuarioIniciado.iniciado){
+      navigate("/ventana-inicio-sesion");
+    }
+  }, [navigate, dataContext]);
   return (
     <header className={styles.logoFrameParent}>
       <img

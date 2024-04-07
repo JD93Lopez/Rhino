@@ -1,8 +1,11 @@
 import styles from "./Framebutton.module.css";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "./DataProvider";
 
 const Framebutton = () => {
+  const dataContext = useContext(DataContext)
+
   const [userData, setUserData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
@@ -12,6 +15,16 @@ const Framebutton = () => {
       password: userData.password,
     };
     console.log("Datos del usuario:", usuario);
+
+    if(!dataContext.usuarioIniciado){
+      dataContext.usuarioIniciado = {}
+    }
+
+    //TODO iniciar sesion AXIOS --> dataContext.usuarioInciado = JSON.parse(axiosIniciarSesion(u, c))
+
+    dataContext.usuarioIniciado.nombre_usuario = userData.username
+    dataContext.usuarioIniciado.constrasena = userData.password
+    dataContext.usuarioIniciado.iniciado = true
 
     navigate("/ventana-principal-2");
   }, [userData, navigate]);

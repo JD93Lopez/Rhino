@@ -73,7 +73,17 @@ export const DataProvider = (props) => {
         }
     ]
 
+    const usuarioIniciado = {
+        nombre_usuario: "Iniciar Sesión",
+        iniciado: false,
+        nombreCompleto:"NO INICIADO",
+        email:"NO INICIADO",
+        telefono:"NO INICIADO",
+        estado:"NO INICIADO"
+    }
+
     const [data, setData] = useState({
+        usuarioIniciado,
         usuarios,
         productos,
         Loaded: true

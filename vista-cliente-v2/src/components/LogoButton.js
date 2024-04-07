@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { DataContext } from "./DataProvider";
 import ListaDesplegable2 from "./ListaDesplegable2";
 import styles from "./LogoButton.module.css";
 
@@ -7,6 +9,13 @@ const LogoButton = ({
   onBotonSobreNosotrosClick,
   onBotonMiCuentaClick,
 }) => {
+
+  const dataContext = useContext(DataContext)
+
+  if(!dataContext.Loaded){
+    return <p>Cargando</p>
+  }
+
   return (
     <div className={styles.logoButton}>
       <div className={styles.logoButtonChild} />
@@ -41,7 +50,7 @@ const LogoButton = ({
           </div>
         </button> */}
         <ListaDesplegable2
-          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />Mi Cuenta</div>}
+          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
         ></ListaDesplegable2>
       </div>
     </div>
