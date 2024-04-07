@@ -1,5 +1,6 @@
 import Select from 'react-select'
 import makeAnimate from 'react-select/animated'
+import { useNavigate } from "react-router-dom";
 
 const opciones = [
     {value: "Informacion Personal", label:"Informacion Personal"},
@@ -11,6 +12,22 @@ const opciones = [
 const animatedComponents= makeAnimate()
 
 function ListaDesplegable2({titulo}){
+
+    const navigate = useNavigate()
+
+    let handleSeleccion = (e) => {
+        e.value
+
+        switch(e.value){
+            case "Informacion Personal": 
+                navigate("/ventana-de-informacin-personal")
+            break;
+            default:
+                ;
+        }
+        
+    } 
+
     return(
         <div style={{width: "120%"}}>
             <Select
@@ -18,6 +35,7 @@ function ListaDesplegable2({titulo}){
                 closeMenuOnSelect={false}
                 options={opciones}
                 components={animatedComponents}
+                onChange={(e)=>handleSeleccion(e)}
             />
         </div>
     )
