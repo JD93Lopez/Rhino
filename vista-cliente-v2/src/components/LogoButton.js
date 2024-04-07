@@ -1,3 +1,4 @@
+import ListaDesplegable2 from "./ListaDesplegable2";
 import styles from "./LogoButton.module.css";
 
 const LogoButton = ({
@@ -32,13 +33,16 @@ const LogoButton = ({
         <div className={styles.botonLupa6} />
       </div>
       <div className={styles.groupOne}onClick={onBotonMiCuentaClick}>
-        <button className={styles.rectangleParent}>
+        {/* <button className={styles.rectangleParent}>
           <div className={styles.frameChild} />
           <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
           <div className={styles.myAccountText}>
             <div className={styles.miCuenta} >MI CUENTA</div>
           </div>
-        </button>
+        </button> */}
+        <ListaDesplegable2
+          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />Mi Cuenta</div>}
+        ></ListaDesplegable2>
       </div>
     </div>
   );

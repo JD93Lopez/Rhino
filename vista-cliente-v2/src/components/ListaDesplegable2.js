@@ -10,13 +10,14 @@ const opciones = [
 
 const animatedComponents= makeAnimate()
 
-function ListaDesplegable1(){
+function ListaDesplegable2({titulo}){
     return(
-        <div style={{width: "100%"}}>
+        <div style={{width: "120%"}}>
             <Select
-            closeMenuOnSelect={false}
-            options={opciones}
-            components={animatedComponents}
+                placeholder={titulo}
+                closeMenuOnSelect={false}
+                options={opciones}
+                components={animatedComponents}
             />
         </div>
     )

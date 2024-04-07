@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CategoryFrame.module.css";
 import { TarjetaProducto } from "./TarjetaProducto";
-import orden from "../OrdenamientoSimilitud";
+import orden from "../OrdenamientoSimilitudFiltros";
 import { DataContext } from "./DataProvider";
 import ListaDesplegable1 from "./ListaDesplegable1";
 
@@ -38,9 +38,9 @@ const CategoryFrame = () => {
  
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproductos").value;
-    let nuevosUsuarios = productos.map((user) => {
-      const similitud = orden.calcularSimilitud(inputValue, user.nombre);
-      return { usuario: user, similitud: similitud };
+    let nuevosUsuarios = productos.map((producto) => {
+      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto);
+      return { usuario: producto, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
       return usuarioSimilitud.usuario
@@ -91,6 +91,26 @@ const CategoryFrame = () => {
     return productosTemp
   }
 
+  let handleDesplegableMaquinarias = (e) => {
+    if(!dataContext.selectedFilters){
+      dataContext.selectedFilters = []
+    }
+    e.forEach(el => {
+      console.log(el.label) //TODO BUSQUEDA
+      dataContext.selectedFilters.push(el.value)
+    });
+  }
+
+  let handleDesplegableTransporte = (e) => {
+    if(!dataContext.selectedFilters){
+      dataContext.selectedFilters = []
+    }
+    e.forEach(el => {
+      console.log(el.label) //TODO BUSQUEDA
+      dataContext.selectedFilters.push(el.value)
+    });
+  }
+
   return (
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
@@ -103,6 +123,7 @@ const CategoryFrame = () => {
             <ListaDesplegable1
               className={styles.maquinaria}
               titulo={"TIPOS DE MAQUINARIA"}
+              onChange={handleDesplegableMaquinarias}
               opciones={
                 [
                   {value: "Vehiculo 1", label:"Vehiculo1"},
@@ -112,8 +133,8 @@ const CategoryFrame = () => {
                 ]
               }
             ></ListaDesplegable1>
-            <div>
-              <br></br>
+            <div> {/*Estos br son pa dar espacio entre los desplegables que si no se solapan*/}
+              <br></br> 
               <br></br>
               <br></br>
               <br></br>
@@ -124,6 +145,7 @@ const CategoryFrame = () => {
             <ListaDesplegable1
               className={styles.maquinaria}
               titulo={"TIPOS DE TRANSPORTE"}
+              onChange={handleDesplegableTransporte}
               opciones={
                 [
                   {value: "Transporte 1", label:"Transporte1"},
