@@ -124,7 +124,7 @@ export const DataProvider = (props) => {
             },
             {
                 nombreMaquinaria: "Montacargas",
-                identificacion: "125678",
+                identificacion: "2",
                 fecha: "15/04/2024",
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 idMantenimiento: 2

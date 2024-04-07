@@ -5,12 +5,9 @@ import { DataContext } from "../components/DataProvider";
 import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
 import orden from "../OrdenamientoSimilitud";
 
-export const SearchContext = React.createContext();
-
 const VistaAdministradorMantenim = () => {
   const dataContext = useContext(DataContext);
   const { Loaded, mantenimientos: mantenimientosContext, usuarios } = dataContext;
-  const [busqueda, setBusqueda] = useState('');
   const [mantenimientos, setMantenimientos] = useState([]);
 
   useEffect(() => {
@@ -19,13 +16,13 @@ const VistaAdministradorMantenim = () => {
     }
   }, [Loaded, mantenimientosContext]);
 
-  const buscar = useCallback(() => {
+  const buscar = (buscado) => {
     if (!mantenimientosContext) {
       return;
     }
 
     let nuevosMantenimientos = mantenimientosContext.map((mantenimiento) => {
-      const similitud = orden.calcularSimilitud(busqueda, mantenimiento.identificacion);
+      const similitud = orden.calcularSimilitud(buscado, mantenimiento.identificacion);
       return { mantenimiento: mantenimiento, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosMantenimientos = nuevosMantenimientos.map((mantenimientoSimilitud) => {
@@ -34,11 +31,10 @@ const VistaAdministradorMantenim = () => {
 
 
     setMantenimientos(nuevosMantenimientos);
-  }, [mantenimientosContext, busqueda]);
+  };
 
   return (
     <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
-      <SearchContext.Provider value={{ busqueda, setBusqueda }}>
         <div className={styles.vistaAdministradorMantenim}>
           <div className={styles.vistaAdministradorMantenimChild} />
           <FrameComponent1 />
@@ -52,7 +48,7 @@ const VistaAdministradorMantenim = () => {
                   className={styles.buscarMantenimiento}
                   placeholder="buscar mantenimiento"
                   type="text"
-                  onChange={(event) => setBusqueda(event.target.value)}
+                  onChange={(event) => {buscar(event.target.value)}}
                   id="inputbuscarmantenimiento"
                   useref="inputbuscarmantenimiento"
                 />
@@ -92,7 +88,6 @@ const VistaAdministradorMantenim = () => {
             </section>
           </main>
         </div>
-      </SearchContext.Provider>
     </DataContext.Provider>
   );
 };
