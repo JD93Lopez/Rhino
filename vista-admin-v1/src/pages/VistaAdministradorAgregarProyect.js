@@ -77,7 +77,6 @@ const VistaAdministradorAgregarProyect = () => {
       <div className=" dropdown-Tipo/identificacion ">
         <div className={styles.tipoidentificacion}>Tipo Identificación</div>
         <Select
-          defaultValue={ defaultTipo }
           className={styles.dropdownidentificacion}
           options={drowpdownTipoidentificacion}
           onChange={handleSelectChangeId}
@@ -89,7 +88,6 @@ const VistaAdministradorAgregarProyect = () => {
       <div className=" dropdown-Estado/Avance">
         <div className={styles.avance}>Estado</div>
         <Select
-          defaultValue={ defaultEstado }
           className={styles.dropdownAvance}
           options={drowpdownEstadoAvance}
           onChange={handleSelectChangeEstado}
