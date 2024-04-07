@@ -39,7 +39,7 @@ const CategoryFrame = () => {
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproductos").value;
     let nuevosUsuarios = productos.map((producto) => {
-      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto);
+      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters);
       return { usuario: producto, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
@@ -96,8 +96,8 @@ const CategoryFrame = () => {
       dataContext.selectedFilters = []
     }
     e.forEach(el => {
-      console.log(el.label) //TODO BUSQUEDA
       dataContext.selectedFilters.push(el.value)
+      buscar()
     });
   }
 
@@ -106,8 +106,8 @@ const CategoryFrame = () => {
       dataContext.selectedFilters = []
     }
     e.forEach(el => {
-      console.log(el.label) //TODO BUSQUEDA
       dataContext.selectedFilters.push(el.value)
+      buscar()
     });
   }
 
