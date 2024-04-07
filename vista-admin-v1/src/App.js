@@ -16,6 +16,7 @@ import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
 import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
+import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import {DataProvider} from "./components/DataProvider";
 function App() {
   const action = useNavigationType();
@@ -129,6 +130,11 @@ function App() {
         path="/vista-administrador-actualizar-proyect"
         element={<VistaAdministradorActualizarProyect />}
       />
+        />
+        <Route
+          path="/vista-mantenimiento-producto"
+          element={<VistaMantenimProducto/>}
+        />
       </Routes>
     </DataProvider>
   );

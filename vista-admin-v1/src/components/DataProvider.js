@@ -81,6 +81,7 @@ export const DataProvider = (props) => {
         //Productos de ejemplo TODO bajar productos de API
         const productos = [  //TODO ESTADO DEL PRODUCTO, TECNOMECANICA, SOAT en back
             {
+                idProductos: "1",
                 nombre:"EXCAVADORA DE PRUEBA" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "1",
@@ -94,6 +95,7 @@ export const DataProvider = (props) => {
 
             },
             {
+                idProductos: "2",
                 nombre:"CARGADOR FRONTAL DE PRUEBA" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "2",
@@ -106,9 +108,10 @@ export const DataProvider = (props) => {
                 estado: "Ocupado"
             },
             {
+                idProductos: "3",
                 nombre:"CARGADOR FRONTAL DE PRUEBita" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                identificacion: "2",
+                identificacion: "3",
                 precio_alquiler: "20.000",
                 precio_compra: "2.000.000",
                 marca: "cat",
@@ -123,18 +126,24 @@ export const DataProvider = (props) => {
         const mantenimientos = [
             {
                 nombreMaquinaria: "Excavadora",
-                identificacion: "49845",
-                fecha: "23/03/2024"
+                identificacion: "1",
+                fecha: "23/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 1
             },
             {
                 nombreMaquinaria: "Montacargas",
-                identificacion: "125678",
-                fecha: "15/04/2024"
+                identificacion: "2",
+                fecha: "15/04/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 2
             },
             {
                 nombreMaquinaria: "Excavadora",
-                identificacion: "498456",
-                fecha: "23/03/2024"
+                identificacion: "1",
+                fecha: "30/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 3
             }
         ]
 
