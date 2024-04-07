@@ -10,9 +10,9 @@ const ImageUpload = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    dataContext.imagenProducto = file
     reader.onloadend = () => {
       setImage(reader.result);
+      dataContext.imagenProducto = reader.result
     };
 
     if (file) {

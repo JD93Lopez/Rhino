@@ -32,12 +32,11 @@ const FrameComponent2 = () => {
       estado
     };
     // Convertir el objeto de producto a JSON
-    console.log(product.imagen);
     const jsonProducto = JSON.stringify(product);
     
     //TODO conexion axios 
-    console.log(jsonProducto);//TODO quitar console.log
  
+    console.log(JSON.parse(jsonProducto))
     //TODO Cambiar el contenido de la notificación
     setNotificationContent("¡Guardadito exitoso!");
 
