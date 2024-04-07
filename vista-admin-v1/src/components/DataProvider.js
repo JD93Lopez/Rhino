@@ -118,17 +118,23 @@ export const DataProvider = (props) => {
             {
                 nombreMaquinaria: "Excavadora",
                 identificacion: "1",
-                fecha: "23/03/2024"
+                fecha: "23/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 1
             },
             {
                 nombreMaquinaria: "Montacargas",
                 identificacion: "125678",
-                fecha: "15/04/2024"
+                fecha: "15/04/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 2
             },
             {
                 nombreMaquinaria: "Excavadora",
                 identificacion: "1",
-                fecha: "30/03/2024"
+                fecha: "30/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 3
             }
         ]
 

@@ -36,13 +36,6 @@ const VistaAdministradorMantenim = () => {
     setMantenimientos(nuevosMantenimientos);
   }, [mantenimientosContext, busqueda]);
 
-  useEffect(() => {
-    buscar();
-  }, [buscar, busqueda]);
-
-  if (!Loaded) {
-    return <div>Cargando... Por favor espere.</div>;
-  }
   return (
     <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
       <SearchContext.Provider value={{ busqueda, setBusqueda }}>
@@ -71,7 +64,7 @@ const VistaAdministradorMantenim = () => {
                     nombreMaquinaria={mantenimiento.nombreMaquinaria}
                     identificacion={mantenimiento.identificacion}
                     fecha={mantenimiento.fecha}
-                    key={mantenimiento.identificacion}
+                    key={mantenimiento.idMantenimiento}
                   ></TarjetaMantenimiento>
                 })}
               </div>
@@ -92,7 +85,7 @@ const VistaAdministradorMantenim = () => {
                 </button>
                 <button
                   className={styles.eliminarUsuariosSeleccionados}>
-                  <div calssName={styles.eliminarusuarioChild} />
+                  <div className={styles.eliminarusuarioChild} />
                   <div className={styles.EliminarSeleccionados} >Eliminar</div>
                 </button>
               </div>
