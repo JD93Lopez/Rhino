@@ -45,7 +45,7 @@ const VistaAdministradorAgregar = () => {
             <div className={styles.nombreProductoFrame}>
               <div className={styles.iDProductoFrame}>
                 <div className={styles.rectangleProductInfo}>
-                  <div className={styles.nombreIDFrame}>w
+                  <div className={styles.nombreIDFrame}>
                     <div className={styles.nombreDelProducto}>
                       Nombre del Producto
                     </div>
