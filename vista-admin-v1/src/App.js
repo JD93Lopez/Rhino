@@ -13,6 +13,7 @@ import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
+import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant"
 import {DataProvider} from "./components/DataProvider";
 
 function App() {
@@ -52,6 +53,10 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-mantenimiento":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-agregar-mantenimiento":
         title = "";
         metaDescription = "";
         break;
@@ -102,6 +107,10 @@ function App() {
         <Route
           path="/vista-administrador-mantenimiento"
           element={<VistaAdministradorMantenim />}
+        />
+        <Route
+          path="/vista-administrador-agregar-mantenimiento"
+          element={<VistaAdministradorAgregarMant />}
         />
         <Route
           path="/vista-administrador-agregar-productoeditar-producto"

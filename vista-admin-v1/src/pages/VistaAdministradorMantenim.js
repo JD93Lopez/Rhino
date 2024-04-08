@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import FrameComponent1 from "../components/FrameComponent1";
+import { useNavigate } from 'react-router-dom';
 import styles from "./VistaAdministradorMantenim.module.css";
 import { DataContext } from "../components/DataProvider";
 import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
@@ -12,6 +13,11 @@ const VistaAdministradorMantenim = () => {
   const { Loaded, mantenimientos: mantenimientosContext, usuarios } = dataContext;
   const [busqueda, setBusqueda] = useState('');
   const [mantenimientos, setMantenimientos] = useState([]);
+
+  const navigate = useNavigate();
+  const onAgregarMantenimientoClick = useCallback(() => {
+    navigate("/vista-administrador-agregar-mantenimiento");
+  }, [navigate]);
 
   useEffect(() => {
     if (Loaded) {
@@ -78,7 +84,7 @@ const VistaAdministradorMantenim = () => {
               <div className={styles.actualizarUsuarioParent}>
               <button
                 className={styles.actualizarUsuario}
-              >
+                onClick={onAgregarMantenimientoClick}>
                 <div className={styles.actualizarUsuarioChild} />
                 <div className={styles.actualizarUsuario1}>
                   Agregar Mantenimiento
