@@ -39,7 +39,7 @@ const CategoryFrame = () => {
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproductos").value;
     let nuevosUsuarios = productos.map((producto) => {
-      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters);
+      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters1, dataContext.selectedFilters2);
       return { usuario: producto, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
@@ -92,21 +92,21 @@ const CategoryFrame = () => {
   }
 
   let handleDesplegableMaquinarias = (e) => {
-    if(!dataContext.selectedFilters){
-      dataContext.selectedFilters = []
-    }
+    
+    dataContext.selectedFilters1 = []
+
     e.forEach(el => {
-      dataContext.selectedFilters.push(el.value)
+      dataContext.selectedFilters1.push(el.value)
       buscar()
     });
   }
 
   let handleDesplegableTransporte = (e) => {
-    if(!dataContext.selectedFilters){
-      dataContext.selectedFilters = []
-    }
+
+    dataContext.selectedFilters2 = []
+
     e.forEach(el => {
-      dataContext.selectedFilters.push(el.value)
+      dataContext.selectedFilters2.push(el.value)
       buscar()
     });
   }

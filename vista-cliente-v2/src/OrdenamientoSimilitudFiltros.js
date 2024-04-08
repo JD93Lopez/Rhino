@@ -1,14 +1,23 @@
 import { useContext } from "react";
 import { DataContext } from "./components/DataProvider";
 
-function calcularSimilitud2(str1, str2, producto, selectedFilters){
+function calcularSimilitud2(str1, str2, producto, selectedFilters1, selectedFilters2){
 
     let similitudes = []
     similitudes.push(calcularSimilitud(str1,str2))
 
-    selectedFilters.forEach(filter => {
-        similitudes.push(calcularSimilitud( categoriaMasParecida(filter, producto) ,filter))
-    });
+
+    if(selectedFilters1){
+        selectedFilters1.forEach(filter => {
+            similitudes.push(calcularSimilitud( categoriaMasParecida(filter, producto) ,filter))
+        });
+    }
+
+    if(selectedFilters2){
+        selectedFilters2.forEach(filter => {
+            similitudes.push(calcularSimilitud( categoriaMasParecida(filter, producto) ,filter))
+        });
+    }
 
     let p = 0
     let i = 0
@@ -17,6 +26,7 @@ function calcularSimilitud2(str1, str2, producto, selectedFilters){
         const s = similitudes[i];
         p += s
     }
+    i++
 
     p = p/i
 
