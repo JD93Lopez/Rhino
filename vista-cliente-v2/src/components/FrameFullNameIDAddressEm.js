@@ -6,13 +6,13 @@ const FrameFullNameIDAddressEm = () => {
 
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
-
+  console.log(dataContext)
   if(!dataContext.Loaded){
     return <p>Cargando...</p>
   }
 
   const [currentUser, setCurrentUser] = useState(dataContext.usuarioIniciado);
-
+  console.log(currentUser.nombre_real)
   const onBotonEditarInformacionClick = useCallback(() => {
     navigate("/ventana-de-editar-informacin-personal");
   }, [navigate]);
@@ -45,19 +45,19 @@ const FrameFullNameIDAddressEm = () => {
               </div>
               <div className={styles.accountinfoframe}>
                 <div className={styles.sebastianPicoAfanador}>
-                {currentUser.nombreCompleto}
+                {currentUser.nombre_real}
                 </div>
                 <div className={styles.editinfobutton}>
-                {currentUser.nombre_usuario}
+                {currentUser.identificacion}
                 </div>
                 <div className={styles.picoafanadorgmailcom}>
-                {currentUser.email}
+                {currentUser.correo}
                 </div>
                 <div className={styles.editinfobutton1}>
                 {currentUser.telefono}
                 </div>
                 <div className={styles.cll18}>
-                {currentUser.estado}
+                {currentUser.direccion}
                 </div>
               </div>
             </div>
