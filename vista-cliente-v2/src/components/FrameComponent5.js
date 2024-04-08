@@ -1,5 +1,7 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import styles from "./FrameComponent5.module.css";
+import ListaDesplegable2 from "./ListaDesplegable2";
+import { DataContext } from "./DataProvider";
 
 const FrameComponent5 = ({
   rectangleDivHeight,
@@ -9,8 +11,9 @@ const FrameComponent5 = ({
   onBotonProductos6Click,
   onBotonSobreNosotrosClick,
   onCarritoDeCompras3ImageClick,
-  onCerrarSesionClick,
+  onBotonMiCuentaClick,
 }) => {
+  const dataContext = useContext(DataContext)
   const frameSectionStyle = useMemo(() => {
     return {
       height: rectangleDivHeight,
@@ -62,15 +65,11 @@ const FrameComponent5 = ({
         <div className={styles.iNFORMACINPERSO}>
           <div className={styles.botonLupa6} />
         </div>
-        <div className={styles.cerrarSesion}>
-          <button className={styles.rectangleGroup}onClick={onCerrarSesionClick}>
-            <div className={styles.frameItem} />
-            <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
-            <div className={styles.miCuenta}>
-              <div className={styles.miCuenta1}>CERRAR SESION</div>
-            </div>
-          </button>
-        </div>
+        <div className={styles.groupOne}onClick={onBotonMiCuentaClick}>
+        <ListaDesplegable2
+          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
+        ></ListaDesplegable2>
+      </div>
       </header>
     </section>
   );

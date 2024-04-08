@@ -23,8 +23,7 @@ const VentanaDeInformacinPersona = () => {
     navigate("/ventana-carrito-de-compras");
   }, [navigate]);
 
-  const onCerrarSesionClick = useCallback(() => {
-    navigate("/ventana-principal-2");
+  const onBotonMiCuentaClick = useCallback(() => {
   }, [navigate]);
 
   return (
@@ -35,7 +34,7 @@ const VentanaDeInformacinPersona = () => {
         onBotonProductos6Click={onBotonProductos6Click}
         onBotonSobreNosotrosClick={onBotonSobreNosotrosClick}
         onCarritoDeCompras3ImageClick={onCarritoDeCompras3ImageClick}
-        onCerrarSesionClick = {onCerrarSesionClick}
+        onBotonMiCuentaClick = {onBotonMiCuentaClick}
       />
       <section className={styles.frameData}>
         <FrameFullNameIDAddressEm />
