@@ -77,6 +77,7 @@ export const DataProvider = (props) => {
     const usuarioIniciado = {
         nombre_usuario: "Iniciar Sesión",
         iniciado: false,
+        contrasena: "NO INICIADO",
         nombre_real:"NO INICIADO",
         direccion:"NO INICIADO",
         telefono:"NO INICIADO",
