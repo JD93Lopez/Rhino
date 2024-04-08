@@ -72,13 +72,16 @@ export const DataProvider = (props) => {
             categorias: ["maquinaria1","maquinaria2"]
         }
     ]
-
+//se modificaron los atributos porque faltaban algunos y se modificaron como esta en la DB
+//CAMBIO REALIZADO POR MAJO
     const usuarioIniciado = {
         nombre_usuario: "Iniciar Sesión",
         iniciado: false,
-        nombreCompleto:"NO INICIADO",
-        email:"NO INICIADO",
+        nombre_real:"NO INICIADO",
+        direccion:"NO INICIADO",
         telefono:"NO INICIADO",
+        identificacion: "NO INICIADO",
+        correo: "NO INICIADO",
         estado:"NO INICIADO"
     }
 
