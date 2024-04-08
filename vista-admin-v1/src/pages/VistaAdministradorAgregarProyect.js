@@ -2,9 +2,9 @@ import ProjectFrame from "../components/ProjectFrame";
 import styles from "./VistaAdministradorAgregarProyect.module.css";
 import Select from "react-select";
 import axios from "../axios.js";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { DataContext, DataProvider } from "../components/DataProvider";
 const VistaAdministradorAgregarProyect = () => {
   const navigate = useNavigate();
 
@@ -16,24 +16,20 @@ const VistaAdministradorAgregarProyect = () => {
     // Obtener los valores de los campos utilizando useRef
     const nombre = document.getElementById("inputnombreusuario").value;
     const telefono = document.getElementById("inputtelefonousuario").value;
-    const identificacion = document.getElementById(
-      "inputidentificacionusuario"
-    ).value;
-    const estado = document.getElementById("inputtipoestado").value;
+    const identificacion = document.getElementById("inputidentificacionusuario").value;
+    const estado_avance = dataContext.estadoProyecto;
     const descripcion = document.getElementById("inputtipoidescripcion").value;
-    const fecha = document.getElementById("inputtipofecha").value;
-    const tipo_identificacion = document.getElementById(
-      "inputtipoidentificacion"
-    ).value;
+    const fecha_entrega = document.getElementById("inputtipofecha").value;
+    const tipo_identificacion = dataContext.tipoId;
     // Crear el objeto de usuario
     const usuarioInsertar = {
       nombre,
-      telefono,
       identificacion,
       tipo_identificacion,
-      estado,
+      telefono,
       descripcion,
-      fecha,
+      fecha_entrega,
+      estado_avance
     };
 
     // Convertir el objeto de usuario a JSON
@@ -41,19 +37,29 @@ const VistaAdministradorAgregarProyect = () => {
 
     console.log(JsonUsuario);
   };
+
+  const dataContext = useContext(DataContext);
+
+
   const drowpdownTipoidentificacion = [
     { label: "Cedula", value: "Cedula" },
     { label: "Nit", value: "Nit" },
   ];
+  dataContext.drowpdownTipoidentificacion = drowpdownTipoidentificacion;
 
   const drowpdownEstadoAvance = [
     { label: "Por Iniciar", value: "Por Iniciar" },
     { label: "Iniciado", value: "Iniciado" },
     { label: "Terminado", value: "Terminado" },
   ];
+  dataContext.drowpdownEstadoAvance = drowpdownEstadoAvance;
 
-  function handleSelectChange(value) {
-    console.log(value);
+  function handleSelectChangeEstado(value){
+    dataContext.estadoProyecto = value.value
+  }
+
+  function handleSelectChangeId(value) {
+    dataContext.tipoId = value.value
   }
 
   return (
@@ -63,17 +69,19 @@ const VistaAdministradorAgregarProyect = () => {
       <h1 className={styles.agregarproyecto}>Agregar Proyecto</h1>
 
       <div className={styles.Nombre}>Nombre</div>
-      <input className={styles.inputNombre} type="text" />
+      <input className={styles.inputNombre} type="text" id = "inputnombreusuario" useref = "inputnombreusuario"/>
 
       <div className={styles.Identificacion}>Identificación</div>
-      <input className={styles.inputIdentificacion} type="text" />
+      <input className={styles.inputIdentificacion} type="text" id = "inputidentificacionusuario" useref = "inputidentificacionusuario"/>
 
       <div className=" dropdown-Tipo/identificacion ">
         <div className={styles.tipoidentificacion}>Tipo Identificación</div>
         <Select
           className={styles.dropdownidentificacion}
           options={drowpdownTipoidentificacion}
-          onChange={handleSelectChange}
+          onChange={handleSelectChangeId}
+          id = "inputtipoidentificacion"
+          useref = "inputtipoidentificacion"
         />
       </div>
 
@@ -82,18 +90,20 @@ const VistaAdministradorAgregarProyect = () => {
         <Select
           className={styles.dropdownAvance}
           options={drowpdownEstadoAvance}
-          onChange={handleSelectChange}
+          onChange={handleSelectChangeEstado}
+          id = "inputtipoestado"  
+          useref = "inputtipoestado"
         />
       </div>
 
       <div className={styles.Telefono}>Teléfono</div>
-      <input className={styles.inputTelefono} type="text" />
+      <input className={styles.inputTelefono} type="text" id = "inputtelefonousuario" useref = "inputtelefonousuario"/>
 
       <div className={styles.Descripcion}>Descripción</div>
-      <textarea className={styles.inputDescripcion} type="text" />
+      <textarea className={styles.inputDescripcion} type="text"id = "inputtipoidescripcion" useref = "inputtipoidescripcion" />
 
       <div className={styles.Fecha}>Fecha</div>
-      <input className={styles.inputFecha} type="date" />
+      <input className={styles.inputFecha} type="date" id = "inputtipofecha" useref = "inputtipofecha"/>
 
       <footer className={styles.saveButtonFrame}>
         <div className={styles.previousStepButton}>

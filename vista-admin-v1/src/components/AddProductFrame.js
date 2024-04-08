@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import styles from "./AddProductFrame.module.css";
+import { DataContext } from "./DataProvider";
 
 const AddProductFrame = ({
   maintananceTextPadding,
@@ -13,6 +14,16 @@ const AddProductFrame = ({
       padding: maintananceTextPadding,
     };
   }, [maintananceTextPadding]);
+
+  const dataContext = useContext(DataContext);
+
+  let nombre_usuario
+
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }else{
+    nombre_usuario = dataContext.usuarios.usuarioIniciado.nombre_usuario
+  }
 
   return (
     <header className={styles.addProductFrame}>
@@ -73,7 +84,7 @@ const AddProductFrame = ({
                 src="/usuario-1@2x.png"
               />
               <div className={styles.perfilAdminChild} />
-              <div className={styles.administrador}>Administrador</div>
+              <div className={styles.administrador}>{nombre_usuario}</div>
             </button>
           </div>
         </div>

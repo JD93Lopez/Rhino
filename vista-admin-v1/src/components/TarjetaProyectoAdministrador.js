@@ -2,7 +2,7 @@ import { useContext, useMemo, useState } from "react";
 import styles from "./Proyecto.module.css";
 import { DataContext } from "./DataProvider";
 
-const TarjetaProyectoAdministrador = ({ encargadoProyecto, telefono, cedula, descripcion }) => {
+const TarjetaProyectoAdministrador = ({ object, encargadoProyecto, telefono, cedula, descripcion }) => {
 
   const dataContext = useContext(DataContext)
   
@@ -19,12 +19,9 @@ const TarjetaProyectoAdministrador = ({ encargadoProyecto, telefono, cedula, des
       });
     }else{
       setSelected(true)
-      dataContext.selectedProyects.push({
-        encargadoProyecto, 
-        telefono, 
-        cedula, 
-        descripcion
-      })
+      dataContext.selectedProyects.push(
+        object
+      )
     }
 
   }

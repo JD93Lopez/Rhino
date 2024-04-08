@@ -18,6 +18,8 @@ import VentanaParaSolcitarUnaCoti from "./pages/VentanaParaSolcitarUnaCoti";
 import VentanaDeEDITARInformacin from "./pages/VentanaDeEDITARInformacin";
 import VentanaDeContraseaYSeguri from "./pages/VentanaDeContraseaYSeguri";
 import VentanaDeAyudaYAsistencia from "./pages/VentanaDeAyudaYAsistencia";
+import { DataProvider } from "./components/DataProvider";
+
 
 function App() {
   const action = useNavigationType();
@@ -104,51 +106,57 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<VentanaPrincipal />} />
-      <Route
-        path="/informacin-de-cada-producto"
-        element={<InformacinDeCadaProducto />}
-      />
-      <Route
-        path="/ventana-para-buscar-productos"
-        element={<VentanaParaBuscarProductos />}
-      />
-      <Route
-        path="/ventana-carrito-de-compras"
-        element={<VentanaCarritoDeCompras />}
-      />
-      <Route
-        path="/ventana-sobre-nosotros"
-        element={<VentanaSobreNosotros />}
-      />
-      <Route path="/vetana-de-registro" element={<VetanaDeRegistro />} />
-      <Route path="/ventana-principal-2" element={<VentanaParaClientes />} />
-      <Route
-        path="/ventana-inicio-de-sesin"
-        element={<VentanaInicioDeSesin />}
-      />
-      <Route
-        path="/ventana-de-informacin-personal"
-        element={<VentanaDeInformacinPersona />}
-      />
-      <Route
-        path="/ventana-para-solcitar-una-cotizacin"
-        element={<VentanaParaSolcitarUnaCoti />}
-      />
-      <Route
-        path="/ventana-de-editar-informacin-personal"
-        element={<VentanaDeEDITARInformacin />}
-      />
-      <Route
-        path="/ventana-de-contrasea-y-seguridad"
-        element={<VentanaDeContraseaYSeguri />}
-      />
-      <Route
-        path="/ventana-de-ayuda-y-asistencia"
-        element={<VentanaDeAyudaYAsistencia />}
-      />
-    </Routes>
+    <DataProvider>
+      <Routes>
+        <Route path="/" element={<VentanaPrincipal />} />
+        <Route
+          path="/informacin-de-cada-producto"
+          element={<InformacinDeCadaProducto />}
+        />
+        <Route
+          path="/ventana-para-buscar-productos"
+          element={<VentanaParaBuscarProductos />}
+        />
+        <Route
+          path="/ventana-carrito-de-compras"
+          element={<VentanaCarritoDeCompras />}
+        />
+        <Route
+          path="/ventana-sobre-nosotros"
+          element={<VentanaSobreNosotros />}
+        />
+        <Route path="/vetana-de-registro" element={<VetanaDeRegistro />} />
+        <Route path="/ventana-principal-2" element={<VentanaPrincipal />} />
+        <Route
+          path="/ventana-inicio-de-sesin"
+          element={<VentanaInicioDeSesin />}
+        />
+        <Route
+          path="/ventana-de-informacin-personal"
+          element={<VentanaDeInformacinPersona />}
+        />
+        <Route
+          path="/ventana-para-solcitar-una-cotizacin"
+          element={<VentanaParaSolcitarUnaCoti />}
+        />
+        <Route
+          path="/ventana-de-editar-informacin-personal"
+          element={<VentanaDeEDITARInformacin />}
+        />
+        <Route
+          path="/ventana-de-contrasea-y-seguridad"
+          element={<VentanaDeContraseaYSeguri />}
+        />
+        <Route
+          path="/ventana-de-ayuda-y-asistencia"
+          element={<VentanaDeAyudaYAsistencia />}
+        />
+        <Route 
+          path="/ventana-inicio-sesion"
+          element={<VentanaInicioDeSesin />}
+        />
+      </Routes>
+    </DataProvider>
   );
 }
 export default App;

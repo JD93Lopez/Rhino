@@ -23,6 +23,9 @@ const VentanaDeEDITARInformacin = () => {
     navigate("/ventana-carrito-de-compras");
   }, [navigate]);
 
+  const onCerrarSesionClick = useCallback(() => {
+    navigate("/ventana-principal-2");
+  }, [navigate]);
   return (
     <div className={styles.ventanaDeEditarInformacin}>
       <div className={styles.profilePicRectangle} />
@@ -34,6 +37,7 @@ const VentanaDeEDITARInformacin = () => {
         onBotonProductos6Click={onBotonProductos6Click}
         onBotonSobreNosotrosClick={onBotonSobreNosotrosClick}
         onCarritoDeCompras3ImageClick={onCarritoDeCompras3ImageClick}
+        onCerrarSesionClick={onCerrarSesionClick}
       />
       <section className={styles.editPersonalInfoButton}>
         <AddressFrame />

@@ -1,10 +1,21 @@
+import { useContext } from "react";
+import { DataContext } from "./DataProvider";
+import ListaDesplegable2 from "./ListaDesplegable2";
 import styles from "./LogoButton.module.css";
 
 const LogoButton = ({
   onBotonLogo6Click,
   onBotonProductos6Click,
   onBotonSobreNosotrosClick,
+  onBotonMiCuentaClick,
 }) => {
+
+  const dataContext = useContext(DataContext)
+
+  if(!dataContext.Loaded){
+    return <p>Cargando</p>
+  }
+
   return (
     <div className={styles.logoButton}>
       <div className={styles.logoButtonChild} />
@@ -30,14 +41,17 @@ const LogoButton = ({
       <div className={styles.imageFrame}>
         <div className={styles.botonLupa6} />
       </div>
-      <div className={styles.groupOne}>
-        <button className={styles.rectangleParent}>
+      <div className={styles.groupOne}onClick={onBotonMiCuentaClick}>
+        {/* <button className={styles.rectangleParent}>
           <div className={styles.frameChild} />
           <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
           <div className={styles.myAccountText}>
-            <div className={styles.miCuenta}>MI CUENTA</div>
+            <div className={styles.miCuenta} >MI CUENTA</div>
           </div>
-        </button>
+        </button> */}
+        <ListaDesplegable2
+          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
+        ></ListaDesplegable2>
       </div>
     </div>
   );

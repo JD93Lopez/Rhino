@@ -1,6 +1,23 @@
 import styles from "./FrameFullNameIDAddressEm.module.css";
-
+import React, {useState, useContext, useEffect, useCallback} from 'react';
+import { useNavigate } from "react-router-dom";
+import { DataContext } from "../components/DataProvider.js";
 const FrameFullNameIDAddressEm = () => {
+
+  const navigate = useNavigate();
+  const dataContext = useContext(DataContext);
+  console.log(dataContext)
+  if(!dataContext.Loaded){
+    return <p>Cargando...</p>
+  }
+
+  const [currentUser, setCurrentUser] = useState(dataContext.usuarioIniciado);
+  console.log(currentUser.nombre_real)
+  const onBotonEditarInformacionClick = useCallback(() => {
+    navigate("/ventana-de-editar-informacin-personal");
+  }, [navigate]);
+
+
   return (
     <div className={styles.frameFullNameIDAddressEm}>
       <div className={styles.rectangleEditInfo}>
@@ -28,14 +45,20 @@ const FrameFullNameIDAddressEm = () => {
               </div>
               <div className={styles.accountinfoframe}>
                 <div className={styles.sebastianPicoAfanador}>
-                  Sebastian Pico Afanador
+                {currentUser.nombre_real}
                 </div>
-                <div className={styles.editinfobutton}>1005296655</div>
+                <div className={styles.editinfobutton}>
+                {currentUser.identificacion}
+                </div>
                 <div className={styles.picoafanadorgmailcom}>
-                  picoafanador@gmail.com
+                {currentUser.correo}
                 </div>
-                <div className={styles.editinfobutton1}>3017781251</div>
-                <div className={styles.cll18}>cll 18 # 21-62</div>
+                <div className={styles.editinfobutton1}>
+                {currentUser.telefono}
+                </div>
+                <div className={styles.cll18}>
+                {currentUser.direccion}
+                </div>
               </div>
             </div>
           </div>
@@ -43,8 +66,8 @@ const FrameFullNameIDAddressEm = () => {
         </div>
         <div className={styles.profilepictureframe}>
           <div className={styles.botnEdiotarInformacin}>
-            <div className={styles.botnEdiotarInformacinChild} />
-            <b className={styles.editarInformacin}>EDITAR INFORMACIÓN</b>
+            <button className={styles.botnEdiotarInformacinChild} />
+            <b className={styles.editarInformacin}onClick={onBotonEditarInformacionClick}>EDITAR INFORMACIÓN</b>
           </div>
         </div>
       </div>

@@ -1,9 +1,14 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CategoryFrame.module.css";
+import { TarjetaProducto } from "./TarjetaProducto";
+import orden from "../OrdenamientoSimilitudFiltros";
+import { DataContext } from "./DataProvider";
+import ListaDesplegable1 from "./ListaDesplegable1";
 
 const CategoryFrame = () => {
   const navigate = useNavigate();
+  const dataContext = useContext(DataContext)
 
   const onMaterialesSinFondo2Click = useCallback(() => {
     navigate("/informacin-de-cada-producto");
@@ -25,178 +30,143 @@ const CategoryFrame = () => {
     navigate("/informacin-de-cada-producto");
   }, [navigate]);
 
+  if(!dataContext.Loaded){
+    return <p>Cargando...</p>
+  }
+
+  const [productos, setProductos] = useState(dataContext.productos)
+ 
+  const buscar = () => {
+    const inputValue = document.getElementById("inputbuscarproductos").value;
+    let nuevosUsuarios = productos.map((producto) => {
+      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters);
+      return { usuario: producto, similitud: similitud };
+    }).sort((a, b) => b.similitud - a.similitud);
+    nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
+      return usuarioSimilitud.usuario
+    })
+    setProductos(nuevosUsuarios);
+  }
+
+  let dibujarProductos = () => {
+    let productosTemp = []
+    let oldP
+    let i = 0
+    for( i=0 ; i<productos.length ; i++ ){
+      if( i%2 === 0 ){
+        oldP = productos[i]
+      }else{
+        const p = productos[i]
+        productosTemp.push( 
+          <tr key={i/2}> 
+            <td>
+              <TarjetaProducto
+                nombre={oldP.nombre}
+                imagen={oldP.imagen}
+              />
+            </td>  
+            <td>
+              <TarjetaProducto
+                nombre={p.nombre}
+                imagen={p.imagen}
+              />
+            </td> 
+          </tr> 
+        )
+        oldP = null
+      }
+    }
+    if(oldP){
+      productosTemp.push( 
+        <tr key={i/2}> 
+          <td>
+            <TarjetaProducto
+              nombre={oldP.nombre}
+              imagen={oldP.imagen}
+            />
+          </td>
+        </tr> 
+      )
+    }
+    return productosTemp
+  }
+
+  let handleDesplegableMaquinarias = (e) => {
+    if(!dataContext.selectedFilters){
+      dataContext.selectedFilters = []
+    }
+    e.forEach(el => {
+      dataContext.selectedFilters.push(el.value)
+      buscar()
+    });
+  }
+
+  let handleDesplegableTransporte = (e) => {
+    if(!dataContext.selectedFilters){
+      dataContext.selectedFilters = []
+    }
+    e.forEach(el => {
+      dataContext.selectedFilters.push(el.value)
+      buscar()
+    });
+  }
+
   return (
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
         <div className={styles.productItemFrame}>
-          <div className={styles.machineNameFrame} />
+          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos" onChange={buscar}/>
+
           <div className={styles.vectorFrame}>
-            <div className={styles.machineryFrame}>
-              <div className={styles.machineryFrameChild} />
-              <b className={styles.maquinaria}>MAQUINARIA</b>
-              <div className={styles.vectorFrame1}>
-                <img
-                  className={styles.cartButtonFrame}
-                  alt=""
-                  src="/cart-button-frame.svg"
-                />
-              </div>
-            </div>
+            {/* <div className={styles.machineryFrame}>
+            </div> */}
+            <ListaDesplegable1
+              className={styles.maquinaria}
+              titulo={"TIPOS DE MAQUINARIA"}
+              onChange={handleDesplegableMaquinarias}
+              opciones={
+                [
+                  {value: "Vehiculo 1", label:"Vehiculo1"},
+                  {value: "Vehiculo 2", label:"Vehiculo2"},
+                  {value: "Vehiculo 3", label:"Vehiculo3"},
+                  {value: "Vehiculo 4", label:"Vehiculo4"}
+                ]
+              }
+            ></ListaDesplegable1>
+            <div> {/*Estos br son pa dar espacio entre los desplegables que si no se solapan*/}
+              <br></br> 
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+            </div>         
+            <ListaDesplegable1
+              className={styles.maquinaria}
+              titulo={"TIPOS DE TRANSPORTE"}
+              onChange={handleDesplegableTransporte}
+              opciones={
+                [
+                  {value: "Transporte 1", label:"Transporte1"},
+                  {value: "Transporte 2", label:"Transporte2"},
+                  {value: "Transporte 3", label:"Transporte3"},
+                  {value: "Transporte 4", label:"Transporte4"}
+                ]
+              }
+            ></ListaDesplegable1>
             <div className={styles.wheelsFrame}>
-              <div className={styles.machineNameFrame1}>
-                <div className={styles.machineNameFrameChild} />
-                <b className={styles.vehculos}>VEHÍCULOS</b>
-                <div className={styles.vectorFrame2}>
-                  <img
-                    className={styles.groupFrameIcon}
-                    alt=""
-                    src="/cart-button-frame.svg"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        <div className={styles.backgroundFrame}>
-          <div className={styles.contactInfoFrame}>
-            <div className={styles.materialesSinFondo2Parent}>
-              <img
-                className={styles.materialesSinFondo2}
-                loading="lazy"
-                alt=""
-                src="/materiales-sin-fondo-2@2x.png"
-                onClick={onMaterialesSinFondo2Click}
-              />
-              <div className={styles.frameChild} />
-              <div className={styles.detailsButtonFrame}>
-                <div className={styles.addToCartButtonFrame}>
-                  <div className={styles.productBox}>
-                    <div className={styles.detallesFrame}>
-                      <div className={styles.nombreMaquina}>
-                        <p className={styles.manipuladoraDe}>Manipuladora de</p>
-                        <p className={styles.materialesDeRuedas}>
-                          materiales de ruedas
-                        </p>
-                        <p className={styles.mh3050}>MH3050</p>
-                      </div>
-                    </div>
-                    <button
-                      className={styles.botonDetalles}
-                      onClick={onBotonDetallesClick}
-                    >
-                      <b className={styles.detalles}>DETALLES</b>
-                    </button>
-                  </div>
-                  <div className={styles.vectorElement}>
-                    <button className={styles.botonAgregarCarrito}>
-                      <img
-                        className={styles.anadirAlCarrito1Icon}
-                        alt=""
-                        src="/anadiralcarrito-1@2x.png"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.wheeledEquipmentBox}>
-              <img
-                className={styles.cargadoraDeRuedasSinFondo}
-                loading="lazy"
-                alt=""
-                src="/cargadora-de-ruedas-sin-fondo-2@2x.png"
-              />
-              <div className={styles.wheeledEquipmentBoxChild} />
-              <div className={styles.machineName}>
-                <div className={styles.detailedView}>
-                  <div className={styles.addToCartButton}>
-                    <div className={styles.nombreMaquina1}>
-                      CARGADORA DE RUEDAS
-                    </div>
-                  </div>
-                  <button
-                    className={styles.botonDetalles1}
-                    onClick={onBotonDetalles1Click}
-                  >
-                    <b className={styles.detalles1}>DETALLES</b>
-                  </button>
-                  <div className={styles.cartIcon}>
-                    <button className={styles.botonAgregarCarrito1}>
-                      <img
-                        className={styles.anadirAlCarrito1Icon1}
-                        alt=""
-                        src="/anadiralcarrito-1@2x.png"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.contactFrame}>
-        <div className={styles.camionobrasSinFondo3Parent}>
-          <img
-            className={styles.camionobrasSinFondo3}
-            loading="lazy"
-            alt=""
-            src="/camionobras-sin-fondo-3@2x.png"
-          />
-          <div className={styles.frameItem} />
-          <div className={styles.detailedView1}>
-            <div className={styles.detailsButton}>
-              <div className={styles.nombreMaquinaWrapper}>
-                <div className={styles.nombreMaquina2}>CAMIÓN DE OBRAS</div>
-              </div>
-              <button
-                className={styles.botonDetalles2}
-                onClick={onBotonDetalles2Click}
-              >
-                <b className={styles.detalles2}>DETALLES</b>
-              </button>
-              <div className={styles.vectorElement1}>
-                <button className={styles.botonAgregarCarrito2}>
-                  <img
-                    className={styles.anadirAlCarrito1Icon2}
-                    alt=""
-                    src="/anadiralcarrito-1@2x.png"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.contactUs}>
-          <img
-            className={styles.compactadoraSinFondo2}
-            loading="lazy"
-            alt=""
-            src="/compactadora-sin-fondo-2@2x.png"
-          />
-          <div className={styles.contactUsChild} />
-          <div className={styles.contactUsInner}>
-            <div className={styles.frameParent}>
-              <div className={styles.nombreMaquinaContainer}>
-                <div className={styles.nombreMaquina3}>APLANADORA</div>
-              </div>
-              <button
-                className={styles.botonDetalles3}
-                onClick={onBotonDetalles3Click}
-              >
-                <b className={styles.detalles3}>DETALLES</b>
-              </button>
-              <div className={styles.addToCartButton1}>
-                <button className={styles.botonAgregarCarrito3}>
-                  <img
-                    className={styles.anadirAlCarrito1Icon3}
-                    alt=""
-                    src="/anadiralcarrito-1@2x.png"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
+        < div >
+          <table>
+            <tbody>
+              {dibujarProductos().map((tr)=>{
+                return tr
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
