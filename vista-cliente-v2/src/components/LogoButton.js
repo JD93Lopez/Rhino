@@ -9,11 +9,28 @@ const LogoButton = ({
   onBotonSobreNosotrosClick,
   onBotonMiCuentaClick,
 }) => {
+  const dataContext = useContext(DataContext);
 
-  const dataContext = useContext(DataContext)
+  if (!dataContext.Loaded) {
+    return <p>Cargando</p>;
+  }
 
-  if(!dataContext.Loaded){
-    return <p>Cargando</p>
+  function dibujarBotonMiCuenta(){
+    if(dataContext.usuarioIniciado.iniciado){
+      return [<ListaDesplegable2
+        titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
+      ></ListaDesplegable2>]
+    }else{
+      return [<div className={styles.usernameInputField}>
+        <button className={styles.rectangleGroup}>
+          <div className={styles.frameItem} />
+          <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
+          <div className={styles.oldPasswordFrame}>
+            <div className={styles.miCuenta}>MI CUENTA</div>
+          </div>
+        </button>
+      </div>]
+    }
   }
 
   return (
@@ -41,7 +58,8 @@ const LogoButton = ({
       <div className={styles.imageFrame}>
         <div className={styles.botonLupa6} />
       </div>
-      <div className={styles.groupOne}onClick={onBotonMiCuentaClick}>
+      <div className={styles.groupOne} onClick={onBotonMiCuentaClick}>
+        {dibujarBotonMiCuenta().map((a)=>{return a})}
         {/* <button className={styles.rectangleParent}>
           <div className={styles.frameChild} />
           <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
@@ -49,9 +67,9 @@ const LogoButton = ({
             <div className={styles.miCuenta} >MI CUENTA</div>
           </div>
         </button> */}
-        <ListaDesplegable2
-          titulo = {<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
-        ></ListaDesplegable2>
+        
+
+        
       </div>
     </div>
   );
