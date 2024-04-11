@@ -30,6 +30,9 @@ function ListaDesplegable2({titulo}){
             case "Ayuda y Asistencia":
                 navigate("/ventana-de-ayuda-y-asistencia")
             break;
+            /*case "Cerrar Sesion":
+            navigate("Ventana-principal-2")
+            break;*/
             default:
                 ;
         }
