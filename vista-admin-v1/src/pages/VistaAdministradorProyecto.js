@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'; // Correcto para useCallback
 import { useNavigate } from 'react-router-dom'; // Correcto para useNavigate
-import ProjectFrame from "../components/ProjectFrame";
+import AddProductFrame from "../components/AddProductFrame";
 import SearchProjectFrame from "../components/SearchProjectFrame";
 import styles from "./VistaAdministradorProyecto.module.css";
 
@@ -27,7 +27,7 @@ const VistaAdministradorProyecto = () => {
         <div className={styles.eliminarProyecto} />
         <div className={styles.ElimProyecto}>Eliminar</div>
       </button>
-      <ProjectFrame />
+      <AddProductFrame/>
       <SearchProjectFrame />
     </div>
   );

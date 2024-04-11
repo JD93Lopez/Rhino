@@ -1,4 +1,4 @@
-import ProjectFrame from "../components/ProjectFrame";
+import AddProductFrame from "../components/AddProductFrame.js";
 import styles from "./VistaAdministradorAgregarMant.module.css";
 import axios from "../axios.js";
 import { useCallback } from "react";
@@ -36,7 +36,7 @@ const VistaAdministradorAgregarMant = () => {
   return (
     <div className={styles.vistaadminadd}>
       <div className={styles.vistaadminaddchild} />
-      <ProjectFrame />
+      <AddProductFrame/>
       <h1 className={styles.agregarmantenimiento}>Agregar Mantenimiento</h1>
 
       <div className={styles.Nombre}>Nombre</div>

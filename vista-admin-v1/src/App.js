@@ -13,7 +13,9 @@ import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
-import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant"
+import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant";
+import VistaAdministradorCotizacion from "./pages/VistaAdministradorCotizacion";
+import VistaAdministradorVerCotizacion from "./pages/VistaAdministradorVerCotizacion";
 import {DataProvider} from "./components/DataProvider";
 
 function App() {
@@ -72,6 +74,14 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/vista-administrador-cotizacion":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-ver-cotizacion":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -123,6 +133,14 @@ function App() {
         <Route
           path="/vista-administrador-productos"
           element={<VistaAdministradorProducto />}
+        />
+        <Route
+          path="/vista-administrador-cotizacion"
+          element={<VistaAdministradorCotizacion />}
+        />
+        <Route
+          path="/vista-administrador-ver-cotizacion"
+          element={<VistaAdministradorVerCotizacion />}
         />
       </Routes>
     </DataProvider>

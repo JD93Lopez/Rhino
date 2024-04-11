@@ -1,6 +1,6 @@
 // VistaAdminstradorUsuario.js
 import React, { useState, useContext, useEffect, useCallback } from 'react';
-import FrameComponent from "../components/FrameComponent";
+import AddProductFrame from "../components/AddProductFrame";
 import UserInfoFrame from "../components/UserInfoFrame";
 import { useNavigate } from "react-router-dom";
 import styles from "./VistaAdministradorUsuarios.module.css";
@@ -86,7 +86,7 @@ const VistaAdministradorUsuarios = () => {
     <SearchContext.Provider value={{ busqueda, setBusqueda }}>
     <div className={styles.vistaAdministradorUsuarios}>
       <div className={styles.vistaAdministradorUsuariosChild} />
-      <FrameComponent />
+      <AddProductFrame/>
       <main className={styles.vistaAdministradorUsuariosInner}>
         <section className={styles.userInfoFrameParent}>
           <UserInfoFrame />

@@ -15,7 +15,9 @@
 }
 .usuarios {
   height: 34px;
-  position: relative;
+  position: absolute;
+  top: 65px;
+  left: 200px;
   display: inline-block;
   flex-shrink: 0;
   cursor: pointer;
@@ -30,7 +32,9 @@
 }
 .proyectos {
   height: 34px;
-  position: relative;
+  position: absolute;
+  top: 65px;
+  left: 380px;
   display: inline-block;
   flex-shrink: 0;
   cursor: pointer;
@@ -43,13 +47,15 @@
   justify-content: flex-start;
   padding: var(--padding-11xs) var(--padding-10xs) 0 0;
 }
-.createUserTitleChild,
-.productos {
+.createUserTitleChild{
   position: relative;
   flex-shrink: 0;
   z-index: 2;
 }
 .productos {
+  position: absolute;
+  top: 65px;
+  left: 580px;
   height: 34px;
   display: inline-block;
   cursor: pointer;
@@ -70,8 +76,19 @@
   gap: 9px 0;
 }
 .mantenimiento {
+  position: absolute;
+  top: 65px;
+  left: 780px;
   height: 34px;
-  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 2;
+}
+.cotizacion{
+  position: absolute;
+  top: 65px;
+  left: 1040px;
+  height: 34px;
   display: inline-block;
   cursor: pointer;
   z-index: 2;
