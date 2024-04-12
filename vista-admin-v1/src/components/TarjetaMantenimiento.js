@@ -1,8 +1,45 @@
+import { useContext, useState } from "react";
+import { DataContext } from "./DataProvider";
 import styles from "./Proyecto1.module.css";
 
-const TarjetaMantenimiento = ({ nombreMaquinaria, identificacion, fecha }) => {
+const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha, id }) => {
+
+  const dataContext = useContext(DataContext)
+
+  if(!dataContext.Loaded){
+    return <p>Cargando...</p>
+  }
+
+  const [selected, setSelected] = useState(false)
+
+  const seleccionar = () => {
+
+    if(!dataContext.selectedMant){
+      dataContext.selectedMant = []
+    }
+
+    if(selected){
+      setSelected(false)
+      dataContext.selectedMant.forEach(mant => {
+        if(mant.id === id){
+          dataContext.selectedMant = dataContext.selectedMant.filter(mantF => { return mant !== mantF })
+        }
+      });
+    }else{
+      setSelected(true)
+      dataContext.selectedMant.push(
+        object
+      )
+    }
+
+  }
+
+  const estiloSeleccionado = selected
+    ? { backgroundColor: "rgb(255,220,84)" }
+    : {};
+
   return (
-    <div className={styles.proyecto1}>
+    <div className={styles.proyecto1} onClick={seleccionar} style={estiloSeleccionado}>
       <div className={styles.proyecto1Child} />
       <div className={styles.proyecto1Inner}>
         <div className={styles.frameParent}>
@@ -31,6 +68,7 @@ const TarjetaMantenimiento = ({ nombreMaquinaria, identificacion, fecha }) => {
             className={`${styles.descripcin} ${styles.textArea}`} // Agregar una nueva clase para el textarea
             placeholder="Descripción..."
             type="text"
+            defaultValue={object.descripcion}
           />
         </div>
       </div>

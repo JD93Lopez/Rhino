@@ -10,61 +10,115 @@ export const DataProvider = (props) => {
         //usuarios de ejemplo TODO bajar usuarios de API
         const usuarios = [
             {
-                nombreUsuario:"Usuario1",
-                nombreCompleto:"1",
-                email:"1",
-                telefono:"1",
-                estado:"1"
+                nombre_usuario: "Usuario Completo",
+                direccion: "Carrera #2",
+                contrasena: "********",
+                nombre_real: "Nombre Real",
+                telefono: "300",
+                identificacion: "110",
+                correo: "user1@example.com",
+                tipo_identificacion: "CEDULA",
+                tipo_usuario: "ADMINISTRADOR",
+                estado: "ACTIVAO"
             },
             {
-                nombreUsuario:"Usuario2",
-                nombreCompleto:"2",
-                email:"2",
-                telefono:"2",
-                estado:"2"
+                nombre_usuario: "Usuario Completo2",
+                direccion: "Carrera #22",
+                contrasena: "********",
+                nombre_real: "Nombre Real2",
+                telefono: "3002",
+                identificacion: "1102",
+                correo: "user1@example.com2",
+                tipo_identificacion: "CEDULA2",
+                tipo_usuario: "ADMINISTRADOR2",
+                estado: "ACTIVAO2"
             },
             {
-                nombreUsuario:"Usuario3",
-                nombreCompleto:"Nombre Completo",
-                email:"email.usuario3@gmail.com",
-                telefono:"3003333333",
-                estado:"ACTIVAO"
-            }
+                nombre_usuario: "Usuario Completo3",
+                direccion: "Carrera #23",
+                contrasena: "********",
+                nombre_real: "Nombre Real3",
+                telefono: "3003",
+                identificacion: "1103",
+                correo: "user1@example.com3",
+                tipo_identificacion: "CEDULA3",
+                tipo_usuario: "ADMINISTRADOR3",
+                estado: "ACTIVAO3"
+            },
         ]
 
         //proyectos ejemplo TODO bajar proyectos API
         const proyectos = [
             {
-                nombreProyecto: "Proyecto 1", 
-                telefono: "Telefono 1", 
-                cedula: "Cedula 1",
-                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                nombre: "Proyecto 1",
+                identificacion: "Cedula 1",
+                tipo_identificacion: "Cedula",
+                telefono: "Telefono 1",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                fecha_entrega: "2024-04-13",
+                estado_avance: "Terminado"
             },
             {
-                nombreProyecto: "Proyecto 2", 
-                telefono: "Telefono 2", 
-                cedula: "Cedula 2",
-                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                nombre: "Proyecto 2",
+                identificacion: "Cedula 2",
+                tipo_identificacion: "Cedula",
+                telefono: "Telefono 2",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                fecha_entrega: "2024-05-13",
+                estado_avance: "Iniciado"
             },
             {
-                nombreProyecto: "Proyecto 3", 
-                telefono: "Telefono 3", 
-                cedula: "Cedula 3",
-                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                nombre: "Proyecto 3",
+                identificacion: "Nit 1",
+                tipo_identificacion: "Nit",
+                telefono: "Telefono 3",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                fecha_entrega: "2024-05-13",
+                estado_avance: "Por iniciar"
             }
         ]
 
         //Productos de ejemplo TODO bajar productos de API
-        const productos = [
+        const productos = [  //TODO ESTADO DEL PRODUCTO, TECNOMECANICA, SOAT en back
             {
-                nombreProducto: "EXCAVADORA DE PRUEBA", 
-                descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
-                imagen: "/image-1@2x.png"
+                idProductos: "1",
+                nombre:"EXCAVADORA DE PRUEBA" ,
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                identificacion: "1",
+                precio_alquiler: "10.000",
+                precio_compra: "1.000.000",
+                marca: "cat",
+                modelo: "2020",
+                tipo_vehiculo: "Transporte",
+                imagen: "/image-1@2x.png",
+                estado: "Disponible"
+
             },
             {
-                nombreProducto: "CARGADOR FRONTAL DE PRUEBA", 
-                descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
-                imagen: "/image-2@2x.png"
+                idProductos: "2",
+                nombre:"CARGADOR FRONTAL DE PRUEBA" ,
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                identificacion: "2",
+                precio_alquiler: "20.000",
+                precio_compra: "2.000.000",
+                marca: "cat",
+                modelo: "2020",
+                tipo_vehiculo: "Transporte",
+                imagen: "/image-2@2x.png",
+                estado: "Ocupado"
+            },
+            {
+                idProductos: "3",
+                nombre:"CARGADOR FRONTAL DE PRUEBita" ,
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                identificacion: "3",
+                precio_alquiler: "20.000",
+                precio_compra: "2.000.000",
+                marca: "cat",
+                modelo: "2020",
+                tipo_vehiculo: "Maquinaria Pesada",
+                imagen: null,
+                estado: "Fuera de Servicio"
             }
         ]
 
@@ -72,18 +126,24 @@ export const DataProvider = (props) => {
         const mantenimientos = [
             {
                 nombreMaquinaria: "Excavadora",
-                identificacion: "49845",
-                fecha: "23/03/2024"
+                identificacion: "1",
+                fecha: "23/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 1
             },
             {
                 nombreMaquinaria: "Montacargas",
-                identificacion: "125678",
-                fecha: "15/04/2024"
+                identificacion: "2",
+                fecha: "15/04/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 2
             },
             {
                 nombreMaquinaria: "Excavadora",
-                identificacion: "49845",
-                fecha: "23/03/2024"
+                identificacion: "1",
+                fecha: "30/03/2024",
+                descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                idMantenimiento: 3
             }
         ]
 
@@ -92,6 +152,21 @@ export const DataProvider = (props) => {
         const selectedProyects = []
 
         const selectedProducts = []
+
+        const usuarioIniciado = {
+            nombre_usuario: "No Iniciado",
+            direccion: "Carrera #2",
+            contrasena: "********",
+            nombre_real: "Nombre Real",
+            telefono: "300",
+            identificacion: "119",
+            correo: "user1@example.com",
+            tipo_identificacion: "CEDULA",
+            tipo_usuario: "ADMINISTRADOR",
+            estado: "ACTIVAO"
+        }
+
+        usuarios.usuarioIniciado = usuarioIniciado
 
         setData({
             usuarios,

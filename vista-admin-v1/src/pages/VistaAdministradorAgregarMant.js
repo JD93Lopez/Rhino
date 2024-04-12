@@ -13,18 +13,16 @@ const VistaAdministradorAgregarMant = () => {
 
   const onSaveButtonClick = () => {
     // Obtener los valores de los campos utilizando useRef
-    const nombre_producto = document.getElementById("inputnombreproducto").value;
-    const identificacion = document.getElementById(
-      "inputidentificacion"
-    ).value;
-    const descripcion = document.getElementById("inputtipoidescripcion").value;
+    const nombreMaquinaria = document.getElementById("inputnombreproducto").value;
+    const identificacion = document.getElementById("inputidentificacion").value;
     const fecha = document.getElementById("inputfecha").value;
+    const descripcion = document.getElementById("inputdescripcion").value;
     // Crear el objeto de usuario
     const usuarioInsertar = {
-      nombre_producto,
+      nombreMaquinaria,
       identificacion,
-      descripcion,
       fecha,
+      descripcion,
     };
 
     // Convertir el objeto de usuario a JSON
@@ -40,16 +38,16 @@ const VistaAdministradorAgregarMant = () => {
       <h1 className={styles.agregarmantenimiento}>Agregar Mantenimiento</h1>
 
       <div className={styles.Nombre}>Nombre</div>
-      <input className={styles.inputNombre} type="text" />
+      <input className={styles.inputNombre} type="text" id="inputnombreproducto" useref= "inputnombreproducto"/>
 
       <div className={styles.Identificacion}>Identificación</div>
-      <input className={styles.inputIdentificacion} type="text" />
+      <input className={styles.inputIdentificacion} type="text" id="inputidentificacion" useref= "inputidentificacion"/>
 
       <div className={styles.Descripcion}>Descripción</div>
-      <textarea className={styles.inputDescripcion} type="text" />
+      <textarea className={styles.inputDescripcion} type="text"id="inputdescripcion" useref= "inputdescripcion" />
 
       <div className={styles.Fecha}>Fecha</div>
-      <input className={styles.inputFecha} type="date" />
+      <input className={styles.inputFecha} type="date" id="inputfecha" useref= "inputfecha"/>
 
       <div className={styles.saveButtonFrame}>
         <div className={styles.previousStepButton}>

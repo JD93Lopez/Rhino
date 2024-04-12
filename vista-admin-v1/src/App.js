@@ -10,14 +10,18 @@ import VistaAdministradorUsuarios from "./pages/VistaAdministradorUsuarios";
 import VistaAdministradorProyecto from "./pages/VistaAdministradorProyecto";
 import VistaAdministradorMantenim from "./pages/VistaAdministradorMantenim";
 import VistaAdministradorAgregar from "./pages/VistaAdministradorAgregar";
+import VistaAdministradorActualizar from "./pages/VistaAdministradorActualizar";
 import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
+import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
 import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant";
 import VistaAdministradorCotizacion from "./pages/VistaAdministradorCotizacion";
 import VistaAdministradorVerCotizacion from "./pages/VistaAdministradorVerCotizacion";
-import {DataProvider} from "./components/DataProvider";
+import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
+import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 
+import {DataProvider} from "./components/DataProvider";
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -127,12 +131,29 @@ function App() {
           element={<VistaAdministradorAgregar />}
         />
         <Route
+          path="/vista-administrador-productoeditar-producto"
+          element={<VistaAdministradorActualizar />}
+        />
+        <Route
           path="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
           element={<VistaAdministradorUsuarios1 />}
         />
         <Route
+          path="/vista-administrador-usuarios-actualizar-usuario"
+          element={<VistaActualizarUsuarios />}
+        />
+        <Route
           path="/vista-administrador-productos"
           element={<VistaAdministradorProducto />}
+        />       
+        <Route
+        path="/vista-administrador-actualizar-proyect"
+        element={<VistaAdministradorActualizarProyect />}
+      />
+        />
+        <Route
+          path="/vista-mantenimiento-producto"
+          element={<VistaMantenimProducto/>}
         />
         <Route
           path="/vista-administrador-cotizacion"

@@ -48,11 +48,12 @@ const SearchProjectFrame = () => {
         <div className={styles.projectFrame1}>
           {proyectos.map(proyecto => {
             return <TarjetaProyectoAdministrador
-              encargadoProyecto={proyecto.nombreProyecto}
+              object = { proyecto }
+              encargadoProyecto={proyecto.nombre}
               telefono={proyecto.telefono}
-              cedula={proyecto.cedula}
+              cedula={proyecto.identificacion}
               descripcion={proyecto.descripcion}
-              key={proyecto.nombreProyecto}
+              key={proyecto.nombre}
             >
             </TarjetaProyectoAdministrador>
           })}

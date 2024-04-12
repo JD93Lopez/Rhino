@@ -1,6 +1,10 @@
+import { useContext, useState } from "react";
+import { DataContext } from "./DataProvider";
 import styles from "./InputContainer.module.css";
 
 const InputContainer = () => {
+  const dataContext = useContext(DataContext);
+  const [currentUser, setCurrentUser] = useState(dataContext.usuarioIniciado);
   return (
     <section className={styles.inputContainer}>
       <div className={styles.securityInfoFrame}>
@@ -10,18 +14,18 @@ const InputContainer = () => {
         <div className={styles.nameEmailFrameChild} />
         <div className={styles.fullNameRectangle}>
           <div className={styles.emailRectangle}>
-            <b className={styles.nombreCompleto}>{`Nombre Completo: `}</b>
+            <b className={styles.nombreCompleto}>{`Nombre de Usuario: `}</b>
             <b className={styles.correo}>{`Correo: `}</b>
             <b className={styles.contrasea}>{`Contraseña: `}</b>
           </div>
           <div className={styles.emailRectangle1}>
             <div className={styles.sebastianPicoAfanador}>
-              Sebastian Pico Afanador
+              {currentUser.nombre_usuario}
             </div>
             <div className={styles.picoafanadorgmailcom}>
-              picoafanador@gmail.com
+              {currentUser.correo}
             </div>
-            <div className={styles.div}>***************</div>
+            <div className={styles.div}>{currentUser.contrasena}</div>
           </div>
         </div>
         <div className={styles.securitySettingsFrame}>

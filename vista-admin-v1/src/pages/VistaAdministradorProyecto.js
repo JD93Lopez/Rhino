@@ -1,15 +1,24 @@
-import React, { useCallback } from 'react'; // Correcto para useCallback
+import React, { useCallback, useContext } from 'react'; // Correcto para useCallback
 import { useNavigate } from 'react-router-dom'; // Correcto para useNavigate
 import AddProductFrame from "../components/AddProductFrame";
 import SearchProjectFrame from "../components/SearchProjectFrame";
 import styles from "./VistaAdministradorProyecto.module.css";
+import { DataContext } from '../components/DataProvider';
 
 const VistaAdministradorProyecto = () => {
-
+  const dataContext = useContext(DataContext);
   const navigate = useNavigate();
   const onAgregarProyectoClick = useCallback(() => {
     navigate("/vista-administrador-agregar-proyect");
   }, [navigate]);
+
+  const onActualizarProyectoClick = useCallback(() => {
+    if (dataContext.selectedProyects.length === 1)
+    navigate("/vista-administrador-actualizar-proyect");
+  }, [dataContext, navigate]);
+
+    //resetear seleccionados
+    dataContext.selectedProyects = []
 
   return (
     <div className={styles.vistaAdministradorProyecto}>
@@ -19,7 +28,10 @@ const VistaAdministradorProyecto = () => {
         <div className={styles.agregarProyecto} />
         <div className={styles.AgrProyecto}>Agregar Proyecto</div>
       </button>
-      <button className={styles.ActualizarProyecto}>
+      
+      <button 
+      className={styles.ActualizarProyecto}
+              onClick={onActualizarProyectoClick}>
         <div className={styles.actualizarProyecto} />
         <div className={styles.ActuProyecto}>Actualizar</div>
       </button>

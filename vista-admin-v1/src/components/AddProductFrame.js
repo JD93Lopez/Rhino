@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import styles from './AddProductFrame.module.css';
+import { DataContext } from "./DataProvider";
 
 const AddProductFrame = ({ maintananceTextPadding }) => {
   const navigate = useNavigate();
@@ -15,6 +16,16 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
   const userProjecsFrameStyle = useMemo(() => ({
     padding: maintananceTextPadding,
   }), [maintananceTextPadding]);
+
+  const dataContext = useContext(DataContext);
+
+  let nombre_usuario
+
+  if (!dataContext.Loaded) {
+    return <div>Cargando... Por favor espere.</div>;
+  }else{
+    nombre_usuario = dataContext.usuarios.usuarioIniciado.nombre_usuario
+  }
 
   return (
     <header className={styles.addProductFrame}>
@@ -51,7 +62,7 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
             <button className={styles.perfilAdmin}>
               <img className={styles.usuario1Icon} alt="" src="/usuario-1@2x.png" />
               <div className={styles.perfilAdminChild} />
-              <div className={styles.administrador}>Administrador</div>
+              <div className={styles.administrador}>{nombre_usuario}</div>
             </button>
           </div>
         </div>

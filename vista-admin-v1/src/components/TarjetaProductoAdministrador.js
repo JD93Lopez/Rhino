@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from "../pages/VistaAdministradorProducto.module.css";
 import { DataContext } from './DataProvider';
 
-export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, imagen}) => {
+export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, imagen, object}) => {
 
   const dataContext = useContext(DataContext)
   
@@ -12,18 +12,21 @@ export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, image
 
     if(selected){
       setSelected(false)
-      dataContext.selectedProducts.forEach(user => {
-        if(user.nombreProducto === nombreProducto){
-          dataContext.selectedProducts = dataContext.selectedProducts.filter(userF => { return user !== userF })
+      dataContext.selectedProducts.forEach(product => {
+        if(product.nombre === nombreProducto){
+          dataContext.selectedProducts = dataContext.selectedProducts.filter(productF => { return product !== productF })
         }
       });
     }else{
       setSelected(true)
-      dataContext.selectedProducts.push({
+      dataContext.selectedProducts.push(
+        object
+      )
+/*       dataContext.selectedProducts.push({
         nombreProducto,
         descripcion,
         imagen
-      })
+      }) */
     }
 
   }
