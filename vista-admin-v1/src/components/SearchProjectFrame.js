@@ -17,7 +17,7 @@ const SearchProjectFrame = () => {
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproyecto").value;
     let nuevosProyectos = dataContext.proyectos.map((project) => {
-      const similitud = orden.calcularSimilitud(inputValue, project.nombreProyecto);
+      const similitud = orden.calcularSimilitud(inputValue, project.nombre);
       return { proyecto: project, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosProyectos = nuevosProyectos.map((proyectoSimilitud)=>{

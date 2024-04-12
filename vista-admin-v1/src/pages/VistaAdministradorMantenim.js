@@ -8,13 +8,23 @@ import orden from "../OrdenamientoSimilitud";
 
 const VistaAdministradorMantenim = () => {
   const dataContext = useContext(DataContext);
-  const { Loaded, mantenimientos: mantenimientosContext, usuarios } = dataContext;
+  const { Loaded, mantenimientos: mantenimientosContext, usuarios, selectedMant } = dataContext;
   const [mantenimientos, setMantenimientos] = useState([]);
 
   const navigate = useNavigate();
   const onAgregarMantenimientoClick = useCallback(() => {
     navigate("/vista-administrador-agregar-mantenimiento");
   }, [navigate]);
+
+  const onActualizarMantenimientoClick = useCallback(() => {
+    console.log(dataContext.selectedMant);
+    if (dataContext.selectedMant.length === 1)
+    navigate("/vista-administrador-actualizar-mant");
+  
+  }, [navigate, dataContext]);
+  console.log(dataContext.selectedMant);
+
+  dataContext.selectedMant = []
 
   useEffect(() => {
     if (Loaded) {
@@ -40,7 +50,6 @@ const VistaAdministradorMantenim = () => {
   };
 
   return (
-    <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
         <div className={styles.vistaAdministradorMantenim}>
           <div className={styles.vistaAdministradorMantenimChild} />
           <AddProductFrame/>
@@ -66,6 +75,7 @@ const VistaAdministradorMantenim = () => {
                     nombreMaquinaria={mantenimiento.nombreMaquinaria}
                     identificacion={mantenimiento.identificacion}
                     fecha={mantenimiento.fecha}
+                    id={mantenimiento.idMantenimiento}
                     key={mantenimiento.idMantenimiento}
                   ></TarjetaMantenimiento>
                 })}
@@ -83,7 +93,9 @@ const VistaAdministradorMantenim = () => {
                     className={styles.crearUsuario}
                   >
                     <div className={styles.crearUsuarioChild} />
-                    <div className={styles.crearNuevo}>Actualizar</div>
+                    <div className={styles.crearNuevo}
+                    onClick={onActualizarMantenimientoClick}
+                    >Actualizar</div>
                   </button>
                   <button 
                     className={styles.eliminarUsuariosSeleccionados}>
@@ -94,7 +106,6 @@ const VistaAdministradorMantenim = () => {
             </section>
           </main>
         </div>
-    </DataContext.Provider>
   );
 };
 
