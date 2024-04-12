@@ -1,19 +1,21 @@
-import { useContext, useMemo } from "react";
-import styles from "./AddProductFrame.module.css";
+import React, { useContext, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import styles from './AddProductFrame.module.css';
 import { DataContext } from "./DataProvider";
 
-const AddProductFrame = ({
-  maintananceTextPadding,
-  onUSUARIOSTextClick,
-  onPROYECTOSTextClick,
-  onPRODUCTOSTextClick,
-  onMANTENIMIENTOTextClick,
-}) => {
-  const userProjecsFrameStyle = useMemo(() => {
-    return {
-      padding: maintananceTextPadding,
-    };
-  }, [maintananceTextPadding]);
+const AddProductFrame = ({ maintananceTextPadding }) => {
+  const navigate = useNavigate();
+
+  // Definir funciones de navegación dentro del componente
+  const onUSUARIOSTextClick = () => navigate('/vista-administrador-usuarios');
+  const onPROYECTOSTextClick = () => navigate('/vista-administrador-proyectos');
+  const onPRODUCTOSTextClick = () => navigate('/vista-administrador-productos'); 
+  const onMANTENIMIENTOTextClick = () => navigate('/vista-administrador-mantenimiento');
+  const onCOTIZACIONTextClick = () => navigate('/vista-administrador-cotizacion'); 
+
+  const userProjecsFrameStyle = useMemo(() => ({
+    padding: maintananceTextPadding,
+  }), [maintananceTextPadding]);
 
   const dataContext = useContext(DataContext);
 
@@ -30,16 +32,8 @@ const AddProductFrame = ({
       <div className={styles.editProductFrame}>
         <div className={styles.vistaBackground}>
           <div className={styles.vistaBackgroundChild} />
-          <img
-            className={styles.logofinalRemovebgPreview1Icon}
-            loading="eager"
-            alt=""
-            src="/logofinalremovebgpreview-1@2x.png"
-          />
-          <div
-            className={styles.userProjecsFrame}
-            style={userProjecsFrameStyle}
-          >
+          <img className={styles.logofinalRemovebgPreview1Icon} loading="eager" alt="" src="/logofinalremovebgpreview-1@2x.png" />
+          <div className={styles.userProjecsFrame} style={userProjecsFrameStyle}>
             <nav className={styles.productsFrame}>
               <div className={styles.maintananceText}>
                 <div className={styles.usuarios} onClick={onUSUARIOSTextClick}>
@@ -47,42 +41,26 @@ const AddProductFrame = ({
                 </div>
               </div>
               <div className={styles.maintananceText1}>
-                <div
-                  className={styles.proyectos}
-                  onClick={onPROYECTOSTextClick}
-                >
+                <div className={styles.proyectos} onClick={onPROYECTOSTextClick}>
                   PROYECTOS
                 </div>
               </div>
               <div className={styles.createUserTitle}>
-                <div
-                  className={styles.productos}
-                  onClick={onPRODUCTOSTextClick}
-                >
+                <div className={styles.productos} onClick={onPRODUCTOSTextClick}>
                   PRODUCTOS
                 </div>
-                <img
-                  className={styles.createUserTitleChild}
-                  loading="eager"
-                  alt=""
-                  src="/line-13.svg"
-                />
               </div>
-              <div
-                className={styles.mantenimiento}
-                onClick={onMANTENIMIENTOTextClick}
-              >
+              <div className={styles.mantenimiento} onClick={onMANTENIMIENTOTextClick}>
                 MANTENIMIENTO
+              </div>
+              <div className={styles.cotizacion} onClick={onCOTIZACIONTextClick}>
+                COTIZACIÓN
               </div>
             </nav>
           </div>
           <div className={styles.adminProfilePicture}>
             <button className={styles.perfilAdmin}>
-              <img
-                className={styles.usuario1Icon}
-                alt=""
-                src="/usuario-1@2x.png"
-              />
+              <img className={styles.usuario1Icon} alt="" src="/usuario-1@2x.png" />
               <div className={styles.perfilAdminChild} />
               <div className={styles.administrador}>{nombre_usuario}</div>
             </button>

@@ -15,10 +15,13 @@ import VistaAdministradorUsuarios1 from "./pages/VistaAdministradorUsuarios1";
 import VistaActualizarUsuarios from "./pages/VistaActualizarUsuarios";
 import VistaAdministradorProducto from "./pages/VistaAdministradorProducto";
 import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarProyect";
-import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant"
+import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant";
+import VistaAdministradorCotizacion from "./pages/VistaAdministradorCotizacion";
+import VistaAdministradorVerCotizacion from "./pages/VistaAdministradorVerCotizacion";
 import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
 import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
+
 import {DataProvider} from "./components/DataProvider";
 
 
@@ -80,6 +83,14 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-productos":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-cotizacion":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-ver-cotizacion":
         title = "";
         metaDescription = "";
         break;
@@ -155,6 +166,13 @@ function App() {
        <Route
           path="/vista-administrador-actualizar-mant"
           element={<VistaAdministradorACtualizarMant/>}
+        <Route
+          path="/vista-administrador-cotizacion"
+          element={<VistaAdministradorCotizacion />}
+        />
+        <Route
+          path="/vista-administrador-ver-cotizacion"
+          element={<VistaAdministradorVerCotizacion />}
         />
       </Routes>
     </DataProvider>

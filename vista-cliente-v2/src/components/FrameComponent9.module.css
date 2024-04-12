@@ -1,0 +1,230 @@
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.frameChild {
+  align-self: stretch;
+  height: 50px;
+  position: relative;
+  background-color: var(--color-black);
+}
+.frameItem {
+  height: 96px;
+  width: 1742px;
+  position: relative;
+  background-color: var(--color-darkkhaki);
+  display: none;
+  max-width: 100%;
+}
+.botonLogo6 {
+  width: 127px;
+  flex: 1;
+  position: relative;
+  background-image: url(/public/boton-logo-6@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.botonLogo6,
+.botonLogo6:active,
+.botonLogo6:hover,
+.botonProductos6:hover {
+  cursor: pointer;
+}
+.botonLogo6Wrapper {
+  align-self: stretch;
+  width: 184px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.botonProductos6,
+.botonSobreNosotros {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.botonProductos6:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonSobreNosotros {
+  white-space: nowrap;
+}
+.botonSobreNosotros:hover {
+  cursor: pointer;
+}
+.botonSobreNosotros:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
+.botonProductos6Parent,
+.frameWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.botonProductos6Parent {
+  flex-direction: row;
+  gap: var(--gap-38xl);
+}
+.frameWrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-3xl) 0 0;
+  box-sizing: border-box;
+}
+.carritoDeCompras3Icon {
+  width: 58px;
+  height: 58px;
+  position: relative;
+  object-fit: cover;
+  cursor: pointer;
+  z-index: 1;
+}
+.carritoDeCompras3Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) 0 0;
+}
+.botonLupa6 {
+  width: 43px;
+  height: 43px;
+  position: relative;
+  background-image: url(/public/boton-lupa-6@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.botonLupa6Wrapper {
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mid) 0 0;
+  box-sizing: border-box;
+}
+.frameInner {
+  height: 51px;
+  width: 193px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  display: none;
+}
+.miCuenta,
+.perfil1Icon {
+  position: relative;
+  z-index: 1;
+}
+.perfil1Icon {
+  height: 43px;
+  width: 43px;
+  object-fit: cover;
+}
+.miCuenta {
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  min-width: 105px;
+  white-space: nowrap;
+}
+.myAccountButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xs-5) 0 0;
+}
+.rectangleContainer {
+  cursor: pointer;
+  border: 1px solid var(--color-black);
+  padding: var(--padding-9xs) var(--padding-lg) var(--padding-9xs)
+    var(--padding-xl);
+  background-color: var(--color-gray-200);
+  border-radius: var(--br-8xs);
+  flex-direction: row;
+  gap: var(--gap-8xs);
+  z-index: 1;
+}
+.frameContainer,
+.rectangleContainer,
+.rectangleGroup,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameContainer {
+  flex-direction: column;
+  padding: var(--padding-smi) 0 0;
+}
+.rectangleGroup,
+.rectangleParent {
+  align-self: stretch;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangleGroup {
+  flex: 1;
+  background-color: var(--color-darkkhaki);
+  flex-direction: row;
+  padding: var(--padding-4xs) var(--padding-9xl) var(--padding-4xs)
+    var(--padding-36xl);
+  gap: var(--gap-18xl);
+}
+.rectangleParent {
+  height: 146px;
+  flex-direction: column;
+  padding: 0;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-black);
+  font-family: var(--font-impact);
+}
+@media screen and (max-width: 1050px) {
+  .rectangleGroup {
+    padding-left: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .botonProductos6Parent {
+    gap: var(--gap-9xl);
+  }
+  .rectangleGroup {
+    gap: var(--gap-lg);
+  }
+}

@@ -1,0 +1,41 @@
+.frameParent,
+.ventanaConsultarDisponibilidInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frameParent {
+  flex: 1;
+  flex-direction: column;
+  gap: 23px;
+}
+.ventanaConsultarDisponibilidInner {
+  width: 1700px;
+  flex-direction: row;
+  padding: 0 var(--padding-lgi);
+  box-sizing: border-box;
+}
+.ventanaConsultarDisponibilid {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 95px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1200px) {
+  .ventanaConsultarDisponibilid {
+    gap: 47px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .ventanaConsultarDisponibilid {
+    gap: var(--gap-5xl);
+  }
+}
