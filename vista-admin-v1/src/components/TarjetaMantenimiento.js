@@ -21,7 +21,7 @@ const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha,
     if(selected){
       setSelected(false)
       dataContext.selectedMant.forEach(mant => {
-        if(mant.id === id){
+        if(mant.idMantenimiento === id){
           dataContext.selectedMant = dataContext.selectedMant.filter(mantF => { return mant !== mantF })
         }
       });
@@ -30,6 +30,7 @@ const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha,
       dataContext.selectedMant.push(
         object
       )
+      console.log(dataContext.selectedMant)
     }
 
   }

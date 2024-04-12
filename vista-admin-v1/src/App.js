@@ -18,7 +18,11 @@ import VistaAdministradorAgregarProyect from "./pages/VistaAdministradorAgregarP
 import VistaAdministradorAgregarMant from "./pages/VistaAdministradorAgregarMant"
 import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
 import VistaMantenimProducto from "./pages/VistaMantenimProducto";
+import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
 import {DataProvider} from "./components/DataProvider";
+
+
+
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -56,6 +60,10 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-mantenimiento":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-actualizar-mant":
         title = "";
         metaDescription = "";
         break;
@@ -143,6 +151,10 @@ function App() {
         <Route
           path="/vista-mantenimiento-producto"
           element={<VistaMantenimProducto/>}
+        />
+       <Route
+          path="/vista-administrador-actualizar-mant"
+          element={<VistaAdministradorACtualizarMant/>}
         />
       </Routes>
     </DataProvider>
