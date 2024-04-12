@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useLocation, useNavigate } from 'react-router-dom'; // Importa useNavigate
 import styles from './AddProductFrame.module.css';
 import { DataContext } from "./DataProvider";
 
@@ -27,6 +27,41 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
     nombre_usuario = dataContext.usuarios.usuarioIniciado.nombre_usuario
   }
 
+  function subrayado ( option ) {
+
+    const pathname = useLocation().pathname
+
+    switch(option){
+      case 1:
+        if(pathname==="/vista-administrador-usuarios"){
+          return {textDecoration: "underline"}
+        }
+        break;
+      case 2:
+        if(pathname==="/vista-administrador-proyectos"){
+          return {textDecoration: "underline"}
+        }
+        break;
+      case 3:
+        if(pathname==="/vista-administrador-productos"){
+          return {textDecoration: "underline"}
+        }
+        break;
+      case 4:
+        if(pathname==="/vista-administrador-mantenimiento"){
+          return {textDecoration: "underline"}
+        }
+        break;
+      case 5:
+        if(pathname==="/vista-administrador-cotizacion"){
+          return {textDecoration: "underline"}
+        }
+        break;
+      default:
+    }
+    return {}
+  }
+
   return (
     <header className={styles.addProductFrame}>
       <div className={styles.editProductFrame}>
@@ -36,24 +71,24 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
           <div className={styles.userProjecsFrame} style={userProjecsFrameStyle}>
             <nav className={styles.productsFrame}>
               <div className={styles.maintananceText}>
-                <div className={styles.usuarios} onClick={onUSUARIOSTextClick}>
+                <div className={styles.usuarios} onClick={onUSUARIOSTextClick} style={subrayado(1)}>
                   USUARIOS
                 </div>
               </div>
               <div className={styles.maintananceText1}>
-                <div className={styles.proyectos} onClick={onPROYECTOSTextClick}>
+                <div className={styles.proyectos} onClick={onPROYECTOSTextClick} style={subrayado(2)}>
                   PROYECTOS
                 </div>
               </div>
               <div className={styles.createUserTitle}>
-                <div className={styles.productos} onClick={onPRODUCTOSTextClick}>
+                <div className={styles.productos} onClick={onPRODUCTOSTextClick} style={subrayado(3)}>
                   PRODUCTOS
                 </div>
               </div>
-              <div className={styles.mantenimiento} onClick={onMANTENIMIENTOTextClick}>
+              <div className={styles.mantenimiento} onClick={onMANTENIMIENTOTextClick} style={subrayado(4)}>
                 MANTENIMIENTO
               </div>
-              <div className={styles.cotizacion} onClick={onCOTIZACIONTextClick}>
+              <div className={styles.cotizacion} onClick={onCOTIZACIONTextClick} style={subrayado(5)}>
                 COTIZACIÓN
               </div>
             </nav>
