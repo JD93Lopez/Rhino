@@ -70,12 +70,7 @@ const VistaAdministradorProducto = () => {
   return (
     <div className={styles.vistaAdministradorProducto}>
       <div className={styles.vistaAdministradorProductoChild} />
-      <AddProductFrame
-        maintananceTextPadding="var(--padding-8xs) 0px 0px"
-        onUSUARIOSTextClick={onUSUARIOSTextClick}
-        onPROYECTOSTextClick={onPROYECTOSTextClick}
-        onMANTENIMIENTOTextClick={onMANTENIMIENTOTextClick}
-      />
+      <AddProductFrame/>
       <main className={styles.gRUATElescopicaBoomText}>
         <section className={styles.rectangleShape}>
           <div className={styles.actualizarProductoBoton}>

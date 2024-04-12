@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
-import FrameComponent1 from "../components/FrameComponent1";
+import AddProductFrame from "../components/AddProductFrame";
 import { useNavigate } from 'react-router-dom';
 import styles from "./VistaAdministradorMantenim.module.css";
 import { DataContext } from "../components/DataProvider";
@@ -43,7 +43,7 @@ const VistaAdministradorMantenim = () => {
     <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
         <div className={styles.vistaAdministradorMantenim}>
           <div className={styles.vistaAdministradorMantenimChild} />
-          <FrameComponent1 />
+          <AddProductFrame/>
           <main className={styles.vistaAdministradorMantenimInner}>
             <section className={styles.mantenimientoParent}>
               <h1 className={styles.mantenimiento}>MANTENIMIENTO</h1>

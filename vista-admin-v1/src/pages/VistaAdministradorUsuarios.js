@@ -1,6 +1,6 @@
 // VistaAdminstradorUsuario.js
 import React, { useState, useContext, useEffect, useCallback } from 'react';
-import FrameComponent from "../components/FrameComponent";
+import AddProductFrame from "../components/AddProductFrame";
 import UserInfoFrame from "../components/UserInfoFrame";
 import { useNavigate } from "react-router-dom";
 import styles from "./VistaAdministradorUsuarios.module.css";
@@ -82,27 +82,27 @@ const VistaAdministradorUsuarios = () => {
   }, [busqueda, usuariosContext]);
 
   return (
-    /*Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'*/
-    <DataContext.Provider value={{ Loaded, usuarios: usuariosContext, manejarSeleccionUsuario, usuariosSeleccionados }}>
-      <SearchContext.Provider value={{ busqueda, setBusqueda }}>
-        <div className={styles.vistaAdministradorUsuarios}>
-          <div className={styles.vistaAdministradorUsuariosChild} />
-          <FrameComponent />
-          <main className={styles.vistaAdministradorUsuariosInner}>
-            <section className={styles.userInfoFrameParent}>
-              <UserInfoFrame />
-              <div className={styles.adminProfile}>
-                <div className={styles.userGroup}>
-                  <div className={styles.userCard}>
-                    <div className={styles.userCardChild} />
-                    <div className={styles.nameAndImage}>
-                      <div className={styles.userDetails}>
-                        <div className={styles.userInfoBox}>
-                          <div className={styles.usuario}>USUARIO</div>
-                        </div>
-                        <div className={styles.userInfoBox1}>
-                          <div className={styles.nombreCompleto}>
-                            NOMBRE COMPLETO
+/*Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'*/
+<DataContext.Provider value={{ Loaded, usuarios: usuariosContext, manejarSeleccionUsuario, usuariosSeleccionados }}>
+    <SearchContext.Provider value={{ busqueda, setBusqueda }}>
+    <div className={styles.vistaAdministradorUsuarios}>
+      <div className={styles.vistaAdministradorUsuariosChild} />
+      <AddProductFrame/>
+      <main className={styles.vistaAdministradorUsuariosInner}>
+        <section className={styles.userInfoFrameParent}>
+          <UserInfoFrame />
+          <div className={styles.adminProfile}>
+            <div className={styles.userGroup}>
+              <div className={styles.userCard}>
+                <div className={styles.userCardChild} />
+                <div className={styles.nameAndImage}>
+                  <div className={styles.userDetails}>
+                    <div className={styles.userInfoBox}>
+                      <div className={styles.usuario}>USUARIO</div>
+                    </div>
+                    <div className={styles.userInfoBox1}>
+                      <div className={styles.nombreCompleto}>
+                        NOMBRE COMPLETO
                           </div>
                         </div>
                         <div className={styles.userInfoBox2}>
