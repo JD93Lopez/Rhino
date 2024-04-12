@@ -22,7 +22,7 @@ import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActua
 import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
 
-import {DataProvider} from "./components/DataProvider";
+import { DataProvider } from "./components/DataProvider";
 
 
 
@@ -113,11 +113,11 @@ function App() {
   return (
     <DataProvider>
       <Routes>
-      <Route path="/login" element={<VistaAdministradorLogin />} /> 
+        <Route path="/login" element={<VistaAdministradorLogin />} />
         <Route path="/" element={<VistaAdministradorLogin />} />
-        <Route 
-        path="/vista-administrador-usuarios" 
-        element={<VistaAdministradorUsuarios />} />
+        <Route
+          path="/vista-administrador-usuarios"
+          element={<VistaAdministradorUsuarios />} />
         <Route
           path="/vista-administrador-proyectos"
           element={<VistaAdministradorProyecto />}
@@ -153,19 +153,19 @@ function App() {
         <Route
           path="/vista-administrador-productos"
           element={<VistaAdministradorProducto />}
-        />       
+        />
         <Route
-        path="/vista-administrador-actualizar-proyect"
-        element={<VistaAdministradorActualizarProyect />}
-      />
+          path="/vista-administrador-actualizar-proyect"
+          element={<VistaAdministradorActualizarProyect />}
         />
         <Route
           path="/vista-mantenimiento-producto"
-          element={<VistaMantenimProducto/>}
+          element={<VistaMantenimProducto />}
         />
-       <Route
+        <Route
           path="/vista-administrador-actualizar-mant"
-          element={<VistaAdministradorACtualizarMant/>}
+          element={<VistaAdministradorACtualizarMant />}
+        />
         <Route
           path="/vista-administrador-cotizacion"
           element={<VistaAdministradorCotizacion />}
