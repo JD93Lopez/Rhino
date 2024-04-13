@@ -343,10 +343,11 @@
     max-width: 100%;
   }
   .valorconductor,
-  .valorconductor1 {
+  .valorconductor1,
+  .valorconductor2 {
     border: 1px solid var(--color-black);
     background-color: var(--color-white);
-    height: 114px;
+    height: 35px;
     width: auto;
     outline: 0;
     flex: 1;
@@ -354,6 +355,10 @@
     box-sizing: border-box;
     min-width: 214px;
     max-width: 100%;
+  }
+  .valorconductor2 {
+    width: auto;
+    height: 173px;
   }
   .driverValueDetails,
   .driversAndExpenses,

@@ -99,20 +99,28 @@ const VistaAdministradorVerCotizacion = () => {
               <div className={styles.driversAndExpenses}>
                 <div className={styles.driverAndExpenseInfo}>
                   <div className={styles.valoresDeLos}>
-                    Valores de los Conductores:
+                    Valor de los Conductores:
                   </div>
                   <div className={styles.gastosAdicionales}>
                     Gastos Adicionales:
                   </div>
                 </div>
                 <div className={styles.driverValueDetails}>
+                  <input className={styles.valorconductor}>
+                  </input>
+                  <input className={styles.valorconductor}>
+                  </input>
+                </div>
+              </div>
+              <div className={styles.driversAndExpenses}>
+                <div className={styles.driverAndExpenseInfo}>
+                  <div className={styles.valoresDeLos}>
+                    Justificacion Gastos Adicionales:
+                  </div>
+                </div>
+                <div className={styles.driverValueDetails}>
                   <textarea
-                    className={styles.valorconductor}
-                    rows={6}
-                    cols={16}
-                  />
-                  <textarea
-                    className={styles.valorconductor1}
+                    className={styles.valorconductor2}
                     rows={6}
                     cols={16}
                   />

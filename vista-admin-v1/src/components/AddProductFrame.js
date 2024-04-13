@@ -33,7 +33,10 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
 
     switch(option){
       case 1:
-        if(pathname==="/vista-administrador-usuarios"){
+        if(
+          pathname==="/vista-administrador-usuarios"||
+          pathname==="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
+        ){
           return {textDecoration: "underline"}
         }
         break;
@@ -43,12 +46,18 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
         }
         break;
       case 3:
-        if(pathname==="/vista-administrador-productos"){
+        if(
+          pathname==="/vista-administrador-productos"||
+          pathname==="/vista-administrador-productoeditar-producto"
+        ){
           return {textDecoration: "underline"}
         }
         break;
       case 4:
-        if(pathname==="/vista-administrador-mantenimiento"){
+        if(
+          pathname==="/vista-administrador-mantenimiento"||
+          pathname==="/vista-administrador-agregar-mantenimiento"
+        ){
           return {textDecoration: "underline"}
         }
         break;
