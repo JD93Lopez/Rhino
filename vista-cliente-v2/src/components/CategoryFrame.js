@@ -7,6 +7,7 @@ import { DataContext } from "./DataProvider";
 import ListaDesplegable1 from "./ListaDesplegable1";
 
 const CategoryFrame = () => {
+
   const navigate = useNavigate();
   const dataContext = useContext(DataContext)
 
@@ -37,15 +38,17 @@ const CategoryFrame = () => {
   const [productos, setProductos] = useState(dataContext.productos)
  
   const buscar = () => {
-    const inputValue = document.getElementById("inputbuscarproductos").value;
-    let nuevosUsuarios = productos.map((producto) => {
-      const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters1, dataContext.selectedFilters2);
-      return { usuario: producto, similitud: similitud };
-    }).sort((a, b) => b.similitud - a.similitud);
-    nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
-      return usuarioSimilitud.usuario
-    })
-    setProductos(nuevosUsuarios);
+    if(document.getElementById("inputbuscarproductos")){
+      const inputValue = document.getElementById("inputbuscarproductos").value;
+      let nuevosUsuarios = productos.map((producto) => {
+        const similitud = orden.calcularSimilitud2(inputValue, producto.nombre, producto, dataContext.selectedFilters1, dataContext.selectedFilters2);
+        return { usuario: producto, similitud: similitud };
+      }).sort((a, b) => b.similitud - a.similitud);
+      nuevosUsuarios = nuevosUsuarios.map((usuarioSimilitud)=>{
+        return usuarioSimilitud.usuario
+      })
+      setProductos(nuevosUsuarios);
+    }
   }
 
   let dibujarProductos = () => {
@@ -111,12 +114,22 @@ const CategoryFrame = () => {
     });
   }
 
+  function revisarBuscadoDeOtraPagina(){
+    if(dataContext.buscadoDesdeOtraPagina===""){
+      return ""
+    }else{
+      setTimeout(()=>{
+        buscar()
+      },100)
+      return dataContext.buscadoDesdeOtraPagina
+    }
+  }
+
   return (
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
         <div className={styles.productItemFrame}>
-          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos" onChange={buscar}/>
-
+          <input className={styles.machineNameFrame} id="inputbuscarproductos" useref="inputbuscarproductos" onChange={buscar} defaultValue={revisarBuscadoDeOtraPagina()}/>
           <div className={styles.vectorFrame}>
             {/* <div className={styles.machineryFrame}>
             </div> */}

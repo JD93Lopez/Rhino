@@ -43,8 +43,6 @@ const LogoButton = ({
     }
   }
 
-  dataContext.buscadoDesdeOtraPagina = ""
-
   const [mouseInLupa, setMouseInLupa] = useState(false)
 
   function dibujarBarraBusqueda(){
