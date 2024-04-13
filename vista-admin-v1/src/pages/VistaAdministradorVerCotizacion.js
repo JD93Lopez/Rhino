@@ -1,4 +1,5 @@
 import AddProductFrame from "../components/AddProductFrame";
+import { TarjetaProductoCotizacion } from "../components/TarjetaProductoCotizacion";
 import styles from "./VistaAdministradorVerCotizacion.module.css";
 
 const VistaAdministradorVerCotizacion = () => {
@@ -13,47 +14,28 @@ const VistaAdministradorVerCotizacion = () => {
               <div className={styles.productosAdquiridos}>
                 Productos Adquiridos:
               </div>
-              <div className={styles.productos}>
-                <div className={styles.productosChild} />
-                <div className={styles.excavadora210gPotenciaContainer}>
-                  <p className={styles.excavadora}>EXCAVADORA</p>
-                  <p className={styles.blankLine}>&nbsp;</p>
-                  <p className={styles.g}>210G</p>
-                  <p className={styles.potenciaNetaDel}>
-                    Potencia neta del motor
-                  </p>
-                  <p className={styles.kw159Cv}>119 kW (159 CV) a 1900 rpm</p>
-                  <p className={styles.profundidadMxDe}>
-                    Profundidad máx. de excavación
-                  </p>
-                  <p className={styles.m21Ft}>6,68 m (21 ft 11 in)</p>
-                  <p className={styles.pesoOperativo}>Peso operativo</p>
-                  <p className={styles.kg48312}>21 914 kg (48 312 lb.)</p>
-                </div>
-              </div>
             </div>
-            <div className={styles.productos1}>
-              <div className={styles.productosItem} />
-              <div className={styles.cargadoresFrontalesWa3806Container}>
-                <p className={styles.cargadoresFrontales}>
-                  CARGADORES FRONTALES
-                </p>
-                <p className={styles.blankLine1}>&nbsp;</p>
-                <p className={styles.wa3806}>WA380-6</p>
-                <p className={styles.pesoOperativo1}>Peso operativo</p>
-                <p className={styles.kg38800Lb}>17.600 kg (38.800 lb)</p>
-                <p className={styles.potenciaNetaAl}>
-                  Potencia neta al volante (SAE)
-                </p>
-                <p className={styles.hp142Kw}>
-                  191 hp (142 kW) @ 2.100 r. p. m.
-                </p>
-                <p className={styles.capacidadDelBalde}>
-                  Capacidad del balde (SAE)
-                </p>
-                <p className={styles.m41Yd}>3,3 m³ (4,1 yd³) @ 1,6 t/m³</p>
-              </div>
-            </div>
+            <TarjetaProductoCotizacion 
+              nombre= "CARGADORA"
+              identificacion= "WHA723"
+              precio_alquiler= "100000"
+              fecha_inicio= "2024-04-10"
+              fecha_fin= "2024-04-20"
+            />
+            <TarjetaProductoCotizacion 
+              nombre= "CARGADORA"
+              identificacion= "WHA723"
+              precio_alquiler= "100000"
+              fecha_inicio= "2024-04-10"
+              fecha_fin= "2024-04-20"
+            />
+            <TarjetaProductoCotizacion 
+              nombre= "CARGADORA"
+              identificacion= "WHA723"
+              precio_alquiler= "100000"
+              fecha_inicio= "2024-04-10"
+              fecha_fin= "2024-04-20"
+            />
           </div>
           <div className={styles.quotationInfo}>
             <div className={styles.infoArea}>
@@ -87,10 +69,15 @@ const VistaAdministradorVerCotizacion = () => {
                         Precio de Productos:
                       </div>
                       <div className={styles.campoprecioproductoWrapper}>
-                        <input
-                          className={styles.campoprecioproducto}
-                          type="text"
-                        />
+                        <input className={styles.campoprecioproducto} type="text"/>
+                      </div>
+                    </div>
+                    <div className={styles.contactInfoTitles3}>
+                      <div className={styles.precioDeProductos}>
+                        Estado:
+                      </div>
+                      <div className={styles.campoprecioproductoWrapper}>
+                        <input className={styles.campoprecioproducto} type="text"/>
                       </div>
                     </div>
                   </div>

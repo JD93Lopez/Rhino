@@ -147,6 +147,31 @@ export const DataProvider = (props) => {
             }
         ]
 
+        const cotizaciones = [
+            {
+                idAlquileres: "1",
+                nombre_usuario: "Pepito Perez",
+                correo: "example@example.com",
+                telefono: "500",
+                estado: "EN_ESPERA",
+                fecha: "2024-04-13"
+            },{
+                idAlquileres: "2",
+                nombre_usuario: "Pepito Perez",
+                correo: "example@example.com",
+                telefono: "500",
+                estado: "EN_ESPERA",
+                fecha: "2024-04-13"
+            },{
+                idAlquileres: "3",
+                nombre_usuario: "Pepito Perez",
+                correo: "example@example.com",
+                telefono: "500",
+                estado: "ALQUILADO",
+                fecha: "2024-04-13"
+            },
+        ]
+
         const selectedUsers = []
 
         const selectedProyects = []
@@ -173,6 +198,7 @@ export const DataProvider = (props) => {
             proyectos,
             productos,
             mantenimientos,
+            cotizaciones,
             selectedUsers,
             selectedProyects,
             selectedProducts,

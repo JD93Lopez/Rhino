@@ -106,10 +106,9 @@
     align-self: stretch;
     background-color: var(--color-white);
     border: 1px solid var(--color-black);
-    box-sizing: border-box;
     flex-direction: row;
-    padding: var(--padding-mid) 0 var(--padding-mid) var(--padding-11xl);
-    min-height: 390px;
+    min-height: 230px;
+    padding-top: 30px;
   }
   .productsAndInfo {
     flex: 1;
@@ -614,4 +613,8 @@
     .productAndQuotationArea {
       gap: 21px;
     }
+}
+.divTPC{
+  border-color: black;
+  border-width: 10px;
 }

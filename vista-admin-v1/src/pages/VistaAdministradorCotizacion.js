@@ -9,7 +9,7 @@ import orden from "../OrdenamientoSimilitud";
 const VistaAdministradorCotizacion = () => {
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
-  const [cotizaciones, setCotizaciones] = useState(dataContext.productos); // Asumiendo que 'productos' son cotizaciones
+  const [cotizaciones, setCotizaciones] = useState(dataContext.cotizaciones); // Asumiendo que 'productos' son cotizaciones
 
   const onUSUARIOSTextClick = useCallback(() => {
     navigate("/vista-administrador-usuarios");
@@ -25,17 +25,17 @@ const VistaAdministradorCotizacion = () => {
 
   useEffect(() => {
     if (dataContext.Loaded) {
-      setCotizaciones(dataContext.productos); // Asumiendo que 'productos' son cotizaciones
+      setCotizaciones(dataContext.cotizaciones); // Asumiendo que 'productos' son cotizaciones
     }
-  }, [dataContext.Loaded, dataContext.productos]);
+  }, [dataContext.Loaded, dataContext.cotizaciones]);
 
   const buscar = () => {
-    if (!dataContext.productos) {
+    if (!dataContext.cotizaciones) {
       return;
     }
     const inputValue = document.getElementById("inputbuscarproducto").value;
-    let nuevasCotizaciones = dataContext.productos.map((cotizacion) => {
-      const similitud = orden.calcularSimilitud(inputValue, cotizacion.nombreProducto); // Ajusta según el dato relevante
+    let nuevasCotizaciones = dataContext.cotizaciones.map((cotizacion) => {
+      const similitud = orden.calcularSimilitud(inputValue, cotizacion.nombre); // Ajusta según el dato relevante
       return { cotizacion, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevasCotizaciones = nuevasCotizaciones.map(({ cotizacion })=> cotizacion);
@@ -64,17 +64,20 @@ const VistaAdministradorCotizacion = () => {
                   type="text"
                   onChange={buscar}
                   id="inputbuscarproducto"
+                  useref="inputbuscarproducto"
                 />
               </div>
             </div>
           </div>
           <div className={styles.frontalLoaders}>
-            {cotizaciones && cotizaciones.map((cotizacion, index) => (
+            {cotizaciones && cotizaciones.map((cotizacion) => (
               <TarjetaCotizaciones
-                key={index} // Considera usar un identificador único si está disponible
-                nombreCotizacion={cotizacion.nombreProducto} // Ajusta estos props según tu estructura de datos
-                correo={cotizacion.correo} // Asume estos campos existen en tu objeto de cotización
-                telefono={cotizacion.telefono}
+                idAlquileres = {cotizacion.idAlquileres}
+                nombre = {cotizacion.nombre_usuario}
+                correo = {cotizacion.correo}
+                telefono = {cotizacion.telefono}
+                estado = {cotizacion.estado}
+                fecha = {cotizacion.fecha}
               />
             ))}
           </div>
