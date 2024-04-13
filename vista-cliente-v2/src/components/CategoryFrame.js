@@ -115,14 +115,14 @@ const CategoryFrame = () => {
   }
 
   function revisarBuscadoDeOtraPagina(){
-    if(dataContext.buscadoDesdeOtraPagina===""){
-      return ""
-    }else{
+    const buscado = dataContext.buscadoDesdeOtraPagina
+    dataContext.buscadoDesdeOtraPagina = ""
+    if(buscado!==""){
       setTimeout(()=>{
         buscar()
       },100)
-      return dataContext.buscadoDesdeOtraPagina
     }
+    return buscado
   }
 
   return (
