@@ -22,7 +22,6 @@ const VistaAdministradorMantenim = () => {
     navigate("/vista-administrador-actualizar-mant");
   
   }, [navigate, dataContext]);
-  console.log(dataContext.selectedMant);
 
   dataContext.selectedMant = []
 

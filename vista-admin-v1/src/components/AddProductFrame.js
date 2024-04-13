@@ -35,20 +35,27 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
       case 1:
         if(
           pathname==="/vista-administrador-usuarios"||
-          pathname==="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"
+          pathname==="/vista-administrador-usuarios-crear-usuarioactualizar-usuario"||
+          pathname==="/vista-administrador-usuarios-actualizar-usuario"
         ){
           return {textDecoration: "underline"}
         }
         break;
       case 2:
-        if(pathname==="/vista-administrador-proyectos"){
+        if(
+          pathname==="/vista-administrador-proyectos"||
+          pathname==="/vista-administrador-agregar-proyect"||
+          pathname==="/vista-administrador-actualizar-proyect"
+        ){
           return {textDecoration: "underline"}
         }
         break;
       case 3:
         if(
           pathname==="/vista-administrador-productos"||
-          pathname==="/vista-administrador-productoeditar-producto"
+          pathname==="/vista-administrador-productoeditar-producto"||
+          pathname==="/vista-administrador-agregar-productoeditar-producto"||
+          pathname==="/vista-mantenimiento-producto"
         ){
           return {textDecoration: "underline"}
         }
@@ -56,7 +63,8 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
       case 4:
         if(
           pathname==="/vista-administrador-mantenimiento"||
-          pathname==="/vista-administrador-agregar-mantenimiento"
+          pathname==="/vista-administrador-agregar-mantenimiento"||
+          pathname==="/vista-administrador-actualizar-mant"
         ){
           return {textDecoration: "underline"}
         }

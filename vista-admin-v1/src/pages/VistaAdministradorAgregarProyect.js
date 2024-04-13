@@ -1,10 +1,11 @@
-import ProjectFrame from "../components/ProjectFrame";
 import styles from "./VistaAdministradorAgregarProyect.module.css";
 import Select from "react-select";
 import axios from "../axios.js";
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext, DataProvider } from "../components/DataProvider";
+import AddProductFrame from "../components/AddProductFrame.js";
+
 const VistaAdministradorAgregarProyect = () => {
   const navigate = useNavigate();
 
@@ -65,7 +66,7 @@ const VistaAdministradorAgregarProyect = () => {
   return (
     <div className={styles.vistaadminadd}>
       <div className={styles.vistaadminaddchild} />
-      <ProjectFrame />
+      <AddProductFrame />
       <h1 className={styles.agregarproyecto}>Agregar Proyecto</h1>
 
       <div className={styles.Nombre}>Nombre</div>

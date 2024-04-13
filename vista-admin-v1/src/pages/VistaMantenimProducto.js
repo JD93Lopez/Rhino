@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
-import FrameComponent1 from "../components/FrameComponent1";
 import styles from "./VistaAdministradorMantenim.module.css";
 import { DataContext } from "../components/DataProvider";
 import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
 import orden from "../OrdenamientoSimilitud";
+import AddProductFrame from '../components/AddProductFrame';
 
 export const SearchContext = React.createContext();
 
@@ -71,7 +71,7 @@ const VistaMantenimProducto = () => {
       <SearchContext.Provider value={{ busqueda }}>
         <div className={styles.vistaAdministradorMantenim}>
           <div className={styles.vistaAdministradorMantenimChild} />
-          <FrameComponent1 />
+          <AddProductFrame />
           <main className={styles.vistaAdministradorMantenimInner}>
             <section className={styles.mantenimientoParent}>
               <h1 className={styles.mantenimiento}>MANTENIMIENTOS DEL PRODUCTO</h1>
