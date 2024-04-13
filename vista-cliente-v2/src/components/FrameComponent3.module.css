@@ -7,6 +7,15 @@
   left: -14px;
   object-fit: cover;
 }
+.logoFrameIcon2 {/*imagen de fondo de empiece a contruir*/
+  height: 556px;
+  width: 1742px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: -556px;
+  left: -14px;
+  object-fit: cover;
+}
 .logoButtonChild {/*altura del header*/
   align-self: stretch;
   height: 50px;
@@ -21,7 +30,7 @@
   max-width: 100%;
 }
 .logoButton {/*la anchura de la barra amarilla*/
-  height: 368px;
+  height: 310px;
   width: 1728px;
   flex-direction: column;
   padding: 0 0 var(--padding-203xl) 0;

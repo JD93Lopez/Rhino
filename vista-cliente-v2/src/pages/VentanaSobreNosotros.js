@@ -1,4 +1,5 @@
 import FrameComponent2 from "../components/FrameComponent2";
+import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent1 from "../components/FrameComponent1";
 import styles from "./VentanaSobreNosotros.module.css";
 
@@ -16,7 +17,7 @@ const VentanaSobreNosotros = () => {
         alt=""
         src="/rectangle-176@2x.png"
       />
-      <FrameComponent2 />
+      <FrameComponent3></FrameComponent3>
       <main className={styles.ventanaSobreNosotrosInner}>
         <section className={styles.visionImageParent}>
           <div className={styles.visionImage}>

@@ -4,6 +4,7 @@ import ProductFrame from "../components/ProductFrame";
 import CategoryFrame from "../components/CategoryFrame";
 import ContactInfoFrame from "../components/ContactInfoFrame";
 import styles from "./VentanaParaBuscarProductos.module.css";
+import FrameComponent3 from "../components/FrameComponent3";
 
 const VentanaParaBuscarProductos = () => {
   const navigate = useNavigate();
@@ -26,13 +27,14 @@ const VentanaParaBuscarProductos = () => {
 
   return (
     <div className={styles.ventanaParaBuscarProductos}>
-      <ProductFrame
+      {/* <ProductFrame
         rectangleDivHeight="146px"
         onBotonLogo6Click={onBotonLogo6Click}
         onBotonProductos6Click={onBotonProductos6Click}
         onBotonSobreNosotrosClick={onBotonSobreNosotrosClick}
         onCarritoDeCompras3ImageClick={onCarritoDeCompras3ImageClick}
-      />
+      /> */}
+      <FrameComponent3/>
       <main className={styles.addtoCartButtonFrame}>
         <section className={styles.backgroundRectangle}>
           <div className={styles.productosParent}>

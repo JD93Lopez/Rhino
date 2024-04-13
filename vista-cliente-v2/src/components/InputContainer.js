@@ -5,6 +5,17 @@ import styles from "./InputContainer.module.css";
 const InputContainer = () => {
   const dataContext = useContext(DataContext);
   const [currentUser, setCurrentUser] = useState(dataContext.usuarioIniciado);
+
+  function cambiarContrasena(){
+    const nuevaContrasena = document.getElementById("contrasenaNueva").value
+    if( nuevaContrasena === document.getElementById("contrasenaNueva2").value ){
+      const antiguaContrasena = document.getElementById("contrasenaAntigua").value
+
+      console.log(nuevaContrasena)
+      console.log(antiguaContrasena)
+    }
+  }
+
   return (
     <section className={styles.inputContainer}>
       <div className={styles.securityInfoFrame}>
@@ -16,7 +27,6 @@ const InputContainer = () => {
           <div className={styles.emailRectangle}>
             <b className={styles.nombreCompleto}>{`Nombre de Usuario: `}</b>
             <b className={styles.correo}>{`Correo: `}</b>
-            <b className={styles.contrasea}>{`Contraseña: `}</b>
           </div>
           <div className={styles.emailRectangle1}>
             <div className={styles.sebastianPicoAfanador}>
@@ -25,7 +35,6 @@ const InputContainer = () => {
             <div className={styles.picoafanadorgmailcom}>
               {currentUser.correo}
             </div>
-            <div className={styles.div}>{currentUser.contrasena}</div>
           </div>
         </div>
         <div className={styles.securitySettingsFrame}>
@@ -34,26 +43,27 @@ const InputContainer = () => {
               <div className={styles.accountButtonText}>
                 <b className={styles.contraseaAntigua}>Contraseña Antigua:</b>
               </div>
-              <div className={styles.contraseaYSeguridadText} />
+              <input className={styles.contraseaYSeguridadText} id="contrasenaAntigua" useref="contrasenaAntigua"/>
             </div>
             <div className={styles.newPassFrame}>
               <b className={styles.contraseaNueva}>Contraseña Nueva:</b>
-              <div className={styles.saveButtonText} />
+              <input className={styles.saveButtonText} id="contrasenaNueva" useref="contrasenaNueva"/>
             </div>
             <div className={styles.newPassFrame1}>
               <b className={styles.repitaLaNueva}>
                 Repita la nueva contraseña:
               </b>
-              <div className={styles.newPassFrameChild} />
+              <input className={styles.newPassFrameChild} id="contrasenaNueva2" useref="contrasenaNueva2"/>
             </div>
           </div>
           <div className={styles.editInfoButtonText}>
             <div className={styles.saveInfoButton} />
             <div className={styles.inputGroupFrame}>
-              <div className={styles.botnEdiotarInformacin}>
-                <div className={styles.botnEdiotarInformacinChild} />
-                <b className={styles.guardarInformacin}>GUARDAR INFORMACIÓN</b>
-              </div>
+              <button className={styles.botnEdiotarInformacin} onClick={cambiarContrasena}>
+                <div className={styles.botnEdiotarInformacin}>
+                  <b className={styles.guardarInformacin} style={{fontSize: "20px"}}>CAMBIAR CONTRASEÑA</b>
+                </div>
+              </button>
             </div>
           </div>
         </div>

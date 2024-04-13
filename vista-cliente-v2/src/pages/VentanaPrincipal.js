@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import FrameComponent3 from "../components/FrameComponent3";
+import FrameComponentP from "../components/FrameComponentP";
 import { useNavigate } from "react-router-dom";
 import ChainLoaders from "../components/ChainLoaders";
 import MotorTrailas from "../components/MotorTrailas";
@@ -16,7 +16,7 @@ const VentanaPrincipal = () => {
 
   return (
     <div className={styles.ventanaPrincipal}>
-      <FrameComponent3 />
+      <FrameComponentP />
       <section className={styles.customerService}>
         <div className={styles.socialMediaIcons}>
           <div className={styles.mobileInfo}>

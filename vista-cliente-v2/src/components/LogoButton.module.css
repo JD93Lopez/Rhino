@@ -132,6 +132,7 @@
   object-fit: cover;
 }
 .miCuenta {
+  margin-top: 7px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-impact);
   color: var(--color-black);
@@ -193,4 +194,16 @@
   .profileFrame {
     gap: 0 28px;
   }
+}
+.carritoDeCompras3Icon {
+  width: 58px;
+  height: 58px;
+  position: relative;
+  object-fit: cover;
+  cursor: pointer;
+  z-index: 2;
+  margin-top: 10px;
+}
+.rectangleGroup{
+  background-color: var(--color-sandybrown-100);
 }

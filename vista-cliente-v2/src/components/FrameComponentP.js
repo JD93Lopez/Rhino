@@ -4,7 +4,7 @@ import LogoButton from "./LogoButton";
 import styles from "./FrameComponent3.module.css";
 import { DataContext } from "./DataProvider";
 
-const FrameComponent3 = () => {
+const FrameComponentP = () => {
 
   const dataContext = useContext(DataContext)
 
@@ -29,6 +29,12 @@ const FrameComponent3 = () => {
   }, [navigate, dataContext]);
   return (
     <header className={styles.logoFrameParent}>
+      <img
+        className={styles.logoFrameIcon}
+        loading="lazy"
+        alt=""
+        src="/rectangle-4@2x.png"
+      />
       <div className={styles.logoButton}>
         <LogoButton
           onBotonLogo6Click={onBotonLogo6Click}
@@ -41,4 +47,4 @@ const FrameComponent3 = () => {
   );
 };
 
-export default FrameComponent3;
+export default FrameComponentP;
