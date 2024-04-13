@@ -34,13 +34,13 @@ const VistaAdministradorActualizarMant = () => {
   const dataContext = useContext(DataContext);
   console.log(dataContext)
   let mantenimiento
-  if(dataContext.Loaded && dataContext.selectedMants){
-    if(dataContext.selectedMants.length !== 0){
+  if(dataContext.Loaded && dataContext.selectedMant){
+    if(dataContext.selectedMant.length !== 0){
       mantenimiento = dataContext.selectedMant[0];
     }
   }else{
     useEffect(() => {
-      navigate("/vista-administrador-actualizar-mant");
+      navigate("/vista-administrador-mantenimiento");
     }, [navigate]);
   }
   

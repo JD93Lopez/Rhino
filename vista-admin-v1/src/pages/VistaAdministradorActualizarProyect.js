@@ -98,12 +98,19 @@ const VistaAdministradorActualizarProyect = () => {
     return 
   }
 
+  if(dataContext.Loaded && dataContext.selectedProyects && dataContext.selectedProyects[0]){
+  }else{
+    useEffect(() => {
+      navigate("/vista-administrador-proyectos");
+    }, [navigate]);
+  }
+
   return (
     
     <div className={styles.vistaadminadd}>
       <div className={styles.vistaadminaddchild} />
       <AddProductFrame />
-      <h1 className={styles.agregarproyecto}>Agregar Proyecto</h1>
+      <h1 className={styles.agregarproyecto}>Actualizar Proyecto</h1>
 
       <div className={styles.Nombre}>Nombre</div>
       <input className={styles.inputNombre} type="text" id = "inputnombreusuario" useref = "inputnombreusuario"/>

@@ -5,6 +5,7 @@ import UserNicknameFrame from "./UserNicknameFrame";
 import styles from "./InputUserForm.module.css";
 import { useContext, useEffect } from "react";
 import { DataContext } from "./DataProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const InputUserForm = () => {
   const dataContext = useContext(DataContext)
@@ -12,6 +13,16 @@ const InputUserForm = () => {
   if (!Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
+  
+  const navigate = useNavigate()
+  const pathname = useLocation().pathname
+  if(dataContext.Loaded && dataContext.selectedUsers && dataContext.selectedUsers[0]){
+  }else if(pathname==="/vista-administrador-usuarios-actualizar-usuario"){
+    useEffect(() => {
+      navigate("/vista-administrador-usuarios");
+    }, [navigate, pathname]);
+  }
+
   useEffect(() => {
     if(selectedUsers.length !== 0){
       document.getElementById("inputnombreusuario").value = selectedUsers[0].nombre_usuario
