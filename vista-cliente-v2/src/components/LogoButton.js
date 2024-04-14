@@ -25,21 +25,25 @@ const LogoButton = ({
 
   function dibujarBotonMiCuenta() {
     if (dataContext.usuarioIniciado.iniciado) {
-      return [<ListaDesplegable2
-        titulo={<div><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
-      ></ListaDesplegable2>]
+      return [
+        <ListaDesplegable2
+          titulo={<div style={{color:"black"}}><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
+        ></ListaDesplegable2>
+      ]
     } else {
-      return [<div className={styles.usernameInputField}>
-        <button className={styles.rectangleGroup}>
-          <div className={styles.frameItem} />
-          <div style={{display:"flex", flexDirection:"row"}}>
-            <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
-            <div className={styles.oldPasswordFrame}>
-              <div className={styles.miCuenta}>INICIAR SESION</div>
+      return [
+        <div className={styles.usernameInputField}>
+          <button className={styles.rectangleGroup} style={{borderRadius:"10px"}}>
+            <div className={styles.frameItem} />
+            <div style={{display:"flex", flexDirection:"row"}}>
+              <img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />
+              <div className={styles.oldPasswordFrame}>
+                <div className={styles.miCuenta}>INICIAR SESION</div>
+              </div>
             </div>
-          </div>
-        </button>
-      </div>]
+          </button>
+        </div>
+      ]
     }
   }
 
@@ -47,13 +51,13 @@ const LogoButton = ({
 
   function dibujarBarraBusqueda(){
     if(mouseInLupa !== true){
-      return [<div className={styles.imageFrame} onMouseDown={mouseEnteredLupa}>
+      return [<div className={styles.imageFrame} onClick={mouseEnteredLupa}>
         <div className={styles.botonLupa6} />
       </div>]
     }else{
       return [<div className={styles.imageFrame}>
         <div style={{backgroundColor: "white",width:"500px",display:"flex", flexDirection:"row", borderRadius:"10px"}}>
-          <div className={styles.botonLupa6} onMouseDown={mouseClickedBuscar}/>
+          <div className={styles.botonLupa6} onCLick={mouseClickedBuscar}/>
           <input style={{width:"490px", borderRadius:"5px"}} id="barraBuscar" useref="barraBuscar"/>
         </div>
       </div>]
@@ -63,9 +67,7 @@ const LogoButton = ({
   function mouseEnteredLupa(){
     setMouseInLupa(true)
   }
-  function mouseExitedLupa(){
-    setMouseInLupa(false)
-  }
+
   function mouseClickedBuscar(){
     const value = document.getElementById("barraBuscar").value
     if(value===""){
