@@ -5,7 +5,7 @@ const DBConnection = require('./DBConnection.js');
 
 const config = FileReader.readServerConfig()
 
-const server = express();
+let server = express();
 const PORT = config.port; // Puerto del servidor
 
 //Puertos e ips permitidas
@@ -14,6 +14,8 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
+
+//INICIO FUNCIONES PRUEBA
 // Rutas prueba
 server.get('/', (req, res) => {
     res.send('¡Hola, mundo! (DB SERVER)');
@@ -26,6 +28,143 @@ server.get('/dbapi/saludo/:nombre/:apellido', (req, res) => {
     const apellido = req.params.apellido;
     res.json({ mensaje: `¡Hola, ${nombre} ${apellido}! Bienvenido a nuestra API.` });
 });
+//prueba
+server.get('/dbapi/prueba/:texto', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const texto = req.params.texto
+
+        res.json({ DBRes: texto });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//FIN FUNCIONES PRUEBA
+
+
+//INICIO FUNCIONES LOGICA NEGOCIO
+
+let funcionesBD = DBConnection.objetoFuncionesLogicaNegocioBD
+
+//1 Crear Alquiler
+server.get('/dbapi/clienteAgregarAlquiler1/:Usuarios_idUsuarios', async (req, res) => {
+    try {
+    
+        const Usuarios_idUsuarios = req.params.Usuarios_idUsuarios
+
+        res.json({ DBRes: await funcionesBD.clienteAgregarAlquiler1(Usuarios_idUsuarios) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//2 Crear Agenda
+server.get('/dbapi/clienteAgregarAgenda2/:fecha_inicio/:fecha_fin/:lugar_origen/:lugar_destino', async (req, res) => {
+    try {
+    
+        const fecha_inicio = req.params.fecha_inicio
+        const fecha_fin = req.params.fecha_fin
+        const lugar_origen = req.params.lugar_origen
+        const lugar_destino = req.params.lugar_destino
+
+        res.json({ DBRes: await funcionesBD.clienteAgregarAgenda2( fecha_inicio, fecha_fin, lugar_origen, lugar_destino ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//3 cliente agregar en tabla productos has alquileres 
+server.get('/dbapi/clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/:ALQUILERES_idAlquileres/:ALQUILERES_Usuarios_idUsuarios/:AGENDAS_idAgenda', async (req, res) => {
+    try {
+    
+        const PRODUCTOS_idProductos = req.params.PRODUCTOS_idProductos
+        const ALQUILERES_idAlquileres = req.params.ALQUILERES_idAlquileres
+        const ALQUILERES_Usuarios_idUsuarios = req.params.ALQUILERES_Usuarios_idUsuarios
+        const AGENDAS_idAgenda = req.params.AGENDAS_idAgenda
+
+        res.json({ DBRes: await funcionesBD.clienteAgregarProductosHasAlquileres3( PRODUCTOS_idProductos, ALQUILERES_idAlquileres, ALQUILERES_Usuarios_idUsuarios, AGENDAS_idAgenda ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//3.5 cliente agregar en tabla productos has alquileres 
+server.get('/dbapi/administradorAgregarConductor3_5/:nombre/:cedula/:telefono', async (req, res) => {
+    try {
+    
+        const nombre = req.params.nombre
+        const cedula = req.params.cedula
+        const telefono = req.params.telefono
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarConductor3_5(nombre, cedula, telefono) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//3.51 cliente agregar en tabla productos has alquileres 
+server.get('/dbapi/administradorActualizarConductorDeAgenda3_51/:idAgenda/:idConductores', async (req, res) => {
+    try {
+    
+        const idAgenda = req.params.idAgenda
+        const idConductores = req.params.idConductores
+
+        res.json({ DBRes: await funcionesBD.administradorActualizarConductorDeAgenda3_51( idAgenda, idConductores ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//4 administrador actualizar alquiler tras rellenar campos restantes
+server.get('/dbapi/administradorActualizarAlquiler4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impuestos/:valor_conductores/:gastos_adicionales/:justificacion_ga', async (req, res) => {
+    try {
+    
+        const idAlquileres = req.params.idAlquileres
+        const subtotal = req.params.subtotal
+        const total = req.params.total
+        const total_descuento = req.params.total_descuento
+        const total_impuestos = req.params.total_impuestos
+        const valor_conductores = req.params.valor_conductores
+        const gastos_adicionales = req.params.gastos_adicionales
+        const justificacion_ga = req.params.justificacion_ga
+
+        res.json({ DBRes: await funcionesBD.administradorActualizarAlquiler4( idAlquileres, subtotal, total, total_descuento, total_impuestos, valor_conductores, gastos_adicionales, justificacion_ga ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//5 cliente actualizar alquiler al pagar cotizacion
+server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) => {
+    try {
+    
+        const idAlquileres = req.params.idAlquileres
+
+        res.json({ DBRes: await funcionesBD.clienteActualizarAlquiler5( idAlquileres ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//8 administrador agregar compras 
+server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:fecha/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
+    try {
+    
+        const Proveedores_idProveedores = req.params.Proveedores_idProveedores
+        const responsable = req.params.responsable
+        const fecha = req.params.fecha
+        const subtotal = req.params.subtotal
+        const total = req.params.total
+        const total_descuento = req.params.total_descuento
+        const total_impuestos = req.params.total_impuestos
+        const p_descuento = req.params.p_descuento
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, fecha, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+
+
+//FIN FUNCIONES LOGICA NEGOCIO
+
+
+//INICIO FUNCIONES CRUD
 
 //Insertar usuario
 server.get('/dbapi/insert/usuarios/:JSONUsuario', async (req, res) => {
@@ -291,13 +430,8 @@ server.get('/dbapi/sqlquery/:sqlQuery/:JSONValues', async (req, res) => {
         const sqlQuery = req.params.sqlQuery
         const JSONValues = req.params.JSONValues
         
-
-        if(JSONValues){
-            const values = JSON.parse(JSONValues)
-            res.json({ DBRes: await DBConnection.sqlQueryValues(sqlQuery, values) });
-        }else{
-            res.json({ DBRes: await DBConnection.sqlQuery(sqlQuery) });
-        }
+        const values = JSON.parse(JSONValues)
+        res.json({ DBRes: await DBConnection.sqlQueryValues(sqlQuery, values) });
 
     } catch (error) {
         res.json({ DBRes: error });
@@ -317,6 +451,8 @@ server.get('/dbapi/sqlquery/:sqlQuery', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//FIN FUNCIONES CRUD
+
 
 // Iniciar
 server.listen(PORT, () => {

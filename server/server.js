@@ -5,7 +5,7 @@ const Fetch = require('./db-fetch.js');
 
 const config = FileReader.readServerConfig()
 
-const server = express();
+let server = express();
 const PORT = config.port; // Puerto del servidor
 
 //Puertos e ips permitidas
@@ -14,6 +14,8 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
+
+//INICIO FUNCIONES PRUEBA
 // Rutas prueba
 server.get('/', (req, res) => {
     res.send('¡Hola, mundo! (SERVER)');
@@ -26,7 +28,40 @@ server.get('/api/saludo/:nombre/:apellido', (req, res) => {
     const apellido = req.params.apellido;
     res.json({ mensaje: `¡Hola, ${nombre} ${apellido}! Bienvenido a nuestra API.` });
 });
+//prueba
+server.get('/api/prueba/:texto', async (req, res) => {
+    try {
 
+        //TODO comprobar permisos
+        const texto = req.params.texto
+        
+        res.json({ Res: (await Fetch.fetchApi(`prueba/${texto}`)).DBRes });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+//FIN FUNCIONES PRUEBA
+
+
+//INICIO FUNCIONES LOGICA NEGOCIO
+
+//1, 2, 3 Agregar Alquiler
+server.get('/api/prueba/:texto', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const texto = req.params.texto
+        
+        res.json({ Res: (await Fetch.fetchApi(`prueba/${texto}`)).DBRes });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//FIN FUNCIONES LOGICA NEGOCIO
+
+
+//INICIO FUNCIONES CRUD
 //Inicio de sesion
 server.get('/api/signin/:usuario/:contrasena', async (req, res) => {
     let bool = false
@@ -390,9 +425,13 @@ server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) 
         res.json({ Res: error });
     }
 });
+//FIN FUNCIONES CRUD
+
 
 // Iniciar
 server.listen(PORT, () => {
+
+    //Fetch de prueba
 /*     Fetch.fetchApi(`get/constrasenatipo/${"a"}`).then((Res)=>{
         console.log(Res.DBRes.rows)
     }) */
@@ -402,5 +441,42 @@ server.listen(PORT, () => {
 /*     Fetch.fetchApi(`sqlquery/${"SELECT * FROM usuarios/null"}`).then((Res)=>{
         console.log(Res.DBRes.rows)
     }) */
+
+
+    //Fetch operaciones logica negocio
+    //1 Fetch.fetchApi(`clienteAgregarAlquiler1/2`).then((res)=>{
+    //     console.log(res.DBRes.rows[0].idalquileres)
+    // })
+
+    //2 Fetch.fetchApi(`clienteAgregarAgenda2/${"2024-04-10"}/${"2024-04-15"}/Origen/Destino`).then((res)=>{
+    //     console.log(res.DBRes.rows[0].idagenda)
+    // })clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/:ALQUILERES_idAlquileres/:ALQUILERES_Usuarios_idUsuarios/:AGENDAS_idAgendas
+
+    //3 Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/1/9/2/1`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
+
+    //3.5 Fetch.fetchApi(`administradorAgregarConductor3_5/${"Patricio Estrella"}/700/370`).then((res)=>{
+    //     console.log(res.DBRes.rows[0].idconductores)
+    // })
+
+    //3.51 Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/1/1`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
+
+    //4 Fetch.fetchApi(`administradorActualizarAlquiler4/9/100000/150000/20000/19000/50000/0/'0'`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
+
+    //5 Fetch.fetchApi(`clienteActualizarAlquiler5/9`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
+
+
+    Fetch.fetchApi(`clienteActualizarAlquiler5/9`).then((res)=>{
+        console.log(res.DBRes)
+    })
+
+    
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

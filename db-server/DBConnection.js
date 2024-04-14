@@ -1,5 +1,6 @@
 const { Pool } = require("pg");
 const FileReader = require ('./FileReader.js');
+const funcionesLogicaNegocioBD = require("./funcionesBD.js");
 const config = FileReader.readDBConfig();
 
 // const config = {
@@ -11,6 +12,7 @@ const config = FileReader.readDBConfig();
 // };
 const pool = new Pool(config);
 
+//INICIO FUNCIONES CRUD DBCONECTION
 const insertarUsuario = async (
   nombre_usuario,
   contrasena,
@@ -484,6 +486,9 @@ const sqlQueryValues = async (sqlQuery, values) => {
   }
   pool.end();
 };
+//FIN FUNCIONES CRUD DBCONECTION
+
+const objetoFuncionesLogicaNegocioBD = funcionesLogicaNegocioBD(config)
 
 module.exports = {
   obtenerUsuarios, insertarUsuario, 
@@ -505,5 +510,7 @@ module.exports = {
 
   obtenerContrasenaUsuario,
 
-  sqlQuery, sqlQueryValues
+  sqlQuery, sqlQueryValues,
+
+  objetoFuncionesLogicaNegocioBD
 };
