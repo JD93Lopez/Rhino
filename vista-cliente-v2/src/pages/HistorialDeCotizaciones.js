@@ -79,6 +79,9 @@ const HistorialDeCotizaciones = () => {
                     </div>
                     <div className={styles.textoInfoFrame}>
                       <b className={styles.textoInfo2}>CONDUCTORES:</b>
+                      <div className={styles.textoInfoContainer}>
+                            <b className={styles.textoInfo3}>OTROS GASTOS:</b>
+                          </div>
                     </div>
                   </div>
                   <div className={styles.frameWrapper1}>
@@ -87,6 +90,7 @@ const HistorialDeCotizaciones = () => {
                         <b className={styles.textoInfo3}>5.000.000</b>
                       </div>
                       <b className={styles.textoInfo4}>1.000.000 (2)</b>
+                      <b className={styles.textoInfo3}>si JAJAJAJJAJ</b>
                     </div>
                   </div>
                 </div>
