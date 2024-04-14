@@ -8,6 +8,7 @@ const Framemotorinfo = () => {
   const dataContext = useContext(DataContext)
   const navigate = useNavigate()
   
+
   let product = {}
     
   product = dataContext.productoSeleccionadoParaDetalles
