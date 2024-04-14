@@ -1,58 +1,72 @@
+import { useContext, useEffect } from "react";
+import { DataContext } from "./DataProvider";
 import styles from "./Framemotorinfo.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Framemotorinfo = () => {
+
+  const dataContext = useContext(DataContext)
+  const navigate = useNavigate()
+  
+  let product = {}
+    
+  product = dataContext.productoSeleccionadoParaDetalles
+
+  if(!product){
+    product={}
+    useEffect(()=>{
+      navigate("/ventana-para-buscar-productos")
+    },[navigate])
+  }
+
   return (
     <section className={styles.framemotorinfo}>
       <img
         className={styles.manipuladorafondo1Icon}
         loading="lazy"
         alt=""
-        src="/manipuladorafondo-1@2x.png"
+        src={product.imagen}
       />
       <div className={styles.mHbackground}>
         <div className={styles.materialsslide}>
           <div className={styles.wheelstext}>
             <h2 className={styles.manipuladoraDeMaterialesContainer}>
-              <p className={styles.manipuladoraDe}>Manipuladora de</p>
-              <p className={styles.materialesDeRuedas}>materiales de ruedas</p>
+              <p className={styles.manipuladoraDe}>{product.nombre}</p>
             </h2>
             <div className={styles.specstab}>
-              <div className={styles.mh3050}>MH3050</div>
+              <div className={styles.mh3050}>{product.identificacion}</div>
             </div>
           </div>
           <b className={styles.especificacionesPrincipales}>
-            ESPECIFICACIONES PRINCIPALES
+            CATEGORIAS 
           </b>
           <div className={styles.modeloDelMotorContainer}>
             <p className={styles.modeloDelMotor}>
-              <b>Modelo del motor</b>
+              <b>Maquinaria Pesada</b>
             </p>
-            <p className={styles.c93bCat}>C9.3B Cat®</p>
             <p className={styles.blankLine}>
               <b>&nbsp;</b>
             </p>
             <p className={styles.pesoEnOrdenDeTrabajoMxim}>
-              <b>Peso en orden de trabajo máximo</b>
+              <b>Carga de máxima 50.000kg</b>
             </p>
-            <p className={styles.kg}>50.000 kg</p>
             <p className={styles.blankLine1}>
               <b>&nbsp;</b>
             </p>
             <p className={styles.alcanceMximo}>
-              <b>Alcance máximo</b>
+              <b>Alcance máximo 18000 mts</b>
             </p>
-            <p className={styles.mm}>18060 mm</p>
           </div>
         </div>
         <div className={styles.addcartgroup}>
           <div className={styles.rectangleParent}>
             <div className={styles.frameChild} />
-            <b className={styles.agregarAlCarrito}>AGREGAR AL CARRITO</b>
+            <b className={styles.agregarAlCarrito}>CONSULTAR DISPONIBILIDAD</b>
           </div>
-          <div className={styles.rectangleGroup}>
+          {/* <div className={styles.rectangleGroup}>
             <div className={styles.frameItem} />
             <b className={styles.consultarPrecio}>CONSULTAR PRECIO</b>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

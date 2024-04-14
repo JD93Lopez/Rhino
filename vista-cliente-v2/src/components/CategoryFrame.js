@@ -66,12 +66,14 @@ const CategoryFrame = () => {
               <TarjetaProducto
                 nombre={oldP.nombre}
                 imagen={oldP.imagen}
+                object={oldP}
               />
             </td>  
             <td>
               <TarjetaProducto
                 nombre={p.nombre}
                 imagen={p.imagen}
+                object={p}
               />
             </td> 
           </tr> 
@@ -86,6 +88,7 @@ const CategoryFrame = () => {
             <TarjetaProducto
               nombre={oldP.nombre}
               imagen={oldP.imagen}
+              object={oldP}
             />
           </td>
         </tr> 

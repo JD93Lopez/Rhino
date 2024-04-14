@@ -1,17 +1,22 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useContext } from 'react'
 import styles from "./CategoryFrame.module.css";
 import { useNavigate } from 'react-router-dom';
+import { DataContext } from './DataProvider';
 
 export const TarjetaProducto = ({nombre, imagen, object}) => {
     const navigate = useNavigate();
+
+    const dataContext = useContext(DataContext)
 
     const onMaterialesSinFondo2Click = useCallback(() => {
       navigate("/informacin-de-cada-producto");
     }, [navigate]);
   
     const onBotonDetallesClick = useCallback(() => {
-      navigate("/informacin-de-cada-producto");
-    }, [navigate]);
+        dataContext.productoSeleccionadoParaDetalles = object
+        console.log(dataContext.productoSeleccionadoParaDetalles)
+        navigate("/informacin-de-cada-producto");
+    }, [navigate, object, dataContext]);
   
     const onBotonDetalles1Click = useCallback(() => {
       navigate("/informacin-de-cada-producto");
@@ -52,13 +57,13 @@ export const TarjetaProducto = ({nombre, imagen, object}) => {
                     </button>
                     </div>
                     <div className={styles.vectorElement}>
-                    <button className={styles.botonAgregarCarrito}>
+                    {/* <button className={styles.botonAgregarCarrito}>
                         <img
                             className={styles.anadirAlCarrito1Icon}
                             alt=""
                             src="/anadiralcarrito-1@2x.png"
                         />
-                    </button>
+                    </button> */}
                     </div>
                 </div>
                 </div>
