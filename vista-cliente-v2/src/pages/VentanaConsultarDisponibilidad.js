@@ -12,7 +12,9 @@ const VentanaConsultarDisponibilid = () => {
         <div className={styles.frameParent}>
           <GroupComponent9 />
           <GroupComponent8 />
+          <b className={styles.LugarOrigen}>Lugar de Origen</b>
           <input type="text" placeholder="Input 1" />
+          <b className={styles.LugarDestino}>Lugar de DEstino</b>
           <input type="text" placeholder="Input 2" />
         </div>
         <div className={styles.Fecha}>Fecha</div>
