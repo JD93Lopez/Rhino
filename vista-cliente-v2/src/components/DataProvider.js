@@ -75,7 +75,7 @@ export const DataProvider = (props) => {
 //se modificaron los atributos porque faltaban algunos y se modificaron como esta en la DB
 //CAMBIO REALIZADO POR MAJO
     const usuarioIniciado = {
-        nombre_usuario: "Iniciar Sesión",
+        nombre_usuario: "NO INICIADO",
         iniciado: false,
         contrasena: "NO INICIADO",
         nombre_real:"NO INICIADO",

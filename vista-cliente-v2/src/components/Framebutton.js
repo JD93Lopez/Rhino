@@ -22,7 +22,9 @@ const Framebutton = () => {
 
     //TODO iniciar sesion AXIOS --> dataContext.usuarioInciado = JSON.parse(axiosIniciarSesion(u, c))
 
-    dataContext.usuarioIniciado.nombre_usuario = userData.username
+    if(userData.username!==""){
+      dataContext.usuarioIniciado.nombre_usuario = userData.username
+    }
     dataContext.usuarioIniciado.contrasena = userData.password
     dataContext.usuarioIniciado.iniciado = true
 

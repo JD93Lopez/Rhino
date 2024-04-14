@@ -27,7 +27,7 @@ const LogoButton = ({
     if (dataContext.usuarioIniciado.iniciado) {
       return [
         <ListaDesplegable2
-          titulo={<div style={{color:"black"}}><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
+          titulo={<div style={{color:"black", display:"flex", flexDirection:"row"}}><img className={styles.perfil1Icon} alt="" src="/perfil-1@2x.png" />{dataContext.usuarioIniciado.nombre_usuario}</div>}
         ></ListaDesplegable2>
       ]
     } else {
@@ -57,7 +57,7 @@ const LogoButton = ({
     }else{
       return [<div className={styles.imageFrame}>
         <div style={{backgroundColor: "white",width:"500px",display:"flex", flexDirection:"row", borderRadius:"10px"}}>
-          <div className={styles.botonLupa6} onCLick={mouseClickedBuscar}/>
+          <div className={styles.botonLupa6} onClick={mouseClickedBuscar}/>
           <input style={{width:"490px", borderRadius:"5px"}} id="barraBuscar" useref="barraBuscar"/>
         </div>
       </div>]
