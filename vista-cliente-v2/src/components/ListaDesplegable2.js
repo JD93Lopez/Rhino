@@ -42,6 +42,11 @@ function ListaDesplegable2({titulo}){
     return(
         <div style={{width: "120%"}}>
             <Select
+                styles={{control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    borderColor: state.isFocused ? 'orange' : 'black',
+                    backgroundColor: "var(--color-sandybrown-100)",
+                  })}}
                 placeholder={titulo}
                 closeMenuOnSelect={false}
                 options={opciones}
