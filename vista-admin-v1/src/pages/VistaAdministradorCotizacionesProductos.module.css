@@ -1,0 +1,154 @@
+.vistaAdministradorCotizacionChild {
+    position: absolute;
+    top: 293px;
+    left: 392px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    width: 919px;
+    height: 606px;
+    
+  }
+  .vistaAdministradorCotizacionItem {
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    background-color: var(--color-black);
+    width: 1742px;
+    height: 50px;
+  }
+  .inputcedula,
+  .vistaAdministradorCotizacionInner {
+    position: absolute;
+    top: 411px;
+    left: 687px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 329px;
+    height: 33px;
+  }
+  .vistaAdministradorCotizacionInner {
+    top: 498px;
+    left: 503px;
+    width: 694px;
+    height: 158px;
+  }
+  .nombre,
+  .telfono {
+    position: absolute;
+    top: 517px;
+    left: 534.8px;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-arial-rounded-mt-bold);
+    display: inline-block;
+    width: 126.1px;
+    height: 31px;
+  }
+  .telfono {
+    top: 592px;
+    left: 535px;
+    width: 132px;
+  }
+  .inputnombre,
+  .inputtelefono {
+    position: absolute;
+    top: 521px;
+    left: 716px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 368px;
+    height: 24px;
+  }
+  .inputtelefono {
+    top: 596px;
+  }
+  .cdula {
+    position: absolute;
+    top: 361px;
+    left: 687px;
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-arial-rounded-mt-bold);
+    display: inline-block;
+    width: 329px;
+    height: 32px;
+  }
+  .botonaprobar {
+    height: 53px;
+    width: 220px;
+    position: relative;
+    background-color: var(--color-orange);
+    border: 1px solid var(--color-black);
+    display: none;
+  }
+  .aprobar {
+    position: absolute;
+    top: 10px;
+    left: 68px;
+    display: inline-block;
+    width: 84px;
+    height: 33px;
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-impact);
+    color: var(--color-black);
+  }
+  .botonaprovar {
+    position: absolute;
+    top: 737px;
+    left: 740px;
+    width: 220px;
+    height: 53px;
+    font-size: var(--font-size-5xl);
+    cursor: pointer;
+    border: 1px solid var(--color-black);
+    padding: var(--padding-3xs) 68px;
+    background-color: var(--color-orange);
+    justify-content: flex-start;
+  }
+  .agregarConductor {
+    position: absolute;
+    top: 198px;
+    left: 603px;
+    font-size: 64px;
+  }
+  .botonaprobar,
+  .botonaprovar:hover {
+    background-color: var(--color-darkgoldenrod);
+    border: 1px solid var(--color-darkslategray);
+    box-sizing: border-box;
+  }
+  .vistaAdministradorCotizacion {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    height: 1098px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-13xl);
+    color: var(--color-black);
+    font-family: var(--font-impact);
+    
+  }
+
+  .vistaAdministradorCotizacion {
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .vistaAdministradorCotizacion {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    overflow: hidden;
+    flex-direction: column;
+    padding: 33px 0 62px;
+    gap: 34px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  
