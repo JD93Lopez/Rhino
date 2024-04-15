@@ -472,11 +472,23 @@ server.listen(PORT, () => {
     //     console.log(res.DBRes)
     // })
 
+    //8 Fetch.fetchApi(`administradorAgregarCompras8/1/${"Paco Villas"}/450000000/500000000/20000/19000/10`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
 
-    Fetch.fetchApi(`clienteActualizarAlquiler5/9`).then((res)=>{
-        console.log(res.DBRes)
-    })
+    //9 Fetch.fetchApi(`administradorAgregarProductosHasCompras9/1/1/1`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })
 
+    //10 Fetch.fetchApi(`clienteAgregarBalance10/100000/${'Alquiler'}/9/0`).then((res)=>{
+    //     console.log(res.DBRes)
+    // })   
+
+    //12 Fetch.fetchApi(`administradorAgregarMantenimiento12/${'Se realiza un mantenimiento rutinario al vehículo.'}/2024-04-13/50000/1`).then((res)=>{
+    //     console.log(res.DBRes.rows[0].idhistorialmantenimientos)
+    // })
     
+    
+
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

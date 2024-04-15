@@ -140,20 +140,62 @@ server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) =
         res.json({ DBRes: error });
     }
 });
+//TODO 6 y 7
 //8 administrador agregar compras 
-server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:fecha/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
+server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
     try {
     
         const Proveedores_idProveedores = req.params.Proveedores_idProveedores
         const responsable = req.params.responsable
-        const fecha = req.params.fecha
         const subtotal = req.params.subtotal
         const total = req.params.total
         const total_descuento = req.params.total_descuento
         const total_impuestos = req.params.total_impuestos
         const p_descuento = req.params.p_descuento
 
-        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, fecha, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//9 administrador agregar en la tabla productos has compras 
+server.get('/dbapi/administradorAgregarProductosHasCompras9/:PRODUCTOS_idProductos/:COMPRAS_idCompras/:COMPRAS_Proveedores_idProveedores', async (req, res) => {
+    try {
+    
+        const PRODUCTOS_idProductos = req.params.PRODUCTOS_idProductos
+        const COMPRAS_idCompras = req.params.COMPRAS_idCompras
+        const COMPRAS_Proveedores_idProveedores = req.params.COMPRAS_Proveedores_idProveedores
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarProductosHasCompras9( PRODUCTOS_idProductos, COMPRAS_idCompras, COMPRAS_Proveedores_idProveedores ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//10 cliente agregar balance
+server.get('/dbapi/clienteAgregarBalance10/:valor/:descripcion/:ALQUILERES_idAlquileres/:usuarios_idusuarios', async (req, res) => {
+    try {
+
+        const valor = req.params.valor
+        const descripcion = req.params.descripcion
+        const ALQUILERES_idAlquileres = req.params.ALQUILERES_idAlquileres
+        const usuarios_idusuarios = req.params.usuarios_idusuarios
+
+        res.json({ DBRes: await funcionesBD.clienteAgregarBalance10( valor, descripcion, ALQUILERES_idAlquileres, usuarios_idusuarios ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//TODO 11
+//12 cliente agregar balance
+server.get('/dbapi/administradorAgregarMantenimiento12/:descripcion/:fechamantenimiento/:precio/:productos_idproductos', async (req, res) => {
+    try {
+
+        const descripcion = req.params.descripcion
+        const fechamantenimiento = req.params.fechamantenimiento
+        const precio = req.params.precio
+        const productos_idproductos = req.params.productos_idproductos
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarMantenimiento12( descripcion, fechamantenimiento, precio, productos_idproductos ) });
     } catch (error) {
         res.json({ DBRes: error });
     }
