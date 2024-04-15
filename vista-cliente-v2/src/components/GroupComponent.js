@@ -6,29 +6,29 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
   const navigate = useNavigate();
   const [direccion, setDireccion] = useState("");
   const [correo, setCorreo] = useState("");
-  const [usuario, setUsuario] = useState("");
+  const [nombre_usuario, setUsuario] = useState("");
   const [identificacion, setIdentificacion] = useState("");
   const [telefono, setTelefono] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [contrasenia, setContrasenia] = useState("");
+  const [contrasena, setContrasenia] = useState("");
 
 
   const onBotonRegistrarse2Click = useCallback(() => {
     const usuario = {
       direccion, 
       correo,
-      usuario, 
+      nombre_usuario, 
       identificacion,
       telefono,
       nombre,
       apellido,
-      contrasenia
+      contrasena
     };
     console.log(usuario);
 
     navigate("/ventana-de-informacin-personal");
-  }, [direccion, correo, usuario, identificacion,telefono, nombre, apellido,contrasenia, navigate]);
+  }, [direccion, correo, nombre_usuario, identificacion,telefono, nombre, apellido,contrasena, navigate]);
 
 //añadir campo de direccion con los estilos adecuados
   return (
@@ -40,7 +40,7 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
           type="text"
           id = "inputUsuario"
           useref = "inputUsuario"
-          value={usuario}
+          value={nombre_usuario}
           onChange={(e) => {
             setUsuario(e.target.value)
             console.log(e.target.value)
@@ -83,7 +83,7 @@ const GroupComponent = ({ onBotonRegistrarseClick }) => {
         <input
           type="password"
           id = "inputPassword"
-          value={contrasenia}
+          value={contrasena}
           onChange={(e) => setContrasenia(e.target.value)}
           className={styles.inputContrasenia}
         />
