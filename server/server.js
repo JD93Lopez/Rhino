@@ -488,10 +488,11 @@ server.listen(PORT, () => {
     //     console.log(res.DBRes)
     // })
 
+    //traer productos y agendas de alquiler Fetch.fetchApi(`productosYAgendasDeAlquiler/9`).then((Res)=>{
+    //     console.log(Res.DBRes.rows)
+    // })
 
-    Fetch.fetchApi(`sqlquery/${"SELECT * FROM usuarios/null"}`).then((Res)=>{
-        console.log(Res.DBRes.rows)
-    })
+
 
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

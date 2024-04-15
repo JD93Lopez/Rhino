@@ -203,6 +203,20 @@ server.get('/dbapi/administradorAgregarMantenimiento12/:descripcion/:fechamanten
 
 
 
+//Traer productos y agendas de un alquiler
+server.get('/dbapi/productosYAgendasDeAlquiler/:idAlquileres', async (req, res) => {
+    try {
+
+        const idAlquileres = req.params.idAlquileres
+
+        res.json({ DBRes: await funcionesBD.productosYAgendasDeAlquiler( idAlquileres ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+
+
 //FIN FUNCIONES LOGICA NEGOCIO
 
 

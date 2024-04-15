@@ -183,8 +183,24 @@ const funcionesLogicaNegocioBD = (config) => {
       console.log("Error en la operacion 12");
     }
     pool.end();
+  }  
+  
+  
+  //Traer productos y agendas de un alquiler
+  funciones.productosYAgendasDeAlquiler  = async ( idAlquileres ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT p.*, a.* FROM productos p, agendas a, productos_has_alquileres pha WHERE pha.alquileres_idalquileres = $1 AND pha.productos_idproductos = p.idproductos AND pha.agendas_idagenda = a.idagenda", 
+      [idAlquileres]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
   }
-
+  
+  
   return funciones
 }
 
