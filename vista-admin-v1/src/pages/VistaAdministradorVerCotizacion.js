@@ -3,6 +3,9 @@ import { TarjetaProductoCotizacion } from "../components/TarjetaProductoCotizaci
 import styles from "./VistaAdministradorVerCotizacion.module.css";
 
 const VistaAdministradorVerCotizacion = () => {
+
+  //cargar del datacontext cotizacion
+
   return (
     <div className={styles.vistaAdministradorCotizaci}>
       <div className={styles.vistaAdministradorCotizaciChild} />

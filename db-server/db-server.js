@@ -53,7 +53,7 @@ server.get('/dbapi/clienteAgregarAlquiler1/:Usuarios_idUsuarios', async (req, re
     
         const Usuarios_idUsuarios = req.params.Usuarios_idUsuarios
 
-        res.json({ DBRes: await funcionesBD.clienteAgregarAlquiler1(Usuarios_idUsuarios) });
+        res.json({ DBRes: (await funcionesBD.clienteAgregarAlquiler1(Usuarios_idUsuarios)).rows[0].idalquileres });
     } catch (error) {
         res.json({ DBRes: error });
     }
@@ -67,7 +67,7 @@ server.get('/dbapi/clienteAgregarAgenda2/:fecha_inicio/:fecha_fin/:lugar_origen/
         const lugar_origen = req.params.lugar_origen
         const lugar_destino = req.params.lugar_destino
 
-        res.json({ DBRes: await funcionesBD.clienteAgregarAgenda2( fecha_inicio, fecha_fin, lugar_origen, lugar_destino ) });
+        res.json({ DBRes: (await funcionesBD.clienteAgregarAgenda2( fecha_inicio, fecha_fin, lugar_origen, lugar_destino )).rows[0].idagenda });
     } catch (error) {
         res.json({ DBRes: error });
     }
@@ -86,7 +86,7 @@ server.get('/dbapi/clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/
         res.json({ DBRes: error });
     }
 });
-//3.5 cliente agregar en tabla productos has alquileres 
+//3.5 administrador agregar conductor
 server.get('/dbapi/administradorAgregarConductor3_5/:nombre/:cedula/:telefono', async (req, res) => {
     try {
     
@@ -94,12 +94,12 @@ server.get('/dbapi/administradorAgregarConductor3_5/:nombre/:cedula/:telefono', 
         const cedula = req.params.cedula
         const telefono = req.params.telefono
 
-        res.json({ DBRes: await funcionesBD.administradorAgregarConductor3_5(nombre, cedula, telefono) });
+        res.json({ DBRes: (await funcionesBD.administradorAgregarConductor3_5(nombre, cedula, telefono)).rows[0].idconductores });
     } catch (error) {
         res.json({ DBRes: error });
     }
 });
-//3.51 cliente agregar en tabla productos has alquileres 
+//3.51 administrador actualizar idConductores para tabla agenda
 server.get('/dbapi/administradorActualizarConductorDeAgenda3_51/:idAgenda/:idConductores', async (req, res) => {
     try {
     
@@ -140,20 +140,76 @@ server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) =
         res.json({ DBRes: error });
     }
 });
+//TODO 6 y 7
 //8 administrador agregar compras 
-server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:fecha/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
+server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
     try {
     
         const Proveedores_idProveedores = req.params.Proveedores_idProveedores
         const responsable = req.params.responsable
-        const fecha = req.params.fecha
         const subtotal = req.params.subtotal
         const total = req.params.total
         const total_descuento = req.params.total_descuento
         const total_impuestos = req.params.total_impuestos
         const p_descuento = req.params.p_descuento
 
-        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, fecha, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//9 administrador agregar en la tabla productos has compras 
+server.get('/dbapi/administradorAgregarProductosHasCompras9/:PRODUCTOS_idProductos/:COMPRAS_idCompras/:COMPRAS_Proveedores_idProveedores', async (req, res) => {
+    try {
+    
+        const PRODUCTOS_idProductos = req.params.PRODUCTOS_idProductos
+        const COMPRAS_idCompras = req.params.COMPRAS_idCompras
+        const COMPRAS_Proveedores_idProveedores = req.params.COMPRAS_Proveedores_idProveedores
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarProductosHasCompras9( PRODUCTOS_idProductos, COMPRAS_idCompras, COMPRAS_Proveedores_idProveedores ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//10 cliente agregar balance
+server.get('/dbapi/clienteAgregarBalance10/:valor/:descripcion/:ALQUILERES_idAlquileres/:usuarios_idusuarios', async (req, res) => {
+    try {
+
+        const valor = req.params.valor
+        const descripcion = req.params.descripcion
+        const ALQUILERES_idAlquileres = req.params.ALQUILERES_idAlquileres
+        const usuarios_idusuarios = req.params.usuarios_idusuarios
+
+        res.json({ DBRes: await funcionesBD.clienteAgregarBalance10( valor, descripcion, ALQUILERES_idAlquileres, usuarios_idusuarios ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//TODO 11
+//12 administrador agregar en historial mantenimientos
+server.get('/dbapi/administradorAgregarMantenimiento12/:descripcion/:fechamantenimiento/:precio/:productos_idproductos', async (req, res) => {
+    try {
+
+        const descripcion = req.params.descripcion
+        const fechamantenimiento = req.params.fechamantenimiento
+        const precio = req.params.precio
+        const productos_idproductos = req.params.productos_idproductos
+
+        res.json({ DBRes: (await funcionesBD.administradorAgregarMantenimiento12( descripcion, fechamantenimiento, precio, productos_idproductos )).rows[0].idhistorialmantenimientos });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+
+
+//Traer productos y agendas de un alquiler
+server.get('/dbapi/productosYAgendasDeAlquiler/:idAlquileres', async (req, res) => {
+    try {
+
+        const idAlquileres = req.params.idAlquileres
+
+        res.json({ DBRes: await funcionesBD.productosYAgendasDeAlquiler( idAlquileres ) });
     } catch (error) {
         res.json({ DBRes: error });
     }

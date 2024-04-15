@@ -13,7 +13,6 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
       // Redirigir a otra página cuando se hace clic en la tarjeta
       navigate("/vista-administrador-cotizacion-producto");
     };
-    
     return (
         <div className={`${styles.productos1} ${
             isSelected ? styles.selected : ""
