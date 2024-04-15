@@ -78,6 +78,7 @@ const VistaAdministradorCotizacion = () => {
                 telefono = {cotizacion.telefono}
                 estado = {cotizacion.estado}
                 fecha = {cotizacion.fecha}
+                object = {cotizacion}
               />
             ))}
           </div>

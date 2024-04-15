@@ -1,7 +1,10 @@
 import React from 'react'
 import styles from "../pages/VistaAdministradorVerCotizacion.module.css";
 
-export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alquiler, fecha_inicio, fecha_fin }) => {
+export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alquiler, fecha_inicio, fecha_fin, object }) => {
+
+    //TODO funciono subir dataContext.cotizacionParaver object  
+
     return (
         <div className={styles.productos1}>
             <div style={{display: "flex", flexDirection:"row"}}>
