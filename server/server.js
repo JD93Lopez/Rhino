@@ -445,11 +445,11 @@ server.listen(PORT, () => {
 
     //Fetch operaciones logica negocio
     //1 Fetch.fetchApi(`clienteAgregarAlquiler1/2`).then((res)=>{
-    //     console.log(res.DBRes.rows[0].idalquileres)
+    //     console.log(res.DBRes)
     // })
 
     //2 Fetch.fetchApi(`clienteAgregarAgenda2/${"2024-04-10"}/${"2024-04-15"}/Origen/Destino`).then((res)=>{
-    //     console.log(res.DBRes.rows[0].idagenda)
+    //     console.log(res.DBRes)
     // })clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/:ALQUILERES_idAlquileres/:ALQUILERES_Usuarios_idUsuarios/:AGENDAS_idAgendas
 
     //3 Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/1/9/2/1`).then((res)=>{
@@ -457,7 +457,7 @@ server.listen(PORT, () => {
     // })
 
     //3.5 Fetch.fetchApi(`administradorAgregarConductor3_5/${"Patricio Estrella"}/700/370`).then((res)=>{
-    //     console.log(res.DBRes.rows[0].idconductores)
+    //     console.log(res.DBRes)
     // })
 
     //3.51 Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/1/1`).then((res)=>{
@@ -485,10 +485,13 @@ server.listen(PORT, () => {
     // })   
 
     //12 Fetch.fetchApi(`administradorAgregarMantenimiento12/${'Se realiza un mantenimiento rutinario al vehículo.'}/2024-04-13/50000/1`).then((res)=>{
-    //     console.log(res.DBRes.rows[0].idhistorialmantenimientos)
+    //     console.log(res.DBRes)
     // })
-    
-    
+
+
+    Fetch.fetchApi(`sqlquery/${"SELECT * FROM usuarios/null"}`).then((Res)=>{
+        console.log(Res.DBRes.rows)
+    })
 
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
