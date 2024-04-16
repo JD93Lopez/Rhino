@@ -22,7 +22,7 @@ const GroupComponent2 = () => {
         <div className={styles.socialMediaIcon}>
           <div className={styles.xButton}>
             <b className={styles.cornerDecor}>01-10-2024</b>
-            <b className={styles.backgroundShape}>01-20 -2024</b>
+            
           </div>
         </div>
       </div>
@@ -31,3 +31,4 @@ const GroupComponent2 = () => {
 };
 
 export default GroupComponent2;
+

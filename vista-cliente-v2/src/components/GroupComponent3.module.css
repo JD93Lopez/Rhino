@@ -37,9 +37,11 @@
   gap: var(--gap-5xl);
 }
 .textoInfo1 {
+  left: 230px;
   position: relative;
-  z-index: 1;
+  z-index: 9999;
 }
+
 .textoInfoContainer {
   width: 295px;
   display: flex;
@@ -135,3 +137,4 @@
     font-size: var(--font-size-xl);
   }
 }
+
