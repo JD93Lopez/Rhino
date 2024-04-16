@@ -1,3 +1,52 @@
+.yTButton {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.yTButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-4xs) var(--padding-mid);
+  background-color: var(--color-sandybrown-100);
+  border-radius: var(--br-8xs);
+  flex-direction: row;
+  z-index: 1;
+}
+.yTButtonChild {
+  height: 48px;
+  width: 279px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-sandybrown-100);
+  display: none;
+}
+.botonConsultarPrecio {
+  flex-direction: row;
+  cursor: pointer;
+  z-index: 2;
+}
+.botonConsultarPrecio,
+.socialMediaFrame,
+.yTButton {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.consultarPrecio {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-jura);
+  color: var(--color-black);
+  text-align: right;
+}
+.consultarPrecio:hover {
+  cursor: pointer;
+}
+.consultarPrecio:active {
+  cursor: pointer;
+  animation: 1s ease 0s infinite normal none pulsate;
+  opacity: 1;
+}
 .cancelSelectionButtonChild,
 .ventanaCarritoDeComprasChild {
   width: 1674px;

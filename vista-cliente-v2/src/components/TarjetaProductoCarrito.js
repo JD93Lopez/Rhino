@@ -2,12 +2,12 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./BackgroundFrame.module.css";
 
-const BackgroundFrame = () => {
+const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha_inicio,fecha_fin}) => {
   const navigate = useNavigate();
 
-  const onBotonConsultarPrecioClick = useCallback(() => {
-    navigate("/ventana-para-solcitar-una-cotizacin");
-  }, [navigate]);
+  const onBotonConsultarPrecioClick = ()=>{
+
+  }
 
   return (
     <div className={styles.backgroundFrame}>
@@ -17,24 +17,29 @@ const BackgroundFrame = () => {
             className={styles.imagenMaquinaCarrito}
             loading="lazy"
             alt=""
-            src="/imagen-maquina-carrito@2x.png"
+            src = {imagen}
           />
           <div className={styles.cartBorder}>
             <div className={styles.deleteProductButton}>
               <b className={styles.textoInfo}>
-                Manipuladora de materiales de ruedas - MH3050
+                {nombre} - {modelo}
               </b>
               <div className={styles.consultPriceButton}>
                 <div className={styles.infoTextProduct}>
-                  <div className={styles.textoInfo1}>De CAT</div>
-                  <div className={styles.botonEliminarProducto}>
-                    Eliminar producto
+                  <div className={styles.textoInfo1}>De: {marca}</div>
+                  <div className={styles.botonEliminarProducto} style={{minWidth:"420px"}}>
+                    <div>
+                      Fecha inicio: {fecha_inicio}
+                    </div>                    
+                    <div>
+                      Fecha fin: {fecha_fin}
+                    </div>
                   </div>
                 </div>
                 <div className={styles.productContainer}>
-                  <div className={styles.textoCantidad}>Cantidad</div>
+                  <div className={styles.textoCantidad}>Id/Placa:</div>
                 </div>
-                <div className={styles.inputCantidad} />
+                <div className={styles.inputCantidad} style={{color:"black"}}>{identificacion}</div>
               </div>
             </div>
           </div>
@@ -46,13 +51,16 @@ const BackgroundFrame = () => {
               className={styles.botonConsultarPrecio}
               onClick={onBotonConsultarPrecioClick}
             >
-              <b className={styles.consultarPrecio}>CONSULTAR PRECIO</b>
+              <b className={styles.consultarPrecio}>ELIMINAR PRODUCTO</b>
             </div>
           </button>
         </div>
+      </div>
+      <div>
+        <br/><br/><br/><br/><br/><br/><br/><br/>
       </div>
     </div>
   );
 };
 
-export default BackgroundFrame;
+export default TarjetaProductoCarrito;
