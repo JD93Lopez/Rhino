@@ -7,6 +7,7 @@ const config = FileReader.readServerConfig()
 
 let server = express();
 const PORT = config.port; // Puerto del servidor
+const IP = config.ip; // Ip del servidor
 
 //Puertos e ips permitidas
 const corsLinks = config.corsLinks
@@ -543,7 +544,7 @@ server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) 
 
 
 // Iniciar
-server.listen(PORT, () => {
+server.listen(PORT, IP, () => {
 
     //Fetch de prueba
 /*     Fetch.fetchApi(`get/constrasenatipo/${"a"}`).then((Res)=>{
@@ -608,5 +609,5 @@ server.listen(PORT, () => {
 
 
 
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://${IP}:${PORT}`);
 });

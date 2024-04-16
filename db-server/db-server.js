@@ -7,8 +7,9 @@ const config = FileReader.readServerConfig()
 
 let server = express();
 const PORT = config.port; // Puerto del servidor
+const IP = config.ip; // Ip del servidor
 
-//Puertos e ips permitidas
+//Puertos e ips permitidas 
 const corsLinks = config.corsLinks
 corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
@@ -522,7 +523,7 @@ server.get('/dbapi/sqlquery/:sqlQuery', async (req, res) => {
 
 
 // Iniciar
-server.listen(PORT, () => {
+server.listen(PORT, IP, () => {
 /*     DBConnection.obtenerUsuarios().then((result) => {
         console.log(result.rows)
     }) */
