@@ -125,45 +125,45 @@ export const DataProvider = (props) => {
         //Mantenimientos de ejemplo TODO bajar mantenimientos de API
         const mantenimientos = [
             {
-                nombreMaquinaria: "Excavadora",
+                nombremaquinaria: "Excavadora",
                 identificacion: "1",
                 fecha: "2024-04-13",
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                idMantenimiento: 1
+                idmantenimiento: 1
             },
             {
-                nombreMaquinaria: "Montacargas",
+                nombremaquinaria: "Montacargas",
                 identificacion: "2",
                 fecha: "2024-04-13",
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                idMantenimiento: 2
+                idmantenimiento: 2
             },
             {
-                nombreMaquinaria: "Excavadora",
+                nombremaquinaria: "Excavadora",
                 identificacion: "1",
                 fecha: "2024-04-13",
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                idMantenimiento: 3
+                idmantenimiento: 3
             }
         ]
 
         const cotizaciones = [
             {
-                idAlquileres: "1",
+                idalquileres: "1",
                 nombre_usuario: "Pepito Perez",
                 correo: "example@example.com",
                 telefono: "500",
                 estado: "EN_ESPERA",
                 fecha: "2024-04-13"
             },{
-                idAlquileres: "2",
+                idalquileres: "2",
                 nombre_usuario: "Pepito Perez",
                 correo: "example@example.com",
                 telefono: "500",
                 estado: "EN_ESPERA",
                 fecha: "2024-04-13"
             },{
-                idAlquileres: "3",
+                idalquileres: "3",
                 nombre_usuario: "Pepito Perez",
                 correo: "example@example.com",
                 telefono: "500",
