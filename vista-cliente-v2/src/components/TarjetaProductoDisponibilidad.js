@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import styles from "./GroupComponent3.module.css";
 
-const GroupComponent3 = () => {
+const GroupComponent3 = ({nombre, identificacion, modelo, precio_alquiler}) => {
   const onGroupButtonClick = useCallback(() => {
     // Please sync "Ventana carrito de compras" to the project
   }, []);
@@ -18,15 +18,14 @@ const GroupComponent3 = () => {
         />
         <div className={styles.textoInfoWrapper}>
           <b className={styles.textoInfo}>
-            Manipuladora de materiales de ruedas - MH3050
+            {nombre} - {identificacion}
           </b>
           
         </div>
       </div>
       <div className={styles.textoInfoContainer}>
         
-        <b className={styles.textoInfo1}>DISPONIBLE</b>
-        <b className={styles.backgroundShape}>01-20-2024</b>
+        <b className={styles.backgroundShape}>{precio_alquiler}</b>
       </div>
       <div className={styles.frameWrapper}>
         <button className={styles.frameContainer} onClick={onGroupButtonClick}>
