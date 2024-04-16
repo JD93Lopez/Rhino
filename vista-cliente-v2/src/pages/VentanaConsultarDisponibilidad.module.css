@@ -1,3 +1,72 @@
+.LugarOrigen{
+  font-family: "Inter", sans-serif;
+  color: aliceblue;
+  position: absolute;
+  top: 130px;
+  left: 185px;
+}
+.InputLugarOrigen{
+  height: 30px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 155px;
+  left: 180px;
+}
+
+.LugarDestino{
+  font-family: "Inter", sans-serif;
+  color: aliceblue;
+  position: absolute;
+  top: 130px; 
+  left: 488px;
+}
+
+.InputLugarDestino{
+  height: 30px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 155px; 
+  left: 480px;
+}
+
+.FechaFinal{
+  font-family: "Inter", sans-serif;
+  color: aliceblue;
+  position: absolute;
+  top: 130px; 
+  left: 1300px;
+}
+
+.inputFechaFinal{
+  width: 155px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 160px; 
+  left: 1300px;
+}
+
+.FechaInicio{
+  font-family: "Inter", sans-serif;
+  color: aliceblue;
+  position: absolute;
+  top: 130px; 
+  left: 1110px;
+}
+
+.inputFechaInicio{
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 160px; 
+  left: 1100px;
+}
+
 .frameParent,
 .ventanaConsultarDisponibilidInner {
   display: flex;

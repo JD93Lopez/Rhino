@@ -36,10 +36,13 @@
   z-index: 1;
 }
 .textoInfo {
+  top: -40px;
   display: inline-block;
   max-width: 100%;
 }
 .textoInfo1 {
+  top: -40px;
+  left: 230px;
   color: var(--color-red);
 }
 .textoInfoParent {
@@ -52,6 +55,9 @@
   max-width: 100%;
 }
 .cornerDecor {
+  color:white;
+  top: -35px;
+  left: 750px;
   height: 35px;
   display: inline-block;
 }

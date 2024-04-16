@@ -20,10 +20,13 @@ const GroupComponent3 = () => {
           <b className={styles.textoInfo}>
             Manipuladora de materiales de ruedas - MH3050
           </b>
+          
         </div>
       </div>
       <div className={styles.textoInfoContainer}>
+        
         <b className={styles.textoInfo1}>DISPONIBLE</b>
+        <b className={styles.backgroundShape}>01-20-2024</b>
       </div>
       <div className={styles.frameWrapper}>
         <button className={styles.frameContainer} onClick={onGroupButtonClick}>
