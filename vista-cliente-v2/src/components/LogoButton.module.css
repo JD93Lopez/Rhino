@@ -138,6 +138,7 @@
   color: var(--color-black);
   text-align: left;
   white-space: nowrap;
+  cursor: pointer;
 }
 .myAccountText {
   flex-direction: column;

@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import FrameComponent1 from "../components/FrameComponent1";
+import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent from "../components/FrameComponent";
 import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +28,7 @@ const HistorialDeCotizaciones = () => {
 
   return (
     <div className={styles.historialDeCotizaciones}>
+      <FrameComponent3/>
       <FrameComponent1
         onBotonLogo6Click={onBotonLogo6Click}
         onBotonProductos6Click={onBotonProductos6Click}
