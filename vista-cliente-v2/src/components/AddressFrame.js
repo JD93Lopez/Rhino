@@ -7,7 +7,7 @@ const AddressFrame = () => {
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
 
-  const [nombreCompleto, setNombreCompleto] = useState("");
+  const [nombre_real, setNombreCompleto] = useState("");
   const [identificacion, setIdentificacion] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -15,7 +15,7 @@ const AddressFrame = () => {
 
   const onBotonGuardarInformacionClick = useCallback(() => {
     const usuario = {
-      nombreCompleto,
+      nombreCompleto: nombre_real,
       identificacion,
       correo,
       telefono,
@@ -24,7 +24,7 @@ const AddressFrame = () => {
     console.log(usuario);
 
     navigate("/ventana-de-informacin-personal");
-  }, [nombreCompleto, identificacion, correo, telefono, direccion, navigate]);
+  }, [nombre_real, identificacion, correo, telefono, direccion, navigate]);
 
   return (
     <div className={styles.addressFrame}>
@@ -38,7 +38,7 @@ const AddressFrame = () => {
             <div className={styles.identificationInputFrame}>
               <b className={styles.nombreCompleto}>{`Nombre Completo: `}</b>
               <div className={styles.telefonoInputFrame}>
-                <input className={styles.inputNombreCompleto} value={nombreCompleto} onChange={(e) => setNombreCompleto(e.target.value)} />
+                <input className={styles.inputNombreCompleto} value={nombre_real} onChange={(e) => setNombreCompleto(e.target.value)} />
               </div>
             </div>
             <div className={styles.identificationInputFrame1}>
