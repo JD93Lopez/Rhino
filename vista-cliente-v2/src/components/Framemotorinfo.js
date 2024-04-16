@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { DataContext } from "./DataProvider";
 import styles from "./Framemotorinfo.module.css";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,10 @@ const Framemotorinfo = () => {
       navigate("/ventana-para-buscar-productos")
     },[navigate])
   }
+
+  const consultarDisponibilidad = useCallback(() => {
+    navigate("/historial-cotizaciones");
+  }, [navigate]);
 
   return (
     <section className={styles.framemotorinfo}>
@@ -60,10 +64,12 @@ const Framemotorinfo = () => {
           </div>
         </div>
         <div className={styles.addcartgroup}>
-          <div className={styles.rectangleParent}>
-            <div className={styles.frameChild} />
-            <b className={styles.agregarAlCarrito}>CONSULTAR DISPONIBILIDAD</b>
-          </div>
+          <button className={styles.rectangleParent} onClick={consultarDisponibilidad}>
+            <div className={styles.rectangleParent}>
+              <div className={styles.frameChild} />
+              <b className={styles.agregarAlCarrito}>CONSULTAR DISPONIBILIDAD</b>
+            </div>
+          </button>
           {/* <div className={styles.rectangleGroup}>
             <div className={styles.frameItem} />
             <b className={styles.consultarPrecio}>CONSULTAR PRECIO</b>

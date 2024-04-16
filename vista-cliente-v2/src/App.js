@@ -18,6 +18,8 @@ import VentanaParaSolcitarUnaCoti from "./pages/VentanaParaSolcitarUnaCoti";
 import VentanaDeEDITARInformacin from "./pages/VentanaDeEDITARInformacin";
 import VentanaDeContraseaYSeguri from "./pages/VentanaDeContraseaYSeguri";
 import VentanaDeAyudaYAsistencia from "./pages/VentanaDeAyudaYAsistencia";
+import VentanaConsultarDisponibilidad from "./pages/VentanaConsultarDisponibilidad";
+import HistorialDeCotizaciones from "./pages/HistorialDeCotizaciones";
 import { DataProvider } from "./components/DataProvider";
 
 
@@ -154,6 +156,14 @@ function App() {
         <Route 
           path="/ventana-inicio-sesion"
           element={<VentanaInicioDeSesin />}
+        />
+        <Route 
+          path="/consultar-disponibilidad"
+          element={<VentanaConsultarDisponibilidad />}
+        />        
+        <Route 
+          path="/historial-cotizaciones"
+          element={<HistorialDeCotizaciones/>}
         />
       </Routes>
     </DataProvider>
