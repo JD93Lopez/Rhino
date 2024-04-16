@@ -72,7 +72,8 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
       case 5:
         if(
           pathname==="/vista-administrador-cotizacion"||
-          pathname==="/vista-administrador-ver-cotizacion"
+          pathname==="/vista-administrador-ver-cotizacion"||
+          pathname==="/vista-administrador-cotizacion-producto"
         ){
           return {textDecoration: "underline"}
         }

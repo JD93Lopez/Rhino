@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import FrameComponent1 from "../components/FrameComponent9";
-import FrameComponent from "../components/FrameComponent8";
+import FrameComponent1 from "../components/FrameComponent1";
+import FrameComponent from "../components/FrameComponent";
 import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -22,9 +22,8 @@ const HistorialDeCotizaciones = () => {
     navigate("/ventana-carrito-de-compras");
   }, [navigate]);
 
-  /*const onGroupButtonClick = useCallback(() => {
-    // Please sync "Ventana Inicio de Sesión" to the project
-  }, []);*/
+  const onGroupButtonClick = useCallback(() => {
+  }, []);
 
   return (
     <div className={styles.historialDeCotizaciones}>
