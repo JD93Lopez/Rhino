@@ -47,7 +47,7 @@ const VistaAdministradorActualizarMant = () => {
   useEffect(() => {
     const selectedMants= dataContext.selectedMant
     if (dataContext.Loaded) {
-      document.getElementById("inputnombreproducto").value = selectedMants[0].nombreMaquinaria;
+      document.getElementById("inputnombreproducto").value = selectedMants[0].nombremaquinaria;
       document.getElementById("inputidentificacion").value = selectedMants[0].identificacion;
       document.getElementById("inputfecha").value = selectedMants[0].fecha;
       document.getElementById("inputdescripcion").value = selectedMants[0].descripcion;

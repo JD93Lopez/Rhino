@@ -81,7 +81,7 @@ export const DataProvider = (props) => {
         //Productos de ejemplo TODO bajar productos de API
         const productos = [  //TODO ESTADO DEL PRODUCTO, TECNOMECANICA, SOAT en back
             {
-                idProductos: "1",
+                idproductos: "1",
                 nombre:"EXCAVADORA DE PRUEBA" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "1",
@@ -95,7 +95,7 @@ export const DataProvider = (props) => {
 
             },
             {
-                idProductos: "2",
+                idproductos: "2",
                 nombre:"CARGADOR FRONTAL DE PRUEBA" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "2",
@@ -108,7 +108,7 @@ export const DataProvider = (props) => {
                 estado: "Ocupado"
             },
             {
-                idProductos: "3",
+                idproductos: "3",
                 nombre:"CARGADOR FRONTAL DE PRUEBita" ,
                 descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 identificacion: "3",
