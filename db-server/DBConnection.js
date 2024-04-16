@@ -192,7 +192,6 @@ const insertarProducto = async (
   tipo_vehiculo,
   estado,
   imagen
-  //TODO ESTADO DEL PRODUCTO
 ) => {
   const pool = new Pool(config);
   try {
@@ -486,6 +485,8 @@ const sqlQueryValues = async (sqlQuery, values) => {
   }
   pool.end();
 };
+
+
 //FIN FUNCIONES CRUD DBCONECTION
 
 const objetoFuncionesLogicaNegocioBD = funcionesLogicaNegocioBD(config)

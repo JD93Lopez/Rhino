@@ -214,6 +214,17 @@ server.get('/dbapi/productosYAgendasDeAlquiler/:idAlquileres', async (req, res) 
         res.json({ DBRes: error });
     }
 });
+//Consultar conductor por cedula
+server.get('/dbapi/conductorPorCedula/:cedula', async (req, res) => {
+    try {
+
+        const cedula = req.params.cedula
+
+        res.json({ DBRes: await funcionesBD.conductorPorCedula( cedula ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 
