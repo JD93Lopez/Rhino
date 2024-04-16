@@ -21,7 +21,7 @@ const Framemotorinfo = () => {
   }
 
   const consultarDisponibilidad = useCallback(() => {
-    navigate("/historial-cotizaciones");
+    navigate("/consultar-disponibilidad");
   }, [navigate]);
 
   return (
