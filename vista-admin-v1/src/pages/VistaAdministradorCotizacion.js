@@ -72,7 +72,7 @@ const VistaAdministradorCotizacion = () => {
           <div className={styles.frontalLoaders}>
             {cotizaciones && cotizaciones.map((cotizacion) => (
               <TarjetaCotizaciones
-                idAlquileres = {cotizacion.idAlquileres}
+                idalquileres = {cotizacion.idalquileres}
                 nombre = {cotizacion.nombre_usuario}
                 correo = {cotizacion.correo}
                 telefono = {cotizacion.telefono}

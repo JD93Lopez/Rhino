@@ -2,7 +2,7 @@ import styles from "./cotizaciones.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TarjetaCotizaciones = ({ idAlquileres, nombre, correo, telefono, estado, fecha }) => {
+const TarjetaCotizaciones = ({ idalquileres, nombre, correo, telefono, estado, fecha }) => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const TarjetaCotizaciones = ({ idAlquileres, nombre, correo, telefono, estado, f
     >
       <div className={styles.info}>
         <div className={styles.infoItem}>
-          <span style={{fontSize: "50px"}}>{facturaOCotizacion()} {idAlquileres} </span>
+          <span style={{fontSize: "50px"}}>{facturaOCotizacion()} {idalquileres} </span>
         </div>
         <div className={styles.infoItem}>
           <span>Nombre: </span>
