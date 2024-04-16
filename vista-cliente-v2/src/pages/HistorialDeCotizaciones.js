@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import FrameComponent1 from "../components/FrameComponent1";
-import FrameComponent from "../components/FrameComponent";
+import FrameComponent1 from "../components/FrameComponent9";
+import FrameComponent from "../components/FrameComponent8";
 import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
 
