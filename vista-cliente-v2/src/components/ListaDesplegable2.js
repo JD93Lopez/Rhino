@@ -30,9 +30,10 @@ function ListaDesplegable2({titulo}){
             case "Ayuda y Asistencia":
                 navigate("/ventana-de-ayuda-y-asistencia")
             break;
-            /*case "Cerrar Sesion":
-            navigate("Ventana-principal-2")
-            break;*/
+            case "Cerrar Sesion":
+                dataContext.usuarioIniciado.iniciado = false;
+            navigate("/ventana-principal-2")
+            break;
             default:
                 ;
         }

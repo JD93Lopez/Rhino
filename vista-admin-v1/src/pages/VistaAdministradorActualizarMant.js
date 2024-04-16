@@ -14,13 +14,13 @@ const VistaAdministradorActualizarMant = () => {
 
   const onSaveButtonClick = () => {
     // Obtener los valores de los campos utilizando useRef
-    const nombreMaquinaria = document.getElementById("inputnombreproducto").value;
+    const nombremaquinaria = document.getElementById("inputnombreproducto").value;
     const identificacion = document.getElementById("inputidentificacion").value;
     const fecha = document.getElementById("inputfecha").value;
     const descripcion = document.getElementById("inputdescripcion").value;
     // Crear el objeto de usuario
     const usuarioInsertar = {
-      nombreMaquinaria,
+      nombremaquinaria,
       identificacion,
       fecha,
       descripcion,

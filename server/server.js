@@ -28,6 +28,10 @@ server.get('/api/saludo/:nombre/:apellido', (req, res) => {
     const apellido = req.params.apellido;
     res.json({ mensaje: `¡Hola, ${nombre} ${apellido}! Bienvenido a nuestra API.` });
 });
+server.get('/api/saludo/:nombre', (req, res) => {
+    const nombre = req.params.nombre;
+    res.json({ mensaje: `¡Hola, ${nombre}! Bienvenido a nuestra API.2` });
+});
 //prueba
 server.get('/api/prueba/:texto', async (req, res) => {
     try {
@@ -46,13 +50,127 @@ server.get('/api/prueba/:texto', async (req, res) => {
 //INICIO FUNCIONES LOGICA NEGOCIO
 
 //1, 2, 3 Agregar Alquiler
-server.get('/api/prueba/:texto', async (req, res) => {
+server.get('/api/123/:alquiler/:nUsuario/:contrasena', async (req, res) => {
+    let bool = false
     try {
-
         //TODO comprobar permisos
-        const texto = req.params.texto
+        const nUsuario = req.params.nUsuario
+        const contrasena = req.params.contrasena
+        let alquiler = req.params.alquiler
+
+        alquiler = JSON.parse(alquiler)
+    
+        const ResIniciarSesion = await iniciarSesion(nUsuario,contrasena)
+        if(ResIniciarSesion&&ResIniciarSesion.usuario&&ResIniciarSesion.usuario.idusuarios){
+
+            const idusuarios = ResIniciarSesion.usuario.idusuarios
+
+            const idalquileres = await Fetch.fetchApi(`clienteAgregarAlquiler1/${idusuarios}`)
+
+            if(alquiler&&alquiler.producto_agendas){
+                
+                const producto_agendas = alquiler.producto_agendas
+
+                for await ( let producto_agenda of producto_agendas ){
+
+                    const idproductos = producto_agenda.idproductos
+                    const idagenda = await Fetch.fetchApi(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)
+
+                    await Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
+
+                }
+                
+                bool = true
+            }
+        }
         
-        res.json({ Res: (await Fetch.fetchApi(`prueba/${texto}`)).DBRes });
+        res.json({ Res: bool });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//3.51 Agregar conductor a agenda (Solo cedula)
+server.get('/api/3_51/:idagenda/:cedula', async (req, res) => {
+    let idconductores = 0
+    try {
+        //TODO comprobar permisos
+        const idagenda = req.params.idagenda
+        const cedula = req.params.cedula
+
+        const ResConductor = (await Fetch.fetchApi(`conductorPorCedula/${cedula}`))
+        if(ResConductor&&ResConductor.DBRes&&ResConductor.DBRes.rows&&ResConductor.DBRes.rows[0]&&ResConductor.DBRes.rows[0].idconductores){
+            idconductores = ResConductor.DBRes.rows[0].idconductores
+            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+        }
+        
+        res.json({ Res: idconductores });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//3.5 3.51 Agregar conductor a agenda (Incluyendo conductor)
+server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono', async (req, res) => {
+    let idconductores = 0
+    try {
+        //TODO comprobar permisos
+        const idagenda = req.params.idagenda
+        const cedula = req.params.cedula
+        const nombre = req.params.nombre
+        const telefono = req.params.telefono
+
+        const ResConductor = (await Fetch.fetchApi(`conductorPorCedula/${cedula}`))
+        if(ResConductor&&ResConductor.DBRes&&ResConductor.DBRes.rows&&ResConductor.DBRes.rows[0]&&ResConductor.DBRes.rows[0].idconductores){
+            idconductores = ResConductor.DBRes.rows[0].idconductores
+            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+        }else{
+            idconductores = await Fetch.fetchApi(`administradorAgregarConductor3_5/${nombre}/${cedula}/${telefono}`)
+            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+        }
+        
+        res.json({ Res: idconductores });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//4 administrador actualizar alquiler tras rellenar campos restantes
+server.get('/api/4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impuestos/:valor_conductores/:gastos_adicionales/:justificacion_ga', async (req, res) => {
+    let bool = false
+    try {
+        //TODO comprobar permisos
+        const idAlquileres = req.params.idAlquileres
+        const subtotal = req.params.subtotal
+        const total = req.params.total
+        const total_descuento = req.params.total_descuento
+        const total_impuestos = req.params.total_impuestos
+        const valor_conductores = req.params.valor_conductores
+        const gastos_adicionales = req.params.gastos_adicionales
+        const justificacion_ga = req.params.justificacion_ga
+
+        await Fetch.fetchApi(`administradorActualizarAlquiler4/${idAlquileres}/${subtotal}/${total}/${total_descuento}/${total_impuestos}/${valor_conductores}/${gastos_adicionales}/${justificacion_ga}`)
+
+        bool = true
+
+        res.json({ Res: bool });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//5 cliente actualizar alquiler al pagar cotizacion
+server.get('/api/5/:idAlquileres', async (req, res) => {
+    let bool = false
+    try {
+        //TODO comprobar permisos
+        const idAlquileres = req.params.idAlquileres
+
+        await Fetch.fetchApi(`clienteActualizarAlquiler5/:idAlquileres`)
+
+        bool = true
+
+        res.json({ Res: bool });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -63,26 +181,36 @@ server.get('/api/prueba/:texto', async (req, res) => {
 
 //INICIO FUNCIONES CRUD
 //Inicio de sesion
-server.get('/api/signin/:usuario/:contrasena', async (req, res) => {
+server.get('/api/signin/:nUsuario/:contrasena', async (req, res) => {
     let bool = false
     try {
-        const usuario = req.params.usuario;
+        const nUsuario = req.params.nUsuario;
         const contrasena = req.params.contrasena;
 
-        //Comprobar usuario y contrasena
-        const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${usuario}`)).DBRes
-        if(dbRes && dbRes.rows && dbRes.rows[0]){
-            const contrasenaReal = dbRes.rows[0].contrasena
-            if(contrasenaReal){
-                bool = (contrasena === contrasenaReal)
-            }
-        }
-
-        res.json({ Res: {usuario: dbRes.rows[0], bool} });
+        res.json({ Res: await iniciarSesion(nUsuario,contrasena) });
     } catch (error) {
         res.json({ Res: {error,bool} });
     }
 });
+
+const iniciarSesion = async (nUsuario,contrasena) => {
+    let bool = false
+    //Comprobar usuario y contrasena
+    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${nUsuario}`)).DBRes
+    if(dbRes && dbRes.rows && dbRes.rows[0]){
+        const contrasenaReal = dbRes.rows[0].contrasena
+        dbRes.rows[0].contrasena = ''
+        if(contrasenaReal){
+            bool = (contrasena === contrasenaReal)
+        }
+    }
+
+    if(!bool){
+        dbRes.rows[0] = {}
+    }
+
+    return {usuario: dbRes.rows[0], bool}
+}
 
 //Verificar permisos de un usuario
 server.get('/api/permiso/:usuario/:contrasena/:tipoUsuario', async (req, res) => {
@@ -411,20 +539,6 @@ server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) 
     }
 });
 
-//Eliminar conductor
-server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) => {
-    try {
-        
-        //TODO comprobar permisos
-
-        const id = req.params.id;
-        await Fetch.fetchApi(`delete/conductores/${id}`)
-
-        res.json({ Res: true });
-    } catch (error) {
-        res.json({ Res: error });
-    }
-});
 //FIN FUNCIONES CRUD
 
 

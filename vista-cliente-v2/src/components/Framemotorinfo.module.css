@@ -76,6 +76,7 @@
 .agregarAlCarrito {
   position: relative;
   z-index: 1;
+  font-size: large;
 }
 .frameItem,
 .rectangleParent {

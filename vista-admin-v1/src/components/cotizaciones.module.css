@@ -1,5 +1,5 @@
 /* Proyecto1.module.css ajustes para TarjetaCotizaciones */
-.tarjetaCotizacion {
+.tarjetaCotizacion, .productos1 {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -14,14 +14,14 @@
   flex-direction: column;
 }
 
-.infoItem {
+.infoItem, .cargadoresFrontales {
   margin-bottom: 10px;
 }
 
-.infoItem span:first-child {
+.infoItem, .cargadoresFrontales span:first-child {
   font-weight: bold;
 }
-.tarjetaCotizacion {
+.tarjetaCotizacion, .productos1 {
   /* Estilos base de la tarjeta */
   background-color: #f0f0f0;
   padding: 16px;

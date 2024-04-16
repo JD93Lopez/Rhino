@@ -4,10 +4,10 @@ import GroupComponent from "../components/GroupComponent3";
 import FrameComponent2 from "../components/FrameComponent10";
 import styles from "./VentanaConsultarDisponibilidad.module.css";
 
-const VentanaConsultarDisponibilid = () => {
+const VentanaConsultarDisponibilidad = () => {
   return (
     <div className={styles.ventanaConsultarDisponibilid}>
-      <FrameComponent11 />
+      <FrameComponent3 />
       <section className={styles.ventanaConsultarDisponibilidInner}>
         <div className={styles.frameParent}>
           <GroupComponent3 />
@@ -25,4 +25,4 @@ const VentanaConsultarDisponibilid = () => {
   );
 };
 
-export default VentanaConsultarDisponibilid;
+export default VentanaConsultarDisponibilidad;

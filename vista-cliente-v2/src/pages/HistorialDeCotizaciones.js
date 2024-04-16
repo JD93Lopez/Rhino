@@ -2,8 +2,10 @@ import { useCallback } from "react";
 import FrameComponent1 from "../components/FrameComponent9";
 import FrameComponent from "../components/FrameComponent8";
 import styles from "./HistorialDeCotizaciones.module.css";
+import { useNavigate } from "react-router-dom";
 
 const HistorialDeCotizaciones = () => {
+  const navigate = useNavigate()
   const onBotonLogo6Click = useCallback(() => {
     navigate("/ventana-principal-2")
   }, [navigate]);
