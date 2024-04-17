@@ -2,7 +2,7 @@
   width: 100%;
   border: 0;
   outline: 0;
-  background-color: var(--color-gray-100);
+  background-color: #1A1A1A;
   align-self: stretch;
   height: 89px;
   overflow: hidden;
@@ -123,7 +123,7 @@
   align-items: flex-start;
 }
 .gearIcon {
-  background-color: var(--color-gray-100);
+  background-color: #1A1A1A;
   overflow: hidden;
   flex-direction: row;
   justify-content: space-between;
@@ -136,6 +136,7 @@
   font-family: var(--font-jura);
 }
 .frameParent {
+  margin-top: 201px;/*Se utiliza para mover verticalmente el componente todo lo que se necesite*/
   flex-direction: column;
   justify-content: flex-start;
 }
