@@ -96,6 +96,7 @@
   min-height: 54px;
 }
 .infoCellularTextAndPhoneBParent {
+  margin-top: 2%;
   align-self: stretch;
   background-color: var(--color-gray-400);
   overflow: hidden;
