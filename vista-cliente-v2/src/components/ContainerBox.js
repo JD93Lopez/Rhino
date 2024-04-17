@@ -8,7 +8,6 @@ const ContainerBox = () => {
         alt=""
         src="/power-capacity-efficiency@2x.png"
       />
-      <h1 className={styles.rendimiento}>RENDIMIENTO</h1>
       <div className={styles.powerFrame}>
         <div className={styles.wheelLoaderFrame}>
           <div className={styles.infoButtonFrame}>
