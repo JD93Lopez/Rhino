@@ -71,17 +71,14 @@ const HistorialDeCotizaciones = () => {
                       <div className={styles.textoInfoContainer}>
                         <b className={styles.textoInfo1}>Manipuladora de materiales de ruedas - MH3050</b>
                       </div>
-                    </div>
+                    </div>  
                       <b className={styles.textoInfo2}>CONDUCTORES:</b>
                             <b className={styles.textoInfo3}>OTROS GASTOS:</b>
                   </div>
                   <div className={styles.frameWrapper1}>
-                
-                      <div className={styles.textoInfoWrapper1}>
-                        <b className={styles.textoInfo3}>5.000.000</b>
-                      </div>
+                        <b className={styles.textoInfoDinero}>5.000.000</b>
                       <b className={styles.textoInfo4}>1.000.000 (2)</b>
-                      <b className={styles.textoInfo3}>si JAJAJAJJAJ</b>
+                      <b className={styles.textoInfoDescrip}>Envió fuera de la ciudad</b>
                   </div>
                 </div>
               </div>
@@ -91,7 +88,8 @@ const HistorialDeCotizaciones = () => {
                   <div className={styles.historicInfo}>
                     <div className={styles.cotizacionLabel}>
                       <b className={styles.textoInfo5}>VALOR TOTAL:</b>
-                      <b className={styles.textoInfo6}>6.000.000</b>
+                      <b className={styles.textoInfo6}>26.000.000</b>
+                      <b className={styles.textoDinero}>20.000.000</b>
                     </div>
                   </div>
                 </div>

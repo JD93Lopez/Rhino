@@ -115,7 +115,32 @@
   display: none;
 }
 
+.textoInfoDescrip{/*texto para la descricion de otros gastos*/
+  color: white;
+  position: absolute;
+  top: 532px;
+  left: 800px;
+  z-index: 9999;
+}
+
+.textoInfoDinero{/*Texto para el precio de alquiler de la maquina o vehiculo*/
+  color:white;
+  position: absolute;
+  left: 1475px;
+  top: 395px;
+  z-index: 9999;
+}
+
+.textoDinero{
+  color:white;
+  position: absolute;
+  left: 1475px;
+  top: 535px;
+  z-index: 9999;
+}
+
 .textoInfo {
+  top: -9px;
   left: -15px;
   position: relative;
   display: inline-block;
@@ -128,7 +153,7 @@
   }
 
 .textoInfo2{/*texto conductores*/
-top: -80px;
+top: -85px;
 left: 250px;
 }
 
@@ -138,7 +163,7 @@ left: 250px;
 }
 
 .textoInfo4{
-  top: -80px;
+  top: -120px;
   left: 500px;
 }
 
