@@ -260,7 +260,7 @@ server.get('/api/productosPorModelo/:modelo/:fecha_inicio/:fecha_fin', async (re
             let disponible = true
             const agendas = (await Fetch.fetchApi(`agendasPorProducto/${producto.idproductos}`)).DBRes
             for (let agenda of agendas){
-                if(!DisponibilidadProducto(req.params,agenda)){
+                if(!DisponibilidadProducto(agenda,req.params)){
                     disponible = false
                 }
             }
@@ -281,17 +281,19 @@ function DisponibilidadProducto(intervalo01, intervalo02) {
     const fin = new Date(intervalo01.fecha_fin);
     const inicioBusqueda = new Date(intervalo02.fecha_inicio);
     const finBusqueda = new Date(intervalo02.fecha_fin);
-    for (
-        let date = inicioBusqueda;
-        date <= finBusqueda;
-        date.setDate(date.getDate() + 1)
-    ) {
-        if (date >= inicio && date <= fin) {
-        return false;
-        }
-    }
-    return true;
+
+    inicio.setHours(-5, 0, 0, 0)
+    fin.setHours(-5, 0, 0, 0)
+
+    // Verificar si los intervalos se solapan
+    const seSolapan =
+        (inicioBusqueda <= fin && fin <= finBusqueda) ||
+        (inicioBusqueda <= inicio && inicio <= finBusqueda) ||
+        (inicio <= inicioBusqueda && fin >= finBusqueda);
+
+    return !seSolapan;
 }
+
 
 //FIN FUNCIONES OBTENER
 
