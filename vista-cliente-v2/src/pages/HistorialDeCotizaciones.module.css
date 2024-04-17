@@ -114,12 +114,34 @@
   position: relative;
   display: none;
 }
+
 .textoInfo {
+  left: -15px;
   position: relative;
   display: inline-block;
   min-width: 89px;
   z-index: 1;
 }
+
+.textoInfo1{
+  top: 0px;
+  }
+
+.textoInfo2{/*texto conductores*/
+top: -80px;
+left: 250px;
+}
+
+.textoInfo3{/*texto otros gastos*/
+  top: -20px;
+  left: 250px;
+}
+
+.textoInfo4{
+  top: -80px;
+  left: 500px;
+}
+
 .textoInfoWrapper {
   display: flex;
   flex-direction: row;
@@ -128,6 +150,7 @@
   padding: 0 var(--padding-32xl);
 }
 .imagenMaquinaCarrito {
+  top: -35px;
   height: 130px;
   width: 215px;
   border-radius: var(--br-7xs);
