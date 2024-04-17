@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import FrameComponent3 from "../components/FrameComponent3";
-import GroupComponent3 from "../components/TarjetaProductoDisponibilidad";
+import TarjetaProductoDisponibilidad from "../components/TarjetaProductoDisponibilidad";
 import GroupComponent2 from "../components/GroupComponent2";
 import FrameComponent10 from "../components/FrameComponent10";
 import styles from "./VentanaConsultarDisponibilidad.module.css";
@@ -27,9 +27,20 @@ const VentanaConsultarDisponibilidad = () => {
   let productos = []
 
   if(fechaInicio!=""&&fechaFinal!=""){
-    //productos = 14 consultar con api que verifica disponibilidad antes de devolver los productos
+    //TODO productos = consultar con api que verifica disponibilidad antes de devolver los productos
   }else{
-    //productos = 13 consultar solo con el modelo 13
+    //TODO productos = consultar solo con el modelo 
+    productos = [
+      {
+        nombre: "Grua manipuladora de metales",
+        identificacion: "MH5045",
+        imagen: "/materiales-sin-fondo-2@2x.png",
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam justo sit amet ultricies vestibulum. Aenean quis sem finibus, laoreet sapien id, ullamcorper tellus. In hac habitasse platea dictumst. Donec a odio sit amet dolor tristique dictum quis mattis diam. In in ornare elit. Proin viverra fringilla vestibulum. Pellentesque ipsum ipsum, lacinia sed consequat a, interdum ac lorem. Morbi eu neque at sem convallis commodo. Proin lobortis vitae orci in consequat. Vestibulum et nunc tortor. Cras sed ante volutpat, efficitur magna non, commodo libero. Nulla porta quam quis tortor molestie molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+        categorias: ["maquinaria1","maquinaria2"],
+        precio_alquiler: "120.000",
+        modelo: "modelo"
+      }
+    ]
   }
 
   if(!product){
@@ -40,55 +51,61 @@ const VentanaConsultarDisponibilidad = () => {
   }
 
   return (
-    <div className={styles.ventanaConsultarDisponibilid}>
+    <div style={{backgroundColor:"black"}}>
       <FrameComponent3 />
+      <b className={styles.LugarDestino} style={{fontSize:"50px",zIndex:"3"}}>&nbsp;&nbsp;Consultar disponibilidad:</b>
+      <div className={styles.ventanaConsultarDisponibilid}>
 
-      <b className={styles.LugarDestino}>Lugar de Destino</b>
-      <input
-        type="text"
-        className={styles.InputLugarDestino}
-        placeholder=" Lugar..."
-        value={lugarDestino}
-        onChange={(e) => setLugarDestino(e.target.value)}
-      />
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
+        <b className={styles.LugarDestino}>Lugar de Destino</b>
+        <input
+          type="text"
+          className={styles.InputLugarDestino}
+          placeholder=" Lugar..."
+          value={lugarDestino}
+          onChange={(e) => setLugarDestino(e.target.value)}
+        />
 
-      <b className={styles.LugarOrigen}>Lugar de Origen</b>
-      <input
-        type="text"
-        className={styles.InputLugarOrigen}
-        placeholder=" Lugar..."
-        value={lugarOrigen}
-        onChange={(e) => setLugarOrigen(e.target.value)}
-      />
+        <b className={styles.LugarOrigen}>Lugar de Origen</b>
+        <input
+          type="text"
+          className={styles.InputLugarOrigen}
+          placeholder=" Lugar..."
+          value={lugarOrigen}
+          onChange={(e) => setLugarOrigen(e.target.value)}
+        />
 
-      <div className={styles.FechaInicio}>Fecha de Inicio</div>
-      <input
-        className={styles.inputFechaInicio}
-        type="date"
-        value={fechaInicio}
-        onChange={(e) => {setFechaInicio(e.target.value)}}
-      />
+        <div className={styles.FechaInicio}>Fecha de Inicio</div>
+        <input
+          className={styles.inputFechaInicio}
+          type="date"
+          value={fechaInicio}
+          onChange={(e) => {setFechaInicio(e.target.value)}}
+        />
 
-      <div className={styles.FechaFinal}>Fecha de Culminación</div>
-      <input
-        className={styles.inputFechaFinal}
-        type="date"
-        value={fechaFinal}
-        onChange={(e) => {setFechaFinal(e.target.value)}}
-      />
+        <div className={styles.FechaFinal}>Fecha de Culminación</div>
+        <input
+          className={styles.inputFechaFinal}
+          type="date"
+          value={fechaFinal}
+          onChange={(e) => {setFechaFinal(e.target.value)}}
+        />
 
-      <section className={styles.ventanaConsultarDisponibilidInner}>
-        <div className={styles.frameParent}>
-          {productos.map(producto=> {
-            return<GroupComponent3 
-          nombre = {producto.nombre}
-          identificacion={producto.identificacion}
-          precio_alquiler={producto.precio_alquiler}
-          />
-          })}
-        </div>
-      </section>
-      <FrameComponent10 />
+        <section className={styles.ventanaConsultarDisponibilidInner}>
+          <div className={styles.frameParent}>
+            {productos.map(producto=> {
+              return<TarjetaProductoDisponibilidad 
+                nombre = {producto.nombre}
+                identificacion={producto.identificacion}
+                precio_alquiler={producto.precio_alquiler}
+                object = {producto}
+              />
+            })}
+          </div>
+        </section>
+        <FrameComponent10 />
+      </div>
     </div>
   );
 };

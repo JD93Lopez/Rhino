@@ -15,7 +15,6 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
-
 //INICIO FUNCIONES PRUEBA
 // Rutas prueba
 server.get('/', (req, res) => {

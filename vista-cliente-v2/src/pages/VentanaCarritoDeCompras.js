@@ -9,7 +9,15 @@ import styles from "./VentanaCarritoDeCompras.module.css";
 const VentanaCarritoDeCompras = () => {
   const navigate = useNavigate();
 
+  let productosCarrito
 
+  if(localStorage.getItem("productosCarrito")!=""){
+    productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+  }
+
+  const solicitarCotizacion = () =>{
+    localStorage.setItem("productosCarrito","")
+  }
 
   return (
     <div className={styles.ventanaCarritoDeCompras}>
@@ -41,6 +49,7 @@ const VentanaCarritoDeCompras = () => {
                   <div className={styles.yTButtonChild} />
                   <div
                     className={styles.botonConsultarPrecio}
+                    onClick={solicitarCotizacion}
                   >
                     <b className={styles.consultarPrecio}>SOLICITAR COTIZACION</b>
                   </div>
@@ -63,7 +72,18 @@ const VentanaCarritoDeCompras = () => {
           <div className={styles.productsFrame}>
             <div className={styles.logoButton} />
           </div>
-          <TarjetaProductoCarrito
+          {productosCarrito&&productosCarrito.map((producto)=>{
+            return <TarjetaProductoCarrito
+              imagen={producto.imagen}
+              nombre={producto.nombre}
+              identificacion={producto.identificacion}
+              fecha_inicio={producto.fecha_inicio}
+              fecha_fin={producto.fecha_fin}
+              marca={producto.marca}
+              modelo={producto.modelo}
+            />  
+          })}
+          {/* <TarjetaProductoCarrito
             imagen={"/imagen-maquina-carrito@2x.png"}
             nombre={"Manipuladora de materiales de ruedas"}
             identificacion={"AAA111"}
@@ -71,23 +91,7 @@ const VentanaCarritoDeCompras = () => {
             fecha_fin={"2024-04-17"}
             marca={"CAT"}
             modelo={"MH3050"}
-          />          <TarjetaProductoCarrito
-          imagen={"/imagen-maquina-carrito@2x.png"}
-          nombre={"Manipuladora de materiales de ruedas"}
-          identificacion={"AAA111"}
-          fecha_inicio={"2024-04-16"}
-          fecha_fin={"2024-04-17"}
-          marca={"CAT"}
-          modelo={"MH3050"}
-        />          <TarjetaProductoCarrito
-        imagen={"/imagen-maquina-carrito@2x.png"}
-        nombre={"Manipuladora de materiales de ruedas"}
-        identificacion={"AAA111"}
-        fecha_inicio={"2024-04-16"}
-        fecha_fin={"2024-04-17"}
-        marca={"CAT"}
-        modelo={"MH3050"}
-      />
+          /> */}
         </div>
       </section>
       <ContactDetailsFrame />

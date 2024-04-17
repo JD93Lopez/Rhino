@@ -46,7 +46,7 @@ export const TarjetaProducto = ({nombre, imagen, object}) => {
                     <div className={styles.productBox}>
                     <div className={styles.detallesFrame}>
                         <div className={styles.nombreMaquina}>
-                        <p className={styles.manipuladoraDe} style={{ color: "white", fontSize: " 30px " }}>{nombre}</p>
+                        <p className={styles.manipuladoraDe} style={{ color: "white", fontSize: " 30px " }}>{nombre} - {object.modelo}</p>
                         </div>
                     </div>
                     <button

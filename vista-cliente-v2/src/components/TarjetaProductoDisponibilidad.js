@@ -1,10 +1,35 @@
-import { useCallback } from "react";
+import { useCallback, useContext, useState } from "react";
 import styles from "./GroupComponent3.module.css";
+import { useNavigate } from "react-router-dom";
+import { DataContext } from "./DataProvider";
 
-const GroupComponent3 = ({nombre, identificacion, modelo, precio_alquiler}) => {
-  const onGroupButtonClick = useCallback(() => {
-    // Please sync "Ventana carrito de compras" to the project
-  }, []);
+const TarjetaProductoDisponibilidad = ({nombre, identificacion, precio_alquiler, object}) => {
+
+  // const dataContext = useContext(DataContext)
+  const [clicked,setClicked] = useState(false)
+
+  const navigate = useNavigate()
+  const agregarAlCarrito = () => {
+    if(!clicked){
+      setClicked(true)
+      // if(!dataContext.productosCarrito){
+      //   dataContext.productosCarrito = []
+      // }
+      // dataContext.productosCarrito.push(object)
+      
+      let productosCarrito
+      if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!=""){
+        productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+      }
+      if(!productosCarrito){
+        productosCarrito = []
+      }
+
+      productosCarrito.push(object)
+
+      localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
+    }
+  }
 
   return (
     <div className={styles.rectangleParent}>
@@ -28,7 +53,7 @@ const GroupComponent3 = ({nombre, identificacion, modelo, precio_alquiler}) => {
         <b className={styles.backgroundShape}>{precio_alquiler}</b>
       </div>
       <div className={styles.frameWrapper}>
-        <button className={styles.frameContainer} onClick={onGroupButtonClick}>
+        <button className={styles.frameContainer} onClick={agregarAlCarrito}>
           <div className={styles.frameParent}>
             <div className={styles.rectangleWrapper}>
               <div className={styles.frameItem} />
@@ -36,7 +61,7 @@ const GroupComponent3 = ({nombre, identificacion, modelo, precio_alquiler}) => {
             <img
               className={styles.anadirAlCarrito1Icon}
               alt=""
-              src="/anadiralcarrito-1@2x.png"
+              src={!clicked?"/anadiralcarrito-1@2x.png":"/bright-green-tick-checkmark-icon-free-png (1).png"}
             />
           </div>
         </button>
@@ -45,4 +70,4 @@ const GroupComponent3 = ({nombre, identificacion, modelo, precio_alquiler}) => {
   );
 };
 
-export default GroupComponent3;
+export default TarjetaProductoDisponibilidad;

@@ -47,7 +47,7 @@ function ListaDesplegable2({titulo}){
                     ...baseStyles,
                     borderColor: state.isFocused ? 'rgb(100,100,255,0.5)' : 'black',
                     backgroundColor: "var(--color-sandybrown-100)",
-                    borderWidth: "2px"
+                    borderWidth: "2px",
                   })}}
                 placeholder={titulo}
                 closeMenuOnSelect={false}
