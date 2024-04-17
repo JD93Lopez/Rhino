@@ -58,7 +58,7 @@
   font-size: var(--font-size-11xl);
   color: var(--color-white);
   min-width: 250px;
-  z-index: 1;
+  z-index: 999;
 }
 .contactDetailsFrame {
   flex-direction: column;

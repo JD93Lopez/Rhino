@@ -5,11 +5,7 @@ const FrameComponent10 = () => {
   return (
     <section className={styles.frameParent}>
       <CallToAction />
-      <input
-        className={styles.frameChild}
-        placeholder="atencionAlCliente@rhino.com"
-        type="text"
-      />
+      <div className={styles.frameChild}>atencionAlCliente@rhino.com</div>
       <footer className={styles.gearIcon}>
         <div className={styles.textoCelularWrapper}>
           <div className={styles.textoCelular}>
