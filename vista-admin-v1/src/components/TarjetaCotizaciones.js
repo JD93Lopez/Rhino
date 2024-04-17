@@ -1,13 +1,17 @@
 import styles from "./cotizaciones.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "./DataProvider";
 
-const TarjetaCotizaciones = ({ idalquileres, nombre, correo, telefono, estado, fecha }) => {
+
+const TarjetaCotizaciones = ({ object, idalquileres, nombre, correo, telefono, estado, fecha }) => {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
-
+  const dataContext = useContext(DataContext)
   const handleCardClick = () => {
-    setIsSelected(!isSelected);
+
+    dataContext.cotizacionSeleccionada = object
+    
     // Redirigir a otra página cuando se hace clic en la tarjeta
     navigate("/vista-administrador-ver-cotizacion");
   };
