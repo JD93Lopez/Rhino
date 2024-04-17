@@ -154,6 +154,7 @@ export const DataProvider = (props) => {
                 correo: "example@example.com",
                 telefono: "500",
                 estado: "EN_ESPERA",
+                precioproductos:"200",
                 fecha: "2024-04-13"
             },{
                 idalquileres: "2",
@@ -161,6 +162,7 @@ export const DataProvider = (props) => {
                 correo: "example@example.com",
                 telefono: "500",
                 estado: "EN_ESPERA",
+                precioproductos:"200",
                 fecha: "2024-04-13"
             },{
                 idalquileres: "3",
@@ -168,6 +170,7 @@ export const DataProvider = (props) => {
                 correo: "example@example.com",
                 telefono: "500",
                 estado: "ALQUILADO",
+                precioproductos:"200",
                 fecha: "2024-04-13"
             },
         ]
@@ -192,6 +195,8 @@ export const DataProvider = (props) => {
         }
 
         usuarios.usuarioIniciado = usuarioIniciado
+
+        const cotizacionSeleccionada = []
 
         setData({
             usuarios,
