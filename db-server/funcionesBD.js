@@ -226,6 +226,19 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //Consultar agendas con el id de un producto
+  funciones.agendasPorProducto  = async ( idproductos ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT a.* FROM AGENDAS a, PRODUCTOS_has_ALQUILERES pha WHERE pha.PRODUCTOS_idproductos = $1 AND pha.AGENDAS_idagenda = a.idagenda", 
+      [idproductos]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
 
   
   return funciones

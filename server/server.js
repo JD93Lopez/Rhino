@@ -242,7 +242,7 @@ server.get('/api/productosPorModelo/:modelo', async (req, res) => {
         //TODO comprobar permisos
         const modelo = req.params.modelo
 
-        res.json({ Res: (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes.rows });
+        res.json({ Res: (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -253,15 +253,45 @@ server.get('/api/productosPorModelo/:modelo/:fecha_inicio/:fecha_fin', async (re
         //TODO comprobar permisos
         const modelo = req.params.modelo
 
-        let productos = (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes.rows
+        let productosDisponibles = []
+
+        let productos = (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes
+        for await (let producto of productos){
+            let disponible = true
+            const agendas = (await Fetch.fetchApi(`agendasPorProducto/${producto.idproductos}`)).DBRes
+            for (let agenda of agendas){
+                if(!DisponibilidadProducto(req.params,agenda)){
+                    disponible = false
+                }
+            }
+            if(disponible){
+                productosDisponibles.push(producto)
+            }
+        }
 
         //TODO filtrar con fechas de disponibilidad recibidas contra las fechas de las agendas del producto
 
-        res.json({ Res: productos });
+        res.json({ Res: productosDisponibles });
     } catch (error) {
         res.json({ Res: error });
     }
 });
+function DisponibilidadProducto(intervalo01, intervalo02) {
+    const inicio = new Date(intervalo01.fecha_inicio);
+    const fin = new Date(intervalo01.fecha_fin);
+    const inicioBusqueda = new Date(intervalo02.fecha_inicio);
+    const finBusqueda = new Date(intervalo02.fecha_fin);
+    for (
+        let date = inicioBusqueda;
+        date <= finBusqueda;
+        date.setDate(date.getDate() + 1)
+    ) {
+        if (date >= inicio && date <= fin) {
+        return false;
+        }
+    }
+    return true;
+}
 
 //FIN FUNCIONES OBTENER
 

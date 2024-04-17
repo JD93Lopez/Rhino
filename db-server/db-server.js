@@ -232,7 +232,18 @@ server.get('/dbapi/productosPorModelo/:modelo', async (req, res) => {
 
         const modelo = req.params.modelo
 
-        res.json({ DBRes: await funcionesBD.productosPorModelo( modelo ) });
+        res.json({ DBRes: (await funcionesBD.productosPorModelo( modelo )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Consultar agendas de un producto
+server.get('/dbapi/agendasPorProducto/:idproductos', async (req, res) => {
+    try {
+
+        const idproductos = req.params.idproductos
+
+        res.json({ DBRes: (await funcionesBD.agendasPorProducto( idproductos )).rows });
     } catch (error) {
         res.json({ DBRes: error });
     }
