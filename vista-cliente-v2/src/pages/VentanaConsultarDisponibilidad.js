@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FrameComponent3 from "../components/FrameComponent3";
 import GroupComponent3 from "../components/TarjetaProductoDisponibilidad";
 import GroupComponent2 from "../components/GroupComponent2";
 import FrameComponent10 from "../components/FrameComponent10";
 import styles from "./VentanaConsultarDisponibilidad.module.css";
 import { DataContext } from "../components/DataProvider";
+import { useNavigate } from "react-router-dom";
 
 const VentanaConsultarDisponibilidad = () => {
+
   const dataContext = useContext(DataContext);
-  const { Loaded, productos: productosContext} = dataContext;
-  if (!Loaded) {
+  if (!dataContext.Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
   const [lugarDestino, setLugarDestino] = useState("");
@@ -17,12 +18,26 @@ const VentanaConsultarDisponibilidad = () => {
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFinal, setFechaFinal] = useState("");
 
-  const [productos, setProductos] = useState([]);
+  const navigate = useNavigate()
+  
+  let product = {}
+  
+  product = dataContext.productoSeleccionadoParaDetalles
 
-    console.log("Lugar de Destino:", lugarDestino);
-    console.log("Lugar de Origen:", lugarOrigen);
-    console.log("Fecha de Inicio:", fechaInicio);
-    console.log("Fecha de Culminación:", fechaFinal);
+  let productos = []
+
+  if(fechaInicio!=""&&fechaFinal!=""){
+    //productos = 14 consultar con api que verifica disponibilidad antes de devolver los productos
+  }else{
+    //productos = 13 consultar solo con el modelo 13
+  }
+
+  if(!product){
+    product={}
+    useEffect(()=>{
+      navigate("/ventana-para-buscar-productos")
+    },[navigate])
+  }
 
   return (
     <div className={styles.ventanaConsultarDisponibilid}>
@@ -51,7 +66,7 @@ const VentanaConsultarDisponibilidad = () => {
         className={styles.inputFechaInicio}
         type="date"
         value={fechaInicio}
-        onChange={(e) => setFechaInicio(e.target.value)}
+        onChange={(e) => {setFechaInicio(e.target.value)}}
       />
 
       <div className={styles.FechaFinal}>Fecha de Culminación</div>
@@ -59,12 +74,12 @@ const VentanaConsultarDisponibilidad = () => {
         className={styles.inputFechaFinal}
         type="date"
         value={fechaFinal}
-        onChange={(e) => setFechaFinal(e.target.value)}
+        onChange={(e) => {setFechaFinal(e.target.value)}}
       />
 
       <section className={styles.ventanaConsultarDisponibilidInner}>
         <div className={styles.frameParent}>
-          {productosContext.map(producto=> {
+          {productos.map(producto=> {
             return<GroupComponent3 
           nombre = {producto.nombre}
           identificacion={producto.identificacion}

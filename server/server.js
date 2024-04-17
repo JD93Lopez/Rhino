@@ -47,9 +47,66 @@ server.get('/api/prueba/:texto', async (req, res) => {
 });
 //FIN FUNCIONES PRUEBA
 
-
 //INICIO FUNCIONES LOGICA NEGOCIO
+//Inicio de sesion
+server.get('/api/signin/:nUsuario/:contrasena', async (req, res) => {
+    let bool = false
+    try {
+        const nUsuario = req.params.nUsuario;
+        const contrasena = req.params.contrasena;
 
+        res.json({ Res: await iniciarSesion(nUsuario,contrasena) });
+    } catch (error) {
+        res.json({ Res: {error,bool} });
+    }
+});
+const iniciarSesion = async (nUsuario,contrasena) => {
+    let bool = false
+    //Comprobar usuario y contrasena
+    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${nUsuario}`)).DBRes
+    if(dbRes && dbRes.rows && dbRes.rows[0]){
+        const contrasenaReal = dbRes.rows[0].contrasena
+        dbRes.rows[0].contrasena = ''
+        if(contrasenaReal){
+            bool = (contrasena === contrasenaReal)
+        }
+    }
+
+    if(!bool){
+        dbRes.rows[0] = {}
+    }
+
+    return {usuario: dbRes.rows[0], bool}
+}
+
+//Verificar permisos de un usuario
+server.get('/api/permiso/:usuario/:contrasena/:tipoUsuario', async (req, res) => {
+    try {
+        
+        const usuario = req.params.usuario
+        const contrasena = req.params.contrasena
+        const tipoUsuario = req.params.tipoUsuario
+
+        res.json({ Res: await comprobarPermisos(usuario,contrasena,tipoUsuario) });
+
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+const comprobarPermisos = async (usuario,contrasena,tiposUsuarioPermitido) => {
+    let res = false
+
+    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${usuario}`)).DBRes
+    if(dbRes && dbRes.rows && dbRes.rows[0]){
+        if(dbRes.rows[0].contrasena === contrasena){
+            if( tiposUsuarioPermitido.includes(dbRes.rows[0].tipo_usuario) ){
+                res = true
+            }
+        }
+    }
+
+    return res
+}
 //1, 2, 3 Agregar Alquiler
 server.get('/api/123/:alquiler/:nUsuario/:contrasena', async (req, res) => {
     let bool = false
@@ -90,9 +147,8 @@ server.get('/api/123/:alquiler/:nUsuario/:contrasena', async (req, res) => {
         res.json({ Res: error });
     }
 });
-
 //3.51 Agregar conductor a agenda (Solo cedula)
-server.get('/api/3_51/:idagenda/:cedula', async (req, res) => {
+server.get('/api/3_51/:idagenda/:cedula/:nUsuario/:contrasena', async (req, res) => {
     let idconductores = 0
     try {
         //TODO comprobar permisos
@@ -110,9 +166,8 @@ server.get('/api/3_51/:idagenda/:cedula', async (req, res) => {
         res.json({ Res: error });
     }
 });
-
 //3.5 3.51 Agregar conductor a agenda (Incluyendo conductor)
-server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono', async (req, res) => {
+server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono/:nUsuario/:contrasena', async (req, res) => {
     let idconductores = 0
     try {
         //TODO comprobar permisos
@@ -135,9 +190,8 @@ server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono', async (req, res) 
         res.json({ Res: error });
     }
 });
-
 //4 administrador actualizar alquiler tras rellenar campos restantes
-server.get('/api/4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impuestos/:valor_conductores/:gastos_adicionales/:justificacion_ga', async (req, res) => {
+server.get('/api/4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impuestos/:valor_conductores/:gastos_adicionales/:justificacion_ga/:nUsuario/:contrasena', async (req, res) => {
     let bool = false
     try {
         //TODO comprobar permisos
@@ -159,15 +213,14 @@ server.get('/api/4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impues
         res.json({ Res: error });
     }
 });
-
 //5 cliente actualizar alquiler al pagar cotizacion
-server.get('/api/5/:idAlquileres', async (req, res) => {
+server.get('/api/5/:idAlquileres/:nUsuario/:contrasena', async (req, res) => {
     let bool = false
     try {
         //TODO comprobar permisos
         const idAlquileres = req.params.idAlquileres
 
-        await Fetch.fetchApi(`clienteActualizarAlquiler5/:idAlquileres`)
+        await Fetch.fetchApi(`clienteActualizarAlquiler5/${idAlquileres}`)
 
         bool = true
 
@@ -177,71 +230,42 @@ server.get('/api/5/:idAlquileres', async (req, res) => {
     }
 });
 
+
+
 //FIN FUNCIONES LOGICA NEGOCIO
 
+//INICIO FUNCIONES OBTENER
 
-//INICIO FUNCIONES CRUD
-//Inicio de sesion
-server.get('/api/signin/:nUsuario/:contrasena', async (req, res) => {
-    let bool = false
+//Consultar todos los productos que coincidan con el modelo seleccionado
+server.get('/api/productosPorModelo/:modelo', async (req, res) => {
     try {
-        const nUsuario = req.params.nUsuario;
-        const contrasena = req.params.contrasena;
+        //TODO comprobar permisos
+        const modelo = req.params.modelo
 
-        res.json({ Res: await iniciarSesion(nUsuario,contrasena) });
+        res.json({ Res: (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes.rows });
     } catch (error) {
-        res.json({ Res: {error,bool} });
+        res.json({ Res: error });
     }
 });
-
-const iniciarSesion = async (nUsuario,contrasena) => {
-    let bool = false
-    //Comprobar usuario y contrasena
-    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${nUsuario}`)).DBRes
-    if(dbRes && dbRes.rows && dbRes.rows[0]){
-        const contrasenaReal = dbRes.rows[0].contrasena
-        dbRes.rows[0].contrasena = ''
-        if(contrasenaReal){
-            bool = (contrasena === contrasenaReal)
-        }
-    }
-
-    if(!bool){
-        dbRes.rows[0] = {}
-    }
-
-    return {usuario: dbRes.rows[0], bool}
-}
-
-//Verificar permisos de un usuario
-server.get('/api/permiso/:usuario/:contrasena/:tipoUsuario', async (req, res) => {
+//Verificar disponibilidad antes de devolver los productos del modelo consultado
+server.get('/api/productosPorModelo/:modelo/:fecha_inicio/:fecha_fin', async (req, res) => {
     try {
-        
-        const usuario = req.params.usuario
-        const contrasena = req.params.contrasena
-        const tipoUsuario = req.params.tipoUsuario
+        //TODO comprobar permisos
+        const modelo = req.params.modelo
 
-        res.json({ Res: await comprobarPermisos(usuario,contrasena,tipoUsuario) });
+        let productos = (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes.rows
 
+        //TODO filtrar con fechas de disponibilidad recibidas contra las fechas de las agendas del producto
+
+        res.json({ Res: productos });
     } catch (error) {
         res.json({ Res: error });
     }
 });
 
-const comprobarPermisos = async (usuario,contrasena,tiposUsuarioPermitido) => {
-    let res = false
+//FIN FUNCIONES OBTENER
 
-    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${usuario}`)).DBRes
-    if(dbRes && dbRes.rows && dbRes.rows[0]){
-        if(dbRes.rows[0].contrasena === contrasena){
-            if( tiposUsuarioPermitido.includes(dbRes.rows[0].tipo_usuario) ){
-                res = true
-            }
-        }
-    }
-
-    return res
-}
+//INICIO FUNCIONES CRUD
 
 //Agregar usuario
 server.get('/api/agregar/usuario/:JSONObject/:usuario/:contrasena', async (req, res) => {

@@ -226,6 +226,17 @@ server.get('/dbapi/conductorPorCedula/:cedula', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//Consultar productos por modelo
+server.get('/dbapi/productosPorModelo/:modelo', async (req, res) => {
+    try {
+
+        const modelo = req.params.modelo
+
+        res.json({ DBRes: await funcionesBD.productosPorModelo( modelo ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 

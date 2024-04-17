@@ -32,7 +32,7 @@ function ListaDesplegable2({titulo}){
             break;
             case "Cerrar Sesion":
                 dataContext.usuarioIniciado.iniciado = false;
-            navigate("/ventana-principal-2")
+                navigate("/ventana-principal-2")
             break;
             default:
                 ;

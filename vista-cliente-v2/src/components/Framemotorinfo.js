@@ -39,7 +39,7 @@ const Framemotorinfo = () => {
               <p className={styles.manipuladoraDe}>{product.nombre}</p>
             </h2>
             <div className={styles.specstab}>
-              <div className={styles.mh3050}>{product.identificacion}</div>
+              <div className={styles.mh3050}>{product.modelo}</div>
             </div>
           </div>
           <b className={styles.especificacionesPrincipales}>

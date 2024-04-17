@@ -213,7 +213,20 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
-  
+  //Consultar productos por modelo
+  funciones.productosPorModelo  = async ( modelo ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM PRODUCTOS p WHERE p.modelo = $1", 
+      [modelo]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
+
   
   return funciones
 }
