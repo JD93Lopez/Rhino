@@ -153,8 +153,8 @@
 .haciendoPosibleLo {
   margin: 0;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1600px;
+  left: -10px;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
@@ -165,8 +165,8 @@
 }
 .grandezaFrame {
   position: absolute;
-  top: 113px;
-  left: 418px;
+  top: 1706px;
+  left: 409px;
   background-color: var(--color-darkkhaki);
   width: 315px;
   height: 9px;
@@ -189,6 +189,7 @@
   max-width: 100%;
 }
 .alquilaMaquinariaDesata {
+  top: 1610px;
   margin: 0;
   align-self: stretch;
   position: relative;
@@ -246,6 +247,7 @@
   margin-top: -9px;
 }
 .footerFrame {
+  margin-top: 100%;
   align-self: stretch;
   background-color: var(--color-gray-400);
   overflow: hidden;
