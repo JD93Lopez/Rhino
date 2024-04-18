@@ -21,12 +21,16 @@ const Framebutton = () => {
     }
 
     //TODO iniciar sesion AXIOS --> dataContext.usuarioInciado = JSON.parse(axiosIniciarSesion(u, c))
-
+    
+    //TODO quitar las siguientes 4 líneas
     if(userData.username!==""){
       dataContext.usuarioIniciado.nombre_usuario = userData.username
     }
     dataContext.usuarioIniciado.contrasena = userData.password
+
     dataContext.usuarioIniciado.iniciado = true
+    localStorage.setItem("usuarioIniciado",JSON.stringify(dataContext.usuarioIniciado))
+
 
     navigate("/ventana-principal-2");
   }, [userData, navigate]);

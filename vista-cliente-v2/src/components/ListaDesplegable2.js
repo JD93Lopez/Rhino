@@ -16,7 +16,6 @@ const animatedComponents= makeAnimate()
 function ListaDesplegable2({titulo}){
     const navigate = useNavigate()
     const dataContext = useContext(DataContext)
-    console.log(dataContext.usuarioIniciado)
     let handleSeleccion = (e) => {
         e.value
 
@@ -31,8 +30,9 @@ function ListaDesplegable2({titulo}){
                 navigate("/ventana-de-ayuda-y-asistencia")
             break;
             case "Cerrar Sesion":
-                dataContext.usuarioIniciado.iniciado = false;
                 navigate("/ventana-principal-2")
+                dataContext.usuarioIniciado.iniciado = false;
+                localStorage.setItem("usuarioIniciado","")
             break;
             default:
                 ;

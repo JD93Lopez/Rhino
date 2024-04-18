@@ -32,7 +32,7 @@ const LogoButton = ({
       ]
     } else {
       return [
-        <div className={styles.usernameInputField}>
+        <div className={styles.usernameInputField} onClick={onBotonMiCuentaClick}>
           <button className={styles.rectangleGroup} style={{borderRadius:"10px"}}>
             <div className={styles.frameItem} />
             <div style={{display:"flex", flexDirection:"row"}}>
@@ -110,7 +110,7 @@ const LogoButton = ({
           onClick={onCarritoDeCompras3ImageClick}
         />
       </div>}
-      <div className={styles.groupOne} onClick={onBotonMiCuentaClick}>
+      <div className={styles.groupOne}>
         {dibujarBotonMiCuenta().map((a) => { return a })}
         {/* <button className={styles.rectangleParent}>
           <div className={styles.frameChild} />

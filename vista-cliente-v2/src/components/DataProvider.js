@@ -106,17 +106,24 @@ export const DataProvider = (props) => {
     ]
 //se modificaron los atributos porque faltaban algunos y se modificaron como esta en la DB
 //CAMBIO REALIZADO POR MAJO
-    const usuarioIniciado = {
-        nombre_usuario: "NO INICIADO",
-        iniciado: false,
-        contrasena: "NO INICIADO",
-        nombre_real:"NO INICIADO",
-        direccion:"NO INICIADO",
-        telefono:"NO INICIADO",
-        identificacion: "NO INICIADO",
-        correo: "NO INICIADO",
-        estado:"NO INICIADO"
+    let usuarioIniciado
+    if(localStorage.getItem("usuarioIniciado")&&localStorage.getItem("usuarioIniciado")!=""){
+        usuarioIniciado = JSON.parse(localStorage.getItem("usuarioIniciado"))
+    }else{
+        usuarioIniciado = {
+            nombre_usuario: "NO INICIADO",
+            iniciado: false,
+            contrasena: "NO INICIADO",
+            nombre_real:"NO INICIADO",
+            direccion:"NO INICIADO",
+            telefono:"NO INICIADO",
+            identificacion: "NO INICIADO",
+            correo: "NO INICIADO",
+            estado:"NO INICIADO"
+        }
     }
+    console.log(usuarioIniciado)
+    
 
     const [data, setData] = useState({
         usuarioIniciado,
