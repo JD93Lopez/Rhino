@@ -6,6 +6,7 @@ import MotorTrailas from "../components/MotorTrailas";
 import ContainerBox from "../components/ContainerBox";
 import Framebuttonssocial from "../components/Framebuttonssocial";
 import styles from "./VentanaPrincipal.module.css";
+import TarjetaPProducto from "../components/TarjetaPProducto";
 
 const VentanaPrincipal = () => {
   const navigate = useNavigate();

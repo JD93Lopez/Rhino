@@ -1,0 +1,123 @@
+.materialesSinFondo1 {
+    align-self: stretch;
+    height: 407px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .manipuladorDeMetales {
+    position: relative;
+  }
+  .metalController {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0px var(--padding-xl) 0px var(--padding-3xl);
+  }
+  .materialesSinFondo1Parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .botonInfoMaq {
+    align-self: stretch;
+    width: 51px;
+    position: relative;
+    background-image: url("/public/boton-info-maq@3x.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    cursor: pointer;
+  }
+  .botonInfoMaq:hover {
+    cursor: pointer;
+  }
+  .botonInfoMaq:active {
+    cursor: pointer;
+    animation: 1s ease 0s infinite normal none pulsate;
+    opacity: 1;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
+    }
+    10% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+    }
+    17% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+    }
+    33% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+    }
+    45% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+  }
+  .botonInfoMaqWrapper {
+    align-self: stretch;
+    height: 51px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0px 0px 0px var(--padding-12xs);
+    box-sizing: border-box;
+  }
+  .frameChild {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 !important;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-gray);
+    box-sizing: border-box;
+    z-index: 1;
+  }
+  .frameParent {
+    width: 542px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: var(--padding-66xl) 0px var(--padding-59xl);
+    box-sizing: border-box;
+    position: relative;
+    gap: var(--gap-mini);
+    max-width: 100%;
+    text-align: left;
+    font-size: var(--font-size-6xl);
+    color: var(--color-white);
+    font-family: var(--font-jura);
+  }
+  
+  @media screen and (max-width: 675px) {
+    .frameParent {
+      padding-top: var(--padding-36xl);
+      padding-bottom: var(--padding-32xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .manipuladorDeMetales {
+      font-size: var(--font-size-xl);
+    }
+  }
