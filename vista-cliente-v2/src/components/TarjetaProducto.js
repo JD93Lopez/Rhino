@@ -14,7 +14,6 @@ export const TarjetaProducto = ({nombre, imagen, object}) => {
   
     const onBotonDetallesClick = useCallback(() => {
         dataContext.productoSeleccionadoParaDetalles = object
-        console.log(dataContext.productoSeleccionadoParaDetalles)
         navigate("/informacin-de-cada-producto");
     }, [navigate, object, dataContext]);
   

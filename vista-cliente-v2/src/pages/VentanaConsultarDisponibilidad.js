@@ -6,6 +6,7 @@ import FrameComponent10 from "../components/FrameComponent10";
 import styles from "./VentanaConsultarDisponibilidad.module.css";
 import { DataContext } from "../components/DataProvider";
 import { useNavigate } from "react-router-dom";
+import axios from "../axios";
 
 const VentanaConsultarDisponibilidad = () => {
 
@@ -24,15 +25,22 @@ const VentanaConsultarDisponibilidad = () => {
   
   product = dataContext.productoSeleccionadoParaDetalles
 
-  let productos = []
-
+  const [productos,setProductos] = useState()
+  
   if(fechaInicio!=""&&fechaFinal!=""){
-    //TODO productos = consultar con api que verifica disponibilidad antes de devolver los productos
+    if( fechaInicio!=dataContext.fechaInicio || fechaFinal!=dataContext.fechaFinal ){
+      if(product){
+        axios.api(`productosPorModelo/${product.modelo}/${fechaInicio}/${fechaFinal}`).then((res)=>{
+          setProductos(res.data.Res)
+        })
+      }
+      dataContext.fechaInicio = fechaInicio
+      dataContext.fechaFinal = fechaFinal
+    }
   }else{
-    //TODO productos = consultar solo con el modelo 
-    productos = [
+/*     productos = [
       {
-        nombre: "Grua manipuladora de metales",
+        nombre: "Gruaaa manipuladora de metales",
         identificacion: "MH5045",
         imagen: "/materiales-sin-fondo-2@2x.png",
         descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam justo sit amet ultricies vestibulum. Aenean quis sem finibus, laoreet sapien id, ullamcorper tellus. In hac habitasse platea dictumst. Donec a odio sit amet dolor tristique dictum quis mattis diam. In in ornare elit. Proin viverra fringilla vestibulum. Pellentesque ipsum ipsum, lacinia sed consequat a, interdum ac lorem. Morbi eu neque at sem convallis commodo. Proin lobortis vitae orci in consequat. Vestibulum et nunc tortor. Cras sed ante volutpat, efficitur magna non, commodo libero. Nulla porta quam quis tortor molestie molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
@@ -40,7 +48,16 @@ const VentanaConsultarDisponibilidad = () => {
         precio_alquiler: "120.000",
         modelo: "modelo"
       }
-    ]
+    ] */
+
+    if(!productos){
+      if(product){
+        axios.api(`productosPorModelo/${product.modelo}`).then((res)=>{
+          setProductos(res.data.Res)
+        })
+      }
+    }
+    
   }
 
   if(!product){
@@ -94,7 +111,7 @@ const VentanaConsultarDisponibilidad = () => {
 
         <section className={styles.ventanaConsultarDisponibilidInner}>
           <div className={styles.frameParent}>
-            {productos.map(producto=> {
+            {productos&&productos.map(producto=> {
               return<TarjetaProductoDisponibilidad 
                 nombre = {producto.nombre}
                 identificacion={producto.identificacion}

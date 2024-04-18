@@ -3,31 +3,6 @@ import axios from "../axios";
 
 export const DataContext = createContext();
 
-// Define los arrays de datos
-export const usuarios = [
-    {
-        nombreUsuario:"Usuario1",
-        nombreCompleto:"Nombre usuario 1",
-        email:"1",
-        telefono:"1",
-        estado:"1"
-    },
-    {
-        nombreUsuario:"Usuario2",
-        nombreCompleto:"2",
-        email:"2",
-        telefono:"2",
-        estado:"2"
-    },
-    {
-        nombreUsuario:"Usuario3",
-        nombreCompleto:"Nombre Completo",
-        email:"email.usuario3@gmail.com",
-        telefono:"3003333333",
-        estado:"ACTIVAO"
-    }
-];
-
 // Exporta el contexto y los arrays de datos
 export const DataProvider = (props) => {
 
@@ -43,7 +18,7 @@ export const DataProvider = (props) => {
             descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam justo sit amet ultricies vestibulum. Aenean quis sem finibus, laoreet sapien id, ullamcorper tellus. In hac habitasse platea dictumst. Donec a odio sit amet dolor tristique dictum quis mattis diam. In in ornare elit. Proin viverra fringilla vestibulum. Pellentesque ipsum ipsum, lacinia sed consequat a, interdum ac lorem. Morbi eu neque at sem convallis commodo. Proin lobortis vitae orci in consequat. Vestibulum et nunc tortor. Cras sed ante volutpat, efficitur magna non, commodo libero. Nulla porta quam quis tortor molestie molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
             categorias: ["maquinaria1","maquinaria2"],
             precio_alquiler: "120.000",
-            modelo: "MODELO"
+            modelo: "MH3250"
         },
         {
             nombre: "Cargador de cadenas",
@@ -131,7 +106,6 @@ export const DataProvider = (props) => {
 
     const [data, setData] = useState({
         usuarioIniciado,
-        usuarios,
         productos,
         Loaded: true
     });
