@@ -8,7 +8,7 @@
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
-  z-index: 1;
+  z-index: 9999;
 }
 .searchFrame {/*barra amarilla empiece a contruir*/
   top: 192px;
@@ -18,7 +18,7 @@
   position: relative;
   background-color: var(--color-goldenrod);
   max-width: 100%;
-  z-index: 1;
+  z-index: 9999;
 }
 .mobileInfo,
 .productAndAboutUs {
@@ -53,7 +53,7 @@
   left: 0px;
   font-size: var(--font-size-11xl);
   font-family: var(--font-advent-pro);
-  z-index: 1;
+  z-index: 9999;
 }
 .customerService,
 .socialMediaIcons {
