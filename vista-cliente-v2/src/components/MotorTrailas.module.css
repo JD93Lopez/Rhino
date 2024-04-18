@@ -148,13 +148,16 @@
   display: none;
 }
 .verMsParent {
+  position: absolute;
+  left: 41.5%;
+  top: 2870px;
   cursor: pointer;
   padding: var(--padding-7xl) var(--padding-55xl);
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  z-index: 1;
+  z-index: 9999;
 }
 .frameTextoCelularTextotelef {
   width: 1374px;

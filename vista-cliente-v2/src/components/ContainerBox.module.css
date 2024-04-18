@@ -1,11 +1,23 @@
-.powerCapacityEfficiency {
-
+.powerCapacityEfficiency {/*Imageb del slogan*/
   height: 513px;
   width: 1279px;
   right: -1px;
-  bottom: -1950px;
+  bottom: -675px;
   object-fit: cover;
 }
+
+.containerBox {
+  top: 1275px;
+  align-self: stretch;
+  height: 488px;
+  padding: 0 var(--padding-12xs) 0 0;
+  position: relative;
+  text-align: left;
+  font-size: var(--font-size-35xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+}
+
 .groupFrameChild,
 .powerCapacityEfficiency,
 .rendimiento {
@@ -133,11 +145,12 @@
 }
 .maquinariaPesada {
   position: relative;
-  font-size: var(--font-size-6xl);
+  font-size: var(--font-size-3xl);
   font-family: var(--font-jura);
   color: var(--color-white);
   text-align: left;
 }
+
 .frameChild {
   height: 82px;
   width: 304px;
@@ -172,7 +185,7 @@
 }
 .marcas {
   position: relative;
-  font-size: var(--font-size-6xl);
+  font-size: var(--font-size-3xl);
   font-family: var(--font-jura);
   color: var(--color-white);
   text-align: left;
@@ -202,7 +215,7 @@
 }
 .vehculos {
   position: relative;
-  font-size: var(--font-size-6xl);
+  font-size: var(--font-size-3xl);
   font-family: var(--font-jura);
   color: var(--color-white);
   text-align: left;
@@ -272,16 +285,7 @@
   flex: 1;
   padding: 0 0 var(--padding-319xl) var(--padding-10xs);
 }
-.containerBox {
-  align-self: stretch;
-  height: 488px;
-  padding: 0 var(--padding-12xs) 0 0;
-  position: relative;
-  text-align: left;
-  font-size: var(--font-size-35xl);
-  color: var(--color-white);
-  font-family: var(--font-impact);
-}
+
 @media screen and (max-width: 1350px) {
   .containerBox {
     height: auto;
