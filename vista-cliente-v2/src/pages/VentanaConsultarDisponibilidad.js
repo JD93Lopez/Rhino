@@ -112,6 +112,7 @@ const VentanaConsultarDisponibilidad = () => {
         <section className={styles.ventanaConsultarDisponibilidInner}>
           <div className={styles.frameParent}>
             {productos&&productos.map(producto=> {
+              producto.imagen = "/materiales-sin-fondo-2@2x.png"
               return<TarjetaProductoDisponibilidad 
                 nombre = {producto.nombre}
                 identificacion={producto.identificacion}

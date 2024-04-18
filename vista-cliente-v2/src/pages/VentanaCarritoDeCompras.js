@@ -17,6 +17,7 @@ const VentanaCarritoDeCompras = () => {
 
   const solicitarCotizacion = () =>{
     localStorage.setItem("productosCarrito","")
+    navigate("/historial-cotizaciones")
   }
 
   return (
