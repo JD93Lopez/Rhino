@@ -126,8 +126,6 @@
 .textoInfoDinero{/*Texto para el precio de alquiler de la maquina o vehiculo*/
   color:white;
   position: absolute;
-  left: 1475px;
-  top: 395px;
   z-index: 9999;
 }
 
@@ -204,6 +202,7 @@ left: 250px;
 .textoInfoGroup,
 .textoInfoParent {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -212,7 +211,7 @@ left: 250px;
   flex-direction: column;
   gap: var(--gap-136xl);
 }
-.frameWrapper1,
+
 .imagenMaquinaCarritoParent {
   max-width: 100%;
 }
@@ -221,7 +220,8 @@ left: 250px;
   flex-direction: column;
   padding: 12px 0 0;
   box-sizing: border-box;
-  min-width: 415px;
+  width: auto;
+  position: relative;
 }
 .imagenMaquinaCarritoParent {
   width: 885px;
@@ -264,7 +264,7 @@ left: 250px;
 .frameParent1 {
   align-self: stretch;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: top;
   gap: var(--gap-xl);
 }
 .frameDiv {

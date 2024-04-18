@@ -30,11 +30,12 @@
   max-width: 100%;
 }
 .logoButton {/*la anchura de la barra amarilla*/
-  height: 310px;
+  height: 20px;
   width: 1728px;
   flex-direction: column;
   padding: 0 0 var(--padding-203xl) 0;
-  box-sizing: border-box;
+  max-height: 50px;
+  /* box-sizing: border-box; */
 }
 .logoFrameParent {/*la anchura de la barra amarilla*/
   height: 146px;

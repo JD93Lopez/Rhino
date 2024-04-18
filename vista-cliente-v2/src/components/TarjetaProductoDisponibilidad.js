@@ -5,29 +5,33 @@ import { DataContext } from "./DataProvider";
 
 const TarjetaProductoDisponibilidad = ({nombre, identificacion, precio_alquiler, object}) => {
 
-  // const dataContext = useContext(DataContext)
+  const dataContext = useContext(DataContext)
   const [clicked,setClicked] = useState(false)
 
   const navigate = useNavigate()
   const agregarAlCarrito = () => {
     if(!clicked){
-      setClicked(true)
-      // if(!dataContext.productosCarrito){
-      //   dataContext.productosCarrito = []
-      // }
-      // dataContext.productosCarrito.push(object)
-      
-      let productosCarrito
-      if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!=""){
-        productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
-      }
-      if(!productosCarrito){
-        productosCarrito = []
-      }
+      if(dataContext.fechaInicio&&dataContext.fechaFinal){
+        setClicked(true)
+        // if(!dataContext.productosCarrito){
+        //   dataContext.productosCarrito = []
+        // }
+        // dataContext.productosCarrito.push(object)
+        
+        let productosCarrito
+        if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!=""){
+          productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+        }
+        if(!productosCarrito){
+          productosCarrito = []
+        }
 
-      productosCarrito.push(object)
+        object.fecha_inicio = dataContext.fechaInicio
+        object.fecha_fin = dataContext.fechaFinal
+        productosCarrito.push(object)
 
-      localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
+        localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
+      }
     }
   }
 

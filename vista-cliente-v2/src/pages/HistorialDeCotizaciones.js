@@ -4,27 +4,34 @@ import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent from "../components/FrameComponent";
 import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
+import { TarjetaCotizaciones } from "../components/TarjetaCotizaciones";
+
 
 const HistorialDeCotizaciones = () => {
-  const navigate = useNavigate()
-  const onBotonLogo6Click = useCallback(() => {
-    navigate("/ventana-principal-2")
-  }, [navigate]);
 
-  const onBotonProductos6Click = useCallback(() => {
-    navigate("/ventana-para-buscar-productos");
-  }, [navigate]);
-
-  const onBotonSobreNosotrosClick = useCallback(() => {
-    navigate("/ventana-sobre-nosotros");
-  }, [navigate]);
-
-  const onCarritoDeCompras3ImageClick = useCallback(() => {
-    navigate("/ventana-carrito-de-compras");
-  }, [navigate]);
-
-  const onGroupButtonClick = useCallback(() => {
-  }, []);
+  let alquiler = {
+    idalquileres: "1",
+    fecha: "2024-04-20",
+    justificacion_ga: "Envio internacional.",
+    gastos_adicionales:"5.000.000",
+    valor_conductores:"2.000.000",
+    total:"26.000.000",
+    subtotal:"24.000.000",
+    estado:"EN_ESPERA",
+    producto_agendas:[
+      {
+        nombre: "Grua manipuladora de metales",
+        identificacion: "MH5046",
+        imagen: "/materiales-sin-fondo-2@2x.png",
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam justo sit amet ultricies vestibulum. Aenean quis sem finibus, laoreet sapien id, ullamcorper tellus. In hac habitasse platea dictumst. Donec a odio sit amet dolor tristique dictum quis mattis diam. In in ornare elit. Proin viverra fringilla vestibulum. Pellentesque ipsum ipsum, lacinia sed consequat a, interdum ac lorem. Morbi eu neque at sem convallis commodo. Proin lobortis vitae orci in consequat. Vestibulum et nunc tortor. Cras sed ante volutpat, efficitur magna non, commodo libero. Nulla porta quam quis tortor molestie molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+        categorias: ["maquinaria1","maquinaria2"],
+        precio_alquiler: "120.000",
+        modelo: "MH3256",
+        fecha_inicio:"2024-04-10",
+        fecha_fin:"2024-04-15"
+      }
+    ]
+  }
 
   return (
     <div className={styles.historialDeCotizaciones}>
@@ -33,71 +40,18 @@ const HistorialDeCotizaciones = () => {
         <div className={styles.frameParent}>
           <div className={styles.historialDeCotizacionesWrapper}>
             <h1 className={styles.historialDeCotizaciones1}>
-              Historial De Cotizaciones
+              Historial De Alquileres y Cotizaciones
             </h1>
           </div>
-          <div className={styles.frameGroup}>
-            <div className={styles.frameContainer}>
-              <div className={styles.cotizacin1Wrapper}>
-                <h3 className={styles.cotizacin1}>Cotización 1</h3>
-              </div>
-              
-              <div className={styles.wrapper}>
-                <div className={styles.div}>08-04-2024</div>
-              </div>
-              <div className={styles.frameChild} />
-              <div className={styles.frameWrapper}>
-                <button className={styles.rectangleParent}>
-                  <div className={styles.frameItem} />
-                  <b className={styles.desplegar}>DESPLEGAR</b>
-                </button>
-              </div>
-            </div>
-            <div className={styles.rectangleGroup}>
-              <div className={styles.frameInner} />
-              <div className={styles.frameDiv}>
-                <div className={styles.textoInfoWrapper}>
-                  <b className={styles.textoInfo}>PRECIO</b>
-                </div>
-                <div className={styles.frameParent1}>
-                  <div className={styles.frameParent2}>
-                    <div className={styles.imagenMaquinaCarritoParent}>
-                      <img
-                        className={styles.imagenMaquinaCarrito}
-                        loading="lazy"
-                        alt=""
-                        src="/imagen-maquina-carrito@2x.png"
-                      />
-                      <div className={styles.textoInfoContainer}>
-                        <b className={styles.textoInfo1}>Manipuladora de materiales de ruedas - MH3050</b>
-                      </div>
-                    </div>  
-                      <b className={styles.textoInfo2}>CONDUCTORES:</b>
-                            <b className={styles.textoInfo3}>OTROS GASTOS:</b>
-                  </div>
-                  <div className={styles.frameWrapper1}>
-                        <b className={styles.textoInfoDinero}>5.000.000</b>
-                      <b className={styles.textoInfo4}>1.000.000 (2)</b>
-                      <b className={styles.textoInfoDescrip}>Envio fuera de la ciudad</b>
-                  </div>
-                </div>
-              </div>
-              <footer className={styles.frameFooter}>
-                <div className={styles.lineParent}>
-                  <div className={styles.lineDiv} />
-                  <div className={styles.historicInfo}>
-                    <div className={styles.cotizacionLabel}>
-                      <b className={styles.textoInfo5}>VALOR TOTAL:</b>
-                      <b className={styles.textoInfo6}>26.000.000</b>
-                      <b className={styles.textoDinero}>20.000.000</b>
-                    </div>
-                  </div>
-                </div>
-              </footer>
-            </div>
-          </div>
+          <TarjetaCotizaciones
+            object={alquiler}
+          />
+          
         </div>
       </section>
+      <div style={{backgroundColor:"black"}}>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      </div>
       <FrameComponent/>
     </div>
   );

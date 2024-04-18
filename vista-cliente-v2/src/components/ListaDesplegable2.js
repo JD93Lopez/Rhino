@@ -8,6 +8,7 @@ const opciones = [
     {value: "Informacion Personal", label:"Informacion Personal"},
     {value: "Contraseña y Seguridad", label:"Contraseña y Seguridad"},
     {value: "Ayuda y Asistencia", label:"Ayuda y Asistencia"},
+    {value: "Historial Alquileres", label:"Historial Alquileres"},
     {value: "Cerrar Sesion", label:"Cerrar Sesion"}
 ]
 
@@ -28,6 +29,9 @@ function ListaDesplegable2({titulo}){
             break;
             case "Ayuda y Asistencia":
                 navigate("/ventana-de-ayuda-y-asistencia")
+            break;            
+            case "Historial Alquileres":
+                navigate("/historial-cotizaciones")
             break;
             case "Cerrar Sesion":
                 navigate("/ventana-principal-2")

@@ -24,6 +24,7 @@ const VentanaCarritoDeCompras = () => {
       <div className={styles.ventanaCarritoDeComprasChild} />
 
       <FrameComponent3/>
+      <br/><br/>
       <section className={styles.shoppingCartSymbol}>
         <div className={styles.cancelSelectionButton}>
           <div className={styles.cancelSelectionButtonChild} />
@@ -45,11 +46,11 @@ const VentanaCarritoDeCompras = () => {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button className={styles.yTButton}>
+                <button className={styles.yTButton} onClick={solicitarCotizacion}>
                   <div className={styles.yTButtonChild} />
                   <div
                     className={styles.botonConsultarPrecio}
-                    onClick={solicitarCotizacion}
+                    
                   >
                     <b className={styles.consultarPrecio}>SOLICITAR COTIZACION</b>
                   </div>
