@@ -292,6 +292,34 @@ function DisponibilidadProducto(intervalo01, intervalo02) {
 
     return !seSolapan;
 }
+//Consultar alquileres por usuario
+server.get('/api/alquileresPorUsuario/:nUsuario/:contrasena', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const nUsuario = req.params.nUsuario
+        const contrasena = req.params.contrasena
+
+        let alquileres = {}
+
+        const ResIniciarSesion = await iniciarSesion(nUsuario,contrasena)
+        if (ResIniciarSesion&&ResIniciarSesion.usuario&&ResIniciarSesion.usuario.idusuarios){
+
+            const idusuarios = ResIniciarSesion.usuario.idusuarios
+
+            alquileres = (await Fetch.fetchApi(`alquileresPorUsuario/${idusuarios}`)).DBRes
+
+            for await (let alquiler of alquileres){
+                let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
+                alquiler.producto_agendas = res
+            }
+
+        }
+
+        res.json({ Res: alquileres });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

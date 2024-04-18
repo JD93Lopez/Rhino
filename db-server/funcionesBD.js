@@ -188,11 +188,11 @@ const funcionesLogicaNegocioBD = (config) => {
   
 
   //Traer productos y agendas de un alquiler
-  funciones.productosYAgendasDeAlquiler  = async ( idAlquileres ) => {
+  funciones.productosYAgendasDeAlquiler  = async ( idalquileres ) => {
     const pool = new Pool(config);
     try {
       const DBRes = await pool.query("SELECT p.*, a.* FROM productos p, agendas a, productos_has_alquileres pha WHERE pha.alquileres_idalquileres = $1 AND pha.productos_idproductos = p.idproductos AND pha.agendas_idagenda = a.idagenda", 
-      [idAlquileres]);
+      [idalquileres]);
       return DBRes;
     } catch (error) {
       console.log(error)
@@ -232,6 +232,19 @@ const funcionesLogicaNegocioBD = (config) => {
     try {
       const DBRes = await pool.query("SELECT a.* FROM AGENDAS a, PRODUCTOS_has_ALQUILERES pha WHERE pha.PRODUCTOS_idproductos = $1 AND pha.AGENDAS_idagenda = a.idagenda", 
       [idproductos]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
+  //Consultar alquileres por usuario
+  funciones.alquileresPorUsuario = async ( idusuarios ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM ALQUILERES a WHERE a.USUARIOS_idusuarios = $1", 
+      [idusuarios]);
       return DBRes;
     } catch (error) {
       console.log(error)

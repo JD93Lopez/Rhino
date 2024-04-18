@@ -205,12 +205,12 @@ server.get('/dbapi/administradorAgregarMantenimiento12/:descripcion/:fechamanten
 
 
 //Traer productos y agendas de un alquiler
-server.get('/dbapi/productosYAgendasDeAlquiler/:idAlquileres', async (req, res) => {
+server.get('/dbapi/productosYAgendasDeAlquiler/:idalquileres', async (req, res) => {
     try {
 
-        const idAlquileres = req.params.idAlquileres
+        const idalquileres = req.params.idalquileres
 
-        res.json({ DBRes: await funcionesBD.productosYAgendasDeAlquiler( idAlquileres ) });
+        res.json({ DBRes: (await funcionesBD.productosYAgendasDeAlquiler( idalquileres )).rows });
     } catch (error) {
         res.json({ DBRes: error });
     }
@@ -244,6 +244,17 @@ server.get('/dbapi/agendasPorProducto/:idproductos', async (req, res) => {
         const idproductos = req.params.idproductos
 
         res.json({ DBRes: (await funcionesBD.agendasPorProducto( idproductos )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Consultar alquileres por usuario
+server.get('/dbapi/alquileresPorUsuario/:idusuarios', async (req, res) => {
+    try {
+
+        const idusuarios = req.params.idusuarios
+
+        res.json({ DBRes: (await funcionesBD.alquileresPorUsuario( idusuarios )).rows });
     } catch (error) {
         res.json({ DBRes: error });
     }
