@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import axios from "../axios";
 
 export const DataContext = createContext();
 
@@ -29,6 +30,10 @@ export const usuarios = [
 
 // Exporta el contexto y los arrays de datos
 export const DataProvider = (props) => {
+
+    // axios.api("ejemplo").then((res)=>{
+    //     console.log(res.data)
+    // })
 
     let productos = [
         {
@@ -122,7 +127,6 @@ export const DataProvider = (props) => {
             estado:"NO INICIADO"
         }
     }
-    console.log(usuarioIniciado)
     
 
     const [data, setData] = useState({

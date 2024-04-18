@@ -25,8 +25,6 @@ import VistaAdministradorCotizacionesProductos from "./pages/VistaAdministradorC
 
 import { DataProvider } from "./components/DataProvider";
 
-
-
 function App() {
   const action = useNavigationType();
   const location = useLocation();

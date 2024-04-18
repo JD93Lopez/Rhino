@@ -11,6 +11,7 @@ const IP = config.ip; // Ip del servidor
 
 //Puertos e ips permitidas
 const corsLinks = config.corsLinks
+server.use(cors({ origin: "*" }))
 corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });

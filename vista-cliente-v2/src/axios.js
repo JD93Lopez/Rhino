@@ -9,7 +9,7 @@ const api = async (apiUrl) => {
         res = await axios.get("http://"+ip+":"+port+"/api/"+apiUrl)
     } catch (error) {
         if(error.code === 'ERR_NETWORK'){
-            //TODO mostrar error de conexión.
+            console.log(error)
         }
     }
     return res

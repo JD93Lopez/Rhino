@@ -2,9 +2,6 @@
     "ip": "localhost",
     "port": 3501,
     "corsLinks":[
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://localhost:3002",
-        "http://localhost:3003"
+        
     ]
 }
