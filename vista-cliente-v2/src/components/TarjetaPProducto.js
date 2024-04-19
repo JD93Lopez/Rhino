@@ -4,7 +4,6 @@ import styles from "./TarjetaPProducto.module.css";
 const TarjetaPProducto = () => {
   return (
     <div className={styles.tarjetaPProducto}>
-      <GroupComponent />
     </div>
   );
 };

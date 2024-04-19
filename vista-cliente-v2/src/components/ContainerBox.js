@@ -3,12 +3,17 @@ import styles from "./ContainerBox.module.css";
 const ContainerBox = () => {
   return (
     <section className={styles.containerBox}>
-      <img
+      {
+        /* AÑADIR IMAGEN 
+                <img
         className={styles.powerCapacityEfficiency}
         alt=""
         src="/power-capacity-efficiency@2x.png"
       />
+        */
+      }
       <div className={styles.powerFrame}>
+        
         <div className={styles.wheelLoaderFrame}>
           <div className={styles.infoButtonFrame}>
             <div className={styles.groupFrame}>
@@ -55,11 +60,13 @@ const ContainerBox = () => {
                 <b className={styles.vehculos}>VEHÍCULOS</b>
                 <div className={styles.frameInner} />
               </button>
+              
             </div>
           </div>
         </div>
       </div>
     </section>
+    
   );
 };
 

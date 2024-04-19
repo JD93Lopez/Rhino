@@ -1,25 +1,23 @@
 .powerCapacityEfficiency {/*Imageb del slogan*/
   height: 513px;
-  width: 1279px;
-  right: -1px;
-  bottom: -675px;
+  width: 1742px;
+  right: 0px;
+  bottom: -500px;
   object-fit: cover;
 }
 
 .containerBox {
-  top: 1275px;
   align-self: stretch;
   height: 488px;
-  padding: 0 var(--padding-12xs) 0 0;
   position: relative;
   text-align: left;
   font-size: var(--font-size-35xl);
   color: var(--color-white);
   font-family: var(--font-impact);
+  width: 1742px;
 }
 
 .groupFrameChild,
-.powerCapacityEfficiency,
 .rendimiento {
   position: absolute;
   margin: 0 !important;
