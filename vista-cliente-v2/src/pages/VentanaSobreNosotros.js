@@ -2,7 +2,7 @@ import FrameComponent2 from "../components/FrameComponent2";
 import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent1 from "../components/FrameComponent1";
 import styles from "./VentanaSobreNosotros.module.css";
-
+import ContactInfoFrame from "../components/ContactInfoFrame"
 const VentanaSobreNosotros = () => {
   return (
     <div className={styles.ventanaSobreNosotros}>
