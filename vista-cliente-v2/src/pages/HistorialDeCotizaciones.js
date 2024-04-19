@@ -1,16 +1,17 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import FrameComponent1 from "../components/FrameComponent1";
 import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent from "../components/FrameComponent";
 import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
 import { TarjetaCotizaciones } from "../components/TarjetaCotizaciones";
+import axios from "../axios";
 
 
 const HistorialDeCotizaciones = () => {
 
-  let alquileres
-  alquileres = [
+  const [alquileres,setAlquileres] = useState()
+  /* alquileres = [
     {
       idalquileres: "1",
       fecha: "2024-04-20",
@@ -109,9 +110,11 @@ const HistorialDeCotizaciones = () => {
         }
       ]
     }
-  ]
+  ] */
   if(!alquileres){
-    //TODO conectar axios
+    axios.api(`alquileresPorUsuario/juan/1234`).then((res)=>{
+      setAlquileres(res.data.Res)
+    })
   }
 
   return (

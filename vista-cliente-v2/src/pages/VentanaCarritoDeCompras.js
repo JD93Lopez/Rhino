@@ -11,15 +11,17 @@ const VentanaCarritoDeCompras = () => {
 
   const [productosCarrito,setProductosCarrito] = useState()
 
-  if(localStorage.getItem("productosCarrito")!="" && !productosCarrito){
+  if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!="" && !productosCarrito){
     setProductosCarrito(JSON.parse(localStorage.getItem("productosCarrito")))
   }
 
   const solicitarCotizacion = () =>{
-    let alquiler = {producto_agendas: productosCarrito}
-    alquiler = JSON.parse(alquiler)
-    localStorage.setItem("productosCarrito","")
-    setProductosCarrito(undefined)
+    if( productosCarrito.length != 0 ){
+      let alquiler = {producto_agendas: productosCarrito}
+      alquiler = JSON.stringify(alquiler)
+      localStorage.setItem("productosCarrito","")
+      setProductosCarrito(undefined)
+    }
   }
 
   return (
@@ -87,6 +89,9 @@ const VentanaCarritoDeCompras = () => {
               modelo={producto.modelo}
             />  
           })}
+          {!productosCarrito&&
+            <b>NO HAY PRODUCTOS EN EL CARRITO</b>
+          }
           {/* <TarjetaProductoCarrito
             imagen={"/imagen-maquina-carrito@2x.png"}
             nombre={"Manipuladora de materiales de ruedas"}
