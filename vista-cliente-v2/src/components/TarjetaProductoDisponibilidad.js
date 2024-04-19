@@ -43,7 +43,7 @@ const TarjetaProductoDisponibilidad = ({nombre, identificacion, precio_alquiler,
           className={styles.imagenMaquinaCarrito}
           loading="lazy"
           alt=""
-          src="/imagen-maquina-carrito@2x.png"
+          src={object.imagen}
         />
         <div className={styles.textoInfoWrapper}>
           <b className={styles.textoInfo}>

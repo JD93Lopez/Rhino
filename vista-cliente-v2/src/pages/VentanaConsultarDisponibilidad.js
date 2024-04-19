@@ -51,9 +51,13 @@ const VentanaConsultarDisponibilidad = () => {
     ] */
 
     if(!productos){
+      dataContext.fechaInicio = undefined
+      dataContext.fechaFinal = undefined
       if(product){
         axios.api(`productosPorModelo/${product.modelo}`).then((res)=>{
-          setProductos(res.data.Res)
+          try{
+            setProductos(res.data.Res)
+          }catch(e){}
         })
       }
     }
@@ -112,7 +116,6 @@ const VentanaConsultarDisponibilidad = () => {
         <section className={styles.ventanaConsultarDisponibilidInner}>
           <div className={styles.frameParent}>
             {productos&&productos.map(producto=> {
-              producto.imagen = "/materiales-sin-fondo-2@2x.png"
               return<TarjetaProductoDisponibilidad 
                 nombre = {producto.nombre}
                 identificacion={producto.identificacion}

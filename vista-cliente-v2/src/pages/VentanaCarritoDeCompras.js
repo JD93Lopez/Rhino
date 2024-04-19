@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductFrame from "../components/ProductFrame";
 import TarjetaProductoCarrito from "../components/TarjetaProductoCarrito";
@@ -9,15 +9,17 @@ import styles from "./VentanaCarritoDeCompras.module.css";
 const VentanaCarritoDeCompras = () => {
   const navigate = useNavigate();
 
-  let productosCarrito
+  const [productosCarrito,setProductosCarrito] = useState()
 
-  if(localStorage.getItem("productosCarrito")!=""){
-    productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+  if(localStorage.getItem("productosCarrito")!="" && !productosCarrito){
+    setProductosCarrito(JSON.parse(localStorage.getItem("productosCarrito")))
   }
 
   const solicitarCotizacion = () =>{
+    let alquiler = {producto_agendas: productosCarrito}
+    alquiler = JSON.parse(alquiler)
     localStorage.setItem("productosCarrito","")
-    navigate("/historial-cotizaciones")
+    setProductosCarrito(undefined)
   }
 
   return (

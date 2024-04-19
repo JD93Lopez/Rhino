@@ -10,7 +10,7 @@ import { TarjetaCotizaciones } from "../components/TarjetaCotizaciones";
 const HistorialDeCotizaciones = () => {
 
   let alquileres
-  alquileres = [//TODO conectar axios
+  alquileres = [
     {
       idalquileres: "1",
       fecha: "2024-04-20",
@@ -110,6 +110,9 @@ const HistorialDeCotizaciones = () => {
       ]
     }
   ]
+  if(!alquileres){
+    //TODO conectar axios
+  }
 
   return (
     <div className={styles.historialDeCotizaciones}>
