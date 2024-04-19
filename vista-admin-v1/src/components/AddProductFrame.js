@@ -12,6 +12,7 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
   const onPRODUCTOSTextClick = () => navigate('/vista-administrador-productos'); 
   const onMANTENIMIENTOTextClick = () => navigate('/vista-administrador-mantenimiento');
   const onCOTIZACIONTextClick = () => navigate('/vista-administrador-cotizacion'); 
+  const onCOMPRASTextClick = () => navigate('/vista-administrador-compras')
 
   const userProjecsFrameStyle = useMemo(() => ({
     padding: maintananceTextPadding,
@@ -78,6 +79,13 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
           return {textDecoration: "underline"}
         }
         break;
+      case 6:
+        if(
+          pathname==="/vista-administrador-compras"
+        ){
+          return {textDecoration: "underline"}
+        }
+        break;
       default:
     }
     return {}
@@ -111,6 +119,9 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
               </div>
               <div className={styles.cotizacion} onClick={onCOTIZACIONTextClick} style={subrayado(5)}>
                 COTIZACIÓN
+              </div>
+              <div className={styles.compras} onClick={onCOMPRASTextClick} style={subrayado(6)}>
+                COMPRAS
               </div>
             </nav>
           </div>

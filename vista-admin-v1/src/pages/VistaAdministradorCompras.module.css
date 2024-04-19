@@ -1,0 +1,169 @@
+
+.rectangleParent:hover {
+    background-color: var(--color-darkgoldenrod);
+    border: 1px solid var(--color-darkslategray);
+    box-sizing: border-box;
+ }
+ .rectangleParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+  .rectangleParent {
+    border: 1px solid var(--color-gray-200);
+    padding: var(--padding-smi) var(--padding-7xs) var(--padding-sm)
+      var(--padding-mid);
+    background-color: var(--color-orange);
+    justify-content: flex-end;
+    white-space: nowrap;
+    position: absolute;
+    top: 555px;
+    left: 433px;
+  }
+  .frameChild {
+    top: 555px;
+    left: 433px;;
+    display: none;
+  }
+  .agregarProducto {
+    position: relative;
+    font-size: var(--font-size-3xl);
+    font-family: var(--font-impact);
+    color: var(--color-black);
+    text-align: left;
+    z-index: 1;
+  }
+  .formulariocomprasChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 1183px;
+    height: 301px;
+  }
+  .nitProveedor,
+  .nombreresponsable,
+  .porcentajedescuento,
+  .porcentajeimpuestos {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-3xs);
+    box-sizing: border-box;
+  }
+  .nitProveedor {
+    top: 25px;
+    left: 42px;
+    width: 172.3px;
+    height: 54.3px;
+  }
+  .nombreresponsable,
+  .porcentajedescuento,
+  .porcentajeimpuestos {
+    left: 36.2px;
+  }
+  .nombreresponsable {
+    top: 92px;
+    width: 287.1px;
+    height: 54.3px;
+  }
+  .porcentajedescuento,
+  .porcentajeimpuestos {
+    top: 158px;
+    width: 295.1px;
+  }
+  .porcentajeimpuestos {
+    top: 229px;
+    width: 290.7px;
+  }
+  .formulariocompras {
+    position: absolute;
+    top: 184px;
+    left: 280px;
+    width: 1183px;
+    height: 301px;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-arial-rounded-mt-bold);
+  }
+  .inputnitproveedor,
+  .inputnombreresponsable,
+  .inputporcentajedescuento,
+  .inputporcentajeimpuesto {
+    position: absolute;
+    left: 718px;
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 700px;
+    height: 24px;
+  }
+  .inputnitproveedor {
+    top: 224px;
+    background-color: #fffefe;
+  }
+  .inputnombreresponsable,
+  .inputporcentajedescuento,
+  .inputporcentajeimpuesto {
+    top: 357px;
+    background-color: var(--color-white);
+  }
+  .inputnombreresponsable,
+  .inputporcentajeimpuesto {
+    top: 423px;
+  }
+  .inputnombreresponsable {
+    top: 294px;
+  }
+  .tituloCrearUsuario {
+    position: absolute;
+    top: 539px;
+    left: 84px;
+    font-size: 64px;
+  }
+
+
+  .excavadora {
+    position: absolute;
+    top: 652px;
+    left: 232px;
+    width: 1313px;
+    height: 422px;
+    font-family: var(--font-arial-rounded-mt-bold);
+  }
+  .vistaAdministradorCompras {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    height: 1135px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-13xl);
+    color: var(--color-black);
+    font-family: var(--font-impact);
+  }
+  .vistaAdministradorCompras {
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .vistaAdministradorCompras {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    overflow: hidden;
+    flex-direction: column;
+    padding: 33px 0 62px;
+    gap: 34px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  
