@@ -6,12 +6,19 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
 
     const producto_agendas = object.producto_agendas
 
+    const pagar = () => {
+        //TODO conectar axios
+    }    
+    const rechazar = () => {
+        //TODO conectar axios
+    }
+
     return (
         <div className={styles.rectangleGroup}>
             <div className={styles.frameInner} />
             <div className={styles.frameDiv}>
-                <div className={styles.textoInfoWrapper}>
-                    <b className={styles.textoInfo}>PRECIO</b>
+                <div style={{marginRight:"480px"}}>
+                    <b>PRECIO</b>
                 </div>
                 <br/>
                 {
@@ -79,9 +86,24 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
                     <div className={styles.lineDiv} />
                     <div className={styles.historicInfo}>
                         <div className={styles.cotizacionLabel}>
-                            <b className={styles.textoInfo5}>VALOR TOTAL:</b>
+                            <b className={styles.textoInfo5}>{object.total?"VALOR TOTAL:":"VALOR SUBTOTAL:"}</b>
                             <b className={styles.textoInfo6}>{object.total?object.total:object.subtotal}</b>
                         </div>
+                        {
+                            object.estado=="COTIZADO"?
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button className={styles.rectangleParent2} onClick={rechazar}>
+                                    <b>&nbsp;Rechazar&nbsp;</b>
+                                </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button className={styles.rectangleParent2} onClick={pagar}>
+                                    <b>&nbsp;Pagar&nbsp;</b>
+                                    &nbsp;
+                                </button>
+                            </div>:<></>
+                        }
                     </div>
                 </div>
             </footer>

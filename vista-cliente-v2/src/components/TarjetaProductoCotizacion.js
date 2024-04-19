@@ -13,9 +13,10 @@ export const TarjetaProductoCotizacion = ({object}) => {
                     src="/imagen-maquina-carrito@2x.png"
                 />
                 <div className={styles.textoInfoContainer}>
-                    <b className={styles.textoInfo1}>{object.nombre} - {object.modelo}</b>
+                    <b className={styles.textoInfo1}>{object.nombre} {object.modelo} - {object.identificacion}</b>
                 </div>
             </div>
+            <br></br>
             <b className={styles.textoInfo2}>Fecha inicio: {object.fecha_inicio} &nbsp;&nbsp;&nbsp;&nbsp;Fecha fin: {object.fecha_fin}</b> {/* TODO promediar todos los pdescuento para sacar el total = subtotal*promedio */}
             <div style={{display:"flex",flexDirection:"row"}}>
                 <div>
@@ -30,7 +31,7 @@ export const TarjetaProductoCotizacion = ({object}) => {
         </div>
         <div style={{display:"flex", flexDirection:"column"}}>
             <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{object.precio_alquiler}</b>
-            <br/>
+            <br/><br/>
             <b>&nbsp;</b>
             <br/><br/><br/><br/>
             <b>&nbsp;</b>
