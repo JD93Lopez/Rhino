@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from "../pages/HistorialDeCotizaciones.module.css";
 import { TarjetaProductoCotizacion } from './TarjetaProductoCotizacion';
+import axios from '../axios';
+import { DataContext } from './DataProvider';
 
 export const TarjetaDespliegueCotizacion = ({object}) => {
+
+    const dataContext = useContext(DataContext)
 
     const producto_agendas = object.producto_agendas
 
     const pagar = () => {
-        //TODO conectar axios
+        axios.api(`5/${object.idalquileres}/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`)//TODO usuario real
     }    
     const rechazar = () => {
         //TODO conectar axios
@@ -99,7 +103,7 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
                                 </button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button className={styles.rectangleParent2} onClick={pagar}>
-                                    <b>&nbsp;Pagar&nbsp;</b>
+                                    <b>&nbsp;Alquilar&nbsp;</b>
                                     &nbsp;
                                 </button>
                             </div>:<></>

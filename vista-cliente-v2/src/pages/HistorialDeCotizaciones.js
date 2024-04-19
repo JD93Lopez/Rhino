@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import FrameComponent1 from "../components/FrameComponent1";
 import FrameComponent3 from "../components/FrameComponent3";
 import FrameComponent from "../components/FrameComponent";
@@ -6,9 +6,12 @@ import styles from "./HistorialDeCotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
 import { TarjetaCotizaciones } from "../components/TarjetaCotizaciones";
 import axios from "../axios";
+import { DataContext } from "../components/DataProvider";
 
 
 const HistorialDeCotizaciones = () => {
+
+  const dataContext = useContext(DataContext)
 
   const [alquileres,setAlquileres] = useState()
   /* alquileres = [
@@ -112,8 +115,10 @@ const HistorialDeCotizaciones = () => {
     }
   ] */
   if(!alquileres){
-    axios.api(`alquileresPorUsuario/juan/1234`).then((res)=>{
-      setAlquileres(res.data.Res)
+    axios.api(`alquileresPorUsuario/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
+      try{
+        setAlquileres(res.data.Res)
+      }catch(e){}
     })
   }
 
