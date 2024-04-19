@@ -91,49 +91,18 @@
 .botonYtIcon {
   height: 54px;
   width: 54px;
-  position: relative;
   object-fit: cover;
-  min-height: 54px;
+
 }
 .framebuttonssocial {
+  width: 1820px;
   align-self: stretch;
   background-color: var(--color-gray-400);
-  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--padding-xl) var(--padding-77xl) var(--padding-xl)
-    var(--padding-83xl);
-  gap: var(--gap-xl);
-  z-index: 2;
-  text-align: left;
+  justify-content: space-around;
   font-size: var(--font-size-11xl);
   color: var(--color-white);
-  font-family: var(--font-jura);
+  font-family: 'Bahnschrift';
+  height: 100px;
 }
-@media screen and (max-width: 1125px) {
-  .framebuttonssocial {
-    flex-wrap: wrap;
-    padding-left: var(--padding-32xl);
-    padding-right: var(--padding-29xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 800px) {
-  .textoCelular,
-  .textoTelefono {
-    font-size: var(--font-size-5xl);
-  }
-}
-@media screen and (max-width: 450px) {
-  .textoCelular,
-  .textoTelefono {
-    font-size: var(--font-size-lg);
-  }
-  .framebuttonssocial {
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
-  }
-}
+

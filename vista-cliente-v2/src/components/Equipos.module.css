@@ -1,0 +1,44 @@
+/* Equipos.module.css */
+
+.equipos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1742px;
+  }
+  
+  .equipo {
+    flex: 1 0 360px;
+    margin: 40px;
+    text-align: center;
+  }
+  
+  .equipo img {
+    width: 100%;
+  }
+  
+  .equipo h2 {
+    font-size: 1.5rem;
+    margin: 20px;
+  }
+
+  .botonInfoMaq {
+    width: 51px;
+    height: 51px;
+    background-image: url(/public/boton-info-maq@3x.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .botonInfoMaq {
+    left: 500px;
+  }
+  .botonInfoMaq,
+  .botonInfoMaq:hover {
+    cursor: pointer;
+  }
+  .botonInfoMaq:active {
+    cursor: pointer;
+    animation: 1s ease 0s infinite normal none pulsate;
+    opacity: 1;
+  }

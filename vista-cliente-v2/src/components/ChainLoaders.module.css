@@ -21,34 +21,24 @@
     animation-timing-function: ease-out;
   }
 }
+.productHighlights {
+  align-self: center;
+  display: flex;
+  padding: 0px;
+  max-width: 100%;
+  height: 90px;
+}
 .rentalos {
-  top: 1000px;
+  top: 400px;
   left: -35px;
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
+  z-index: -1;
 }
-.cargadorDeCadenasSinFonod,
-.compactadoraSinFondo1 {
-  position: absolute;
-  margin: 0 !important;
-  object-fit: cover;
-  z-index: 1;
-}
-.compactadoraSinFondo1 {
-  height: 302px;
-  width: 529px;
-  top: -169px;
-  right: 85px;
-}
-.cargadorDeCadenasSinFonod {
-  height: 352px;
-  width: 528px;
-  bottom: -368px;
-  left: 40px;
-}
+
 .maquinaSinFondo2 {
   height: 374px;
   width: 499px;
@@ -63,18 +53,6 @@
   object-fit: cover;
   z-index: 1;
 }
-.cargadoraDeRuedasSinFondo {
-  height: 433px;
-  width: 577px;
-  right: 29px;
-  bottom: -408px;
-}
-.camionobrasSinFondo1 {
-  height: 356px;
-  width: 474px;
-  top: 25px;
-  left: 604px;
-}
 .motorGrade {
   position: absolute;
   top: 0;
@@ -86,9 +64,7 @@
   width: 100%;
   height: 100%;
 }
-.botonInfoMaq,
-.botonInfoMaq2,
-.botonInfoMaq3 {
+.botonInfoMaq {
   position: absolute;
   top: 230px;
   width: 51px;
@@ -111,31 +87,9 @@
   animation: 1s ease 0s infinite normal none pulsate;
   opacity: 1;
 }
-.botonInfoMaq2,
-.botonInfoMaq3 {
-  left: 816px;
-}
-.botonInfoMaq2:hover {
-  cursor: pointer;
-}
-.botonInfoMaq2:active {
-  cursor: pointer;
-  animation: 1s ease 0s infinite normal none pulsate;
-  opacity: 1;
-}
-.botonInfoMaq3 {
-  left: 1395px;
-}
-.botonInfoMaq3:hover {
-  cursor: pointer;
-}
-.botonInfoMaq3:active {
-  cursor: pointer;
-  animation: 1s ease 0s infinite normal none pulsate;
-  opacity: 1;
-}
+
 .wheeledLoader {
-  height: calc(100% - 197px);
+  height: 0px;
   width: 100%;
   position: absolute;
   margin: 0 !important;
@@ -166,17 +120,14 @@
   gap: 0 223px;
   max-width: 100%;
 }
-.aplanadora {
-  position: relative;
-  z-index: 1;
-}
+
 .chainLoaders {
   align-self: stretch;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: var(--padding-152xl) var(--padding-205xl) 0 var(--padding-140xl);
+  padding: 60px;
   box-sizing: border-box;
   position: relative;
   min-height: 758px;
@@ -186,6 +137,7 @@
   font-size: var(--font-size-6xl);
   color: var(--color-white);
   font-family: var(--font-jura);
+  z-index: 1;
 }
 @media screen and (max-width: 1350px) {
   .chainLoaders {
@@ -200,7 +152,9 @@
     padding-left: var(--padding-60xl);
     padding-right: var(--padding-93xl);
     box-sizing: border-box;
+    margin-top: 1px;
   }
+  
 }
 @media screen and (max-width: 800px) {
   .rentalos {
@@ -221,12 +175,10 @@
   .metalWorksVehicle {
     gap: 0 56px;
   }
-  .aplanadora {
-    font-size: var(--font-size-xl);
-  }
   .chainLoaders {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
+
 }

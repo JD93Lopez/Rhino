@@ -1,20 +1,29 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ChainLoaders.module.css";
-
+import Productos from "../pages/VentanaParaClientes";
 const ChainLoaders = () => {
   const navigate = useNavigate();
 
-  const onBotonInfoMaqClick = useCallback(() => {
-    navigate("/ventana-para-buscar-productos");
-  }, [navigate]);
-
   return (
+    
     <section className={styles.chainLoaders}>
+      
+      <div>
+      <div className={styles.productHighlights}>
+        <h1 className={styles.productosDestacados}>{`PRODUCTOS DESTACADOS`}</h1>
+      </div>
+        <Productos/>
+      </div>
+      
       <div className={styles.wheeledLoader}>
-        <div className={styles.motorGrade}>
-          <h1 className={styles.rentalos}>RENTALOS</h1>
-          <img
+      <h1 className={styles.rentalos}>RENTALOS</h1>
+       {/*} <div className={styles.motorGrade}>
+          
+          
+          
+            
+            <img
             className={styles.compactadoraSinFondo1}
             loading="lazy"
             alt=""
@@ -44,16 +53,11 @@ const ChainLoaders = () => {
             alt=""
             src="/camionobras-sin-fondo-3@2x.png"
           />
-        </div>
-        <div className={styles.botonInfoMaq} onClick={onBotonInfoMaqClick} />
-        <div className={styles.botonInfoMaq2} />
-        <div className={styles.botonInfoMaq3} />
+  
+          
+  </div>*/}
+        
       </div>
-      <div className={styles.metalWorksVehicle}>
-        <b className={styles.manipuladorDeMetales}>MANIPULADOR DE METALES</b>
-        <b className={styles.caminDeObras}>CAMIÓN DE OBRAS</b>
-      </div>
-      <b className={styles.aplanadora}>APLANADORA</b>
     </section>
   );
 };

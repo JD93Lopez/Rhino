@@ -133,6 +133,7 @@
   font-family: var(--font-jura);
   color: var(--color-white);
   text-align: left;
+  cursor: pointer;
 }
 .frameChild,
 .verMsParent {
@@ -148,30 +149,24 @@
   display: none;
 }
 .verMsParent {
-  position: absolute;
   left: 41.5%;
-  top: 2870px;
-  cursor: pointer;
   padding: var(--padding-7xl) var(--padding-55xl);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
   z-index: 9999;
+  cursor: pointer;
 }
 .frameTextoCelularTextotelef {
-  width: 1374px;
-  flex-direction: row;
+  display: flex;
   justify-content: center;
-  padding: 0 var(--padding-xl);
+  padding: 1;
   box-sizing: border-box;
+  width: 1742px;
 }
 .frameTextoCelularTextotelef,
 .motorTrailas,
 .wheeledLoader {
   display: flex;
   align-items: flex-start;
-  max-width: 100%;
+  width: 1742px;
 }
 .wheeledLoader {
   width: 1393px;
@@ -180,12 +175,7 @@
   gap: 93px 0;
 }
 .motorTrailas {
-  align-self: stretch;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 var(--padding-xl) var(--padding-105xl) var(--padding-20xl);
-  box-sizing: border-box;
-  text-align: left;
+  padding: 0px;
   font-size: var(--font-size-6xl);
   color: var(--color-white);
   font-family: var(--font-jura);
@@ -213,8 +203,8 @@
     font-size: var(--font-size-xl);
   }
   .verMsParent {
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
+    padding-left: 1;
+    padding-right: 1;
     box-sizing: border-box;
   }
   .wheeledLoader {

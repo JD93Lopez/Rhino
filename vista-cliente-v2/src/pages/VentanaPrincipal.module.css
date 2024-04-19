@@ -1,3 +1,5 @@
+
+
 .empieceAConstruir {/*titulo empiece a contruir*/
   height: 71x;
   width: 471px;
@@ -9,6 +11,13 @@
   font-weight: 400;
   font-family: inherit;
   z-index: 9999;
+}
+.powerCapacityEfficiency {/*Imageb del slogan*/
+  height: 513px;
+  width: 1742px;
+  right: 0px;
+  bottom: -6px;
+  object-fit: cover;
 }
 .searchFrame {/*barra amarilla empiece a contruir*/
   top: 192px;
@@ -52,7 +61,7 @@
   top: 200px;
   left: 0px;
   font-size: var(--font-size-11xl);
-  font-family: var(--font-advent-pro);
+  font-family: "Bahnschrift";
   z-index: 9999;
 }
 .customerService,
@@ -88,16 +97,7 @@
   cursor: pointer;
   z-index: 1;
 }
-.productosDestacados {/*titulo productos destacados*/
-  top: 150px;
-  left: 0px;
-  margin: 0;
-  position: relative;
-  font-size: inherit;
-  font-weight: 400;
-  font-family: inherit;
-  z-index: 9999;
-}
+
 .buildWithUsFrame {/*barra amarilla del titulo productos destacados*/
   top: 150px;
   left: 0px;
@@ -125,11 +125,12 @@
   box-sizing: border-box;
 }
 .productHighlights {
-  width: 563px;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 0 0 var(--padding-xl);
-  max-width: 100%;
+  justify-content: flex-end;
+  padding: 0 0 0 var(--padding-x1);
+  max-width: 211%;
+  flex-shrink: 0;
+  height: 50px;
+  align-self: center;
 }
 .backgroundItems,
 .noFundMaterials {
@@ -141,7 +142,9 @@
   padding: 0 0 var(--padding-280xl);
   max-width: 211%;
   flex-shrink: 0;
+  height: 30px; /* Ajusta la altura según sea necesario */
 }
+
 .backgroundItems {
   width: 558.5px;
   height: 65.6px;
@@ -152,8 +155,6 @@
 }
 .haciendoPosibleLo {
   margin: 0;
-  position: absolute;
-  top: 1600px;
   left: -10px;
   font-size: inherit;
   font-weight: 400;
@@ -164,8 +165,6 @@
   z-index: 1;
 }
 .grandezaFrame {
-  position: absolute;
-  top: 1706px;
   left: 409px;
   background-color: var(--color-darkkhaki);
   width: 315px;
@@ -184,15 +183,13 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 var(--padding-smi);
+
   box-sizing: border-box;
   max-width: 100%;
 }
 .alquilaMaquinariaDesata {
-  top: 1610px;
   margin: 0;
   align-self: stretch;
-  position: relative;
   font-size: var(--font-size-31xl);
   font-weight: 600;
   font-family: var(--font-jura);
@@ -228,12 +225,13 @@
   font-family: inherit;
 }
 .rectanglecontactus {
+  width: 1742px;
   height: 7px;
   flex: 1;
   position: relative;
   background-color: var(--color-darkkhaki);
 }
-.footerFrame,
+
 .framechildren {
   display: flex;
   align-items: flex-start;
@@ -241,34 +239,28 @@
 }
 .framechildren {
   width: 281px;
+  height: 35px;
   flex-direction: row;
   padding: 0 var(--padding-11xs);
   box-sizing: border-box;
   margin-top: -9px;
 }
 .footerFrame {
-  margin-top: 100%;
-  align-self: stretch;
+  width: 1820px;
+  margin-top: 3%;
   background-color: var(--color-gray-400);
-  overflow: hidden;
-  flex-direction: column;
-  padding: var(--padding-11xl) var(--padding-81xl) var(--padding-mini);
-  text-align: left;
   font-size: var(--font-size-31xl);
   color: var(--color-white);
   font-family: var(--font-impact);
+  
 }
 .atencionalclienterhinocom {
-  height: 44px;
-  width: 445px;
-  position: relative;
-  font-weight: 600;
+  height: 50px;
   display: inline-block;
   flex-shrink: 0;
   white-space: nowrap;
-  max-width: 100%;
+  
 }
-.attentiontoclient,
 .ventanaPrincipal {
   box-sizing: border-box;
   overflow: hidden;
@@ -277,16 +269,15 @@
   justify-content: flex-start;
   text-align: left;
   color: var(--color-white);
+  
 }
 .attentiontoclient {
-  align-self: stretch;
   background-color: var(--color-gray-400);
-  flex-direction: row;
-  padding: var(--padding-mini) var(--padding-81xl) var(--padding-11xl);
-  max-width: 100%;
+  width: 1820px;
   z-index: 1;
   font-size: var(--font-size-11xl);
-  font-family: var(--font-jura);
+  font-family: 'Bahnschrift';
+  
 }
 .ventanaPrincipal {
   width: 100%;
@@ -294,7 +285,7 @@
   background-color: var(--color-black);
   border: 1px solid var(--color-black);
   flex-direction: column;
-  min-height: 3959px;
+  height: 100%;
   letter-spacing: normal;
   font-size: var(--font-size-35xl);
   font-family: var(--font-impact);
@@ -319,11 +310,6 @@
   .alquilaMaquinariaDesata,
   .contactenos {
     font-size: var(--font-size-21xl);
-  }
-  .footerFrame {
-    padding-left: var(--padding-31xl);
-    padding-right: var(--padding-31xl);
-    box-sizing: border-box;
   }
   .atencionalclienterhinocom {
     font-size: var(--font-size-5xl);
@@ -366,5 +352,34 @@
     padding-left: var(--padding-xl);         
     padding-right: var(--padding-xl);
     box-sizing: border-box;
+  }
+
+  .equipos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem 0;
+  }
+  
+  .equipo {
+    flex: 1 0 300px;
+    margin: 1rem;
+    text-align: center;
+  }
+  
+  .equipo img {
+    width: 100%;
+  }
+  
+  .equipo h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .equipo p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
