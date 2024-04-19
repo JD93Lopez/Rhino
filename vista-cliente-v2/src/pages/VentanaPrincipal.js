@@ -4,10 +4,8 @@ import { ScrollRestoration, useNavigate } from "react-router-dom";
 import ChainLoaders from "../components/ChainLoaders";
 import MotorTrailas from "../components/MotorTrailas";
 import ContainerBox from "../components/ContainerBox";
-import Framebuttonssocial from "../components/Framebuttonssocial";
 import styles from "./VentanaPrincipal.module.css";
-import TarjetaPProducto from "../components/TarjetaPProducto";
-
+import ContactInfoFrame from "../components/ContactInfoFrame";
 const VentanaPrincipal = () => {
   const navigate = useNavigate();
   return (
@@ -45,22 +43,10 @@ const VentanaPrincipal = () => {
           <h1 className={styles.alquilaMaquinariaDesata}>
             !ALQUILA MAQUINARIA, DESATA TU GRANDEZA¡
           </h1>
-          <div className={styles.grandezaFrame} />
+          
         </div>
       </section>
-
-      <section className={styles.footerFrame}>
-        <h1 className={styles.contactenos}>CONTACTENOS</h1>
-        <div className={styles.framechildren}>
-          <div className={styles.rectanglecontactus} />
-        </div>
-      </section>
-      <section className={styles.attentiontoclient}>
-        <div className={styles.atencionalclienterhinocom}>
-          atencionAlCliente@rhino.com
-        </div>
-      </section>
-      <Framebuttonssocial />
+      <ContactInfoFrame />
     </div>
   );
 };

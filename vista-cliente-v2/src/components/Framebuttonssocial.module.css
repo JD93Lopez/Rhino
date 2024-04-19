@@ -20,6 +20,15 @@
 .textoCelular:active {
   cursor: default;
 }
+.footerFrame {
+  width: 1820px;
+  margin-top: 3%;
+  background-color: var(--color-gray-400);
+  font-size: var(--font-size-31xl);
+  color: var(--color-white);
+  font-family: var(--font-impact);
+  
+}
 .frametextx {
   width: 227px;
   display: flex;
@@ -95,14 +104,39 @@
 
 }
 .framebuttonssocial {
-  width: 1820px;
-  align-self: stretch;
-  background-color: var(--color-gray-400);
-  display: flex;
-  justify-content: space-around;
-  font-size: var(--font-size-11xl);
+  width: 1742px;
+  height: auto;
+  background-color: rgb(23, 23, 23);
+  justify-content: left;
+  font-size: 60px;
   color: var(--color-white);
-  font-family: 'Bahnschrift';
-  height: 100px;
+  font-family: var(--font-impact);
+  padding: 20px;
 }
 
+.main{
+  width: 1746px;
+  align-self: stretch;
+  background-color: rgb(23, 23, 23);
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  font-family: var(--font-jura);
+  height: auto;
+  vertical-align: auto;
+  margin-top: 30px;
+  
+}
+
+.iconos{
+  width: 1742px;
+  align-self: stretch;
+  background-color: rgb(23, 23, 23);
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Bahnschrift';
+  height: auto;
+  vertical-align: auto;
+  margin-top: 50px;
+  padding-bottom: 40px;
+}

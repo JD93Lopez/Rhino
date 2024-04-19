@@ -264,24 +264,11 @@
 .powerFrame,
 .wheelLoaderFrame {
   display: flex;
-  justify-content: flex-start;
-  max-width: 100%;
 }
 .wheelLoaderFrame {
-  flex: 1;
   flex-direction: column;
-  align-items: flex-end;
   gap: 45px 0;
-}
-.containerBox,
-.powerFrame {
-  flex-direction: row;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-.powerFrame {
-  flex: 1;
-  padding: 0 0 var(--padding-319xl) var(--padding-10xs);
+  
 }
 
 @media screen and (max-width: 1350px) {
@@ -292,10 +279,6 @@
 @media screen and (max-width: 1125px) {
   .moreFrame {
     flex-wrap: wrap;
-  }
-  .powerFrame {
-    padding-bottom: var(--padding-201xl);
-    box-sizing: border-box;
   }
 }
 @media screen and (max-width: 800px) {
@@ -339,11 +322,5 @@
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
-  .wheelLoaderFrame {
-    gap: 22px 0;
-  }
-  .powerFrame {
-    padding-bottom: var(--padding-124xl);
-    box-sizing: border-box;
-  }
+
 }

@@ -2,7 +2,18 @@ import styles from "./Framebuttonssocial.module.css";
 
 const Framebuttonssocial = () => {
   return (
+
     <section className={styles.framebuttonssocial}>
+        <span className={styles.contactenos}>CONTÁCTENOS</span>
+        
+      
+      <div className={styles.framechildren}>
+          <div className={styles.rectanglecontactus} />
+        </div>
+        <div className={styles.main}>
+        <div className={styles.atencionalclienterhinocom}>
+          atencionAlCliente@rhino.com
+        </div>
       <div className={styles.frametextx}>
         <div className={styles.textoCelular}>
           <ul className={styles.ul}>
@@ -10,23 +21,20 @@ const Framebuttonssocial = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.frametextx1}>
-        <div className={styles.textoTelefono}>
+      <div className={styles.textoTelefono}>
           <ul className={styles.ul1}>
             <li>6891254</li>
           </ul>
         </div>
-      </div>
-      <div className={styles.botonX}>
-        <div className={styles.framebuttonx} />
+        </div>
+        <div className={styles.iconos}>
         <img
           className={styles.gorjeo1Icon}
           loading="lazy"
           alt=""
           src="/gorjeo-1@2x.png"
         />
-      </div>
-      <img
+        <img
         className={styles.botonYtIcon}
         loading="lazy"
         alt=""
@@ -44,6 +52,9 @@ const Framebuttonssocial = () => {
         alt=""
         src="/boton-facebook@2x.png"
       />
+      </div> 
+      
+      
     </section>
   );
 };
