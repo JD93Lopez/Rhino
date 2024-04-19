@@ -22,6 +22,7 @@ import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActua
 import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
 import VistaAdministradorCotizacionesProductos from "./pages/VistaAdministradorCotizacionesProductos";
+import VistaAdministradorCompras from "./pages/VistaAdministradorCompras";
 
 import { DataProvider } from "./components/DataProvider";
 
@@ -94,6 +95,10 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-cotizacion-producto":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-compras":
         title = "";
         metaDescription = "";
         break;
@@ -180,6 +185,10 @@ function App() {
         <Route
           path="/vista-administrador-cotizacion-producto"
           element={<VistaAdministradorCotizacionesProductos />}
+        />
+        <Route
+          path="/vista-administrador-compras"
+          element={<VistaAdministradorCompras />}
         />
       </Routes>
     </DataProvider>
