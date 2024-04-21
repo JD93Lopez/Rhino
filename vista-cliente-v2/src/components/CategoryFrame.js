@@ -5,6 +5,7 @@ import { TarjetaProducto } from "./TarjetaProducto";
 import orden from "../OrdenamientoSimilitudFiltros";
 import { DataContext } from "./DataProvider";
 import ListaDesplegable1 from "./ListaDesplegable1";
+import axios from "../axios";
 
 const CategoryFrame = () => {
 
@@ -35,9 +36,20 @@ const CategoryFrame = () => {
     return <p>Cargando...</p>
   }
 
-  const [productos, setProductos] = useState(dataContext.productos)
+  const [productos, setProductos] = useState()
+
+  if(!productos){
+    axios.api(`obtener/productos`).then((res)=>{
+      try{
+        setProductos(res.data.Res)
+      }catch(e){}
+    })
+  }
  
   const buscar = () => {
+    if(!productos){
+      return
+    }
     if(document.getElementById("inputbuscarproductos")){
       const inputValue = document.getElementById("inputbuscarproductos").value;
       let nuevosUsuarios = productos.map((producto) => {
@@ -52,6 +64,23 @@ const CategoryFrame = () => {
   }
 
   let dibujarProductos = () => {
+    console.log(productos)
+    if(!productos){
+      return
+    }
+    if(productos.length===1){
+      return [
+        <tr key={1}> 
+          <td>
+            <TarjetaProducto
+              nombre={productos[0].nombre}
+              imagen={productos[0].imagen}
+              object={productos[0]}
+            />
+          </td>
+        </tr> 
+      ]
+    }
     let productosTemp = []
     let oldP
     let i = 0
@@ -178,7 +207,7 @@ const CategoryFrame = () => {
         < div >
           <table>
             <tbody>
-              {dibujarProductos().map((tr)=>{
+              {productos&&dibujarProductos().map((tr)=>{
                 return tr
               })}
             </tbody>

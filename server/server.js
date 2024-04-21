@@ -422,7 +422,7 @@ server.get('/api/obtener/proveedores/:usuario/:contrasena', async (req, res) => 
 });
 
 //Obtener productos
-server.get('/api/obtener/productos/:usuario/:contrasena', async (req, res) => {
+server.get('/api/obtener/productos', async (req, res) => {
     try {
 
         //TODO comprobar permisos

@@ -29,7 +29,6 @@ const Headerframe = () => {
               <div className={styles.productDetailsFrame} />
             </div>
           </div>
-          <h2 className={styles.mayorProductividad}>LA MAYOR PRODUCTIVIDAD CON NUESTROS VEHÍCULOS</h2>
         </div>
         <div className={styles.elCatMh3050DestacaPorSuWrapper}>
           <div className={styles.elCatMh3050Container}>
@@ -37,14 +36,14 @@ const Headerframe = () => {
               className={styles.elCatMh3050}
             >{product.descripcion}</p>
             <p className={styles.deMaterialesGarantizando}>
-              de materiales, garantizando así la máxima eficiencia, mayor
-              confort y la confiabilidad
             </p>
             <p
               className={styles.queSeEspera}
-            >{`que se espera de este tipo de maquinaria. `}</p>
+            ></p>
           </div>
         </div>
+        <br/><br/>
+        <h2 className={styles.mayorProductividad}>LA MAYOR PRODUCTIVIDAD CON NUESTROS VEHÍCULOS</h2>
       </div>
     </section>
   );

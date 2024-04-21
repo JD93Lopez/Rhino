@@ -272,7 +272,6 @@ const obtenerProductos = async () => {
   const pool = new Pool(config);
   try {
     const DBRes = await pool.query("select * from productos");
-    console.log(DBRes.rows);
     return DBRes;
   } catch (error) {
     console.log("Error al obtener los productos");
