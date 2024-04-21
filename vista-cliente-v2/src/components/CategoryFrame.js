@@ -64,7 +64,6 @@ const CategoryFrame = () => {
   }
 
   let dibujarProductos = () => {
-    console.log(productos)
     if(!productos){
       return
     }

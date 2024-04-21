@@ -1,10 +1,12 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductFrame from "../components/ProductFrame";
 import TarjetaProductoCarrito from "../components/TarjetaProductoCarrito";
 import FrameComponent3 from "../components/FrameComponent3";
 import ContactDetailsFrame from "../components/ContactDetailsFrame";
 import styles from "./VentanaCarritoDeCompras.module.css";
+import axios from "../axios";
+import { DataContext } from "../components/DataProvider";
 
 const VentanaCarritoDeCompras = () => {
   const navigate = useNavigate();
@@ -15,10 +17,12 @@ const VentanaCarritoDeCompras = () => {
     setProductosCarrito(JSON.parse(localStorage.getItem("productosCarrito")))
   }
 
+  const dataContext = useContext(DataContext)
+
   const solicitarCotizacion = () =>{
     if( productosCarrito.length != 0 ){
       let alquiler = {producto_agendas: productosCarrito}
-      alquiler = JSON.stringify(alquiler)
+      axios.post(`123/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,alquiler)
       localStorage.setItem("productosCarrito","")
       setProductosCarrito(undefined)
     }

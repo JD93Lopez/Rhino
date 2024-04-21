@@ -15,4 +15,16 @@ const api = async (apiUrl) => {
     return res
 }
 
-export default {api}
+const post = async (apiUrl,object) => {
+    let res
+    try {
+        res = await axios.post("http://"+ip+":"+port+"/api/"+apiUrl,object)
+    } catch (error) {
+        if(error.code === 'ERR_NETWORK'){
+            console.log(error)
+        }
+    }
+    return res
+}
+
+export default {api,post}
