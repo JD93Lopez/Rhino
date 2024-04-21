@@ -112,36 +112,29 @@ const comprobarPermisos = async (usuario,contrasena,tiposUsuarioPermitido) => {
 }
 //1, 2, 3 Agregar Alquiler
 server.post('/api/123/:nUsuario/:contrasena', async (req, res) => {
-    console.log(0)
+
     let bool = false
     try {
         //TODO comprobar permisos
         const nUsuario = req.params.nUsuario
         const contrasena = req.params.contrasena
         let alquiler = req.body
-
-        console.log(2," AQUIII ",alquiler)
     
         const ResIniciarSesion = await iniciarSesion(nUsuario,contrasena)
         if(ResIniciarSesion&&ResIniciarSesion.usuario&&ResIniciarSesion.usuario.idusuarios){
 
             const idusuarios = ResIniciarSesion.usuario.idusuarios
-            console.log(3," AQUIII ",idusuarios)
 
             const idalquileres = (await Fetch.fetchApi(`clienteAgregarAlquiler1/${idusuarios}`)).DBRes
-            console.log(4," AQUIII ",idalquileres)
 
             if(alquiler&&alquiler.producto_agendas){
                 
                 const producto_agendas = alquiler.producto_agendas
-                console.log(5," AQUIII ",producto_agendas)
 
                 for await ( let producto_agenda of producto_agendas ){
 
                     const idproductos = producto_agenda.idproductos
                     const idagenda = (await Fetch.fetchApi(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).DBRes
-
-                    console.log(6," AQUIII ",idagenda)
 
                     await Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
 
