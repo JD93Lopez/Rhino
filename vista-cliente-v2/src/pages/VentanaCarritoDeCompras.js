@@ -20,7 +20,7 @@ const VentanaCarritoDeCompras = () => {
   const dataContext = useContext(DataContext)
 
   const solicitarCotizacion = () =>{
-    if( productosCarrito.length != 0 ){
+    if( productosCarrito && productosCarrito.length != 0 ){
       let alquiler = {producto_agendas: productosCarrito}
       axios.post(`123/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,alquiler)
       localStorage.setItem("productosCarrito","")
