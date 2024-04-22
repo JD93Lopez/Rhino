@@ -9,10 +9,22 @@ const api = async (apiUrl) => {
         res = await axios.get("http://"+ip+":"+port+"/api/"+apiUrl)
     } catch (error) {
         if(error.code === 'ERR_NETWORK'){
-            //TODO mostrar error de conexión.
+            console.log(error)
         }
     }
     return res
 }
 
-export default {api}
+const post = async (apiUrl,object) => {
+    let res
+    try {
+        res = await axios.post("http://"+ip+":"+port+"/api/"+apiUrl,object)
+    } catch (error) {
+        if(error.code === 'ERR_NETWORK'){
+            console.log(error)
+        }
+    }
+    return res
+}
+
+export default {api,post}

@@ -7,12 +7,31 @@ import styles from "./VistaAdministradorUsuarios.module.css";
 import { DataContext } from "../components/DataProvider";
 import { TarjetaUsuarioAdministrador } from "../components/TarjetaUsuarioAdministrador";
 import orden from "../OrdenamientoSimilitud";
+import axios from '../axios';
 
 export const SearchContext = React.createContext();
 
-const VistaAdministradorUsuarios = () => {
+const VistaAdministradorUsuarios = () => {//usuarioIniciado: usuarioIniciado
   const dataContext = useContext(DataContext);
-  const { Loaded, usuarios: usuariosContext } = dataContext;
+  const { Loaded, usuarioIniciado } = dataContext;
+  let arrayUsuarios = []
+  if(!dataContext.usuariosCargados){
+    axios.api(`obtener/usuarios/1/1`).then((res)=>{
+      try{
+        const array = res.data.Res
+        array.usuarioIniciado = usuarioIniciado
+        arrayUsuarios = array
+        setUsuarios(array)
+      }catch(e){}
+    })
+    dataContext.usuariosCargados = 1
+  }
+
+  arrayUsuarios.usuarioIniciado = usuarioIniciado
+
+  const {usuariosContext} = {
+    usuariosContext: arrayUsuarios
+  }
   if (!Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
@@ -62,7 +81,7 @@ const VistaAdministradorUsuarios = () => {
 
   //cargar usuarios de la lista
 
-  const [usuarios, setUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState(arrayUsuarios);
 
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarusuario").value;
@@ -77,9 +96,9 @@ const VistaAdministradorUsuarios = () => {
     setUsuarios(nuevosUsuarios);
   }
 
-  useEffect(() => {
-    buscar();
-  }, [busqueda, usuariosContext]);
+  // useEffect(() => {
+  //   buscar();
+  // }, [busqueda, usuariosContext]);
 
   return (
 /*Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'*/

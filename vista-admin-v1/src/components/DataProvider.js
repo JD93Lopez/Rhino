@@ -207,7 +207,8 @@ export const DataProvider = (props) => {
             selectedUsers,
             selectedProyects,
             selectedProducts,
-            Loaded: true
+            Loaded: true,
+            usuarioIniciado
         })
     },[])
 
