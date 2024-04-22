@@ -41,9 +41,6 @@ const SaveButtonFrame = () => {
       tipo_identificacion, 
       tipo_usuario
     };
-
-
-    console.log(usuarioInsertar)
     
     axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
   };
