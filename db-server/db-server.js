@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const FileReader = require('./FileReader.js');
 const DBConnection = require('./DBConnection.js');
+const bodyParser = require('body-parser');
 
 const config = FileReader.readServerConfig()
 
@@ -15,6 +16,7 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
+server.use(bodyParser.json());
 
 //INICIO FUNCIONES PRUEBA
 // Rutas prueba
@@ -394,11 +396,11 @@ server.get('/dbapi/get/conductores', async (req, res) => {
 });
 
 //Actualizar usuario
-server.get('/dbapi/update/usuarios/:JSONUsuario', async (req, res) => {
+server.post('/dbapi/update/usuarios', async (req, res) => {
     try {
         
-        const JSONUsuario = req.params.JSONUsuario;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
+        const usuarioInsertar = req.body;
+        
         DBConnection.actualizarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {

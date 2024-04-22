@@ -1,9 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./SaveButtonFrame.module.css";
 import axios from '../axios.js';
+import { DataContext } from "./DataProvider.js";
 
 const SaveButtonFrame = () => {
+  const dataContext = useContext(DataContext)
+  const { Loaded, selectedUsers, usuarioIniciado } = dataContext;
   const navigate = useNavigate();
 
   const onBotonAtrsContainerClick = useCallback(() => {
@@ -22,8 +25,12 @@ const SaveButtonFrame = () => {
     const tipo_identificacion = document.getElementById("inputtipoidentificacion").value;
     const tipo_usuario = document.getElementById("inputtipodeusuario").value;
     
+    if(!Loaded){
+      return
+    }
     // Crear el objeto de usuario
     const usuarioInsertar = {
+      idusuarios: selectedUsers[0].idusuarios,
       nombre_usuario, 
       contrasena, 
       nombre_real, 
@@ -35,13 +42,10 @@ const SaveButtonFrame = () => {
       tipo_usuario
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(usuarioInsertar);
 
-    console.log(JsonUsuario);
+    console.log(usuarioInsertar)
     
-    //axios.api(`http://127.0.0.1:3001/api/saludo/marco/prada`)
-    // axios.api(`http://127.0.0.1:3001/api/insert/usuarios/${JsonUsuario}/1/1`) TODO des comentar esta linea para conexion con la API
+    axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
   };
 
   return (

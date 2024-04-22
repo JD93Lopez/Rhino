@@ -3,6 +3,7 @@ const cors = require('cors');
 const FileReader = require('./FileReader.js');
 const Fetch = require('./db-fetch.js');
 const bodyParser = require('body-parser');
+const axios = require('./axios.js');
 
 const config = FileReader.readServerConfig()
 
@@ -472,14 +473,14 @@ server.get('/api/obtener/conductores/:usuario/:contrasena', async (req, res) => 
 });
 
 //Actualizar usuario
-server.get('/api/actualizar/usuario/:JSONActualizar/:usuario/:contrasena', async (req, res) => {
+server.post('/api/actualizar/usuario/:usuario/:contrasena', async (req, res) => {
     try {
 
         //TODO comprobar permisos
         
-        const JSONActualizar = req.params.JSONActualizar;
+        const JSONActualizar = req.body;
 
-        Fetch.fetchApi(`update/usuarios/${JSONActualizar}`)
+        axios.post(`update/usuarios`,JSONActualizar)
 
         res.json({ Res: true });
     } catch (error) {

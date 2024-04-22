@@ -15,8 +15,8 @@ const VistaAdministradorUsuarios = () => {//usuarioIniciado: usuarioIniciado
   const dataContext = useContext(DataContext);
   const { Loaded, usuarioIniciado } = dataContext;
   let arrayUsuarios = []
-  if(!dataContext.usuariosCargados){
-    axios.api(`obtener/usuarios/1/1`).then((res)=>{
+  if(!dataContext.usuariosCargados && Loaded){
+    axios.api(`obtener/usuarios/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`).then((res)=>{
       try{
         const array = res.data.Res
         array.usuarioIniciado = usuarioIniciado

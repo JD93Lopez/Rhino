@@ -1,6 +1,7 @@
 const FileReader = require('./FileReader.js');
 const config = FileReader.readFetchConfig()
 
+
 // Función para obtener los datos JSON
 async function fetchApi(apiRoute) {
   try {
