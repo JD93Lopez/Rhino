@@ -18,7 +18,8 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true, limit: '200mb' }));
+server.use(bodyParser.json({ limit: '200mb' }));
 
 //INICIO FUNCIONES PRUEBA
 // Rutas prueba
@@ -505,14 +506,14 @@ server.get('/api/actualizar/proveedor/:JSONActualizar/:usuario/:contrasena', asy
 });
 
 //Actualizar producto
-server.get('/api/actualizar/producto/:JSONActualizar/:usuario/:contrasena', async (req, res) => {
+server.post('/api/actualizar/producto/:usuario/:contrasena', async (req, res) => {
     try {
 
         //TODO comprobar permisos
         
-        const JSONActualizar = req.params.JSONActualizar;
+        const Object = req.body;
 
-        Fetch.fetchApi(`update/productos/${JSONActualizar}`)
+        axios.post(`update/productos`,Object)
 
         res.json({ Res: true });
     } catch (error) {

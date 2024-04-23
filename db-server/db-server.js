@@ -16,7 +16,8 @@ corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
 });
 
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true, limit: '200mb' }));
+server.use(bodyParser.json({ limit: '200mb' }));
 
 //INICIO FUNCIONES PRUEBA
 // Rutas prueba
@@ -420,14 +421,14 @@ server.get('/dbapi/update/proveedores/:JSONProveedor', async (req, res) => {
 });
 
 //Actualizar producto
-server.get('/dbapi/update/productos/:JSONObject', async (req, res) => {
+server.post('/dbapi/update/productos', async (req, res) => {
     try {
         
-        const JSONObject = req.params.JSONObject;
-        const objetoAInsertar = JSON.parse(JSONObject)
+        const objetoAInsertar = req.body
         DBConnection.actualizarProducto(objetoAInsertar.idproductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
+        console.log(error)
         res.json({ DBRes: error });
     }
 });

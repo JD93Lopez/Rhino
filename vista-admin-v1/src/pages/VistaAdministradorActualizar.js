@@ -51,7 +51,10 @@ const VistaAdministradorActualizar = () => {
       document.getElementById("inputprecioproducto").value = selectedProducts[0].precio_alquiler;
       document.getElementById("inputmodeloproducto").value = selectedProducts[0].modelo ;
       document.getElementById("inputfabricanteproducto").value = selectedProducts[0].marca;
+      dataContext.estadoProducto = selectedProducts[0].estado
+      dataContext.tipoProducto = selectedProducts[0].tipo_vehiculo
       if(selectedProducts[0].imagen!=null){
+        dataContext.imagenProducto = selectedProducts[0].imagen
         document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
       }
     }

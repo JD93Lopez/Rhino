@@ -5,6 +5,7 @@ import styles from "./FrameComponent2.module.css";
 import Select from 'react-select';
 import ImageUpload from './ImageUpload';
 import { DataContext, DataProvider } from "../components/DataProvider";
+import axios from "../axios";
 const FrameComponent2 = () => {
 
   const [showNotification, setShowNotification] = useState(false);
@@ -14,7 +15,7 @@ const FrameComponent2 = () => {
     const nombre=document.getElementById("inputNombreProducto").value;
     const descripcion =document.getElementById("inputdescripcionproducto").value;
     const identificacion =document.getElementById("inputIdProducto").value;
-    const precio =document.getElementById("inputprecioproducto").value;
+    const precio_alquiler =document.getElementById("inputprecioproducto").value;
     const modelo =document.getElementById("inputmodeloproducto").value;
     const marca =document.getElementById("inputfabricanteproducto").value;
     const estado = dataContext.estadoProducto;
@@ -24,40 +25,43 @@ const FrameComponent2 = () => {
       nombre,
       descripcion,
       identificacion,
-      precio,
+      precio_alquiler,
+      precio_compra: precio_alquiler,
       marca, 
       modelo,
       tipo_vehiculo,
+      estado,
       imagen,
-      estado
     };
-    // Convertir el objeto de producto a JSON
-    const jsonProducto = JSON.stringify(product);
-    
-    //TODO conexion axios 
- 
-    console.log(JSON.parse(jsonProducto))
-    //TODO Cambiar el contenido de la notificación
-    setNotificationContent("¡Guardadito exitoso!");
+
+    console.log(imagen)
+
+    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+      product.idproductos = dataContext.selectedProducts[0].idproductos
+      axios.post(`actualizar/producto/:usuario/:contrasena`,product)
+    }
+
+    //Contenido de la notificación
+    setNotificationContent("¡Guardado exitoso!");
 
     setShowNotification(true);
 
-    // Ocultar la notificación después de 2 segundos
+    //Ocultar la notificación después de 2 segundos
     setTimeout(() => {
       setShowNotification(false);
     }, 2000);
   };
 
   const drowpdownTipo = [
-    { label: 'Transporte', value: 'Transporte' },
-    { label: 'Maquinaria Pesada', value: 'Maquinaria Pesada' },
+    { label: 'Transporte', value: 'TRANSPORTE' },
+    { label: 'Maquinaria Pesada', value: 'MAQUINARIA_PESADA' },
   ]
   dataContext.drowpdownTipo = drowpdownTipo;
 
   const drowpdownEstado = [
-    { label: 'Disponible', value: 'Disponible' },
-    { label: 'Ocupado', value: 'Ocupado' },
-    { label: 'Fuera de Servicio', value: 'Fuera de Servicio' },
+    { label: 'Disponible', value: 'DISPONIBLE' },
+    { label: 'Ocupado', value: 'OCUPADO' },
+    { label: 'Fuera de Servicio', value: 'FUERA_DE_SERVICIO' },
   ]
   
   dataContext.drowpdownEstado = drowpdownEstado;

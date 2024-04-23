@@ -263,6 +263,7 @@ const actualizarProducto = async (
     const DBRes = await pool.query(texto, values);
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error  al actualizar el producto");
   }
   pool.end();

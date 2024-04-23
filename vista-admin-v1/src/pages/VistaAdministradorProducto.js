@@ -5,7 +5,7 @@ import styles from "./VistaAdministradorProducto.module.css";
 import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdministrador";
 import { DataContext } from "../components/DataProvider";
 import orden from "../OrdenamientoSimilitud";
-
+import axios from "../axios";
 
 const VistaAdministradorProducto = () => {
   const navigate = useNavigate();
@@ -39,9 +39,18 @@ const VistaAdministradorProducto = () => {
 
   //resetear seleccionados
   dataContext.selectedProducts = []
+  dataContext.estadoProducto = undefined
+  dataContext.tipoProducto = undefined
+  dataContext.imagenProducto = undefined
 
 
-  const [productos, setProductos] = useState(dataContext.productos);
+  const [productos, setProductos] = useState();
+
+  if(!productos){
+    axios.api(`obtener/productos`).then((res)=>{
+      setProductos(res.data.Res)
+    })
+  }
 
   useEffect(() => {
     if (dataContext.Loaded) {
