@@ -3,6 +3,7 @@ import styles from "./SearchProjectFrame.module.css";
 import { DataContext } from "./DataProvider";
 import { useContext, useState } from "react";
 import orden from "../OrdenamientoSimilitud";
+import axios from "../axios";
 
 const SearchProjectFrame = () => {
   
@@ -12,11 +13,19 @@ const SearchProjectFrame = () => {
     return <div>Cargando... Por favor espere.</div>;
   }
 
-  const [proyectos, setProyectos] = useState(dataContext.proyectos);
+  const [proyectos, setProyectos] = useState();
+
+  if(!proyectos){
+    axios.api(`obtener/proyectos/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
+      try{
+        setProyectos(res.data.Res)
+      }catch(e){}
+    })
+  }
 
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarproyecto").value;
-    let nuevosProyectos = dataContext.proyectos.map((project) => {
+    let nuevosProyectos = proyectos.map((project) => {
       const similitud = orden.calcularSimilitud(inputValue, project.nombre);
       return { proyecto: project, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
@@ -46,7 +55,7 @@ const SearchProjectFrame = () => {
           </div>
         </div>
         <div className={styles.projectFrame1}>
-          {proyectos.map(proyecto => {
+          {proyectos&&proyectos.map(proyecto => {
             return <TarjetaProyectoAdministrador
               object = { proyecto }
               encargadoProyecto={proyecto.nombre}
