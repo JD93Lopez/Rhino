@@ -246,14 +246,13 @@ const actualizarProducto = async (
   const pool = new Pool(config);
   try {
     const texto =
-      "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, precio_compra = $6, marca = $7, modelo = $8, tipo_vehiculo = $9, estado = $10, imagen = $11 WHERE idProductos = $1";
+      "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, marca = $6, modelo = $7, tipo_vehiculo = $8, estado = $9, imagen = $10 WHERE idProductos = $1";
     const values = [
       idProductos,
       nombre,
       descripcion,
       identificacion,
       precio_alquiler,
-      precio_compra,
       marca,
       modelo,
       tipo_vehiculo,
