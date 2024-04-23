@@ -25,12 +25,8 @@ const SaveButtonFrame = () => {
     const tipo_identificacion = document.getElementById("inputtipoidentificacion").value;
     const tipo_usuario = document.getElementById("inputtipodeusuario").value;
     
-    if(!Loaded){
-      return
-    }
     // Crear el objeto de usuario
     const usuarioInsertar = {
-      idusuarios: selectedUsers[0].idusuarios,
       nombre_usuario, 
       contrasena, 
       nombre_real, 
@@ -41,8 +37,16 @@ const SaveButtonFrame = () => {
       tipo_identificacion, 
       tipo_usuario
     };
-    
-    axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
+
+    if(selectedUsers&&selectedUsers.length!=0){
+      if(!Loaded){
+        return
+      }
+      usuarioInsertar.idusuarios = selectedUsers[0].idusuarios
+      axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
+    }else{
+      axios.post(`agregar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
+    }
   };
 
   return (

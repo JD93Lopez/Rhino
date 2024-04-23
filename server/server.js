@@ -331,12 +331,12 @@ server.get('/api/alquileresPorUsuario/:nUsuario/:contrasena', async (req, res) =
 //INICIO FUNCIONES CRUD
 
 //Agregar usuario
-server.get('/api/agregar/usuario/:JSONObject/:usuario/:contrasena', async (req, res) => {
+server.post('/api/agregar/usuario/:usuario/:contrasena', async (req, res) => {
     try {
 
-        const JSONObject = req.params.JSONObject;
+        const Object = req.body;
         //TODO comprobar permisos
-        await Fetch.fetchApi(`insert/usuarios/${JSONObject}`)
+        await axios.post(`insert/usuarios`,Object)
         
         res.json({ Res: true });
     } catch (error) {

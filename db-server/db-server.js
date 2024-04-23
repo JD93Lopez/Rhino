@@ -270,11 +270,10 @@ server.get('/dbapi/alquileresPorUsuario/:idusuarios', async (req, res) => {
 //INICIO FUNCIONES CRUD
 
 //Insertar usuario
-server.get('/dbapi/insert/usuarios/:JSONUsuario', async (req, res) => {
+server.post('/dbapi/insert/usuarios', async (req, res) => {
     try {
 
-        const JSONUsuario = req.params.JSONUsuario;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
+        const usuarioInsertar = req.body
         DBConnection.insertarUsuario(usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
         res.json({ DBRes: "Insercion Finalizada" });
     } catch (error) {

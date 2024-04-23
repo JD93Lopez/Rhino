@@ -11,7 +11,7 @@ import axios from '../axios';
 
 export const SearchContext = React.createContext();
 
-const VistaAdministradorUsuarios = () => {//usuarioIniciado: usuarioIniciado
+const VistaAdministradorUsuarios = () => {
   const dataContext = useContext(DataContext);
   const { Loaded, usuarioIniciado } = dataContext;
   let arrayUsuarios = []
