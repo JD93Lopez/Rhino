@@ -15,7 +15,7 @@ const VistaAdministradorVerCotizacion = () => {
     const nombre_usuario = document.getElementById("inputnombrecotizacion").value;
     const correo = document.getElementById("inputcorreocotizacion").value;
     const telefono = document.getElementById("inputtelefonocotizacion").value;
-    const precioproductos = document.getElementById("inputpreciocotizacion").value;
+    const subtotal = document.getElementById("inputpreciocotizacion").value;
     const estado = document.getElementById("inputestadocotizacion").value;
     const valorconductor = document.getElementById("inputvalorconductorcotizacion").value;
     const gastoadicional = document.getElementById("inputgastoadicionalcotizacion").value;
@@ -25,20 +25,22 @@ const VistaAdministradorVerCotizacion = () => {
       nombre_usuario,
       correo,
       telefono,
-      precioproductos,
+      subtotal,
       estado,
       valorconductor,
       gastoadicional,
       justificacion_gastosadicionales
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(cotizacionInsertar);
-    console.log(JsonUsuario);
+    // TODO conexion axios
+
   };
   if(!dataContext.Loaded || !dataContext.cotizacionSeleccionada){ 
     navigate("/vista-administrador-cotizacion");
   }
+
+  const [producto_agendas,setProducto_agendas] = useState(cotizacion.producto_agendas)
+
   return (
     <div className={styles.vistaAdministradorCotizaci}>
       <div className={styles.vistaAdministradorCotizaciChild} />
@@ -51,27 +53,17 @@ const VistaAdministradorVerCotizacion = () => {
                 Productos Adquiridos:
               </div>
             </div>
-            <TarjetaProductoCotizacion 
-              nombre= "CARGADORA"
-              identificacion= "WHA723"
-              precio_alquiler= "100000"
-              fecha_inicio= "2024-04-10"
-              fecha_fin= "2024-04-20"
-            />
-            <TarjetaProductoCotizacion 
-              nombre= "CARGADORA"
-              identificacion= "WHA723"
-              precio_alquiler= "100000"
-              fecha_inicio= "2024-04-10"
-              fecha_fin= "2024-04-20"
-            />
-            <TarjetaProductoCotizacion 
-              nombre= "CARGADORA"
-              identificacion= "WHA723"
-              precio_alquiler= "100000"
-              fecha_inicio= "2024-04-10"
-              fecha_fin= "2024-04-20"
-            />
+            {
+              producto_agendas&&producto_agendas.map((producto_agenda)=>{
+                return <TarjetaProductoCotizacion 
+                  nombre= {producto_agenda.nombre}
+                  identificacion= {producto_agenda.identificacion}
+                  precio_alquiler= {producto_agenda.precio_alquiler}
+                  fecha_inicio= {producto_agenda.fecha_inicio}
+                  fecha_fin= {producto_agenda.fecha_fin}
+                />
+              })
+            }
           </div>
           <div className={styles.quotationInfo}>
             <div className={styles.infoArea}>
@@ -85,19 +77,19 @@ const VistaAdministradorVerCotizacion = () => {
                     <div className={styles.contactInfoTitles}>
                       <div className={styles.nombre}>Nombre:</div>
                       <div className={styles.contactInputs}>
-                        <input className={styles.camponombre} type='text' id="inputnombrecotizacion" useref="inputnombrecotizacion" value={cotizacion.nombre_usuario} />
+                        <input className={styles.camponombre} type='text' id="inputnombrecotizacion" useref="inputnombrecotizacion" value={cotizacion.usuario.nombre_usuario} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles1}>
                       <div className={styles.correo}>Correo:</div>
                       <div className={styles.campocorreoWrapper}>
-                        <input className={styles.campocorreo} type="text" id="inputcorreocotizacion" useref="inputcorreocotizacion" value={cotizacion.correo} />
+                        <input className={styles.campocorreo} type="text" id="inputcorreocotizacion" useref="inputcorreocotizacion" value={cotizacion.usuario.correo} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles2}>
                       <div className={styles.telfono}>Teléfono:</div>
                       <div className={styles.campotelefonoWrapper}>
-                        <input className={styles.campotelefono} type="text" id="inputtelefonocotizacion" useref="inputtelefonocotizacion" value={cotizacion.telefono} />
+                        <input className={styles.campotelefono} type="text" id="inputtelefonocotizacion" useref="inputtelefonocotizacion" value={cotizacion.usuario.telefono} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles3}>
@@ -105,7 +97,7 @@ const VistaAdministradorVerCotizacion = () => {
                         Precio de Productos:
                       </div>
                       <div className={styles.campoprecioproductoWrapper}>
-                        <input className={styles.campoprecioproducto} type="text" id="inputpreciocotizacion" useref="inputpreciocotizacion" value={cotizacion.precioproductos}/>
+                        <input className={styles.campoprecioproducto} type="text" id="inputpreciocotizacion" useref="inputpreciocotizacion" value={cotizacion.subtotal}/>
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles3}>
