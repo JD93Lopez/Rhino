@@ -364,6 +364,31 @@ server.get('/api/alquileresPorUsuario/:nUsuario/:contrasena', async (req, res) =
         res.json({ Res: error });
     }
 });
+//Consultar alquileres y cotizaciones
+server.get('/api/obtener/alquileres/:nUsuario/:contrasena', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const nUsuario = req.params.nUsuario
+        const contrasena = req.params.contrasena
+
+        let alquileres
+
+        alquileres = (await Fetch.fetchApi(`get/alquileres`)).DBRes.rows
+
+        for await (let alquiler of alquileres){
+            let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
+            alquiler.producto_agendas = res
+
+            res = (await Fetch.fetchApi(`get/usuarioporid/${alquiler.usuarios_idusuarios}`)).DBRes.rows[0]
+            alquiler.usuario = res
+        }
+
+
+        res.json({ Res: alquileres });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

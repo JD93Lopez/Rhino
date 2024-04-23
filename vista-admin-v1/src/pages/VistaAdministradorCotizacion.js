@@ -5,11 +5,21 @@ import styles from "./VistaAdministradorCotizacion.module.css";
 import TarjetaCotizaciones from "../components/TarjetaCotizaciones"; // Asegúrate de ajustar la ruta de importación
 import { DataContext } from "../components/DataProvider";
 import orden from "../OrdenamientoSimilitud";
+import axios from "../axios";
 
 const VistaAdministradorCotizacion = () => {
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
-  const [cotizaciones, setCotizaciones] = useState(dataContext.cotizaciones); // Asumiendo que 'productos' son cotizaciones
+  const [cotizaciones, setCotizaciones] = useState(); // Asumiendo que 'productos' son cotizaciones
+
+  if(!cotizaciones&&dataContext.Loaded){
+    axios.api(`obtener/alquileres/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
+      try{
+        console.log(res)
+        setCotizaciones(res.data.Res)
+      }catch(e){}
+    })
+  }
 
   const onUSUARIOSTextClick = useCallback(() => {
     navigate("/vista-administrador-usuarios");
@@ -25,16 +35,16 @@ const VistaAdministradorCotizacion = () => {
 
   useEffect(() => {
     if (dataContext.Loaded) {
-      setCotizaciones(dataContext.cotizaciones); // Asumiendo que 'productos' son cotizaciones
+      setCotizaciones(cotizaciones); // Asumiendo que 'productos' son cotizaciones
     }
-  }, [dataContext.Loaded, dataContext.cotizaciones]);
+  }, [dataContext.Loaded, cotizaciones]);
 
   const buscar = () => {
-    if (!dataContext.cotizaciones) {
+    if (!cotizaciones) {
       return;
     }
     const inputValue = document.getElementById("inputbuscarproducto").value;
-      let nuevasCotizaciones = dataContext.cotizaciones.map((cotizacion) => {
+      let nuevasCotizaciones = cotizaciones.map((cotizacion) => {
       const similitud = orden.calcularSimilitud(inputValue, cotizacion.nombre); // Ajusta según el dato relevante
       return { cotizacion, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
@@ -73,9 +83,9 @@ const VistaAdministradorCotizacion = () => {
             {cotizaciones && cotizaciones.map((cotizacion) => (
               <TarjetaCotizaciones
                 idalquileres = {cotizacion.idalquileres}
-                nombre = {cotizacion.nombre_usuario}
-                correo = {cotizacion.correo}
-                telefono = {cotizacion.telefono}
+                nombre = {cotizacion.usuario.nombre_usuario}
+                correo = {cotizacion.usuario.correo}
+                telefono = {cotizacion.usuario.telefono}
                 estado = {cotizacion.estado}
                 fecha = {cotizacion.fecha}
                 object = {cotizacion}

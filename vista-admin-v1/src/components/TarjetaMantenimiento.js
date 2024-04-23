@@ -30,7 +30,6 @@ const TarjetaMantenimiento = ({ object, nombreMaquinaria, fecha, id }) => {
       dataContext.selectedMant.push(
         object
       )
-      console.log(dataContext.selectedMant)
     }
 
   }

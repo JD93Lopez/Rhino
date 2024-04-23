@@ -270,6 +270,31 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   };
+  //obtener alquileres
+  funciones.obtenerAlquileres = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("select * from alquileres");
+
+      return DBRes;
+    } catch (error) {
+      console.log("Error al obtener los mantenimientos");
+    }
+    pool.end();
+  };
+  //Consultar usuario por idusuarios
+  funciones.usuarioPorID = async ( idusuarios ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM USUARIOS u WHERE u.idusuarios = $1", 
+      [idusuarios]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
 
   
   return funciones

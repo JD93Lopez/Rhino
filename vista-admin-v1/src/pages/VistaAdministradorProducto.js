@@ -48,17 +48,11 @@ const VistaAdministradorProducto = () => {
 
   if(!productos){
     axios.api(`obtener/productos`).then((res)=>{
-      setProductos(res.data.Res)
+      try{
+        setProductos(res.data.Res)
+      }catch(e){}
     })
   }
-
-  useEffect(() => {
-    if (dataContext.Loaded) {
-      setProductos(dataContext.productos);
-    }
-  }, [dataContext.Loaded, dataContext.productos]);
-
-
 
   const buscar = () => {
     if (!dataContext.productos) {

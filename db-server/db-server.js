@@ -370,6 +370,18 @@ server.get('/dbapi/get/usuarios', async (req, res) => {
     }
 });
 
+//Obtener usuarios por id
+server.get('/dbapi/get/usuarioporid/:idusuarios', async (req, res) => {
+    try {
+
+        const idusuarios = req.params.idusuarios
+        
+        res.json({ DBRes: await funcionesBD.usuarioPorID(idusuarios) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Obtener proveedores
 server.get('/dbapi/get/proveedores', async (req, res) => {
     try {
@@ -415,6 +427,16 @@ server.get('/dbapi/get/mantenimientos', async (req, res) => {
     try {
         
         res.json({ DBRes: await funcionesBD.obtenerMantenimientos() });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+//Obtener mantenimientos
+server.get('/dbapi/get/alquileres', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await funcionesBD.obtenerAlquileres() });
     } catch (error) {
         res.json({ DBRes: error });
     }
