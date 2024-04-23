@@ -373,12 +373,12 @@ server.get('/api/agregar/producto/:JSONObject/:usuario/:contrasena', async (req,
 });
 
 //Agregar proyecto
-server.get('/api/agregar/proyecto/:JSONObject/:usuario/:contrasena', async (req, res) => {
+server.post('/api/agregar/proyecto/:usuario/:contrasena', async (req, res) => {
     try {
 
-        const JSONObject = req.params.JSONObject;
+        const Object = req.body;
         //TODO comprobar permisos
-        await Fetch.fetchApi(`insert/proyectos/${JSONObject}`)
+        await axios.post(`insert/proyectos`,Object)
         
         res.json({ Res: true });
     } catch (error) {

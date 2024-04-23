@@ -49,7 +49,7 @@ const VistaAdministradorActualizarProyect = () => {
       usuarioInsertar.idproyectos = proyect.idproyectos
       axios.post(`actualizar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
     }else{
-      axios.post()
+      axios.post(`agregar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
     }
   };
   

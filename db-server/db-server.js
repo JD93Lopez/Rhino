@@ -308,11 +308,10 @@ server.get('/dbapi/insert/productos/:JSONObject', async (req, res) => {
 });
 
 //Insertar proyecto
-server.get('/dbapi/insert/proyectos/:JSONObject', async (req, res) => {
+server.post('/dbapi/insert/proyectos', async (req, res) => {
     try {
         
-        const JSONObject = req.params.JSONObject;
-        const objetoAInsertar = JSON.parse(JSONObject)
+        const objetoAInsertar = req.body
         DBConnection.insertarProyecto(objetoAInsertar.nombre, objetoAInsertar.identificacion, objetoAInsertar.tipo_identificacion, objetoAInsertar.telefono, objetoAInsertar.descripcion, objetoAInsertar.fecha_entrega, objetoAInsertar.estado_avance)
         res.json({ DBRes: "Insercion Finalizada" });
     } catch (error) {

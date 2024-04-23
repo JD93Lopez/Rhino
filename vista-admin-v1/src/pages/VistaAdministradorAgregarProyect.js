@@ -33,25 +33,23 @@ const VistaAdministradorAgregarProyect = () => {
       estado_avance
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(usuarioInsertar);
+    axios.post(`agregar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
 
-    console.log(JsonUsuario);
   };
 
   const dataContext = useContext(DataContext);
 
 
   const drowpdownTipoidentificacion = [
-    { label: "Cedula", value: "Cedula" },
-    { label: "Nit", value: "Nit" },
+    { label: "Cedula", value: "CEDULA" },
+    { label: "Nit", value: "NIT" },
   ];
   dataContext.drowpdownTipoidentificacion = drowpdownTipoidentificacion;
 
   const drowpdownEstadoAvance = [
-    { label: "Por Iniciar", value: "Por Iniciar" },
-    { label: "Iniciado", value: "Iniciado" },
-    { label: "Terminado", value: "Terminado" },
+    { label: "Por Iniciar", value: "POR_INICIAR" },
+    { label: "Iniciado", value: "INICIADO" },
+    { label: "Finalizado", value: "FINALIZADO" },
   ];
   dataContext.drowpdownEstadoAvance = drowpdownEstadoAvance;
 
