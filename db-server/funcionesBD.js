@@ -252,6 +252,26 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //obtener mantenimientos
+  funciones.obtenerMantenimientos = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("select * from historial_mantenimientos");
+
+      const arrayMants = DBRes.rows
+
+      for await (const mant of arrayMants){
+        mant.producto = (await pool.query(`select * from productos where idproductos = ${mant.productos_idproductos}`)).rows[0];
+        console.log(mant.producto)
+      }
+      console.log(DBRes)
+
+      return DBRes;
+    } catch (error) {
+      console.log("Error al obtener los mantenimientos");
+    }
+    pool.end();
+  };
 
   
   return funciones

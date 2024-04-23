@@ -537,6 +537,18 @@ server.get('/api/obtener/conductores/:usuario/:contrasena', async (req, res) => 
     }
 });
 
+//Obtener mantenimientos
+server.get('/api/obtener/mantenimientos/:usuario/:contrasena', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        
+        res.json({ Res: (await Fetch.fetchApi(`get/mantenimientos`)).DBRes.rows });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
 //Actualizar usuario
 server.post('/api/actualizar/usuario/:usuario/:contrasena', async (req, res) => {
     try {

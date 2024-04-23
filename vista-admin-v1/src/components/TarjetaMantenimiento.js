@@ -47,7 +47,7 @@ const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha,
           <div className={styles.nombreDelProductoExcavadorWrapper}>
             <div className={styles.nombreDelProductoContainer}>
               <span>{`Nombre del Producto: `}</span>
-              <span className={styles.excavadora}>{nombreMaquinaria}</span>
+              <span className={styles.excavadora}>{object.producto.nombre}</span>
             </div>
           </div>
           <div className={styles.identificacin49845Wrapper}>

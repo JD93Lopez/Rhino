@@ -394,6 +394,16 @@ server.get('/dbapi/get/conductores', async (req, res) => {
     }
 });
 
+//Obtener mantenimientos
+server.get('/dbapi/get/mantenimientos', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await funcionesBD.obtenerMantenimientos() });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Actualizar usuario
 server.post('/dbapi/update/usuarios', async (req, res) => {
     try {

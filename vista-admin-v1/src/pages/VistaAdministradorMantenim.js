@@ -5,11 +5,12 @@ import styles from "./VistaAdministradorMantenim.module.css";
 import { DataContext } from "../components/DataProvider";
 import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
 import orden from "../OrdenamientoSimilitud";
+import axios from '../axios';
 
 const VistaAdministradorMantenim = () => {
   const dataContext = useContext(DataContext);
   const { Loaded, mantenimientos: mantenimientosContext, usuarios, selectedMant } = dataContext;
-  const [mantenimientos, setMantenimientos] = useState([]);
+  const [mantenimientos, setMantenimientos] = useState();
 
   const navigate = useNavigate();
   const onAgregarMantenimientoClick = useCallback(() => {
@@ -25,18 +26,27 @@ const VistaAdministradorMantenim = () => {
 
   dataContext.selectedMant = []
 
-  useEffect(() => {
+  if(!mantenimientos){
+    try{
+      axios.api(`obtener/mantenimientos/1/1`).then((res)=>{
+        console.log(res.data.Res)
+        setMantenimientos(res.data.Res)
+      })
+    }catch(e){}
+  }
+
+/*   useEffect(() => {
     if (Loaded) {
-      setMantenimientos(mantenimientosContext);
+      setMantenimientos(mantenimientos);
     }
-  }, [Loaded, mantenimientosContext]);
+  }, [Loaded, mantenimientos]); */
 
   const buscar = (buscado) => {
-    if (!mantenimientosContext) {
+    if (!mantenimientos) {
       return;
     }
 
-    let nuevosMantenimientos = mantenimientosContext.map((mantenimiento) => {
+    let nuevosMantenimientos = mantenimientos.map((mantenimiento) => {
       const similitud = orden.calcularSimilitud(buscado, mantenimiento.identificacion);
       return { mantenimiento: mantenimiento, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
@@ -68,12 +78,12 @@ const VistaAdministradorMantenim = () => {
                 />
               </div>
               <div className={styles.projectDetails}>
-                {mantenimientos.map(mantenimiento => {
+                {mantenimientos&&mantenimientos.map(mantenimiento => {
                   return <TarjetaMantenimiento
                     object={mantenimiento}
                     nombreMaquinaria={mantenimiento.nombreMaquinaria}
-                    identificacion={mantenimiento.identificacion}
-                    fecha={mantenimiento.fecha}
+                    identificacion={mantenimiento.idhistorialmantenimientos}
+                    fecha={mantenimiento.fechamantenimiento}
                     id={mantenimiento.idmantenimiento}
                     key={mantenimiento.idmantenimiento}
                   ></TarjetaMantenimiento>
