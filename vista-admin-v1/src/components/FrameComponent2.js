@@ -38,7 +38,9 @@ const FrameComponent2 = () => {
 
     if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
       product.idproductos = dataContext.selectedProducts[0].idproductos
-      axios.post(`actualizar/producto/:usuario/:contrasena`,product)
+      axios.post(`actualizar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
+    }else{
+      axios.post(`agregar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
     }
 
     //Contenido de la notificación

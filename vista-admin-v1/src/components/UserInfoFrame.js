@@ -6,7 +6,7 @@ import { buscar as buscarExport } from '../pages/VistaAdministradorUsuarios.js';
 import { SearchContext } from '../pages/VistaAdministradorUsuarios.js';
 
 const UserInfoFrame = () => {
-  const { setBusqueda } = useContext(SearchContext);
+  const { setBusqueda, buscar } = useContext(SearchContext);
   
   return (
     <div className={styles.userInfoFrame}>
@@ -22,7 +22,7 @@ const UserInfoFrame = () => {
         type="text"
         id= "inputbuscarusuario"
         useref= "inputbuscarusuario"
-        onChange={(event) => setBusqueda(event.target.value)} // Usar 'setBusqueda' para actualizar el valor de búsqueda
+        onChange={(event) => {setBusqueda(event.target.value), buscar()}} // Usar 'setBusqueda' para actualizar el valor de búsqueda
       />
           </div>
         </div>

@@ -49,7 +49,7 @@ export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, image
         </div>
         <div className={styles.grabberCrane}>
         <div className={styles.excavadora210gPotenciaContainer}>
-            <p className={styles.excavadora1}>{nombreProducto} - {object.identificacion}</p>
+            <p className={styles.excavadora1}>{nombreProducto} - {object?object.identificacion:object}</p>
             <p className={styles.blankLine}>&nbsp;</p>
             <p className={styles.g}>Descripción: </p>
             <p className={styles.potenciaNetaDel}>

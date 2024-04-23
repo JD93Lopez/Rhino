@@ -45,7 +45,7 @@ const VistaAdministradorCotizacion = () => {
     }
     const inputValue = document.getElementById("inputbuscarproducto").value;
       let nuevasCotizaciones = cotizaciones.map((cotizacion) => {
-      const similitud = orden.calcularSimilitud(inputValue, cotizacion.nombre); // Ajusta según el dato relevante
+      const similitud = orden.calcularSimilitud(inputValue, cotizacion.usuario.nombre_usuario); // Ajusta según el dato relevante
       return { cotizacion, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevasCotizaciones = nuevasCotizaciones.map(({ cotizacion })=> cotizacion);

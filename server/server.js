@@ -424,12 +424,12 @@ server.get('/api/agregar/proveedor/:JSONObject/:usuario/:contrasena', async (req
 });
 
 //Agregar producto
-server.get('/api/agregar/producto/:JSONObject/:usuario/:contrasena', async (req, res) => {
+server.post('/api/agregar/producto/:usuario/:contrasena', async (req, res) => {
     try {
 
-        const JSONObject = req.params.JSONObject;
+        const JSONObject = req.body;
         //TODO comprobar permisos
-        await Fetch.fetchApi(`insert/productos/${JSONObject}`)
+        await axios.post(`insert/productos`,JSONObject)
         
         res.json({ Res: true });
     } catch (error) {

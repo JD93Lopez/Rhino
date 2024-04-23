@@ -28,9 +28,10 @@ const VistaAdministradorMantenim = () => {
 
   if(!mantenimientos){
     try{
-      axios.api(`obtener/mantenimientos/1/1`).then((res)=>{
-        console.log(res.data.Res)
-        setMantenimientos(res.data.Res)
+      axios.api(`obtener/mantenimientos/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
+        try{
+          setMantenimientos(res.data.Res)
+        }catch(e){}
       })
     }catch(e){}
   }

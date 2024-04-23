@@ -85,7 +85,7 @@ const VistaAdministradorUsuarios = () => {
 
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarusuario").value;
-    let nuevosUsuarios = usuariosContext.map((user) => {
+    let nuevosUsuarios = usuarios.map((user) => {
       const similitud = orden.calcularSimilitud(inputValue, user.nombre_usuario);
       return { usuario: user, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
@@ -96,14 +96,10 @@ const VistaAdministradorUsuarios = () => {
     setUsuarios(nuevosUsuarios);
   }
 
-  // useEffect(() => {
-  //   buscar();
-  // }, [busqueda, usuariosContext]);
-
   return (
 /*Usar el proveedor del contexto para compartir 'busqueda' y 'setBusqueda'*/
 <DataContext.Provider value={{ Loaded, usuarios: usuariosContext, manejarSeleccionUsuario, usuariosSeleccionados }}>
-    <SearchContext.Provider value={{ busqueda, setBusqueda }}>
+    <SearchContext.Provider value={{ busqueda, setBusqueda, buscar }}>
     <div className={styles.vistaAdministradorUsuarios}>
       <div className={styles.vistaAdministradorUsuariosChild} />
       <AddProductFrame/>
