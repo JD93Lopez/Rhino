@@ -12,27 +12,31 @@ const VistaAdministradorActualizarMant = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
+  const dataContext = useContext(DataContext);
   const onSaveButtonClick = () => {
     // Obtener los valores de los campos utilizando useRef
     const nombremaquinaria = document.getElementById("inputnombreproducto").value;
-    const identificacion = document.getElementById("inputidentificacion").value;
-    const fecha = document.getElementById("inputfecha").value;
+    const productos_idproductos = document.getElementById("inputidentificacion").value;
+    const fechamantenimiento = document.getElementById("inputfecha").value;
     const descripcion = document.getElementById("inputdescripcion").value;
     // Crear el objeto de usuario
-    const usuarioInsertar = {
+    const mantenimientoInsertar = {
       nombremaquinaria,
-      identificacion,
-      fecha,
+      fechamantenimiento,
+      fecharegistro: fechamantenimiento,
       descripcion,
+      precio:0 // TODO agregar precio front
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(usuarioInsertar);
-
-    console.log(JsonUsuario);
+    if(dataContext.selectedMant&&dataContext.selectedMant.length!=0){
+      mantenimientoInsertar.idhistorialmantenimientos = dataContext.selectedMant[0].idhistorialmantenimientos
+      mantenimientoInsertar.productos_idproductos = dataContext.selectedMant[0].producto.idproductos
+      axios.post(`actualizar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+    }else{
+      console.log("error actualizar")
+    }
   };
-  const dataContext = useContext(DataContext);
-  console.log(dataContext)
+
   let mantenimiento
   if(dataContext.Loaded && dataContext.selectedMant){
     if(dataContext.selectedMant.length !== 0){
@@ -47,9 +51,9 @@ const VistaAdministradorActualizarMant = () => {
   useEffect(() => {
     const selectedMants= dataContext.selectedMant
     if (dataContext.Loaded) {
-      document.getElementById("inputnombreproducto").value = selectedMants[0].nombremaquinaria;
-      document.getElementById("inputidentificacion").value = selectedMants[0].identificacion;
-      document.getElementById("inputfecha").value = selectedMants[0].fecha;
+      document.getElementById("inputnombreproducto").value = selectedMants[0].producto.nombre;
+      document.getElementById("inputidentificacion").value = selectedMants[0].producto.identificacion;
+      document.getElementById("inputfecha").value = selectedMants[0].fechamantenimiento;
       document.getElementById("inputdescripcion").value = selectedMants[0].descripcion;
     }
   }, [dataContext.Loaded, dataContext]);

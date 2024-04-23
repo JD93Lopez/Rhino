@@ -1,10 +1,13 @@
 import AddProductFrame from "../components/AddProductFrame.js";
 import styles from "./VistaAdministradorAgregarMant.module.css";
 import axios from "../axios.js";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../components/DataProvider.js";
 
 const VistaAdministradorAgregarMant = () => {
+  const dataContext = useContext(DataContext)
+
   const navigate = useNavigate();
 
   const onBotonAtrsContainerClick = useCallback(() => {
@@ -14,21 +17,27 @@ const VistaAdministradorAgregarMant = () => {
   const onSaveButtonClick = () => {
     // Obtener los valores de los campos utilizando useRef
     const nombremaquinaria = document.getElementById("inputnombreproducto").value;
-    const identificacion = document.getElementById("inputidentificacion").value;
-    const fecha = document.getElementById("inputfecha").value;
+    const productos_idproductos = document.getElementById("inputidentificacion").value;
+    const fechamantenimiento = document.getElementById("inputfecha").value;
     const descripcion = document.getElementById("inputdescripcion").value;
     // Crear el objeto de usuario
-    const usuarioInsertar = {
+    const mantenimientoInsertar = {
       nombremaquinaria,
-      identificacion,
-      fecha,
+      fechamantenimiento,
+      fecharegistro: fechamantenimiento,
       descripcion,
+      precio:0 // TODO agregar precio front
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(usuarioInsertar);
+    if(dataContext.selectedMant&&dataContext.selectedMant.length!=0){
+      mantenimientoInsertar.idhistorialmantenimientos = dataContext.selectedMant[0].idhistorialmantenimientos
+      mantenimientoInsertar.productos_idproductos = dataContext.selectedMant[0].producto.idproductos
+      axios.post(`actualizar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+    }else{
+      mantenimientoInsertar.productos_idproductos = productos_idproductos
+      axios.post(`agregar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+    }
 
-    console.log(JsonUsuario);
   };
 
   return (

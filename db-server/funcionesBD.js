@@ -262,9 +262,7 @@ const funcionesLogicaNegocioBD = (config) => {
 
       for await (const mant of arrayMants){
         mant.producto = (await pool.query(`select * from productos where idproductos = ${mant.productos_idproductos}`)).rows[0];
-        console.log(mant.producto)
       }
-      console.log(DBRes)
 
       return DBRes;
     } catch (error) {

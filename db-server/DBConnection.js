@@ -408,6 +408,20 @@ const actualizarConductor = async (idConductores, nombre, cedula, telefono) => {
   pool.end();
 };
 
+const actualizarMantenimientos = async (idhistorialmantenimientos,fecharegistro, fechamantenimiento, precio, productos_idproductos, descripcion) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "UPDATE historial_mantenimientos SET fecharegistro = $2, fechamantenimiento = $3, precio = $4, productos_idproductos = $5, descripcion = $6 WHERE idhistorialmantenimientos = $1";
+    const values = [idhistorialmantenimientos,fecharegistro, fechamantenimiento, precio, productos_idproductos, descripcion];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al actualizar mantenimiento");
+  }
+  pool.end();
+};
+
 const obtenerConductores = async () => {
   const pool = new Pool(config);
   try {
@@ -434,6 +448,40 @@ const insertarHistoricoAlquileres = async (
     return DBRes;
   } catch (error) {
     console.log("Error al insertar conductor");
+  }
+  pool.end();
+};
+
+const insertarMantenimientos = async (
+  fecharegistro, fechamantenimiento, precio, productos_idproductos, descripcion
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "INSERT INTO historial_mantenimientos(fecharegistro, fechamantenimiento, precio, productos_idproductos, descripcion) VALUES($1, $2, $3, $4, $5)";
+    const values = [fecharegistro, fechamantenimiento, precio, productos_idproductos, descripcion];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log(error)
+    console.log("Error al insertar mantenimiento");
+  }
+  pool.end();
+};
+
+const idProductoPorIdentificacion = async (
+  identificacion
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "SELECT idproductos FROM PRODUCTOS p WHERE p.identificacion = $1";
+    const values = [identificacion];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log(error)
+    console.log("Error al insertar mantenimiento");
   }
   pool.end();
 };
@@ -508,7 +556,10 @@ module.exports = {
 
   insertarHistoricoAlquileres, obtenerHistoricoAlquileres,
 
-  obtenerContrasenaUsuario,
+  obtenerContrasenaUsuario, 
+  
+  insertarMantenimientos,actualizarMantenimientos,
+  idProductoPorIdentificacion,
 
   sqlQuery, sqlQueryValues,
 

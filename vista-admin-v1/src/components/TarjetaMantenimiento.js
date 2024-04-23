@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { DataContext } from "./DataProvider";
 import styles from "./Proyecto1.module.css";
 
-const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha, id }) => {
+const TarjetaMantenimiento = ({ object, nombreMaquinaria, fecha, id }) => {
 
   const dataContext = useContext(DataContext)
 
@@ -53,7 +53,7 @@ const TarjetaMantenimiento = ({ object, nombreMaquinaria, identificacion, fecha,
           <div className={styles.identificacin49845Wrapper}>
             <div className={styles.identificacin49845}>
               <span>{`Identificación: `}</span>
-              <span className={styles.span}>{identificacion}</span>
+              <span className={styles.span}>{object.producto.identificacion}</span>
             </div>
           </div>
           <div className={styles.fecha23032024}>

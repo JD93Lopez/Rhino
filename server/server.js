@@ -440,6 +440,34 @@ server.get('/api/agregar/conductor/:JSONObject/:usuario/:contrasena', async (req
     }
 });
 
+//Agregar mantenimiento
+server.post('/api/agregar/mantenimiento/:usuario/:contrasena', async (req, res) => {
+    try {
+
+        const JSONObject = req.body;
+        //TODO comprobar permisos
+        await axios.post(`insert/mantenimientos`,JSONObject)
+        
+        res.json({ Res: true });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//Actualizar mantenimiento
+server.post('/api/actualizar/mantenimiento/:usuario/:contrasena', async (req, res) => {
+    try {
+
+        const JSONObject = req.body;
+        //TODO comprobar permisos
+        await axios.post(`update/mantenimientos`,JSONObject)
+        
+        res.json({ Res: true });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
 //Obtener usuarios
 server.get('/api/obtener/usuarios/:usuario/:contrasena', async (req, res) => {
     try {

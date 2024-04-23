@@ -333,6 +333,22 @@ server.get('/dbapi/insert/conductores/:JSONObject', async (req, res) => {
     }
 });
 
+//Insertar mantenimiento
+server.post('/dbapi/insert/mantenimientos', async (req, res) => {
+    try {
+        
+        const objetoAInsertar = req.body
+        const productoRes = (await DBConnection.idProductoPorIdentificacion(objetoAInsertar.productos_idproductos))
+        if(productoRes&&productoRes.rows[0]&&productoRes.rows[0].idproductos){
+            objetoAInsertar.productos_idproductos = productoRes.rows[0].idproductos
+            DBConnection.insertarMantenimientos(objetoAInsertar.fecharegistro, objetoAInsertar.fechamantenimiento, objetoAInsertar.precio, objetoAInsertar.productos_idproductos, objetoAInsertar.descripcion)
+        }
+        res.json({ DBRes: "Insercion Finalizada" });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Obtener contraseña y tipo con nombre de usuario.
 server.get('/dbapi/get/constrasenatipo/:nUsuario', async (req, res) => {
     try {
@@ -462,6 +478,18 @@ server.get('/dbapi/update/conductores/:JSONObject', async (req, res) => {
         const JSONObject = req.params.JSONObject;
         const objetoAInsertar = JSON.parse(JSONObject)
         DBConnection.actualizarConductor(objetoAInsertar.idconductores, objetoAInsertar.nombre, objetoAInsertar.cedula, objetoAInsertar.telefono)
+        res.json({ DBRes: "Actualizacion Finalizada" });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+//Actualizar mantenimiento
+server.post('/dbapi/update/mantenimientos', async (req, res) => {
+    try {
+        
+        const objetoAInsertar = req.body
+        DBConnection.actualizarMantenimientos(objetoAInsertar.idhistorialmantenimientos,objetoAInsertar.fecharegistro, objetoAInsertar.fechamantenimiento, objetoAInsertar.precio, objetoAInsertar.productos_idproductos, objetoAInsertar.descripcion)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
         res.json({ DBRes: error });

@@ -82,7 +82,6 @@ const VistaAdministradorMantenim = () => {
                   return <TarjetaMantenimiento
                     object={mantenimiento}
                     nombreMaquinaria={mantenimiento.nombreMaquinaria}
-                    identificacion={mantenimiento.idhistorialmantenimientos}
                     fecha={mantenimiento.fechamantenimiento}
                     id={mantenimiento.idmantenimiento}
                     key={mantenimiento.idmantenimiento}
