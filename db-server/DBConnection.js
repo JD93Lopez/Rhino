@@ -349,6 +349,7 @@ const actualizarProyecto = async (
     const DBRes = await pool.query(texto, values);
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al actualizar el proyecto");
   }
 
@@ -359,7 +360,6 @@ const obtenerProyectos = async () => {
   const pool = new Pool(config);
   try {
     const DBRes = await pool.query("select * from proyectos");
-    console.log(DBRes.rows);
     return DBRes;
   } catch (error) {
     console.log("Error al obtener los proyectos");

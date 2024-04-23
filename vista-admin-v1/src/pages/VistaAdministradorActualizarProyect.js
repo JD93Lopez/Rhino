@@ -12,6 +12,19 @@ const VistaAdministradorActualizarProyect = () => {
     navigate("/vista-administrador-proyectos");
   }, [navigate]);
 
+  const dataContext = useContext(DataContext);
+
+  let proyect
+  if(dataContext.Loaded && dataContext.selectedProyects){
+    if(dataContext.selectedProyects.length !== 0){
+      proyect = dataContext.selectedProyects[0];
+    }
+  }else{
+    useEffect(() => {
+      navigate("/vista-administrador-actualizar-proyect");
+    }, [navigate]);
+  }
+
   const onSaveButtonClick = () => {
     // Obtener los valores de los campos utilizando useRef
     const nombre = document.getElementById("inputnombreusuario").value;
@@ -32,21 +45,13 @@ const VistaAdministradorActualizarProyect = () => {
       estado_avance
     };
 
-    // Convertir el objeto de usuario a JSON
-    const JsonUsuario = JSON.stringify(usuarioInsertar);
-  };
-
-  const dataContext = useContext(DataContext);
-  let proyect
-  if(dataContext.Loaded && dataContext.selectedProyects){
-    if(dataContext.selectedProyects.length !== 0){
-      proyect = dataContext.selectedProyects[0];
+    if(proyect){
+      usuarioInsertar.idproyectos = proyect.idproyectos
+      axios.post(`actualizar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
+    }else{
+      axios.post()
     }
-  }else{
-    useEffect(() => {
-      navigate("/vista-administrador-actualizar-proyect");
-    }, [navigate]);
-  }
+  };
   
   useEffect(() => {
     const selectedProyects= dataContext.selectedProyects
@@ -56,21 +61,23 @@ const VistaAdministradorActualizarProyect = () => {
       document.getElementById("inputtipoidescripcion").value = selectedProyects[0].descripcion;
       document.getElementById("inputtelefonousuario").value = selectedProyects[0].telefono;
       document.getElementById("inputtipoidescripcion").value = selectedProyects[0].descripcion;
-      document.getElementById("inputtipofecha").value = selectedProyects[0].fecha_entrega;
+      document.getElementById("inputtipofecha").value = JSON.stringify(selectedProyects[0].fecha_entrega).substring(1,11);
+      dataContext.tipoId = selectedProyects[0].tipo_identificacion
+      dataContext.estadoProyecto = selectedProyects[0].estado_avance
     }
   }, [dataContext.Loaded, dataContext]);
 
 
   const drowpdownTipoidentificacion = [
-    { label: 'Cedula', value: 'Cedula' },
-    { label: 'Nit', value: 'Nit' },
+    { label: 'Cedula', value: 'CEDULA' },
+    { label: 'Nit', value: 'NIT' },
   ];
   dataContext.drowpdownTipoidentificacion = drowpdownTipoidentificacion;
 
   const drowpdownEstadoAvance = [
-    { label: 'Por Iniciar', value: 'Por Iniciar' },
-    { label: 'Iniciado', value: 'Iniciado' },
-    { label: 'Terminado', value: 'Terminado' },
+    { label: 'Por Iniciar', value: 'POR_INICIAR' },
+    { label: 'Iniciado', value: 'INICIADO' },
+    { label: 'Finalizado', value: 'FINALIZADO' },
   ];
   dataContext.drowpdownEstadoAvance = drowpdownEstadoAvance;
 

@@ -17,8 +17,10 @@ const VistaAdministradorProyecto = () => {
     navigate("/vista-administrador-actualizar-proyect");
   }, [dataContext, navigate]);
 
-    //resetear seleccionados
-    dataContext.selectedProyects = []
+  //resetear seleccionados
+  dataContext.selectedProyects = []
+  dataContext.tipoId = undefined
+  dataContext.estadoProyecto = undefined
 
   return (
     <div className={styles.vistaAdministradorProyecto}>

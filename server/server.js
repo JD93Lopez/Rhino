@@ -521,14 +521,14 @@ server.get('/api/actualizar/producto/:JSONActualizar/:usuario/:contrasena', asyn
 });
 
 //Actualizar proyecto
-server.get('/api/actualizar/proyecto/:JSONActualizar/:usuario/:contrasena', async (req, res) => {
+server.post('/api/actualizar/proyecto/:usuario/:contrasena', async (req, res) => {
     try {
 
         //TODO comprobar permisos
         
-        const JSONActualizar = req.params.JSONActualizar;
+        const Object = req.body;
 
-        Fetch.fetchApi(`update/proyectos/${JSONActualizar}`)
+        axios.post(`update/proyectos`,Object)
 
         res.json({ Res: true });
     } catch (error) {
