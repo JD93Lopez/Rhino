@@ -151,6 +151,45 @@ server.post('/api/123/:nUsuario/:contrasena', async (req, res) => {
         res.json({ Res: error });
     }
 });
+//1, 2, 3 Alianza
+server.post('/api/pedido/alianza/:nUsuario/:contrasena', async (req, res) => {
+
+    let bool = false
+    try {
+        //TODO comprobar permisos
+        const nUsuario = req.params.nUsuario
+        const contrasena = req.params.contrasena
+        let arrayProductoAgendas = req.body
+    
+        const ResIniciarSesion = await iniciarSesion(nUsuario,contrasena)
+        if(ResIniciarSesion&&ResIniciarSesion.usuario&&ResIniciarSesion.usuario.idusuarios){
+
+            const idusuarios = ResIniciarSesion.usuario.idusuarios
+
+            const idalquileres = (await Fetch.fetchApi(`clienteAgregarAlquiler1/${idusuarios}`)).DBRes
+
+            if(arrayProductoAgendas){
+                
+                const producto_agendas = arrayProductoAgendas
+
+                for await ( let producto_agenda of producto_agendas ){
+
+                    const idproductos = producto_agenda.idproductos
+                    const idagenda = (await Fetch.fetchApi(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).DBRes
+
+                    await Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
+
+                }
+                
+                bool = true
+            }
+        }
+        
+        res.json({ Res: bool });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 //3.51 Agregar conductor a agenda (Solo cedula)
 server.get('/api/3_51/:idagenda/:cedula/:nUsuario/:contrasena', async (req, res) => {
     let idconductores = 0
@@ -434,6 +473,31 @@ server.get('/api/obtener/productos', async (req, res) => {
         res.json({ Res: (await Fetch.fetchApi(`get/productos`)).DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
+    }
+});
+
+//Obtener productos alianza
+server.get('/api/obtener/productos/alianza', async (req, res) => {
+    try {
+
+        const productos = []
+        //TODO comprobar permisos
+        let productosBD = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+        for (const producto of productosBD){
+            const productoAlianza = {}
+
+            productoAlianza.id_producto = producto.idproductos
+            productoAlianza.nombre = producto.nombre
+            productoAlianza.descripcion = producto.descripcion
+            productoAlianza.unidad = "unidad"
+            productoAlianza.costo = producto.precio_alquiler
+
+            productos.push(productoAlianza)
+        }
+        
+        res.json({ productos });
+    } catch (error) {
+        res.json({ error });
     }
 });
 
