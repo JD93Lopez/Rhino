@@ -274,7 +274,14 @@ const funcionesLogicaNegocioBD = (config) => {
   funciones.obtenerAlquileres = async () => {
     const pool = new Pool(config);
     try {
-      const DBRes = await pool.query("select * from alquileres");
+      const DBRes = await pool.query(`SELECT *
+      FROM alquileres a
+      ORDER BY CASE 
+      WHEN a.estado = 'EN_ESPERA' AND a.usuarios_idusuarios = (SELECT idusuarios FROM USUARIOS WHERE nombre_usuario = 'Alianza') THEN 0
+      WHEN a.estado = 'EN_ESPERA' THEN 1
+      ELSE 2
+      END, a.idalquileres DESC;
+      `);
 
       return DBRes;
     } catch (error) {
