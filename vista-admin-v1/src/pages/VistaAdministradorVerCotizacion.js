@@ -20,20 +20,21 @@ const VistaAdministradorVerCotizacion = () => {
     const estado = document.getElementById("inputestadocotizacion").value;
     const valorconductor = document.getElementById("inputvalorconductorcotizacion").value;
     const gastoadicional = document.getElementById("inputgastoadicionalcotizacion").value;
-    const justificacion_gastosadicionales = document.getElementById("inputjustificaciongastoadicionalcotizacion").value;
-    // Crear el objeto de usuario
-    const cotizacionInsertar = {
-      nombre_usuario,
-      correo,
-      telefono,
-      subtotal,
-      estado,
-      valorconductor,
-      gastoadicional,
-      justificacion_gastosadicionales
-    };
+    const justificacion_ga = document.getElementById("inputjustificaciongastoadicionalcotizacion").value;
 
-    // TODO conexion axios
+    cotizacion.total = cotizacion.subtotal+cotizacion.total_impuestos+parseInt(valorconductor)+parseInt(gastoadicional)-cotizacion.total_descuento
+
+    console.log(cotizacion)
+    axios.api(`4/${cotizacion.idalquileres}
+    /${cotizacion.subtotal}
+    /${cotizacion.total}
+    /${cotizacion.total_descuento}
+    /${cotizacion.total_impuestos}
+    /${valorconductor}
+    /${gastoadicional}
+    /${justificacion_ga}
+    /${dataContext.usuarioIniciado.nombre_usuario}
+    /${dataContext.usuarioIniciado.contrasena}`)
 
   };
   if(!dataContext.Loaded || !dataContext.cotizacionSeleccionada){ 
@@ -54,9 +55,13 @@ const VistaAdministradorVerCotizacion = () => {
     navigate('/vista-administrador-cotizacion')
   }else{
     cotizacion.subtotal = 0
+    cotizacion.total_descuento = 0
+    cotizacion.total_impuestos = 0
     if(producto_agendas){
       for (const producto_agenda of producto_agendas){
         cotizacion.subtotal += producto_agenda.precio_alquiler
+        cotizacion.total_descuento += producto_agenda.precio_alquiler*(producto_agenda.p_descuento/100)
+        //TODO porcentaje impuestos
       }
     }
   }

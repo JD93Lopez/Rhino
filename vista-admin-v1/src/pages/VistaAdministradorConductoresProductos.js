@@ -5,7 +5,7 @@ import styles from "./VistaAdministradorCotizacionesProductos.module.css";
 import axios from "../axios";
 import { useNavigate } from "react-router-dom";
 
-const VistaAdministradorCotizacionesProductos = () => {
+const VistaAdministradorConductoresProductos = () => {
     const dataContext = useContext(DataContext)
     const navigate = useNavigate()
 
@@ -78,4 +78,4 @@ const VistaAdministradorCotizacionesProductos = () => {
     );
 };
 
-export default VistaAdministradorCotizacionesProductos;
+export default VistaAdministradorConductoresProductos;

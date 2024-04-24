@@ -21,7 +21,7 @@ import VistaAdministradorVerCotizacion from "./pages/VistaAdministradorVerCotiza
 import VistaAdministradorActualizarProyect from "./pages/VistaAdministradorActualizarProyect";
 import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
-import VistaAdministradorCotizacionesProductos from "./pages/VistaAdministradorCotizacionesProductos";
+import VistaAdministradorConductoresProductos from "./pages/VistaAdministradorConductoresProductos";
 import VistaAdministradorCompras from "./pages/VistaAdministradorCompras";
 
 import { DataProvider } from "./components/DataProvider";
@@ -184,7 +184,7 @@ function App() {
         />
         <Route
           path="/vista-administrador-cotizacion-producto"
-          element={<VistaAdministradorCotizacionesProductos />}
+          element={<VistaAdministradorConductoresProductos />}
         />
         <Route
           path="/vista-administrador-compras"
