@@ -4,12 +4,39 @@ import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdmin
 import styles from "./VistaAdministradorCompras.module.css";
 
 const VistaAdministradorCompras = () => {
-
-
+    const onRealizarCompraClick = () => {
+        
+        const nitproveedor = document.getElementById("inputnitproveedor").value;
+        const nombre = document.getElementById("inputnombreresponsable").value;
+        const descuento = document.getElementById("inputporcentajedescuento").value;
+        const impuestos = document.getElementById("inputporcentajeimpuesto").value;
+        
+        const CompraInsertar = {
+            nitproveedor,
+            nombre,
+            descuento,
+            impuestos
+        };
+        console.log(CompraInsertar);
+    };
+    
+      const onAgregarProductoClick = () => {
+        
+        const idproducto = document.getElementById("inputidproducto").value;
+        const precioproducto = document.getElementById("inputprecioproducto").value;
+       
+        const ProductoInsertar = {
+         idproducto,
+         precioproducto,
+        };
+        console.log(ProductoInsertar);
+    };
     return (
+        
         <div className={styles.vistaAdministradorCompras}>
             <AddProductFrame/>
-            <button className={styles.rectangleParent}>
+            <button className={styles.rectangleParent}
+            onClick={onAgregarProductoClick}>
                 <div className={styles.frameChild} />
                 <div className={styles.agregarProducto}>
                         Agregar producto
@@ -18,7 +45,8 @@ const VistaAdministradorCompras = () => {
             <div style={{display:"flex",flexDirection:"row"}}>
                 <div>
                     <br/><br/><br/>
-                    <button style={{borderRadius:"10px",fontSize:"20px",backgroundColor:"orange",marginLeft:"50px"}}>
+                    <button style={{borderRadius:"10px",fontSize:"20px",backgroundColor:"orange",marginLeft:"50px"}}
+                    onClick={onRealizarCompraClick}>
                         <div/>
                         <div>
                             <b>Realizar compra</b>
@@ -42,10 +70,14 @@ const VistaAdministradorCompras = () => {
                     </div>
                 </div>
             </div>
-            <input className={styles.inputnitproveedor} type='text'/>
-            <input className={styles.inputporcentajedescuento} type='text'/>
-            <input className={styles.inputporcentajeimpuesto} type='text'/>
-            <input className={styles.inputnombreresponsable} type='text'/>
+            <input className={styles.inputnitproveedor} type='text'id="inputnitproveedor" useref="inputnitproveedor"/>
+            <input className={styles.inputporcentajedescuento} type='text'id="inputporcentajedescuento" useref="inputporcentajedescuento"/>
+            <input className={styles.inputporcentajeimpuesto} type='text'id="inputporcentajeimpuesto" useref="inputporcentajeimpuesto"/>
+            <input className={styles.inputnombreresponsable} type='text'id="inputnombreresponsable" useref="inputnombreresponsable"/>
+            <input style={{marginLeft:"720px", marginTop:"150px", fontSize:"20px"}} 
+            className={styles.inputproductid} type='text'placeholder="Id del producto"id="inputidproducto" useref="inputidproducto"/>
+            <input style={{marginLeft:"719px", marginTop:"0px",fontSize:"20px"}} 
+            className={styles.inputproductprice} type='text' placeholder="Precio del producto" id="inputprecioproducto" useref="inputprecioproducto"/>
             <div className={styles.tituloCrearUsuario}>Productos</div>
             <div className={styles.excavadora}>
             <TarjetaProductoAdministrador/>
