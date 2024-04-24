@@ -243,7 +243,7 @@ const funcionesLogicaNegocioBD = (config) => {
   funciones.alquileresPorUsuario = async ( idusuarios ) => {
     const pool = new Pool(config);
     try {
-      const DBRes = await pool.query("SELECT * FROM ALQUILERES a WHERE a.USUARIOS_idusuarios = $1", 
+      const DBRes = await pool.query("SELECT * FROM ALQUILERES a WHERE a.USUARIOS_idusuarios = $1 ORDER BY a.idalquileres DESC", 
       [idusuarios]);
       return DBRes;
     } catch (error) {

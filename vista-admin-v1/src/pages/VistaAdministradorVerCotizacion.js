@@ -36,6 +36,8 @@ const VistaAdministradorVerCotizacion = () => {
     /${dataContext.usuarioIniciado.nombre_usuario}
     /${dataContext.usuarioIniciado.contrasena}`)
 
+    navigate("/vista-administrador-cotizacion");
+
   };
   if(!dataContext.Loaded || !dataContext.cotizacionSeleccionada){ 
     navigate("/vista-administrador-cotizacion");
