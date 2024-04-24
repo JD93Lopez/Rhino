@@ -11,10 +11,16 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
     const navigate = useNavigate();
   
     const handleCardClick = () => {
-        setIsSelected(!isSelected);
-        dataContext.producto_agendaSeleccionada = object
-        // Redirigir a otra página cuando se hace clic en la tarjeta
-        navigate("/vista-administrador-cotizacion-producto");
+        if(object&&object.conductores_idconductores&&object.conductores_idconductores!=0){
+            setIsSelected(!isSelected);
+            dataContext.idConductorAgenda = object.conductores_idconductores
+            navigate("/vista-administrador-cotizacion-producto");
+        }else{
+            setIsSelected(!isSelected);
+            dataContext.producto_agendaSeleccionada = object
+            // Redirigir a otra página cuando se hace clic en la tarjeta
+            navigate("/vista-administrador-cotizacion-producto");
+        }
     };
 
     const estiloConConductor = (object&&object.conductores_idconductores&&object.conductores_idconductores!=0)?{backgroundColor:"rgb(213, 255, 196)"}:{backgroundColor:"rgb(255, 155, 155)"}

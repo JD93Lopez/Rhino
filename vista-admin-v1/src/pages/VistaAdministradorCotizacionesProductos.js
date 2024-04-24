@@ -17,7 +17,7 @@ const VistaAdministradorCotizacionesProductos = () => {
             const nombre = document.getElementById('inputnombre').value
             const telefono = document.getElementById('inputtelefono').value
             if(nombre&&telefono&&nombre!=""&&telefono!=""){
-                axios.api(`3_51/${dataContext.producto_agendaSeleccionada&&dataContext.producto_agendaSeleccionada.idagenda}
+                axios.api(`3_53_51/${dataContext.producto_agendaSeleccionada&&dataContext.producto_agendaSeleccionada.idagenda}
                 /${cedula}
                 /${nombre}
                 /${telefono}

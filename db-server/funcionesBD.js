@@ -204,7 +204,7 @@ const funcionesLogicaNegocioBD = (config) => {
   funciones.conductorPorCedula  = async ( cedula ) => {
     const pool = new Pool(config);
     try {
-      const DBRes = await pool.query("SELECT * FROM CODUCTORES c WHERE c.cedula = $1", 
+      const DBRes = await pool.query("SELECT * FROM CONDUCTORES c WHERE c.cedula = $1", 
       [cedula]);
       return DBRes;
     } catch (error) {

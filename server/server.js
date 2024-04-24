@@ -224,7 +224,7 @@ server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono/:nUsuario/:contrase
             idconductores = ResConductor.DBRes.rows[0].idconductores
             await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
         }else{
-            idconductores = await Fetch.fetchApi(`administradorAgregarConductor3_5/${nombre}/${cedula}/${telefono}`)
+            idconductores = (await Fetch.fetchApi(`administradorAgregarConductor3_5/${nombre}/${cedula}/${telefono}`)).DBRes
             await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
         }
         
