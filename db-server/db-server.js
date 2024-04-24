@@ -431,7 +431,7 @@ server.get('/dbapi/get/mantenimientos', async (req, res) => {
     }
 });
 
-//Obtener mantenimientos
+//Obtener alquileres
 server.get('/dbapi/get/alquileres', async (req, res) => {
     try {
         

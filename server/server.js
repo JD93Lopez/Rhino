@@ -376,15 +376,27 @@ server.get('/api/obtener/alquileres/:nUsuario/:contrasena', async (req, res) => 
         alquileres = (await Fetch.fetchApi(`get/alquileres`)).DBRes.rows
 
         for await (let alquiler of alquileres){
-            let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
-            alquiler.producto_agendas = res
-
-            res = (await Fetch.fetchApi(`get/usuarioporid/${alquiler.usuarios_idusuarios}`)).DBRes.rows[0]
+            // let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
+            // alquiler.producto_agendas = res
+            const res = (await Fetch.fetchApi(`get/usuarioporid/${alquiler.usuarios_idusuarios}`)).DBRes.rows[0]
             alquiler.usuario = res
         }
 
 
         res.json({ Res: alquileres });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+//Consultar producto_agendas de alquiler
+server.get('/api/obtener/producto_agendas/alquiler/:nUsuario/:contrasena/:idalquileres', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const nUsuario = req.params.nUsuario
+        const contrasena = req.params.contrasena
+        const idalquileres = req.params.idalquileres
+
+        res.json({ Res: (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${idalquileres}`)).DBRes });
     } catch (error) {
         res.json({ Res: error });
     }

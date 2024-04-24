@@ -295,7 +295,6 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
-
   
   return funciones
 }

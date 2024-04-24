@@ -15,7 +15,6 @@ const VistaAdministradorCotizacion = () => {
   if(!cotizaciones&&dataContext.Loaded){
     axios.api(`obtener/alquileres/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
       try{
-        console.log(res)
         setCotizaciones(res.data.Res)
       }catch(e){}
     })

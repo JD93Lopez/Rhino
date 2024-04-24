@@ -1,26 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from "./cotizaciones.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { DataContext } from './DataProvider';
 
 
-export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alquiler, fecha_inicio, fecha_fin }) => {
+export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alquiler, fecha_inicio, fecha_fin, object }) => {
+    const dataContext = useContext(DataContext)
     const [isSelected, setIsSelected] = useState(false);
     const navigate = useNavigate();
   
     const handleCardClick = () => {
-      setIsSelected(!isSelected);
-      // Redirigir a otra página cuando se hace clic en la tarjeta
-      navigate("/vista-administrador-cotizacion-producto");
+        setIsSelected(!isSelected);
+        dataContext.producto_agendaSeleccionada = object
+        // Redirigir a otra página cuando se hace clic en la tarjeta
+        navigate("/vista-administrador-cotizacion-producto");
     };
+
+    const estiloConConductor = (object&&object.conductores_idconductores&&object.conductores_idconductores!=0)?{backgroundColor:"rgb(213, 255, 196)"}:{backgroundColor:"rgb(255, 155, 155)"}
+
     return (
         <div className={`${styles.productos1} ${
             isSelected ? styles.selected : ""
           }`}
           onClick={handleCardClick}
           onMouseEnter={(e) => e.currentTarget.classList.add(styles.hover)}
-          onMouseLeave={(e) => e.currentTarget.classList.remove(styles.hover)}>
-            <div style={{display: "flex", flexDirection:"row"}} className = {styles.infoItem}>
+          onMouseLeave={(e) => e.currentTarget.classList.remove(styles.hover)}
+          style={estiloConConductor}>
+            <div style={{display: "flex", flexDirection:"row"}} className = {styles.infoItem} >
                 <div>
                     &nbsp;&nbsp;&nbsp;
                 </div>
@@ -32,7 +39,11 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
                     <p className={styles.wa3806}>identificacion: {identificacion}</p>
                     <p className={styles.pesoOperativo1}>Precio alquiler: {precio_alquiler}</p>
                     <p className={styles.potenciaNetaAl}>
-                        Fechas: De {fecha_inicio} hasta {fecha_fin}
+                        Fechas: 
+                        <br/>
+                        De {fecha_inicio} 
+                        <br/>
+                        Hasta {fecha_fin}
                     </p>
                 </div>
             </div>

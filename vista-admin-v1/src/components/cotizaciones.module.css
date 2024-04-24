@@ -34,6 +34,12 @@
   border: 2px solid #f2ff00;
 }
 
+.verdesito {
+  /* Estilos cuando la tarjeta está seleccionada */
+  background-color: #53ffba;
+  border: 2px solid #f2ff00;
+}
+
 .hover {
   /* Estilos cuando el cursor está sobre la tarjeta */
   background-color: #e8e8e8;

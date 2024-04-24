@@ -4,6 +4,7 @@ import { DataContext } from "../components/DataProvider";
 import { TarjetaProductoCotizacion } from "../components/TarjetaProductoCotizacion";
 import styles from "./VistaAdministradorVerCotizacion.module.css";
 import { useCallback, useContext, useEffect, useState } from "react";
+import axios from "../axios";
 
 const VistaAdministradorVerCotizacion = () => {
   const navigate= useNavigate()
@@ -39,7 +40,26 @@ const VistaAdministradorVerCotizacion = () => {
     navigate("/vista-administrador-cotizacion");
   }
 
-  const [producto_agendas,setProducto_agendas] = useState(cotizacion.producto_agendas)
+  const [producto_agendas,setProducto_agendas] = useState()
+
+  if(!producto_agendas&&dataContext.Loaded){
+    axios.api(`obtener/producto_agendas/alquiler/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}/${cotizacion&&cotizacion.idalquileres}`).then((res)=>{
+      try{
+        setProducto_agendas(res.data.Res)
+      }catch(e){}
+    })
+  }
+
+  if(!cotizacion){
+    navigate('/vista-administrador-cotizacion')
+  }else{
+    cotizacion.subtotal = 0
+    if(producto_agendas){
+      for (const producto_agenda of producto_agendas){
+        cotizacion.subtotal += producto_agenda.precio_alquiler
+      }
+    }
+  }
 
   return (
     <div className={styles.vistaAdministradorCotizaci}>
@@ -61,6 +81,7 @@ const VistaAdministradorVerCotizacion = () => {
                   precio_alquiler= {producto_agenda.precio_alquiler}
                   fecha_inicio= {producto_agenda.fecha_inicio}
                   fecha_fin= {producto_agenda.fecha_fin}
+                  object={producto_agenda}
                 />
               })
             }
@@ -77,19 +98,19 @@ const VistaAdministradorVerCotizacion = () => {
                     <div className={styles.contactInfoTitles}>
                       <div className={styles.nombre}>Nombre:</div>
                       <div className={styles.contactInputs}>
-                        <input className={styles.camponombre} type='text' id="inputnombrecotizacion" useref="inputnombrecotizacion" value={cotizacion.usuario.nombre_usuario} />
+                        <input className={styles.camponombre} type='text' id="inputnombrecotizacion" useref="inputnombrecotizacion" value={cotizacion&&cotizacion.usuario.nombre_usuario} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles1}>
                       <div className={styles.correo}>Correo:</div>
                       <div className={styles.campocorreoWrapper}>
-                        <input className={styles.campocorreo} type="text" id="inputcorreocotizacion" useref="inputcorreocotizacion" value={cotizacion.usuario.correo} />
+                        <input className={styles.campocorreo} type="text" id="inputcorreocotizacion" useref="inputcorreocotizacion" value={cotizacion&&cotizacion.usuario.correo} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles2}>
                       <div className={styles.telfono}>Teléfono:</div>
                       <div className={styles.campotelefonoWrapper}>
-                        <input className={styles.campotelefono} type="text" id="inputtelefonocotizacion" useref="inputtelefonocotizacion" value={cotizacion.usuario.telefono} />
+                        <input className={styles.campotelefono} type="text" id="inputtelefonocotizacion" useref="inputtelefonocotizacion" value={cotizacion&&cotizacion.usuario.telefono} />
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles3}>
@@ -97,7 +118,7 @@ const VistaAdministradorVerCotizacion = () => {
                         Precio de Productos:
                       </div>
                       <div className={styles.campoprecioproductoWrapper}>
-                        <input className={styles.campoprecioproducto} type="text" id="inputpreciocotizacion" useref="inputpreciocotizacion" value={cotizacion.subtotal}/>
+                        <input className={styles.campoprecioproducto} type="text" id="inputpreciocotizacion" useref="inputpreciocotizacion" value={cotizacion&&cotizacion.subtotal}/>
                       </div>
                     </div>
                     <div className={styles.contactInfoTitles3}>
@@ -105,7 +126,7 @@ const VistaAdministradorVerCotizacion = () => {
                         Estado:
                       </div>
                       <div className={styles.campoprecioproductoWrapper}>
-                        <input className={styles.campoprecioproducto} type="text" id="inputestadocotizacion" useref="inputestadocotizacion" value={cotizacion.estado}/>
+                        <input className={styles.campoprecioproducto} type="text" id="inputestadocotizacion" useref="inputestadocotizacion" value={cotizacion&&cotizacion.estado}/>
                       </div>
                     </div>
                   </div>
