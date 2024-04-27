@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ChainLoaders.module.css";
-import Productos from "../pages/VentanaParaClientes";
+import Equipos from "../pages/Equipos";
 const ChainLoaders = () => {
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const ChainLoaders = () => {
       <div className={styles.productHighlights}>
         <h1 className={styles.productosDestacados}>{`PRODUCTOS DESTACADOS`}</h1>
       </div>
-        <Productos/>
+        <Equipos/>
       </div>
       
       <div className={styles.wheeledLoader}>

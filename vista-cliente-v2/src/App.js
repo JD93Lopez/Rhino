@@ -11,7 +11,6 @@ import VentanaParaBuscarProductos from "./pages/VentanaParaBuscarProductos";
 import VentanaCarritoDeCompras from "./pages/VentanaCarritoDeCompras";
 import VentanaSobreNosotros from "./pages/VentanaSobreNosotros";
 import VetanaDeRegistro from "./pages/VetanaDeRegistro";
-import VentanaParaClientes from "./pages/VentanaParaClientes";
 import VentanaInicioDeSesin from "./pages/VentanaInicioDeSesin";
 import VentanaDeInformacinPersona from "./pages/VentanaDeInformacinPersona";
 import VentanaParaSolcitarUnaCoti from "./pages/VentanaParaSolcitarUnaCoti";

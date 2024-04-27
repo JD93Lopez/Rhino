@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductFrame from "../components/ProductFrame";
 import Framemotorinfo from "../components/Framemotorinfo";
 import Headerframe from "../components/Headerframe";
-import FrameComponent from "../components/FrameComponent";
+import FrameComponent3 from "../components/FrameComponent3";
 import styles from "./InformacinDeCadaProducto.module.css";
 
 const InformacinDeCadaProducto = () => {
@@ -27,12 +27,7 @@ const InformacinDeCadaProducto = () => {
 
   return (
     <div className={styles.informacinDeCadaProducto}>
-      <ProductFrame
-        onBotonLogo6Click={onBotonLogo6Click}
-        onBotonProductos6Click={onBotonProductos6Click}
-        onBotonSobreNosotrosClick={onBotonSobreNosotrosClick}
-        onCarritoDeCompras3ImageClick={onCarritoDeCompras3ImageClick}
-      />
+      <FrameComponent3/>
       <div className={styles.productSpecs}>
         <div className={styles.detallesDelProductoParent}>
           <h2 className={styles.detallesDelProducto}>DETALLES DEL PRODUCTO</h2>
@@ -83,7 +78,6 @@ const InformacinDeCadaProducto = () => {
           atencionAlCliente@rhino.com
         </div>
       </section>
-      <FrameComponent />
     </div>
   );
 };

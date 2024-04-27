@@ -21,7 +21,11 @@ const Framemotorinfo = () => {
   }
 
   const consultarDisponibilidad = useCallback(() => {
-    navigate("/consultar-disponibilidad");
+    if(dataContext.usuarioIniciado.iniciado){
+      navigate("/consultar-disponibilidad");
+    }else{
+      navigate("/ventana-inicio-sesion")
+    }
   }, [navigate]);
 
   return (

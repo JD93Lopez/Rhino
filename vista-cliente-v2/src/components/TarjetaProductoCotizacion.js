@@ -10,7 +10,7 @@ export const TarjetaProductoCotizacion = ({object}) => {
                     className={styles.imagenMaquinaCarrito}
                     loading="lazy"
                     alt=""
-                    src="/imagen-maquina-carrito@2x.png"
+                    src={object.imagen}
                 />
                 <div className={styles.textoInfoContainer}>
                     <b className={styles.textoInfo1}>{object.nombre} {object.modelo} - {object.identificacion}</b>

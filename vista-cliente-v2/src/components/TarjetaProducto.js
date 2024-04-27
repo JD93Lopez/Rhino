@@ -36,7 +36,7 @@ export const TarjetaProducto = ({nombre, imagen, object}) => {
                     className={styles.materialesSinFondo2}
                     loading="lazy"
                     alt=""
-                    src={imagen}
+                    src={imagen&&imagen!=""?imagen:"/boton-logo-6@3x.png"}
                     onClick={onMaterialesSinFondo2Click}
                 />
                 <div className={styles.frameChild} />
