@@ -83,6 +83,10 @@ const VistaAdministradorUsuarios = () => {
 
   const [usuarios, setUsuarios] = useState(arrayUsuarios);
 
+  // useEffect(()=>{
+  //   dataContext.usuariosCargados=undefined
+  // },[usuarios,dataContext])
+
   const buscar = () => {
     const inputValue = document.getElementById("inputbuscarusuario").value;
     let nuevosUsuarios = usuarios.map((user) => {
@@ -130,14 +134,14 @@ const VistaAdministradorUsuarios = () => {
                       </div>
                     </div>
                     <div className={styles.cellNumber}>
-                      {usuarios.map(usuario => {
+                      {usuarios&&usuarios.map(usuario => {
                         return <TarjetaUsuarioAdministrador
                           usuario={usuario}
                           nombreUsuario={usuario.nombre_usuario}
                           nombreCompleto={usuario.nombre_real}
                           email={usuario.correo}
                           telefono={usuario.telefono}
-                          estado={usuario.estado}
+                          estado={"Activo"}
                           key={usuario.correo}
                           id={"usuario" + usuario.correo}
                           useref={"usuario" + usuario.correo}

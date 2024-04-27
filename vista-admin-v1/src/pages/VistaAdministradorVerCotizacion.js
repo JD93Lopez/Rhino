@@ -98,7 +98,7 @@ const VistaAdministradorVerCotizacion = () => {
               <div className={styles.quotationSummary}>
                 <div className={styles.informationDetails}>
                   <div className={styles.informacinDeLa}>
-                    Información de la cotización:
+                    {cotizacion&&cotizacion.estado=="ALQUILADO"?"Información del alquiler:":"Información de la cotización:"}
                   </div>
                   <div className={styles.infocotizacion}>
                     <div className={styles.infocotizacionChild} />
@@ -149,9 +149,9 @@ const VistaAdministradorVerCotizacion = () => {
                   </div>
                 </div>
                 <div className={styles.driverValueDetails}>
-                  <input className={styles.valorconductor} type="text" id="inputvalorconductorcotizacion" useref="inputvalorconductorcotizacion">
+                  <input className={styles.valorconductor} type="text" id="inputvalorconductorcotizacion" useref="inputvalorconductorcotizacion" defaultValue={cotizacion&&cotizacion.valor_conductores}>
                   </input>
-                  <input className={styles.valorconductor} type="text" id="inputgastoadicionalcotizacion" useref="inputgastoadicionalcotizacion">
+                  <input className={styles.valorconductor} type="text" id="inputgastoadicionalcotizacion" useref="inputgastoadicionalcotizacion" defaultValue={cotizacion&&cotizacion.gastos_adicionales}>
                   </input>
                 </div>
               </div>
@@ -169,6 +169,7 @@ const VistaAdministradorVerCotizacion = () => {
                     type="text"
                     id="inputjustificaciongastoadicionalcotizacion" 
                     useref="inputjustificaciongastoadicionalcotizacion"
+                    defaultValue={cotizacion&&cotizacion.justificacion_ga}
                   />
                 </div>
               </div>

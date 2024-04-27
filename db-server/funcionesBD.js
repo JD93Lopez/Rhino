@@ -118,16 +118,30 @@ const funcionesLogicaNegocioBD = (config) => {
   //TODO 6 y 7
 
   //8 administrador agregar compras 
-  funciones.administradorAgregarCompras8  = async ( Proveedores_idProveedores, responsable, subtotal, total, total_descuento, total_impuestos, p_descuento ) => {
+  funciones.administradorAgregarCompras8  = async ( Proveedores_idProveedores, responsable, p_descuento, p_impuestos ) => {
     const pool = new Pool(config);
     try {
-      await pool.query("INSERT INTO compras( proveedores_idproveedores, responsable, fecha, subtotal, total, total_descuento, total_impuestos, p_descuento ) VALUES ( $1, $2, NOW(), $3, $4, $5, $6, $7 )", 
-      [Proveedores_idProveedores, responsable, subtotal, total, total_descuento, total_impuestos, p_descuento]);
+      await pool.query("INSERT INTO compras( proveedores_idproveedores, responsable, p_descuento, p_impuestos, fecha ) VALUES ( $1, $2, $3, $4, NOW() )", 
+      [Proveedores_idProveedores, responsable, p_descuento, p_impuestos]);
       const DBRes = await pool.query("SELECT idcompras FROM COMPRAS ORDER BY idcompras DESC LIMIT 1", []);
       return DBRes;
     } catch (error) {
       console.log(error)
       console.log("Error en la operacion 8");
+    }
+    pool.end();
+  }
+
+  //8.1 administrador actualizar compras 
+  funciones.administradorActualizarCompras8_1  = async ( idcompras, total, subtotal, total_descuento, total_impuestos ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("UPDATE compras SET total = $2, subtotal = $3, total_descuento = $4, total_impuestos = $5 WHERE idcompras = $1", 
+      [idcompras, total, subtotal, total_descuento, total_impuestos]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion 8.1");
     }
     pool.end();
   }
@@ -295,6 +309,19 @@ const funcionesLogicaNegocioBD = (config) => {
     try {
       const DBRes = await pool.query("SELECT * FROM USUARIOS u WHERE u.idusuarios = $1", 
       [idusuarios]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
+  //Consultar proveedor por nit
+  funciones.proveedorPorNit = async ( nit ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM PROVEEDORES p WHERE p.nit = $1", 
+      [nit]);
       return DBRes;
     } catch (error) {
       console.log(error)

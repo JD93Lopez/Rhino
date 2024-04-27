@@ -1,33 +1,43 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import AddProductFrame from "../components/AddProductFrame";
-import { TarjetaProductoAdministrador } from "../components/TarjetaProductoAdministrador";
+import { TarjetaProductoCompras } from "../components/TarjetaProductoCompras";
 import styles from "./VistaAdministradorCompras.module.css";
 
 const VistaAdministradorCompras = () => {
+
+    const [compra,setCompra] = useState({})
+
+    if(!compra){
+        setCompra({})//TODO verificar que no haya compras seleccionadas
+    }
+
     const onRealizarCompraClick = () => {
         
         const nitproveedor = document.getElementById("inputnitproveedor").value;
-        const nombre = document.getElementById("inputnombreresponsable").value;
-        const descuento = document.getElementById("inputporcentajedescuento").value;
-        const impuestos = document.getElementById("inputporcentajeimpuesto").value;
+        const responsable = document.getElementById("inputnombreresponsable").value;
+        const p_descuento = document.getElementById("inputporcentajedescuento").value;
+        const total_impuestos = document.getElementById("inputporcentajeimpuesto").value;
         
         const CompraInsertar = {
             nitproveedor,
-            nombre,
-            descuento,
-            impuestos
+            responsable,
+            p_descuento,
+            total_impuestos
         };
         console.log(CompraInsertar);
+
+        CompraInsertar.idcompras = 1
+        setCompra(CompraInsertar)
     };
     
-      const onAgregarProductoClick = () => {
+    const onAgregarProductoClick = () => {
+    
+        const identificacion = document.getElementById("inputidproducto").value;
+        const precio_compra = document.getElementById("inputprecioproducto").value;
         
-        const idproducto = document.getElementById("inputidproducto").value;
-        const precioproducto = document.getElementById("inputprecioproducto").value;
-       
         const ProductoInsertar = {
-         idproducto,
-         precioproducto,
+            identificacion,
+            precio_compra,
         };
         console.log(ProductoInsertar);
     };
@@ -35,21 +45,21 @@ const VistaAdministradorCompras = () => {
         
         <div className={styles.vistaAdministradorCompras}>
             <AddProductFrame/>
-            <button className={styles.rectangleParent}
+            {compra&&compra.idcompras&&<button className={styles.rectangleParent}
             onClick={onAgregarProductoClick}>
                 <div className={styles.frameChild} />
                 <div className={styles.agregarProducto}>
                         Agregar producto
                 </div>
-            </button>
+            </button>}
             <div style={{display:"flex",flexDirection:"row"}}>
                 <div>
                     <br/><br/><br/>
-                    <button style={{borderRadius:"10px",fontSize:"20px",backgroundColor:"orange",marginLeft:"50px"}}
+                    <button style={{borderRadius:"10px",fontSize:"22px",backgroundColor:"orange",marginLeft:"50px",padding:"10px"}}
                     onClick={onRealizarCompraClick}>
                         <div/>
                         <div>
-                            <b>Realizar compra</b>
+                            <b>Guardar compra</b>
                         </div>
                     </button>
                 </div>
@@ -74,13 +84,18 @@ const VistaAdministradorCompras = () => {
             <input className={styles.inputporcentajedescuento} type='text'id="inputporcentajedescuento" useref="inputporcentajedescuento"/>
             <input className={styles.inputporcentajeimpuesto} type='text'id="inputporcentajeimpuesto" useref="inputporcentajeimpuesto"/>
             <input className={styles.inputnombreresponsable} type='text'id="inputnombreresponsable" useref="inputnombreresponsable"/>
-            <input style={{marginLeft:"720px", marginTop:"150px", fontSize:"20px"}} 
-            className={styles.inputproductid} type='text'placeholder="Id del producto"id="inputidproducto" useref="inputidproducto"/>
-            <input style={{marginLeft:"719px", marginTop:"0px",fontSize:"20px"}} 
-            className={styles.inputproductprice} type='text' placeholder="Precio del producto" id="inputprecioproducto" useref="inputprecioproducto"/>
-            <div className={styles.tituloCrearUsuario}>Productos</div>
+            {compra&&compra.idcompras&&
+                <div style={{display:"flex",flexDirection:"row",marginTop:"215px",marginLeft:"650px"}}>
+                    <input style={{fontSize:"20px"}} 
+                    className={styles.inputproductid} type='text'placeholder="Identificacion producto"id="inputidproducto" useref="inputidproducto"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input style={{fontSize:"20px"}} 
+                    className={styles.inputproductprice} type='text' placeholder="Precio compra producto" id="inputprecioproducto" useref="inputprecioproducto"/>
+                </div>
+            }
+            <div className={styles.tituloCrearUsuario}>{compra&&compra.idcompras&&"Productos"}</div>
             <div className={styles.excavadora}>
-            <TarjetaProductoAdministrador/>
+            {compra&&compra.idcompras&&<TarjetaProductoCompras/>}
             </div>
         </div>
     );
