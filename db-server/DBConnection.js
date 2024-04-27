@@ -64,7 +64,6 @@ const actualizarUsuario = async (
     let texto
     let values
     if(contrasena&&contrasena!=""){
-      console.log(contrasena)
       texto =
         "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1";
       values = [
