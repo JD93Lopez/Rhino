@@ -61,20 +61,39 @@ const actualizarUsuario = async (
 ) => {
   const pool = new Pool(config);
   try {
-    const texto =
-      "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1";
-    const values = [
-      idUsuarios,
-      nombre_usuario,
-      contrasena,
-      nombre_real,
-      direccion,
-      telefono,
-      identificacion,
-      correo,
-      tipo_identificacion,
-      tipo_usuario
-    ];
+    let texto
+    let values
+    if(contrasena&&contrasena!=""){
+      console.log(contrasena)
+      texto =
+        "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1";
+      values = [
+        idUsuarios,
+        nombre_usuario,
+        contrasena,
+        nombre_real,
+        direccion,
+        telefono,
+        identificacion,
+        correo,
+        tipo_identificacion,
+        tipo_usuario
+      ];
+    }else{
+      texto =
+        "UPDATE USUARIOS SET nombre_usuario = $2, nombre_real = $3, direccion = $4, telefono = $5, identificacion = $6, correo = $7, tipo_identificacion = $8, tipo_usuario = $9 WHERE idUsuarios = $1";
+      values = [
+        idUsuarios,
+        nombre_usuario,
+        nombre_real,
+        direccion,
+        telefono,
+        identificacion,
+        correo,
+        tipo_identificacion,
+        tipo_usuario
+      ];
+    }
     const DBRes = await pool.query(texto, values);
     return DBRes;
   } catch (error) {
