@@ -21,7 +21,6 @@ const VistaAdministradorUsuarios = () => {
         const array = res.data.Res
         array.usuarioIniciado = usuarioIniciado
         arrayUsuarios = array
-        setUsuarios(array)
       }catch(e){}
     })
     dataContext.usuariosCargados = 1
@@ -81,7 +80,17 @@ const VistaAdministradorUsuarios = () => {
 
   //cargar usuarios de la lista
 
-  const [usuarios, setUsuarios] = useState(arrayUsuarios);
+  // const [usuarios, setUsuarios] = useState(arrayUsuarios);
+  const [usuarios, setUsuarios] = useState();
+
+  if(!usuarios){
+    axios.api(`obtener/usuarios/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`).then((res)=>{
+      try{
+        const array = res.data.Res
+        setUsuarios(array)
+      }catch(e){}
+    })
+  }
 
   // useEffect(()=>{
   //   dataContext.usuariosCargados=undefined
