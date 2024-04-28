@@ -132,8 +132,8 @@ const funcionesLogicaNegocioBD = (config) => {
     pool.end();
   }
 
-  //8.1 administrador actualizar compras 
-  funciones.administradorActualizarCompras8_1  = async ( idcompras, total, subtotal, total_descuento, total_impuestos ) => {
+  //8.5 administrador actualizar compras 
+  funciones.administradorActualizarCompras8_5  = async ( idcompras, total, subtotal, total_descuento, total_impuestos ) => {
     const pool = new Pool(config);
     try {
       const DBRes = await pool.query("UPDATE compras SET total = $2, subtotal = $3, total_descuento = $4, total_impuestos = $5 WHERE idcompras = $1", 
@@ -141,7 +141,7 @@ const funcionesLogicaNegocioBD = (config) => {
       return DBRes;
     } catch (error) {
       console.log(error)
-      console.log("Error en la operacion 8.1");
+      console.log("Error en la operacion 8.5");
     }
     pool.end();
   }
@@ -240,6 +240,19 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //Consultar productos por identificacion
+  funciones.productosPorIdentificacion  = async ( identificacion ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM PRODUCTOS p WHERE p.identificacion = $1", 
+      [identificacion]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
   //Consultar agendas con el id de un producto
   funciones.agendasPorProducto  = async ( idproductos ) => {
     const pool = new Pool(config);
@@ -326,6 +339,33 @@ const funcionesLogicaNegocioBD = (config) => {
     } catch (error) {
       console.log(error)
       console.log("Error en la operacion");
+    }
+    pool.end();
+  }
+  //Actualizar precio_compra de producto
+  funciones.actualizarPreciocompraProducto  = async ( idproductos, precio_compra ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("UPDATE productos SET precio_compra = $2 WHERE idproductos = $1", 
+      [idproductos, precio_compra]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion actualizarPreciocompraProducto");
+    }
+    pool.end();
+  }  
+  //Consultar compra por idcompras
+  funciones.compraPorIdcompras  = async ( idcompras ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT *
+      FROM COMPRAS WHERE idcompras = $1`, 
+      [idcompras]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion compraPorIdcompras");
     }
     pool.end();
   }

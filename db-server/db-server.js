@@ -146,18 +146,30 @@ server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) =
 });
 //TODO 6 y 7
 //8 administrador agregar compras 
-server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:subtotal/:total/:total_descuento/:total_impuestos/:p_descuento', async (req, res) => {
+server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:p_descuento/:p_impuestos', async (req, res) => {
     try {
     
         const Proveedores_idProveedores = req.params.Proveedores_idProveedores
         const responsable = req.params.responsable
-        const subtotal = req.params.subtotal
+        const p_descuento = req.params.p_descuento
+        const p_impuestos = req.params.p_impuestos
+
+        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, p_descuento, p_impuestos ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//8.5 administrador actualizar compras
+server.get('/dbapi/administradorActualizarCompras8_5/:idcompras/:total/:subtotal/:total_descuento/:total_impuestos', async (req, res) => {
+    try {
+    
+        const idcompras = req.params.idcompras
         const total = req.params.total
+        const subtotal = req.params.subtotal
         const total_descuento = req.params.total_descuento
         const total_impuestos = req.params.total_impuestos
-        const p_descuento = req.params.p_descuento
 
-        res.json({ DBRes: await funcionesBD.administradorAgregarCompras8( Proveedores_idProveedores, responsable, subtotal, total, total_descuento, total_impuestos, p_descuento ) });
+        res.json({ DBRes: await funcionesBD.administradorActualizarCompras8_5( idcompras, total, subtotal, total_descuento, total_impuestos ) });
     } catch (error) {
         res.json({ DBRes: error });
     }
@@ -254,10 +266,44 @@ server.get('/dbapi/agendasPorProducto/:idproductos', async (req, res) => {
 //Consultar alquileres por usuario
 server.get('/dbapi/alquileresPorUsuario/:idusuarios', async (req, res) => {
     try {
-
+        
         const idusuarios = req.params.idusuarios
-
+        
         res.json({ DBRes: (await funcionesBD.alquileresPorUsuario( idusuarios )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Consultar productos por identificacion
+server.get('/dbapi/productosPorIdentificacion/:identificacion', async (req, res) => {
+    try {
+
+        const identificacion = req.params.identificacion
+
+        res.json({ DBRes: (await funcionesBD.productosPorIdentificacion( identificacion )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Actualizar precio_compra de producto
+server.get('/dbapi/actualizarPreciocompraProducto/:idproductos/:precio_compra', async (req, res) => {
+    try {
+
+        const idproductos = req.params.idproductos
+        const precio_compra = req.params.precio_compra
+
+        res.json({ DBRes: (await funcionesBD.actualizarPreciocompraProducto( idproductos, precio_compra)) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Consultar compra por idcompras
+server.get('/dbapi/compraPorIdcompras/:idcompras', async (req, res) => {
+    try {
+
+        const idcompras = req.params.idcompras
+
+        res.json({ DBRes: (await funcionesBD.compraPorIdcompras( idcompras )).rows });
     } catch (error) {
         res.json({ DBRes: error });
     }

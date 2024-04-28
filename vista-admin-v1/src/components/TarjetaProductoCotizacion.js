@@ -14,12 +14,12 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
         if(object&&object.conductores_idconductores&&object.conductores_idconductores!=0){
             setIsSelected(!isSelected);
             dataContext.idConductorAgenda = object.conductores_idconductores
-            navigate("/vista-administrador-cotizacion-producto");
+            navigate("/vista-administrador-conductor-producto");
         }else{
             setIsSelected(!isSelected);
             dataContext.producto_agendaSeleccionada = object
             // Redirigir a otra página cuando se hace clic en la tarjeta
-            navigate("/vista-administrador-cotizacion-producto");
+            navigate("/vista-administrador-conductor-producto");
         }
     };
 

@@ -183,7 +183,7 @@ function App() {
           element={<VistaAdministradorVerCotizacion />}
         />
         <Route
-          path="/vista-administrador-cotizacion-producto"
+          path="/vista-administrador-conductor-producto"
           element={<VistaAdministradorConductoresProductos />}
         />
         <Route

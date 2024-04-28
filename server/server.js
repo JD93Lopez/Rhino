@@ -272,6 +272,75 @@ server.get('/api/5/:idAlquileres/:nUsuario/:contrasena', async (req, res) => {
         res.json({ Res: error });
     }
 });
+//8 administrador agregar compras
+server.get('/api/8/:proveedores_idproveedores/:responsable/:p_descuento/:p_impuestos', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const proveedores_idproveedores = req.params.proveedores_idproveedores
+        const responsable = req.params.responsable
+        const p_descuento = req.params.p_descuento
+        const p_impuestos = req.params.p_impuestos
+
+        let idcompras = (await Fetch.fetchApi(`administradorAgregarCompras8/${proveedores_idproveedores}/${responsable}/${p_descuento}/${p_impuestos}`)).DBRes.rows[0].idcompras
+
+        res.json({ Res: idcompras });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+//8_5 9 administrador actualizar compras y agregar productos has compras
+server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, res) => {
+    bool = false
+    try {
+        //TODO comprobar permisos
+        const idcompras = req.params.idcompras
+        const identificacion = req.params.identificacion
+        const precio_compra = req.params.precio_compra
+
+        const productos = (await Fetch.fetchApi(`productosPorIdentificacion/${identificacion}`)).DBRes
+        if(productos&&productos[0]&&productos[0].idproductos){
+            const idproductos = productos[0].idproductos
+            (await Fetch.fetchApi(`actualizarPreciocompraProducto/${idproductos}/${precio_compra}`))
+            
+            const compras = (await Fetch.fetchApi(`compraPorIdcompras/${idcompras}`)).DBRes
+            if(compras&&compras[0]&&compras[0].proveedores_idproveedores){
+                //subtotal, total_descuento, total_impuestos, p_descuento, p_impuestos
+                const compra = compras[0]
+
+                const subtotal = compra.subtotal
+                const total_descuento = compra.total_descuento
+                const total_impuestos = compra.total_impuestos
+                const p_descuento = compra.p_descuento
+                const p_impuestos = compra.p_impuestos
+
+                if(!subtotal){ subtotal=0 }
+                if(!total_descuento){ total_descuento=0 }
+                if(!total_impuestos){ total_impuestos=0 }
+
+                subtotal += precio_compra
+                total_descuento += (precio_compra*(p_descuento/100))
+                total_impuestos += (precio_compra*(p_impuestos/100))
+
+                if(productos[0].p_descuento&&productos[0].p_descuento!=0){
+                    total_descuento += (precio_compra*(productos[0].p_descuento/100))
+                }
+
+                const total = subtotal + total_impuestos - total_descuento;
+                (await Fetch.fetchApi(`administradorActualizarCompras8_5/${idcompras}/${total}/${subtotal}/${total_descuento}/${total_impuestos}`))
+                
+                const idproveedores = compra.proveedores_idproveedores
+                (await Fetch.fetchApi(`administradorAgregarProductosHasCompras9/${idproductos}/${idcompras}/${idproveedores}`))
+
+                bool = true
+            }
+            
+        }
+
+        res.json({ Res: bool });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 
