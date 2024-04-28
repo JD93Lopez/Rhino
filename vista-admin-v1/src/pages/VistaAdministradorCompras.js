@@ -2,10 +2,12 @@ import { useCallback, useState } from "react";
 import AddProductFrame from "../components/AddProductFrame";
 import { TarjetaProductoCompras } from "../components/TarjetaProductoCompras";
 import styles from "./VistaAdministradorCompras.module.css";
+import axios from "../axios";
 
 const VistaAdministradorCompras = () => {
 
-    const [compra,setCompra] = useState({})
+    const [compra, setCompra] = useState({})
+    const [productos, setProductos] = useState()
 
     if(!compra){
         setCompra({})//TODO verificar que no haya compras seleccionadas
@@ -24,10 +26,15 @@ const VistaAdministradorCompras = () => {
             p_descuento,
             total_impuestos
         };
-        console.log(CompraInsertar);
-
-        CompraInsertar.idcompras = 1
-        setCompra(CompraInsertar)
+        
+        axios.api(`8/${nitproveedor}/${responsable}/${p_descuento}/${total_impuestos}`).then((res)=>{
+            try {
+                if(res.data.Res&&res.data.Res!=0){
+                    CompraInsertar.idcompras = res.data.Res
+                    setCompra(CompraInsertar)
+                }
+            } catch (e) {}
+        })
     };
     
     const onAgregarProductoClick = () => {
@@ -39,29 +46,50 @@ const VistaAdministradorCompras = () => {
             identificacion,
             precio_compra,
         };
-        console.log(ProductoInsertar);
+        
+        axios.api(`8_59/${compra.idcompras}/${identificacion}/${precio_compra}`).then(()=>{
+            axios.api(`obtener/productosPorIdcompras/${compra.idcompras}`).then((res)=>{
+                try {
+                    setProductos(res.data.Res)
+                } catch (e) {}
+            })
+        })
+
     };
+
+    if(!productos&&compra&&compra.idcompras){
+        axios.api(`obtener/productosPorIdcompras/${compra.idcompras}`).then((res)=>{
+            try {
+                setProductos(res.data.Res)
+            } catch (e) {}
+        })
+    }
+
     return (
         
         <div className={styles.vistaAdministradorCompras}>
             <AddProductFrame/>
-            {compra&&compra.idcompras&&<button className={styles.rectangleParent}
-            onClick={onAgregarProductoClick}>
-                <div className={styles.frameChild} />
-                <div className={styles.agregarProducto}>
+            {compra&&compra.idcompras&&
+                <button className={styles.rectangleParent}
+                onClick={onAgregarProductoClick}>
+                    <div className={styles.frameChild} />
+                    <div className={styles.agregarProducto}>
                         Agregar producto
-                </div>
-            </button>}
+                    </div>
+                </button>
+            }
             <div style={{display:"flex",flexDirection:"row"}}>
                 <div>
                     <br/><br/><br/>
-                    <button style={{borderRadius:"10px",fontSize:"22px",backgroundColor:"orange",marginLeft:"50px",padding:"10px"}}
-                    onClick={onRealizarCompraClick}>
-                        <div/>
-                        <div>
-                            <b>Guardar compra</b>
-                        </div>
-                    </button>
+                    {compra&&!compra.idcompras&&
+                        <button style={{borderRadius:"10px",fontSize:"22px",backgroundColor:"orange",marginLeft:"50px",padding:"10px"}}
+                        onClick={onRealizarCompraClick}>
+                            <div/>
+                            <div>
+                                <b>Crear compra</b>
+                            </div>
+                        </button>
+                    }
                 </div>
                 <div className={styles.formulariocompras}>
                     
@@ -85,7 +113,7 @@ const VistaAdministradorCompras = () => {
             <input className={styles.inputporcentajeimpuesto} type='text'id="inputporcentajeimpuesto" useref="inputporcentajeimpuesto"/>
             <input className={styles.inputnombreresponsable} type='text'id="inputnombreresponsable" useref="inputnombreresponsable"/>
             {compra&&compra.idcompras&&
-                <div style={{display:"flex",flexDirection:"row",marginTop:"215px",marginLeft:"650px"}}>
+                <div style={{display:"flex",flexDirection:"row",marginTop:"249px",marginLeft:"650px"}}>
                     <input style={{fontSize:"20px"}} 
                     className={styles.inputproductid} type='text'placeholder="Identificacion producto"id="inputidproducto" useref="inputidproducto"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -95,7 +123,16 @@ const VistaAdministradorCompras = () => {
             }
             <div className={styles.tituloCrearUsuario}>{compra&&compra.idcompras&&"Productos"}</div>
             <div className={styles.excavadora}>
-            {compra&&compra.idcompras&&<TarjetaProductoCompras/>}
+            <div style={{overflowY:"scroll",height:"450px"}}>
+                {compra&&compra.idcompras&&productos&&productos.map((producto)=>{
+                    return <TarjetaProductoCompras
+                    nombreProducto={producto.nombre}
+                        descripcion={producto.descripcion}
+                        imagen={producto.imagen}
+                        object={producto}
+                    />
+                })}
+            </div>
             </div>
         </div>
     );

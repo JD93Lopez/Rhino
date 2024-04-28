@@ -285,6 +285,17 @@ server.get('/dbapi/productosPorIdentificacion/:identificacion', async (req, res)
         res.json({ DBRes: error });
     }
 });
+//Consultar proveedores por nit
+server.get('/dbapi/proveedoresPorNit/:nit', async (req, res) => {
+    try {
+
+        const nit = req.params.nit
+
+        res.json({ DBRes: (await funcionesBD.proveedorPorNit( nit )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 //Actualizar precio_compra de producto
 server.get('/dbapi/actualizarPreciocompraProducto/:idproductos/:precio_compra', async (req, res) => {
     try {
@@ -294,6 +305,7 @@ server.get('/dbapi/actualizarPreciocompraProducto/:idproductos/:precio_compra', 
 
         res.json({ DBRes: (await funcionesBD.actualizarPreciocompraProducto( idproductos, precio_compra)) });
     } catch (error) {
+        console.log(error)
         res.json({ DBRes: error });
     }
 });
@@ -304,6 +316,17 @@ server.get('/dbapi/compraPorIdcompras/:idcompras', async (req, res) => {
         const idcompras = req.params.idcompras
 
         res.json({ DBRes: (await funcionesBD.compraPorIdcompras( idcompras )).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//Consultar productos por idcompras
+server.get('/dbapi/productosPorIdcompras/:idcompras', async (req, res) => {
+    try {
+
+        const idcompras = req.params.idcompras
+
+        res.json({ DBRes: (await funcionesBD.productosPorIdcompras( idcompras )).rows });
     } catch (error) {
         res.json({ DBRes: error });
     }

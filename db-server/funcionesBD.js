@@ -369,6 +369,19 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //Consultar productos por idcompras
+  funciones.productosPorIdcompras = async ( idcompras ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT p.* FROM productos p, PRODUCTOS_has_COMPRAS phc WHERE phc.COMPRAS_idcompras = $1 AND phc.PRODUCTOS_idproductos = p.idproductos", 
+      [idcompras]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }
