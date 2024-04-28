@@ -123,7 +123,7 @@ const VistaAdministradorCompras = () => {
             }
             <div className={styles.tituloCrearUsuario}>{compra&&compra.idcompras&&"Productos"}</div>
             <div className={styles.excavadora}>
-            <div style={{overflowY:"scroll",height:"450px"}}>
+            <div style={{overflowY:"scroll",maxHeight:"450px"}}>
                 {compra&&compra.idcompras&&productos&&productos.map((producto)=>{
                     return <TarjetaProductoCompras
                     nombreProducto={producto.nombre}
