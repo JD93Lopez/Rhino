@@ -303,7 +303,7 @@ server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, re
         //TODO comprobar permisos
         const idcompras = req.params.idcompras
         const identificacion = req.params.identificacion
-        const precio_compra = req.params.precio_compra
+        const precio_compra = parseInt(req.params.precio_compra)
         
         const productos = (await Fetch.fetchApi(`productosPorIdentificacion/${identificacion}`)).DBRes
         if(productos&&productos[0]&&productos[0].idproductos){
@@ -315,11 +315,11 @@ server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, re
                 //subtotal, total_descuento, total_impuestos, p_descuento, p_impuestos
                 const compra = compras[0]
                 
-                let subtotal = compra.subtotal
-                let total_descuento = compra.total_descuento
-                let total_impuestos = compra.total_impuestos
-                const p_descuento = compra.p_descuento
-                const p_impuestos = compra.p_impuestos
+                let subtotal = parseInt(compra.subtotal)
+                let total_descuento = parseInt(compra.total_descuento)
+                let total_impuestos = parseInt(compra.total_impuestos)
+                const p_descuento = parseInt(compra.p_descuento)
+                const p_impuestos = parseInt(compra.p_impuestos)
                 
                 if(!subtotal){ subtotal=0 }
                 if(!total_descuento){ total_descuento=0 }
