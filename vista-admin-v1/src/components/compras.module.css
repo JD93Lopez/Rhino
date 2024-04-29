@@ -1,0 +1,50 @@
+/* Proyecto1.module.css ajustes para TarjetaCotizaciones */
+.tarjetaCompra{
+    position: absolute;
+    top: auto;
+    left: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 85%; /* Asegúrate de que ocupa el ancho completo dentro de su contenedor */
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .infoItem, .cargadoresFrontales {
+    margin-bottom: 10px;
+  }
+  
+  .infoItem, .cargadoresFrontales span:first-child {
+    font-weight: bold;
+  }
+  .tarjetaCompra{
+    /* Estilos base de la tarjeta */
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .selected {
+    /* Estilos cuando la tarjeta está seleccionada */
+    background-color: #e0e0e0;
+    border: 2px solid #f2ff00;
+  }
+  
+  .verdesito {
+    /* Estilos cuando la tarjeta está seleccionada */
+    background-color: #53ffba;
+    border: 2px solid #f2ff00;
+  }
+  
+  .hover {
+    /* Estilos cuando el cursor está sobre la tarjeta */
+    background-color: #e8e8e8;
+    cursor: pointer;
+  }

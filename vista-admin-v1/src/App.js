@@ -23,7 +23,7 @@ import VistaMantenimProducto from "./pages/VistaMantenimProducto";
 import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualizarMant";
 import VistaAdministradorConductoresProductos from "./pages/VistaAdministradorConductoresProductos";
 import VistaAdministradorCompras from "./pages/VistaAdministradorCompras";
-
+import VistaAdministradorAllCompras from "./pages/VistaAdministradorAllCompras";
 import { DataProvider } from "./components/DataProvider";
 
 function App() {
@@ -99,6 +99,10 @@ function App() {
         metaDescription = "";
         break;
       case "/vista-administrador-compras":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-all-compras":
         title = "";
         metaDescription = "";
         break;
@@ -189,6 +193,10 @@ function App() {
         <Route
           path="/vista-administrador-compras"
           element={<VistaAdministradorCompras />}
+        />
+        <Route
+          path="/vista-administrador-all-compras"
+          element={<VistaAdministradorAllCompras />}
         />
       </Routes>
     </DataProvider>
