@@ -19,9 +19,9 @@ import VentanaDeContraseaYSeguri from "./pages/VentanaDeContraseaYSeguri";
 import VentanaDeAyudaYAsistencia from "./pages/VentanaDeAyudaYAsistencia";
 import VentanaConsultarDisponibilidad from "./pages/VentanaConsultarDisponibilidad";
 import HistorialDeCotizaciones from "./pages/HistorialDeCotizaciones";
+import VentanaParaClientes from "./pages/VentanaParaClientes";
 import PDF from "./PDF";
 import { DataProvider } from "./components/DataProvider";
-
 
 function App() {
   const action = useNavigationType();
@@ -153,22 +153,20 @@ function App() {
           path="/ventana-de-ayuda-y-asistencia"
           element={<VentanaDeAyudaYAsistencia />}
         />
-        <Route 
+        <Route
           path="/ventana-inicio-sesion"
           element={<VentanaInicioDeSesin />}
         />
-        <Route 
+        <Route
           path="/consultar-disponibilidad"
           element={<VentanaConsultarDisponibilidad />}
-        />        
-        <Route 
+        />
+        <Route
           path="/historial-cotizaciones"
-          element={<HistorialDeCotizaciones/>}
+          element={<HistorialDeCotizaciones />}
         />
-        <Route 
-          path="/pdf"
-          element={<PDF/>}
-        />
+        <Route path="/pdf" element={<PDF />} />
+        <Route path="/ventana-para-clientes" element={<VentanaParaClientes />} />
       </Routes>
     </DataProvider>
   );

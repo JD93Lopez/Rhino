@@ -23,7 +23,7 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
         dataContext.alquilerPdf = object
         dataContext.usuarioPdf = dataContext.usuarioIniciado
         dataContext.productosPdf = object.producto_agendas
-        navigate('/pdf')
+        navigate('/ventana-para-clientes')
     }
 
     return (
