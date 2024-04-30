@@ -135,9 +135,9 @@
 .materialesSinFondo2 {
   width: 476px;
   position: relative;
-  max-height: 100%;
-  object-fit: cover;
-  max-width: 100%;
+  object-fit: contain;
+  height: 300px;
+  width: 500px;
   cursor: pointer;
   z-index: 2;
 }

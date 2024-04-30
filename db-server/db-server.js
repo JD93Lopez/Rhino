@@ -468,6 +468,18 @@ server.get('/dbapi/get/usuarioporid/:idusuarios', async (req, res) => {
     }
 });
 
+//Obtener categorias por idproductos
+server.get('/dbapi/get/categoriasDeProducto/:idproductos', async (req, res) => {
+    try {
+
+        const idproductos = req.params.idproductos
+        
+        res.json({ DBRes: await funcionesBD.consultarCategoriasDeProducto(idproductos) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Obtener proveedores
 server.get('/dbapi/get/proveedores', async (req, res) => {
     try {

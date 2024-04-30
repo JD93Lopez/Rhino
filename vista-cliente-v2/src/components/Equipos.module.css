@@ -14,6 +14,15 @@
   text-align: center;
 }
 
+.imagen {
+  flex: 1 0 360px;
+  margin: 40px;
+  text-align: center;
+  object-fit: contain;
+  height: 250px;
+  width: 500px;
+}
+
 .equipo img {
   width: 100%;
 }

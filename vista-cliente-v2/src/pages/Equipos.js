@@ -17,7 +17,7 @@ const Equipos = () => {
     return (
       <div className={styles.equipo} key={equipo.nombre}>
         
-        <img src={equipo.imagen&&equipo.imagen!=""?equipo.imagen:"boton-logo-6@3x.png"} alt={equipo.nombre} />
+        <img src={equipo.imagen&&equipo.imagen!=""?equipo.imagen:"boton-logo-6@3x.png"} alt={equipo.nombre} className={styles.imagen}/>
         <h1>{equipo.nombre}</h1>
         {equipo.p_descuento&&<h1>Descuento: {equipo.p_descuento}%</h1>}
         <h2>{equipo.descripcion}</h2>

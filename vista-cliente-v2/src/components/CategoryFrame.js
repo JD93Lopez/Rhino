@@ -39,7 +39,7 @@ const CategoryFrame = () => {
   const [productos, setProductos] = useState()
 
   if(!productos){
-    axios.api(`obtener/productos`).then((res)=>{
+    axios.api(`obtener/productosYCategorias`).then((res)=>{
       try{
         setProductos(res.data.Res)
       }catch(e){}
@@ -170,7 +170,7 @@ const CategoryFrame = () => {
               onChange={handleDesplegableMaquinarias}
               opciones={
                 [
-                  {value: "Vehiculo 1", label:"Vehiculo1"},
+                  {value: "Metales", label:"Metales"},
                   {value: "Vehiculo 2", label:"Vehiculo2"},
                   {value: "Vehiculo 3", label:"Vehiculo3"},
                   {value: "Vehiculo 4", label:"Vehiculo4"}

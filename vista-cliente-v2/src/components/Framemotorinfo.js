@@ -34,7 +34,7 @@ const Framemotorinfo = () => {
         className={styles.manipuladorafondo1Icon}
         loading="lazy"
         alt=""
-        src={product.imagen}
+        src={product.imagen&&product.imagen!=""?product.imagen:"boton-logo-6@3x.png"}
       />
       <div className={styles.mHbackground}>
         <div className={styles.materialsslide}>

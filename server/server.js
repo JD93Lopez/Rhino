@@ -651,6 +651,55 @@ server.get('/api/obtener/productos', async (req, res) => {
     }
 });
 
+//Obtener productos con categorias
+server.get('/api/obtener/productosYCategorias', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const productos = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+
+        for await(const producto of productos){
+            producto.categorias = []
+
+            const categorias = (await Fetch.fetchApi(`get/categoriasDeProducto/${producto.idproductos}`)).DBRes.rows
+            for (const categoria of categorias){
+                producto.categorias.push(categoria.nombre_categoria)
+            }
+
+        }
+        
+        res.json({ Res: productos });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//Obtener productos con categorias
+server.get('/api/obtener/categorias/transporte', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const categorias = (await Fetch.fetchApi(`get/categorias/transporte`)).DBRes.rows
+        
+        res.json({ Res: categorias });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//Obtener productos con categorias
+server.get('/api/obtener/categorias/maquinaria', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const categorias = (await Fetch.fetchApi(`get/categorias/maquinaria`)).DBRes.rows
+        
+        res.json({ Res: categorias });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
 //Obtener productos alianza
 server.get('/api/obtener/productos/alianza', async (req, res) => {
     try {

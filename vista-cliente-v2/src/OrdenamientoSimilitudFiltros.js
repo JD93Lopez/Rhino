@@ -5,14 +5,13 @@ function calcularSimilitud2(str1, str2, producto, selectedFilters1, selectedFilt
 
     let similitudes = []
     similitudes.push(calcularSimilitud(str1,str2))
-
-
+    
     if(selectedFilters1){
         selectedFilters1.forEach(filter => {
             similitudes.push(calcularSimilitud( categoriaMasParecida(filter, producto) ,filter))
         });
     }
-
+    
     if(selectedFilters2){
         selectedFilters2.forEach(filter => {
             similitudes.push(calcularSimilitud( categoriaMasParecida(filter, producto) ,filter))
@@ -36,12 +35,12 @@ function calcularSimilitud2(str1, str2, producto, selectedFilters1, selectedFilt
 
 function categoriaMasParecida(filter, producto){
 
-    if(!producto.categorias){
-        return
+    if(!producto.categorias||producto.categorias.length==0){
+        return ""
     }
 
     let filtrosOrdenados = ordenarPorSimilitud(producto.categorias, filter)
-    return filtrosOrdenados[0].palabra
+    return filtrosOrdenados[0]?filtrosOrdenados[0].palabra:""
 }
 
 function calcularSimilitud(str1, str2) {

@@ -407,6 +407,22 @@ const funcionesLogicaNegocioBD = (config) => {
       console.log("Error en la operacion ");
     }
     pool.end();
+  }  
+  //Consultar categorias con idproductos
+  funciones.consultarCategoriasDeProducto = async ( idproductos ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT c.* 
+      FROM categorias c, productos_has_categorias phc
+      WHERE phc.productos_idproductos = $1
+      AND c.idcategorias = phc.categorias_idcategorias`, 
+      [idproductos]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
   }
   
   return funciones
