@@ -674,7 +674,7 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
     }
 });
 
-//Obtener productos con categorias
+//Obtener categorias transporte
 server.get('/api/obtener/categorias/transporte', async (req, res) => {
     try {
 
@@ -687,12 +687,25 @@ server.get('/api/obtener/categorias/transporte', async (req, res) => {
     }
 });
 
-//Obtener productos con categorias
+//Obtener categorias maquinaria
 server.get('/api/obtener/categorias/maquinaria', async (req, res) => {
     try {
 
         //TODO comprobar permisos
         const categorias = (await Fetch.fetchApi(`get/categorias/maquinaria`)).DBRes.rows
+        
+        res.json({ Res: categorias });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//Obtener categorias
+server.get('/api/obtener/categorias', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const categorias = (await Fetch.fetchApi(`get/categorias`)).DBRes.rows
         
         res.json({ Res: categorias });
     } catch (error) {

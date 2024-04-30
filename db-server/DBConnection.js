@@ -259,13 +259,14 @@ const actualizarProducto = async (
   modelo,
   tipo_vehiculo,
   estado,
-  imagen
+  imagen,
+  categorias
 ) => {
-  const pool = new Pool(config);
+  let pool = new Pool(config);
   try {
-    const texto =
+    let texto =
       "UPDATE PRODUCTOS SET nombre = $2, descripcion = $3, identificacion = $4, precio_alquiler = $5, marca = $6, modelo = $7, tipo_vehiculo = $8, estado = $9, imagen = $10 WHERE idProductos = $1";
-    const values = [
+    let values = [
       idProductos,
       nombre,
       descripcion,
@@ -277,13 +278,25 @@ const actualizarProducto = async (
       estado,
       imagen
     ];
-    const DBRes = await pool.query(texto, values);
+    let DBRes = await pool.query(texto, values);
+    pool.end();
+
+    pool = new Pool(config)
+
+    for await (const categoria of categorias){
+      texto = `INSERT INTO productos_has_categorias VALUES (${categoria.value},${idProductos})`;
+      values = [];
+      DBRes = await pool.query(texto, values);
+    }
+
+    pool.end()
+
+
     return DBRes;
   } catch (error) {
     console.log(error)
     console.log("Error  al actualizar el producto");
   }
-  pool.end();
 };
 
 const obtenerProductos = async () => {

@@ -30,6 +30,11 @@ const VistaAdministradorAllCompras = () => {
         })
     }
 
+    const agregarCompra = () => {
+        dataContext.compraSeleccionada = undefined
+        navigate("/vista-administrador-compras")
+    }
+
     return (
         <div className={styles.vistaAdministradorCompras}>
             <div className={styles.vistaAdministradorComprasChild} />
@@ -43,7 +48,8 @@ const VistaAdministradorAllCompras = () => {
                     <div>
                         <div style={{display:"flex",flexDirection:"row"}}>
                             <h1 className={styles.tituloCompras}>Compras</h1>
-                            <button style={{
+                            <button 
+                            style={{
                                 backgroundColor:"orange",
                                 height:"50px",
                                 borderWidth:"1px",
@@ -51,7 +57,9 @@ const VistaAdministradorAllCompras = () => {
                                 fontSize:"25px",
                                 fontWeight:"bolder",
                                 marginLeft:"995px"
-                            }} onClick={()=>navigate("/vista-administrador-compras")}>
+                            }} 
+                            onClick={agregarCompra}
+                            >
                                 Agregar compra
                             </button>
                         </div>

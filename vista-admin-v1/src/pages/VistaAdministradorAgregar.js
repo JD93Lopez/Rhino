@@ -1,10 +1,12 @@
 // VistaAdministradorAgregar.js
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import SeleccionarArchivoText from "../components/SeleccionarArchivoText";
 import FrameComponent2 from "../components/FrameComponent2";
+import ListaDesplegable1 from "../components/ListaDesplegable1";
 import styles from "./VistaAdministradorAgregar.module.css";
+import axios from "../axios";
 
 const VistaAdministradorAgregar = () => {
   const navigate = useNavigate();
@@ -25,7 +27,25 @@ const VistaAdministradorAgregar = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
+  const [opciones,setOpciones] = useState()
 
+  if(!opciones){
+    axios.api(`obtener/categorias`).then((res)=>{
+      try {
+        let categorias = res.data.Res
+        let opciones = []
+        for (const categoria of categorias){
+          opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
+        }
+        setOpciones(opciones)
+      } catch (e) {}
+    })
+  }
+
+  const seleccionCategorias = (e) => {
+    console.log(e)
+    dataContext.categoriasSeleccionadas = e
+  }
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -82,6 +102,12 @@ const VistaAdministradorAgregar = () => {
                       </div>
                     </div>
                   </div>
+                  <ListaDesplegable1
+                    className={null}
+                    titulo={'Seleccione las categorías'}
+                    opciones={opciones?opciones:[]}
+                    onChange={(e)=>{seleccionCategorias(e)}}
+                  />
                 </div>
               </div>
               <div className={styles.frameParent}>

@@ -54,7 +54,7 @@ function ListaDesplegable2({titulo}){
                     borderWidth: "2px",
                   })}}
                 placeholder={titulo}
-                closeMenuOnSelect={false}
+                closeMenuOnSelect={true}
                 options={opciones}
                 components={animatedComponents}
                 onChange={(e)=>handleSeleccion(e)}

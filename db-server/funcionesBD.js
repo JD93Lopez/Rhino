@@ -424,6 +424,42 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  funciones.obtenerCategoriasTransporte = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT * FROM categorias WHERE tipo_categoria = 'TRANSPORTE'`, 
+      []);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
+  funciones.obtenerCategoriasMaquinaria = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT * FROM categorias WHERE tipo_categoria = 'MAQUINARIA'`, 
+      []);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
+  funciones.obtenerCategorias = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT * FROM categorias`, 
+      []);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }

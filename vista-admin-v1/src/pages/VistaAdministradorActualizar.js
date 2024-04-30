@@ -1,11 +1,14 @@
 // VistaAdministradorAgregar.js
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { DataContext } from "../components/DataProvider";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import SeleccionarArchivoText from "../components/SeleccionarArchivoText";
 import FrameComponent2 from "../components/FrameComponent2";
 import styles from "./VistaAdministradorAgregar.module.css";
+import ListaDesplegable1 from "../components/ListaDesplegable1";
+import axios from "../axios";
+
 
 const VistaAdministradorActualizar = () => {
   const navigate = useNavigate();
@@ -59,6 +62,26 @@ const VistaAdministradorActualizar = () => {
       }
     }
   }, [dataContext.Loaded, dataContext]);
+
+  const [opciones,setOpciones] = useState()
+
+  if(!opciones){
+    axios.api(`obtener/categorias`).then((res)=>{
+      try {
+        let categorias = res.data.Res
+        let opciones = []
+        for (const categoria of categorias){
+          opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
+        }
+        setOpciones(opciones)
+      } catch (e) {}
+    })
+  }
+
+  const seleccionCategorias = (e) => {
+    console.log(e)
+    dataContext.categoriasSeleccionadas = e
+  }
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -130,6 +153,15 @@ const VistaAdministradorActualizar = () => {
                   {`Descargar Técnico Mecánica `}
                   <button>Descargar</button>
                 </div>
+              </div>
+              <div style={{width:"635px"}}>
+                {/* lista desplegable con opciones de categorias label categoria y value el id*/}
+                <ListaDesplegable1
+                  className={null}
+                  titulo={'Seleccione las categorías'}
+                  opciones={opciones?opciones:[]}
+                  onChange={(e)=>{seleccionCategorias(e)}}
+                />
               </div>
               <div>
                 <button onClick={mantenimientos} style={{fontSize: "25px", backgroundColor: "orange"}}>

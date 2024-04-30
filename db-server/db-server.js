@@ -349,6 +349,33 @@ server.get('/dbapi/consultarProductosDescuento', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//obtenerCategoriasTransporte
+server.get('/dbapi/obtenerCategoriasTransporte', async (req, res) => {
+    try {
+
+        res.json({ DBRes: (await funcionesBD.obtenerCategoriasTransporte()).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//obtenerCategoriasMaquinaria
+server.get('/dbapi/obtenerCategoriasMaquinaria', async (req, res) => {
+    try {
+
+        res.json({ DBRes: (await funcionesBD.obtenerCategoriasMaquinaria()).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//obtenerCategorias
+server.get('/dbapi/obtenerCategorias', async (req, res) => {
+    try {
+
+        res.json({ DBRes: (await funcionesBD.obtenerCategorias()).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 
@@ -540,6 +567,36 @@ server.get('/dbapi/get/alquileres', async (req, res) => {
     }
 });
 
+//Obtener categorias transporte
+server.get('/dbapi/get/categorias/transporte', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await funcionesBD.obtenerCategoriasTransporte() });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+//Obtener categorias maquinaria
+server.get('/dbapi/get/categorias/maquinaria', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await funcionesBD.obtenerCategoriasMaquinaria() });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+//Obtener categorias
+server.get('/dbapi/get/categorias', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await funcionesBD.obtenerCategorias() });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Actualizar usuario
 server.post('/dbapi/update/usuarios', async (req, res) => {
     try {
@@ -571,7 +628,7 @@ server.post('/dbapi/update/productos', async (req, res) => {
     try {
         
         const objetoAInsertar = req.body
-        DBConnection.actualizarProducto(objetoAInsertar.idproductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen)
+        DBConnection.actualizarProducto(objetoAInsertar.idproductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen, objetoAInsertar.categorias)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
         console.log(error)

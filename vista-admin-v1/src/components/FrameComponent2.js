@@ -21,6 +21,7 @@ const FrameComponent2 = () => {
     const estado = dataContext.estadoProducto;
     const tipo_vehiculo = dataContext.tipoProducto;
     const imagen = dataContext.imagenProducto;
+    const categorias = dataContext.categoriasSeleccionadas;
     const product = {
       nombre,
       descripcion,
@@ -32,9 +33,8 @@ const FrameComponent2 = () => {
       tipo_vehiculo,
       estado,
       imagen,
+      categorias
     };
-
-    console.log(imagen)
 
     if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
       product.idproductos = dataContext.selectedProducts[0].idproductos
