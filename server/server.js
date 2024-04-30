@@ -674,6 +674,20 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
     }
 });
 
+//consultar Categorias De Producto con idproductos
+server.get('/api/obtener/categoriasPorIdproductos/:idproductos', async (req, res) => {
+    try {
+
+        const idproductos = req.params.idproductos
+        //TODO comprobar permisos
+        const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${idproductos}`)).DBRes.rows
+        
+        res.json({ Res: categorias });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
 //Obtener categorias transporte
 server.get('/api/obtener/categorias/transporte', async (req, res) => {
     try {

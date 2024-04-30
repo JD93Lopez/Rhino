@@ -495,8 +495,8 @@ server.get('/dbapi/get/usuarioporid/:idusuarios', async (req, res) => {
     }
 });
 
-//Obtener categorias por idproductos
-server.get('/dbapi/get/categoriasDeProducto/:idproductos', async (req, res) => {
+//Obtener categorias por idproductos-
+server.get('/dbapi/consultarCategoriasDeProducto/:idproductos', async (req, res) => {
     try {
 
         const idproductos = req.params.idproductos

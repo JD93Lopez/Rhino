@@ -75,19 +75,21 @@ const VistaAdministradorActualizar = () => {
         for (const categoria of categorias){
           opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
         }
+        console.log(opciones)
         setOpciones(opciones)
       } catch (e) {}
     })
   }
 
-  if(!categoriasProducto){
-    axios.api(`obtener/categorias`).then((res)=>{
+  if(!categoriasProducto&&dataContext.Loaded){
+    axios.api(`obtener/categoriasPorIdproductos/${dataContext.selectedProducts[0].idproductos}`).then((res)=>{
       try {
         let categorias = res.data.Res
         let opciones = []
         for (const categoria of categorias){
           opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
         }
+        console.log(opciones)
         setCategoriasProducto(opciones)
       } catch (e) {}
     })
@@ -96,6 +98,22 @@ const VistaAdministradorActualizar = () => {
   const seleccionCategorias = (e) => {
     console.log(e)
     dataContext.categoriasSeleccionadas = e
+  }
+
+  const obtenerCategoriasProducto = () => {
+    if(!categoriasProducto){
+      return []
+    }else{
+      console.log(categoriasProducto)
+      let arr = []
+
+      for (const categoria of categoriasProducto){
+        console.log(categoria)
+        arr.push(categoria)
+      }
+
+      return arr
+    }
   }
 
   return (
@@ -171,13 +189,15 @@ const VistaAdministradorActualizar = () => {
               </div>
               <div style={{width:"635px"}}>
                 {/* lista desplegable con opciones de categorias label categoria y value el id*/}
-                <ListaDesplegable1
+                {console.log(categoriasProducto)}
+                {categoriasProducto&&<ListaDesplegable1
                   className={null}
                   titulo={'Seleccione las categorías'}
                   opciones={opciones?opciones:[]}
                   defaultValue={categoriasProducto}
+                  /* defaultValue={[{label:"Metales",value:1},{label:"Vidrios",value:3}]} */
                   onChange={(e)=>{seleccionCategorias(e)}}
-                />
+                />}
               </div>
               <div>
                 <button onClick={mantenimientos} style={{fontSize: "25px", backgroundColor: "orange"}}>
