@@ -24,7 +24,7 @@ export const TarjetaCotizaciones = ({ object }) => {
                 </div>
 
                 <div className={styles.wrapper}>
-                    <div className={styles.div}>{object.estado} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {object.fecha}</div>
+                    <div className={styles.div}>{object.estado} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {object.fecha.substring(0,10)}</div>
                 </div>
                 <div className={styles.frameChild} />
                 <div className={styles.frameWrapper}>

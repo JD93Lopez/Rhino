@@ -25,6 +25,7 @@ const VentanaCarritoDeCompras = () => {
       axios.post(`123/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,alquiler)
       localStorage.setItem("productosCarrito","")
       setProductosCarrito(undefined)
+      navigate(`/historial-cotizaciones`)
     }
   }
 
