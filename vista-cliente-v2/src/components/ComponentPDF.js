@@ -9,35 +9,37 @@ import {
   PDFDownloadLink,
   PDFViewer,
 } from "@react-pdf/renderer";
-import { DataContext } from "./components/DataProvider";
+import { DataContext } from "./DataProvider";
 import { useNavigate } from "react-router-dom";
 
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "#F9F9F9",
-    fontFamily: "Bahnschrift",
+    fontFamily: "Helvetica",
     padding: 20,
   },
   header: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
+    alignItems: "flex-end",
     marginBottom: 20,
   },
   title: {
-    fontSize: 50,
+    fontSize: 24,
     fontWeight: "bold",
   },
   subtitle: {
-    fontSize: 25,
+    fontSize: 16,
     fontWeight: "bold",
+
     marginTop: 10,
   },
   text: {
-    fontSize: 25,
+    fontSize: 14,
   },
-  datosCliente: {
-    fontSize: 30,
+  textSectionFinal: {
+    fontSize: 14,
+    flex: "end",
   },
   table: {
     display: "table",
@@ -76,152 +78,88 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginBottom: 15,
   },
+  sectionValores: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
   item: {
     flex: 1,
     marginRight: 10,
   },
 });
 
-function PDF() {
-  // const navigate = useNavigate()
-  const dataContext = useContext(DataContext);
-
-  let alquiler;
-  let usuario;
-  let productos;
-
-  if (!alquiler) {
-    alquiler = dataContext.alquilerPdf;
-  }
-  if (!usuario) {
-    usuario = dataContext.usuarioPdf;
-  }
-  if (!productos) {
-    productos = dataContext.productosPdf;
-  }
-
-  if (!alquiler || !usuario || !productos) {
-    useEffect(() => {
-      // navigate('/historial-cotizaciones')
-    }, []);
-  }
+function ComponentPDF({ usuario, alquiler, productos }) {
 
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.title}>FACTURA</Text>
-          <Text style={styles.subtitle}>
-            Nº DE FACTURA: {alquiler && alquiler.idalquileres}
-          </Text>
-          <Text style={styles.subtitle}>
-            Fecha: {alquiler && alquiler.fecha.substring(0, 10)}
-          </Text>
-          <Image>
-
-          </Image>
+          <Text style={styles.subtitle}>Nº DE FACTURA:{alquiler && alquiler.idalquileres}</Text>
+          <Text style={styles.subtitle}>Fecha: {alquiler && alquiler.fecha.substring(0, 10)}</Text>
         </View>
         <View style={styles.table}>
           <View style={styles.section}>
             <View>
-              <View style={styles.section}>
-                <Text style={styles.datosCliente}>Datos Cliente</Text>
-              </View>
-
-              <View style={styles.section}>
-                <Text style={styles.text}>
-                  Nombre: {usuario && usuario.nombre_real}
-                </Text>
-              </View>
-              <View sytel={styles.section}>
-                <Text style={styles.text}>
-                  Telefono: {usuario && usuario.telefono}
-                </Text>
-              </View>
-              <View style={styles.section}>
-                <Text style={styles.text}>
-                  Cedula/Nit: {usuario && usuario.identificacion}
-                </Text>
-              </View>
-              <View style={styles.section}>
-                <Text style={styles.text}>
-                  Direccion: {usuario && usuario.direccion}
-                </Text>
-              </View>
-              <View style={styles.section}>
-                <Text style={styles.text}>
-                  Correo: {usuario && usuario.correo}
-                </Text>
-              </View>
+              <Text style={styles.text}>Datos Cliente</Text>
+              <Text style={styles.text}>{usuario && usuario.nombre_real}</Text>
+              <Text style={styles.text}>{usuario && usuario.telefono}</Text>
+              <Text style={styles.text}>{usuario && usuario.identificacion}</Text>
+              <Text style={styles.text}>{usuario && usuario.direccion}</Text>
+              <Text style={styles.text}>{usuario && usuario.correo}</Text>
             </View>
           </View>
-          <View style={styles.section}>
-            <Text style={styles.text}>
-              Descripción: {alquiler && alquiler.justificacion_ga}
-            </Text>
-          </View>
-
           <View style={styles.section}>
             {productos &&
               productos.map((producto) => {
                 return (
                   <View>
                     <View style={styles.item}>
+                      <Text style={styles.item}>Descripcion</Text>
                       <Text style={styles.text}>{producto.nombre}</Text>
                     </View>
                     <View style={styles.item}>
                       <Text style={styles.text}>Cantidad:</Text>
-                      <Text style={styles.text}>1</Text>
+                      <Text style={styles.text}>{producto.cantidad}</Text>
                     </View>
                     <View style={styles.item}>
                       <Text style={styles.text}>Precio:</Text>
-                      <Text style={styles.text}>
-                        {producto.precio_alquiler}
+                      <Text style={styles.text}>{producto.precio_alquiler}
                       </Text>
                     </View>
                   </View>
                 );
               })}
           </View>
+          
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Subtotal:</Text>
-            <Text style={styles.text}>{alquiler && alquiler.subtotal}</Text>
+            <Text style={styles.textSectionFinal}>{alquiler && alquiler.subtotal}</Text>
           </View>
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Total Descuento:</Text>
-            <View style={styles.sectionFinal}>
-                          <Text style={styles.text}>
-              {alquiler && alquiler.total_descuento}
-            </Text>
-            </View>
-
+            <Text style={styles.textSectionFinal}>{alquiler && alquiler.total_descuento}</Text>
           </View>
+
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Total Impuestos:</Text>
-            <Text style={styles.text}>
-              {alquiler && alquiler.total_impuestos}
-            </Text>
+            <Text style={styles.textSectionFinal}>{alquiler && alquiler.total_impuestos}</Text>
           </View>
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Gastos Adicionales:</Text>
-            <View>
-                          <Text style={styles.text}>
-              {alquiler && alquiler.gastos_adicionales}
-            </Text>
-            </View>
-
+            <Text style={styles.textSectionFinal}>{alquiler && alquiler.gastos_adicionales}</Text>
           </View>
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Total:</Text>
-            <Text style={styles.text}>{alquiler && alquiler.total}</Text>
+            <Text style={styles.textSectionFinal}>{alquiler && alquiler.total}</Text>
           </View>
+
         </View>
       </Page>
     </Document>
   );
-  
 }
-
 /*
 codigo en clase donde se implementará descargar y mostrar PDF: 
 import React from 'react';
@@ -254,4 +192,4 @@ export default VentanaParaClientes;
 
 */
 
-export default PDF;
+export default ComponentPDF;
