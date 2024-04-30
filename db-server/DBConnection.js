@@ -213,9 +213,9 @@ const insertarProducto = async (
 ) => {
   const pool = new Pool(config);
   try {
-    const texto =
+    let texto =
       "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado, imagen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
-    const values = [
+    let values = [
       nombre,
       descripcion,
       identificacion,
@@ -227,7 +227,36 @@ const insertarProducto = async (
       estado,
       imagen
     ];
-    const DBRes = await pool.query(texto, values);
+    let DBRes = await pool.query(texto, values);
+    pool.end();
+    //TERMINA POOL
+    pool = new Pool(config)
+
+    texto = `SELECT * FROM productos ORDER BY idproductos DESC LIMIT 1`;
+    values = [];
+    DBRes = await pool.query(texto, values);
+    const idproductos = DBRes.rows[0].idproductos
+
+    pool.end()
+    //TERMINA POOL
+    pool = new Pool(config)
+
+    texto = `DELETE FROM productos_has_categorias WHERE productos_idproductos = ${idproductos}`;
+    values = [];
+    DBRes = await pool.query(texto, values);
+
+    pool.end()
+    //TERMINA POOL
+    pool = new Pool(config)
+
+    for await (const categoria of categorias){
+      texto = `INSERT INTO productos_has_categorias VALUES (${idproductos},${categoria.value})`;
+      values = [];
+      DBRes = await pool.query(texto, values);
+    }
+
+    pool.end()
+    //TERMINA POOL
     return DBRes;
   } catch (error) {
     console.log("Error al ingresar el producto");
@@ -280,15 +309,23 @@ const actualizarProducto = async (
     ];
     let DBRes = await pool.query(texto, values);
     pool.end();
-
+    //TERMINA POOL
     pool = new Pool(config)
 
+    texto = `DELETE FROM productos_has_categorias WHERE productos_idproductos = ${idProductos}`;
+    values = [];
+    DBRes = await pool.query(texto, values);
+
+    pool.end()
+    //TERMINA POOL
+    
+    pool = new Pool(config)
     for await (const categoria of categorias){
-      texto = `INSERT INTO productos_has_categorias VALUES (${categoria.value},${idProductos})`;
+      texto = `INSERT INTO productos_has_categorias VALUES (${idProductos},${categoria.value})`;
       values = [];
       DBRes = await pool.query(texto, values);
+      //TERMINA POOL
     }
-
     pool.end()
 
 
