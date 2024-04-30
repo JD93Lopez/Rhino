@@ -1,6 +1,5 @@
 /* Proyecto1.module.css ajustes para TarjetaCotizaciones */
 .tarjetaCompra{
-    position: absolute;
     top: auto;
     left: 100px;
     background-color: #fff;
@@ -9,7 +8,7 @@
     margin: 10px 0;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    width: 85%; /* Asegúrate de que ocupa el ancho completo dentro de su contenedor */
+    width: 95%; /* Asegúrate de que ocupa el ancho completo dentro de su contenedor */
   }
   
   .info {

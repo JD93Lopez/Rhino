@@ -50,6 +50,7 @@ const VistaAdministradorProducto = () => {
     axios.api(`obtener/productos`).then((res)=>{
       try{
         setProductos(res.data.Res)
+        dataContext.productos = res.data.Res
       }catch(e){}
     })
   }

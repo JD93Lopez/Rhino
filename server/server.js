@@ -491,6 +491,16 @@ server.get('/api/obtener/productosPorIdcompras/:idcompras', async (req, res) => 
         res.json({ Res: error });
     }
 });
+//Consultar productos por idcompras
+server.get('/api/consultarComprasConProveedor', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+
+        res.json({ Res: (await Fetch.fetchApi(`consultarComprasConProveedor`)).DBRes });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

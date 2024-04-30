@@ -382,6 +382,19 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //Consultar compras y proveedor de la compra
+  funciones.consultarComprasConProveedor = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM compras c, proveedores p WHERE c.proveedores_idproveedores = p.idproveedores ORDER BY c.idcompras DESC", 
+      []);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }

@@ -48,7 +48,7 @@ const VistaAdministradorMantenim = () => {
     }
 
     let nuevosMantenimientos = mantenimientos.map((mantenimiento) => {
-      const similitud = orden.calcularSimilitud(buscado, mantenimiento.identificacion);
+      const similitud = orden.calcularSimilitud(buscado, mantenimiento.producto.identificacion);
       return { mantenimiento: mantenimiento, similitud: similitud };
     }).sort((a, b) => b.similitud - a.similitud);
     nuevosMantenimientos = nuevosMantenimientos.map((mantenimientoSimilitud) => {

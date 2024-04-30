@@ -12,7 +12,7 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
   const onPRODUCTOSTextClick = () => navigate('/vista-administrador-productos'); 
   const onMANTENIMIENTOTextClick = () => navigate('/vista-administrador-mantenimiento');
   const onCOTIZACIONTextClick = () => navigate('/vista-administrador-cotizacion'); 
-  const onCOMPRASTextClick = () => navigate('/vista-administrador-compras')
+  const onCOMPRASTextClick = () => navigate('/vista-administrador-all-compras')
 
   const userProjecsFrameStyle = useMemo(() => ({
     padding: maintananceTextPadding,
@@ -81,7 +81,8 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
         break;
       case 6:
         if(
-          pathname==="/vista-administrador-compras"
+          pathname==="/vista-administrador-compras"||
+          pathname==="/vista-administrador-all-compras"
         ){
           return {textDecoration: "underline"}
         }

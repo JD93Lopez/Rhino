@@ -331,6 +331,15 @@ server.get('/dbapi/productosPorIdcompras/:idcompras', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//Consultar productos por idcompras
+server.get('/dbapi/consultarComprasConProveedor', async (req, res) => {
+    try {
+
+        res.json({ DBRes: (await funcionesBD.consultarComprasConProveedor()).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 

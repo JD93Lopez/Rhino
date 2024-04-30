@@ -86,7 +86,7 @@ const VistaAdministradorCotizacion = () => {
                 correo = {cotizacion.usuario.correo}
                 telefono = {cotizacion.usuario.telefono}
                 estado = {cotizacion.estado}
-                fecha = {cotizacion.fecha}
+                fecha = {cotizacion.fecha.substring(0,10)}
                 object = {cotizacion}
               />
             ))}

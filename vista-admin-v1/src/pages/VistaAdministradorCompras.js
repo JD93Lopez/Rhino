@@ -1,16 +1,22 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useContext } from "react";
 import AddProductFrame from "../components/AddProductFrame";
 import { TarjetaProductoCompras } from "../components/TarjetaProductoCompras";
 import styles from "./VistaAdministradorCompras.module.css";
 import axios from "../axios";
+import { DataContext } from "../components/DataProvider";
 
 const VistaAdministradorCompras = () => {
 
-    const [compra, setCompra] = useState({})
-    const [productos, setProductos] = useState()
+    const dataContext = useContext(DataContext)
 
-    if(!compra){
-        setCompra({})//TODO verificar que no haya compras seleccionadas
+    const [compra, setCompra] = useState()
+    const [productos, setProductos] = useState()
+    if(!compra&&dataContext.compraSeleccionada){
+        setCompra(dataContext.compraSeleccionada)//TODO verificar que no haya compras seleccionadas
+    }else{
+        if(!compra){
+            setCompra({})
+        }
     }
 
     const onRealizarCompraClick = () => {
@@ -36,6 +42,10 @@ const VistaAdministradorCompras = () => {
             } catch (e) {}
         })
     };
+
+    const onEliminarCompraClick = () => {
+
+    }
     
     const onAgregarProductoClick = () => {
     
@@ -90,6 +100,15 @@ const VistaAdministradorCompras = () => {
                             </div>
                         </button>
                     }
+                    {compra&&compra.idcompras&&
+                        <button style={{borderRadius:"10px",fontSize:"22px",backgroundColor:"orange",marginLeft:"50px",padding:"10px"}}
+                        onClick={onEliminarCompraClick}>
+                            <div/>
+                            <div>
+                                <b>Eliminar compra</b>
+                            </div>
+                        </button>
+                    }
                 </div>
                 <div className={styles.formulariocompras}>
                     
@@ -108,12 +127,12 @@ const VistaAdministradorCompras = () => {
                     </div>
                 </div>
             </div>
-            <input className={styles.inputnitproveedor} type='text'id="inputnitproveedor" useref="inputnitproveedor"/>
-            <input className={styles.inputporcentajedescuento} type='text'id="inputporcentajedescuento" useref="inputporcentajedescuento"/>
-            <input className={styles.inputporcentajeimpuesto} type='text'id="inputporcentajeimpuesto" useref="inputporcentajeimpuesto"/>
-            <input className={styles.inputnombreresponsable} type='text'id="inputnombreresponsable" useref="inputnombreresponsable"/>
+            <input className={styles.inputnitproveedor} type='text'id="inputnitproveedor" useref="inputnitproveedor" defaultValue={compra&&compra.nit?compra.nit:""}/>
+            <input className={styles.inputporcentajedescuento} type='text'id="inputporcentajedescuento" useref="inputporcentajedescuento" defaultValue={compra&&compra.p_descuento?compra.p_descuento:""}/>
+            <input className={styles.inputporcentajeimpuesto} type='text'id="inputporcentajeimpuesto" useref="inputporcentajeimpuesto" defaultValue={compra&&compra.p_impuestos?compra.p_impuestos:""}/>
+            <input className={styles.inputnombreresponsable} type='text'id="inputnombreresponsable" useref="inputnombreresponsable" defaultValue={compra&&compra.responsable?compra.responsable:""}/>
             {compra&&compra.idcompras&&
-                <div style={{display:"flex",flexDirection:"row",marginTop:"249px",marginLeft:"650px"}}>
+                <div style={{display:"flex",flexDirection:"row",marginTop:"199px",marginLeft:"650px"}}>
                     <input style={{fontSize:"20px"}} 
                     className={styles.inputproductid} type='text'placeholder="Identificacion producto"id="inputidproducto" useref="inputidproducto"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -126,7 +145,7 @@ const VistaAdministradorCompras = () => {
             <div style={{overflowY:"scroll",maxHeight:"450px"}}>
                 {compra&&compra.idcompras&&productos&&productos.map((producto)=>{
                     return <TarjetaProductoCompras
-                    nombreProducto={producto.nombre}
+                        nombreProducto={producto.nombre}
                         descripcion={producto.descripcion}
                         imagen={producto.imagen}
                         object={producto}
