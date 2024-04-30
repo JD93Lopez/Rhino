@@ -3,8 +3,11 @@ import styles from "../pages/HistorialDeCotizaciones.module.css";
 import { TarjetaProductoCotizacion } from './TarjetaProductoCotizacion';
 import axios from '../axios';
 import { DataContext } from './DataProvider';
+import { useNavigate } from 'react-router-dom';
 
 export const TarjetaDespliegueCotizacion = ({object}) => {
+
+    const navigate = useNavigate()
 
     const dataContext = useContext(DataContext)
 
@@ -15,6 +18,12 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
     }    
     const rechazar = () => {
         //TODO conectar axios
+    }
+    const pdf = () => {
+        dataContext.alquilerPdf = object
+        dataContext.usuarioPdf = dataContext.usuarioIniciado
+        dataContext.productosPdf = object.producto_agendas
+        navigate('/pdf')
     }
 
     return (
@@ -104,6 +113,20 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button className={styles.rectangleParent2} onClick={pagar}>
                                     <b>&nbsp;Alquilar&nbsp;</b>
+                                    &nbsp;
+                                </button>
+                            </div>:<></>
+                        }
+                        {
+                            object.estado=="ALQUILADO"?
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                <button className={styles.rectangleParent2} onClick={pdf}>
+                                    <b>&nbsp;Ver en PDF&nbsp;</b>
                                     &nbsp;
                                 </button>
                             </div>:<></>

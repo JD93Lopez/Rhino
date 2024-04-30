@@ -19,6 +19,7 @@ import VentanaDeContraseaYSeguri from "./pages/VentanaDeContraseaYSeguri";
 import VentanaDeAyudaYAsistencia from "./pages/VentanaDeAyudaYAsistencia";
 import VentanaConsultarDisponibilidad from "./pages/VentanaConsultarDisponibilidad";
 import HistorialDeCotizaciones from "./pages/HistorialDeCotizaciones";
+import PDF from "./PDF";
 import { DataProvider } from "./components/DataProvider";
 
 
@@ -163,6 +164,10 @@ function App() {
         <Route 
           path="/historial-cotizaciones"
           element={<HistorialDeCotizaciones/>}
+        />
+        <Route 
+          path="/pdf"
+          element={<PDF/>}
         />
       </Routes>
     </DataProvider>
