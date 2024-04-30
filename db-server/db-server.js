@@ -340,6 +340,15 @@ server.get('/dbapi/consultarComprasConProveedor', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//Consultar 6 productos con mas descuento
+server.get('/dbapi/consultarProductosDescuento', async (req, res) => {
+    try {
+
+        res.json({ DBRes: (await funcionesBD.consultarProductosDescuento()).rows });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 

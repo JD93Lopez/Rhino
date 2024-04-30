@@ -29,6 +29,7 @@
   background-image: url(/public/boton-info-maq@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
+  margin-left: 190px;
 }
 .botonInfoMaq {
   left: 500px;

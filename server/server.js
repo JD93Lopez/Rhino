@@ -501,6 +501,16 @@ server.get('/api/consultarComprasConProveedor', async (req, res) => {
         res.json({ Res: error });
     }
 });
+//consultar 6 productos con más descuento
+server.get('/api/consultarProductosDescuento', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+
+        res.json({ Res: (await Fetch.fetchApi(`consultarProductosDescuento`)).DBRes });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

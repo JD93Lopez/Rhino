@@ -395,6 +395,19 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //Consultar 6 productos con mayor descuento
+  funciones.consultarProductosDescuento = async () => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM productos ORDER BY COALESCE(p_descuento, 0) DESC LIMIT 6", 
+      []);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }
