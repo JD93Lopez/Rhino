@@ -3,7 +3,7 @@ import makeAnimate from 'react-select/animated'
 
 const animatedComponents = makeAnimate()
 
-function ListaDesplegable1({className, titulo, opciones, onChange}){
+function ListaDesplegable1({className, titulo, opciones, onChange, defaultValue}){
     return(
         <div style={{width: "100%"}}>
             <Select 
@@ -12,9 +12,10 @@ function ListaDesplegable1({className, titulo, opciones, onChange}){
                 className={className}
                 closeMenuOnSelect={false}
                 options={opciones}
+                defaultValue={defaultValue}
                 components={animatedComponents}
                 onChange={(e)=>{onChange(e)}}
-            />
+                />
         </div>
     )
 }

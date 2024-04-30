@@ -60,10 +60,12 @@ const VistaAdministradorActualizar = () => {
         dataContext.imagenProducto = selectedProducts[0].imagen
         document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
       }
+
     }
   }, [dataContext.Loaded, dataContext]);
 
   const [opciones,setOpciones] = useState()
+  const [categoriasProducto,setCategoriasProducto] = useState()
 
   if(!opciones){
     axios.api(`obtener/categorias`).then((res)=>{
@@ -74,6 +76,19 @@ const VistaAdministradorActualizar = () => {
           opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
         }
         setOpciones(opciones)
+      } catch (e) {}
+    })
+  }
+
+  if(!categoriasProducto){
+    axios.api(`obtener/categorias`).then((res)=>{
+      try {
+        let categorias = res.data.Res
+        let opciones = []
+        for (const categoria of categorias){
+          opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
+        }
+        setCategoriasProducto(opciones)
       } catch (e) {}
     })
   }
@@ -160,6 +175,7 @@ const VistaAdministradorActualizar = () => {
                   className={null}
                   titulo={'Seleccione las categorías'}
                   opciones={opciones?opciones:[]}
+                  defaultValue={categoriasProducto}
                   onChange={(e)=>{seleccionCategorias(e)}}
                 />
               </div>
