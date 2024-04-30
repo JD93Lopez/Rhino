@@ -19,7 +19,7 @@ const Equipos = () => {
         
         <img src={equipo.imagen&&equipo.imagen!=""?equipo.imagen:"boton-logo-6@3x.png"} alt={equipo.nombre} />
         <h1>{equipo.nombre}</h1>
-        {equipo.p_descuento&&<h2>Descuento: {equipo.p_descuento}%</h2>}
+        {equipo.p_descuento&&<h1>Descuento: {equipo.p_descuento}%</h1>}
         <h2>{equipo.descripcion}</h2>
         <div className={styles.botonInfoMaq} onClick={()=>onBotonInfoMaqClick(equipo)} />
       </div>
