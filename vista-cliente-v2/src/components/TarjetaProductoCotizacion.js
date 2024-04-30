@@ -17,7 +17,7 @@ export const TarjetaProductoCotizacion = ({object}) => {
                 </div>
             </div>
             <br></br>
-            <b className={styles.textoInfo2}>Fecha inicio: {object.fecha_inicio} &nbsp;&nbsp;&nbsp;&nbsp;Fecha fin: {object.fecha_fin}</b> {/* TODO promediar todos los pdescuento para sacar el total = subtotal*promedio */}
+            <b className={styles.textoInfo2}>Fecha inicio: {object.fecha_inicio.substring(0,10)} &nbsp;&nbsp;&nbsp;&nbsp;Fecha fin: {object.fecha_fin.substring(0,10)}</b> {/* TODO promediar todos los pdescuento para sacar el total = subtotal*promedio */}
             <div style={{display:"flex",flexDirection:"row"}}>
                 <div>
                 </div>

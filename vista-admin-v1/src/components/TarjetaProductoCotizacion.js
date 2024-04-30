@@ -47,9 +47,9 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
                     <p className={styles.potenciaNetaAl}>
                         Fechas: 
                         <br/>
-                        De {fecha_inicio} 
+                        De {fecha_inicio.substring(0,10)} 
                         <br/>
-                        Hasta {fecha_fin}
+                        Hasta {fecha_fin.substring(0,10)}
                     </p>
                 </div>
             </div>

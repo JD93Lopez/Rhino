@@ -307,7 +307,7 @@ const funcionesLogicaNegocioBD = (config) => {
       WHEN a.estado = 'EN_ESPERA' AND a.usuarios_idusuarios = (SELECT idusuarios FROM USUARIOS WHERE nombre_usuario = 'Alianza') THEN 0
       WHEN a.estado = 'EN_ESPERA' THEN 1
       ELSE 2
-      END, a.idalquileres DESC;
+      END, a.idalquileres ASC;
       `);
 
       return DBRes;
