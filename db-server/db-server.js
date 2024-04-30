@@ -609,10 +609,10 @@ server.get('/dbapi/delete/usuarios/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
         DBConnection.eliminarUsuario(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
+        console.log(error)
         res.json({ DBRes: error });
     }
 });
@@ -622,7 +622,6 @@ server.get('/dbapi/delete/proveedores/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
         DBConnection.eliminarProveedor(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
@@ -635,7 +634,6 @@ server.get('/dbapi/delete/productos/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
         DBConnection.eliminarProducto(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
@@ -648,7 +646,6 @@ server.get('/dbapi/delete/proyectos/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
         DBConnection.eliminarProyecto(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
@@ -661,10 +658,10 @@ server.get('/dbapi/delete/conductores/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        const usuarioInsertar = JSON.parse(JSONUsuario)
         DBConnection.eliminarConductor(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
+        console.log(error)
         res.json({ DBRes: error });
     }
 });

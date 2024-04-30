@@ -67,11 +67,12 @@ const VistaAdministradorUsuarios = () => {
   };
 
   const eliminarUsuariosSeleccionados = (usuariosSeleccionados) => {
-    dataContext.usuarios
-    // Lógica para eliminar los usuarios seleccionados
-    console.log('Usuarios seleccionados a eliminar:', usuariosSeleccionados);
-    // Después de eliminarlos, resetea el estado de usuariosSeleccionados
+    for ( const usuario of usuariosSeleccionados ) {
+      axios.api(`eliminar/usuario/${usuario.idusuarios}/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`)
+    }
     setUsuariosSeleccionados([]);
+    dataContext.usuariosCargados = undefined
+    setUsuarios(null)
   };
 
   //resetear seleccionados
