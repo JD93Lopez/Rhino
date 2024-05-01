@@ -661,7 +661,7 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
         for await(const producto of productos){
             producto.categorias = []
 
-            const categorias = (await Fetch.fetchApi(`get/categoriasDeProducto/${producto.idproductos}`))
+            const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${producto.idproductos}`)).DBRes.rows
             for (const categoria of categorias){
                 producto.categorias.push(categoria.nombre_categoria)
             }
