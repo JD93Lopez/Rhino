@@ -41,6 +41,7 @@ const CategoryFrame = () => {
   if(!productos){
     axios.api(`obtener/productosYCategorias`).then((res)=>{
       try{
+        console.log(res)
         setProductos(res.data.Res)
       }catch(e){}
     })
@@ -64,6 +65,7 @@ const CategoryFrame = () => {
   }
 
   let dibujarProductos = () => {
+    console.log(productos)
     if(!productos){
       return
     }
