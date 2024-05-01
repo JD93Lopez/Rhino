@@ -158,6 +158,44 @@ const CategoryFrame = () => {
     return buscado
   }
 
+  const [opcionesMaquinaria,setOpcionesMaquinaria] = useState()
+  if(!opcionesMaquinaria){
+    axios.api(`obtener/categorias/maquinaria`).then((res)=>{
+      try {
+        const opciones = []
+        for (const categoria of res.data.Res){
+          opciones.push({label:categoria.nombre_categoria,value:categoria.nombre_categoria})
+        }
+        setOpcionesMaquinaria(opciones)
+      } catch (e) {}
+    })
+    /* setOpcionesMaquinaria([
+      {value: "Metales", label:"Metales"},
+      {value: "Vehiculo 2", label:"Vehiculo2"},
+      {value: "Vehiculo 3", label:"Vehiculo3"},
+      {value: "Vehiculo 4", label:"Vehiculo4"}
+    ]) */
+  }
+
+  const [opcionesTransporte,setOpcionesTransporte] = useState()
+  if(!opcionesTransporte){
+    axios.api(`obtener/categorias/transporte`).then((res)=>{
+      try {
+        const opciones = []
+        for (const categoria of res.data.Res){
+          opciones.push({label:categoria.nombre_categoria,value:categoria.nombre_categoria})
+        }
+        setOpcionesTransporte(opciones)
+      } catch (e) {}
+    })
+/*     setOpcionesTransporte([
+      {value: "Transporte 1", label:"Transporte1"},
+      {value: "Transporte 2", label:"Transporte2"},
+      {value: "Transporte 3", label:"Transporte3"},
+      {value: "Transporte 4", label:"Transporte4"}
+    ]) */
+  }
+
   return (
     <div className={styles.categoryFrame}>
       <div className={styles.groupFrame}>
@@ -166,40 +204,26 @@ const CategoryFrame = () => {
           <div className={styles.vectorFrame}>
             {/* <div className={styles.machineryFrame}>
             </div> */}
-            <ListaDesplegable1
+            {opcionesMaquinaria&&<ListaDesplegable1
               className={styles.maquinaria}
               titulo={"TIPOS DE MAQUINARIA"}
               onChange={handleDesplegableMaquinarias}
-              opciones={
-                [
-                  {value: "Metales", label:"Metales"},
-                  {value: "Vehiculo 2", label:"Vehiculo2"},
-                  {value: "Vehiculo 3", label:"Vehiculo3"},
-                  {value: "Vehiculo 4", label:"Vehiculo4"}
-                ]
-              }
-            ></ListaDesplegable1>
+              opciones={opcionesMaquinaria}
+            ></ListaDesplegable1>}
             <div> {/*Estos br son pa dar espacio entre los desplegables que si no se solapan*/}
-              <br></br> 
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+              <br/> 
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
             </div>         
             <ListaDesplegable1
               className={styles.maquinaria}
               titulo={"TIPOS DE TRANSPORTE"}
               onChange={handleDesplegableTransporte}
-              opciones={
-                [
-                  {value: "Transporte 1", label:"Transporte1"},
-                  {value: "Transporte 2", label:"Transporte2"},
-                  {value: "Transporte 3", label:"Transporte3"},
-                  {value: "Transporte 4", label:"Transporte4"}
-                ]
-              }
+              opciones={opcionesTransporte}
             ></ListaDesplegable1>
             <div className={styles.wheelsFrame}>
             </div>
