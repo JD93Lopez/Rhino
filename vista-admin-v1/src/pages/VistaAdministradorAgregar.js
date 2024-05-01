@@ -1,5 +1,5 @@
 // VistaAdministradorAgregar.js
-import { useCallback, useState } from "react";
+import { useCallback, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import SeleccionarArchivoText from "../components/SeleccionarArchivoText";
@@ -7,8 +7,11 @@ import FrameComponent2 from "../components/FrameComponent2";
 import ListaDesplegable1 from "../components/ListaDesplegable1";
 import styles from "./VistaAdministradorAgregar.module.css";
 import axios from "../axios";
+import { DataContext } from "../components/DataProvider";
 
 const VistaAdministradorAgregar = () => {
+  const dataContext = useContext(DataContext)
+
   const navigate = useNavigate();
 
   const onUSUARIOSTextClick = useCallback(() => {

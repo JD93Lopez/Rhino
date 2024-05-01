@@ -209,9 +209,10 @@ const insertarProducto = async (
   modelo,
   tipo_vehiculo,
   estado,
-  imagen
+  imagen,
+  categorias
 ) => {
-  const pool = new Pool(config);
+  let pool = new Pool(config);
   try {
     let texto =
       "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado, imagen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
@@ -259,9 +260,9 @@ const insertarProducto = async (
     //TERMINA POOL
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al ingresar el producto");
   }
-  pool.end();
 };
 
 const eliminarProducto = async (idProductos) => {

@@ -661,7 +661,7 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
         for await(const producto of productos){
             producto.categorias = []
 
-            const categorias = (await Fetch.fetchApi(`get/categoriasDeProducto/${producto.idproductos}`)).DBRes.rows
+            const categorias = (await Fetch.fetchApi(`get/categoriasDeProducto/${producto.idproductos}`))
             for (const categoria of categorias){
                 producto.categorias.push(categoria.nombre_categoria)
             }
@@ -670,6 +670,7 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
         
         res.json({ Res: productos });
     } catch (error) {
+        console.log(error)
         res.json({ Res: error });
     }
 });
