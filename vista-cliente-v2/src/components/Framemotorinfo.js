@@ -50,21 +50,16 @@ const Framemotorinfo = () => {
             CATEGORIAS 
           </b>
           <div className={styles.modeloDelMotorContainer}>
-            <p className={styles.modeloDelMotor}>
-              <b>Maquinaria Pesada</b>
-            </p>
-            <p className={styles.blankLine}>
-              <b>&nbsp;</b>
-            </p>
-            <p className={styles.pesoEnOrdenDeTrabajoMxim}>
-              <b>Carga de máxima 50.000kg</b>
-            </p>
-            <p className={styles.blankLine1}>
-              <b>&nbsp;</b>
-            </p>
-            <p className={styles.alcanceMximo}>
-              <b>Alcance máximo 18000 mts</b>
-            </p>
+            {product&&product.categorias&&product.categorias.map((categoria)=>{
+              return <div>
+                <p className={styles.modeloDelMotor}>
+                  <b>{categoria}</b>
+                </p>
+                <p className={styles.blankLine}>
+                  <b>&nbsp;</b>
+                </p>
+              </div>
+            })}
           </div>
         </div>
         <div className={styles.addcartgroup}>
