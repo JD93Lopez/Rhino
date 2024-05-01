@@ -44,7 +44,7 @@ export const TarjetaProductoAdministrador = ({nombreProducto, descripcion, image
             className={styles.image1Icon}
             loading="eager"
             alt=""
-            src={imagen}
+            src={imagen&&imagen!=""?imagen:"logofinalremovebgpreview-1@2x.png"}
             />
         </div>
         <div className={styles.grabberCrane}>
