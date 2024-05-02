@@ -74,6 +74,7 @@ const VistaAdministradorVerCotizacion = () => {
       <AddProductFrame />
       <main className={styles.mainContent}>
         <section className={styles.productAndQuotationArea}>
+        &nbsp;
           <div className={styles.productsAndInfo}>
             <div className={styles.productDetails}>
               <div className={styles.productosAdquiridos}>
