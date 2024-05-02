@@ -78,6 +78,16 @@ const LogoButton = ({
     }
   }
 
+  let productosCarrito
+  if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!=""){
+    productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+  }
+  if(!productosCarrito){
+    productosCarrito = []
+  }
+
+  const cantidadProductos = productosCarrito.length
+
   return (
     <div className={styles.logoButton}>
       <div className={styles.logoButtonChild} />
@@ -102,6 +112,13 @@ const LogoButton = ({
       </div>
       {dibujarBarraBusqueda().map(a=>{return a})}
       {dataContext.usuarioIniciado.iniciado && <div className={styles.myAccountFrame}>
+        {cantidadProductos!=0&&<div style={{
+          position:"absolute",borderRadius:"30px",
+          /* border:"2px solid black", */height:"30px",
+          width:"30px",backgroundColor:"rgba(255,255,255,0.5)",
+          zIndex:"3",marginTop:"35px",marginLeft:"52px",
+          fontSize:"22px",textAlign:"center",justifyContent:"center",alignItems:"center"
+        }}><b>{cantidadProductos}</b></div>}
         <img
           className={styles.carritoDeCompras3Icon}
           loading="lazy"
