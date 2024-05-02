@@ -511,6 +511,17 @@ server.get('/api/consultarProductosDescuento', async (req, res) => {
         res.json({ Res: error });
     }
 });
+//consultar conductores por idconductores
+server.get('/api/conductorPorIdconductores/:idconductores', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const idconductores = req.params.idconductores
+
+        res.json({ Res: (await Fetch.fetchApi(`conductorPorIdconductores/${idconductores}`)).DBRes.rows });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

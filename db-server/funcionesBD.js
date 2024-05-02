@@ -62,6 +62,7 @@ const funcionesLogicaNegocioBD = (config) => {
   funciones.administradorAgregarConductor3_5 = async ( nombre, cedula, telefono ) => {
     const pool = new Pool(config);
     try {
+      console.log(cedula)
       await pool.query("INSERT INTO conductores(nombre, cedula, telefono) VALUES ($1, $2, $3)", 
       [nombre, cedula, telefono]);
       const DBRes = await pool.query("SELECT idConductores FROM CONDUCTORES ORDER BY idConductores DESC LIMIT 1", []);
@@ -220,6 +221,19 @@ const funcionesLogicaNegocioBD = (config) => {
     try {
       const DBRes = await pool.query("SELECT * FROM CONDUCTORES c WHERE c.cedula = $1", 
       [cedula]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion");
+    }
+    pool.end();
+  }
+  //Consultar conductor por idconductores
+  funciones.conductorPorIdconductores  = async ( idconductores ) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query("SELECT * FROM CONDUCTORES c WHERE c.idconductores = $1", 
+      [idconductores]);
       return DBRes;
     } catch (error) {
       console.log(error)

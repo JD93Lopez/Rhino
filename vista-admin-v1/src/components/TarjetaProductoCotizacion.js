@@ -10,9 +10,12 @@ export const TarjetaProductoCotizacion = ({ nombre, identificacion, precio_alqui
     const [isSelected, setIsSelected] = useState(false);
     const navigate = useNavigate();
   
+    dataContext.idConductorAgenda = undefined
+
     const handleCardClick = () => {
         if(object&&object.conductores_idconductores&&object.conductores_idconductores!=0){
             setIsSelected(!isSelected);
+            dataContext.producto_agendaSeleccionada = object
             dataContext.idConductorAgenda = object.conductores_idconductores
             navigate("/vista-administrador-conductor-producto");
         }else{

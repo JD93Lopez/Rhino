@@ -11,6 +11,17 @@ const VistaAdministradorConductoresProductos = () => {
 
     const [cedulaNoEncontrada,setCedulaNoEncontrada] = useState(false)
 
+    const [conductores,setConductores] = useState()
+
+    if(!conductores&&dataContext.idConductorAgenda&&dataContext.idConductorAgenda!=0){
+        axios.api(`conductorPorIdconductores/${dataContext.idConductorAgenda}`).then((res)=>{
+            try {
+                setConductores(res.data.Res)
+                setCedulaNoEncontrada(true)
+            } catch (e) {}
+        })
+    }
+
     const agregar = () => {
         const cedula = document.getElementById("inputcedula").value
         if(cedulaNoEncontrada){
@@ -60,13 +71,13 @@ const VistaAdministradorConductoresProductos = () => {
                     <div className={styles.vistaAdministradorCotizacionInner} />
                     <div className={styles.nombre}>Nombre:</div>
                     <div className={styles.telfono}>Teléfono:</div>
-                    <input className={styles.inputnombre} id="inputnombre" useref="inputnombre"/>
-                    <input className={styles.inputtelefono} id="inputtelefono" useref="inputtelefono"/>
+                    <input className={styles.inputnombre} id="inputnombre" useref="inputnombre" value={conductores&&conductores[0]&&conductores[0].nombre}/>
+                    <input className={styles.inputtelefono} id="inputtelefono" useref="inputtelefono" value={conductores&&conductores[0]&&conductores[0].telefono}/>
                 </div>
             }
             <div>
                 <div className={styles.cdula}>Cédula</div>
-                <input className={styles.inputcedula} id="inputcedula" useref="inputcedula"/>
+                {<input className={styles.inputcedula} id="inputcedula" useref="inputcedula" value={conductores&&conductores[0]&&conductores[0].cedula}/>}
             </div>
             <button className={styles.botonaprovar} onClick={agregar}>
                 <div className={styles.botonaprobar} />

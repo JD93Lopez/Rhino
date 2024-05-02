@@ -241,6 +241,17 @@ server.get('/dbapi/conductorPorCedula/:cedula', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//Consultar conductor por idconductores
+server.get('/dbapi/conductorPorIdconductores/:idconductores', async (req, res) => {
+    try {
+
+        const idconductores = req.params.idconductores
+
+        res.json({ DBRes: await funcionesBD.conductorPorIdconductores( idconductores ) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 //Consultar productos por modelo
 server.get('/dbapi/productosPorModelo/:modelo', async (req, res) => {
     try {
