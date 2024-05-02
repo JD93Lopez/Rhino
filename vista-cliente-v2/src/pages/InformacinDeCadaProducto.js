@@ -1,10 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductFrame from "../components/ProductFrame";
 import Framemotorinfo from "../components/Framemotorinfo";
 import Headerframe from "../components/Headerframe";
 import FrameComponent3 from "../components/FrameComponent3";
 import styles from "./InformacinDeCadaProducto.module.css";
+import { DataContext } from "../components/DataProvider";
+import { TarjetaProducto } from "../components/TarjetaProducto";
 
 const InformacinDeCadaProducto = () => {
   const navigate = useNavigate();
@@ -24,6 +26,14 @@ const InformacinDeCadaProducto = () => {
   const onCarritoDeCompras3ImageClick = useCallback(() => {
     navigate("/ventana-carrito-de-compras");
   }, [navigate]);
+
+  const dataContext = useContext(DataContext)
+
+  let productosSimilares = dataContext.productosOrdenadosBusqueda
+  let productosSinActual
+  if(productosSimilares){
+    productosSinActual = productosSimilares.filter(producto => producto.idproductos !== dataContext.productoSeleccionadoParaDetalles.idproductos)
+  }
 
   return (
     <div className={styles.informacinDeCadaProducto}>
@@ -47,24 +57,46 @@ const InformacinDeCadaProducto = () => {
       </section>
       <div className={styles.informacinDeCadaProductoChild} />
       <section className={styles.cartAddRemoveGroupParent}>
-        <img
-          className={styles.cartAddRemoveGroup}
-          loading="lazy"
-          alt=""
-          src="/rectangle-143@2x.png"
-        />
-        <img
-          className={styles.cartAddRemoveGroup1}
-          loading="lazy"
-          alt=""
-          src="/rectangle-144@2x.png"
-        />
-        <img
-          className={styles.cartAddRemoveGroup2}
-          loading="lazy"
-          alt=""
-          src="/rectangle-145@2x.png"
-        />
+        {productosSinActual&&productosSinActual[0]&&
+          <TarjetaProducto
+            nombre={productosSinActual[0].nombre}
+            imagen={productosSinActual[0].imagen}
+            object={productosSinActual[0]}
+            productosOrdenados={productosSimilares}
+          />
+        }
+        {productosSinActual&&productosSinActual[1]&&
+          <TarjetaProducto
+            nombre={productosSinActual[1].nombre}
+            imagen={productosSinActual[1].imagen}
+            object={productosSinActual[1]}
+            productosOrdenados={productosSimilares}
+          />
+        }
+        {productosSinActual&&productosSinActual[2]&&
+          <TarjetaProducto
+            nombre={productosSinActual[2].nombre}
+            imagen={productosSinActual[2].imagen}
+            object={productosSinActual[2]}
+            productosOrdenados={productosSimilares}
+          />
+        }
+        {productosSinActual&&productosSinActual[3]&&
+          <TarjetaProducto
+            nombre={productosSinActual[3].nombre}
+            imagen={productosSinActual[3].imagen}
+            object={productosSinActual[3]}
+            productosOrdenados={productosSimilares}
+          />
+        }
+        {productosSinActual&&productosSinActual[4]&&
+          <TarjetaProducto
+            nombre={productosSinActual[4].nombre}
+            imagen={productosSinActual[4].imagen}
+            object={productosSinActual[4]}
+            productosOrdenados={productosSimilares}
+          />
+        }
       </section>
       <div className={styles.informacinDeCadaProductoItem} />
       <section className={styles.contactInfoFrame}>

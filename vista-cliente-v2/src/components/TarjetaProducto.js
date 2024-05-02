@@ -3,7 +3,7 @@ import styles from "./CategoryFrame.module.css";
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from './DataProvider';
 
-export const TarjetaProducto = ({nombre, imagen, object}) => {
+export const TarjetaProducto = ({nombre, imagen, object, productosOrdenados}) => {
     const navigate = useNavigate();
 
     const dataContext = useContext(DataContext)
@@ -14,6 +14,7 @@ export const TarjetaProducto = ({nombre, imagen, object}) => {
   
     const onBotonDetallesClick = useCallback(() => {
         dataContext.productoSeleccionadoParaDetalles = object
+        dataContext.productosOrdenadosBusqueda = productosOrdenados
         navigate("/informacin-de-cada-producto");
     }, [navigate, object, dataContext]);
   

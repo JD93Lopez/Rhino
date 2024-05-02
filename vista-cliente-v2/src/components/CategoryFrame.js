@@ -41,7 +41,6 @@ const CategoryFrame = () => {
   if(!productos){
     axios.api(`obtener/productosYCategoriasDifModelo`).then((res)=>{
       try{
-        console.log(res)
         setProductos(res.data.Res)
       }catch(e){}
     })
@@ -65,7 +64,6 @@ const CategoryFrame = () => {
   }
 
   let dibujarProductos = () => {
-    console.log(productos)
     if(!productos){
       return
     }
@@ -77,6 +75,7 @@ const CategoryFrame = () => {
               nombre={productos[0].nombre}
               imagen={productos[0].imagen}
               object={productos[0]}
+              productosOrdenados={productos}
             />
           </td>
         </tr> 
@@ -97,6 +96,7 @@ const CategoryFrame = () => {
                 nombre={oldP.nombre}
                 imagen={oldP.imagen}
                 object={oldP}
+                productosOrdenados={productos}
               />
             </td>  
             <td>
@@ -104,6 +104,7 @@ const CategoryFrame = () => {
                 nombre={p.nombre}
                 imagen={p.imagen}
                 object={p}
+                productosOrdenados={productos}
               />
             </td> 
           </tr> 
@@ -119,6 +120,7 @@ const CategoryFrame = () => {
               nombre={oldP.nombre}
               imagen={oldP.imagen}
               object={oldP}
+              productosOrdenados={productos}
             />
           </td>
         </tr> 
