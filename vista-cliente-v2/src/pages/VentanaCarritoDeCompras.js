@@ -29,6 +29,17 @@ const VentanaCarritoDeCompras = () => {
     }
   }
 
+  let subtotal = 0
+
+  if(productosCarrito){
+    for(const producto of productosCarrito){
+      if(!producto.p_descuento){
+        producto.p_descuento=0
+      }
+      subtotal += (producto.precio_alquiler-(producto.precio_alquiler*(producto.p_descuento/100)))
+    }
+  }
+
   return (
     <div className={styles.ventanaCarritoDeCompras}>
       <div className={styles.ventanaCarritoDeComprasChild} />
@@ -78,7 +89,7 @@ const VentanaCarritoDeCompras = () => {
           </button> */}
             <div
               className={styles.anularLaSeleccin}
-            >{`Anular la selección de todos los elementos `}</div>
+            >{`Subtotal: `+subtotal}</div>
           </div>
           <div className={styles.productsFrame}>
             <div className={styles.logoButton} />

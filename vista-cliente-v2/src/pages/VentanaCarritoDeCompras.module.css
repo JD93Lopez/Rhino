@@ -83,6 +83,7 @@
   font-family: var(--font-jura);
   z-index: 1;
   margin-top: -5px;
+  font-size: 30px;
 }
 .backgroundRectangle {
   display: flex;
