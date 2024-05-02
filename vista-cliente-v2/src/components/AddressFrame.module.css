@@ -261,6 +261,7 @@
   box-sizing: border-box;
   white-space: nowrap;
   z-index: 1;
+  font-size: 22px;
 }
 .addressFrame,
 .botnEdiotarInformacin,

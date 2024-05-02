@@ -73,10 +73,8 @@ const AddressFrame = () => {
           <div className={styles.addressInputFrameChild} />
         </div>
         <div className={styles.editBtnFrame}>
-          <div className={styles.botnEdiotarInformacin}>
-            <div className={styles.botnEdiotarInformacinChild} />
-            <button className={styles.guardarInformacin} onClick={onBotonGuardarInformacionClick}>GUARDAR INFORMACIÓN</button>
-          </div>
+          <div className={styles.botnEdiotarInformacinChild} />
+          <button className={styles.botnEdiotarInformacin} onClick={onBotonGuardarInformacionClick}>GUARDAR INFORMACIÓN</button>
         </div>
       </div>
     </div>
