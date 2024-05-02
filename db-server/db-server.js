@@ -527,6 +527,17 @@ server.get('/dbapi/get/productos', async (req, res) => {
     }
 });
 
+//Obtener productos diferente modelo
+server.get('/dbapi/get/productosDifModelo', async (req, res) => {
+    try {
+        
+        res.json({ DBRes: await DBConnection.obtenerProductosDistintoModelo() });
+    } catch (error) {
+        console.log(error)
+        res.json({ DBRes: error });
+    }
+});
+
 //Obtener proyectos
 server.get('/dbapi/get/proyectos', async (req, res) => {
     try {

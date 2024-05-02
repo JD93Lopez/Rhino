@@ -675,6 +675,30 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
     }
 });
 
+//Obtener productos con categorias y diferentes modelos
+server.get('/api/obtener/productosYCategoriasDifModelo', async (req, res) => {
+    try {
+
+        //TODO comprobar permisos
+        const productos = (await Fetch.fetchApi(`get/productosDifModelo`)).DBRes.rows
+
+        for await(const producto of productos){
+            producto.categorias = []
+
+            const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${producto.idproductos}`)).DBRes.rows
+            for (const categoria of categorias){
+                producto.categorias.push(categoria.nombre_categoria)
+            }
+
+        }
+        
+        res.json({ Res: productos });
+    } catch (error) {
+        console.log(error)
+        res.json({ Res: error });
+    }
+});
+
 //consultar Categorias De Producto con idproductos
 server.get('/api/obtener/categoriasPorIdproductos/:idproductos', async (req, res) => {
     try {

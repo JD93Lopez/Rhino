@@ -39,7 +39,7 @@ const CategoryFrame = () => {
   const [productos, setProductos] = useState()
 
   if(!productos){
-    axios.api(`obtener/productosYCategorias`).then((res)=>{
+    axios.api(`obtener/productosYCategoriasDifModelo`).then((res)=>{
       try{
         console.log(res)
         setProductos(res.data.Res)

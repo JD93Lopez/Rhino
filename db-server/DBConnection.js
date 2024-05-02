@@ -215,7 +215,7 @@ const insertarProducto = async (
   let pool = new Pool(config);
   try {
     let texto =
-      "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado, imagen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
+      "INSERT INTO PRODUCTOS(nombre, descripcion, identificacion, precio_alquiler, precio_compra, marca, modelo, tipo_vehiculo, estado, fecha, imagen) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW(), $10)";
     let values = [
       nombre,
       descripcion,
@@ -343,6 +343,27 @@ const obtenerProductos = async () => {
     const DBRes = await pool.query("select * from productos order by idproductos desc");
     return DBRes;
   } catch (error) {
+    console.log("Error al obtener los productos");
+  }
+  pool.end();
+};
+
+const obtenerProductosDistintoModelo = async () => {
+  const pool = new Pool(config);
+  try {
+    const DBRes = await pool.query(`
+      SELECT *
+      FROM productos
+      WHERE idproductos IN (
+        SELECT MAX(idproductos)
+        FROM productos
+        GROUP BY modelo
+      )
+      ORDER BY idproductos DESC;    
+    `);
+    return DBRes;
+  } catch (error) {
+    console.log(error)
     console.log("Error al obtener los productos");
   }
   pool.end();
@@ -616,6 +637,7 @@ module.exports = {
 
   obtenerProductos, insertarProducto,
   actualizarProducto, eliminarProducto,
+  obtenerProductosDistintoModelo,
 
   obtenerProyectos, insertarProyecto,
   actualizarProyecto, eliminarProyecto,
