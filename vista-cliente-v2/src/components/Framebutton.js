@@ -2,6 +2,7 @@ import styles from "./Framebutton.module.css";
 import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "./DataProvider";
+import axios from "../axios";
 
 const Framebutton = () => {
   const dataContext = useContext(DataContext)
@@ -20,19 +21,29 @@ const Framebutton = () => {
       dataContext.usuarioIniciado = {}
     }
 
-    //TODO iniciar sesion AXIOS --> dataContext.usuarioInciado = JSON.parse(axiosIniciarSesion(u, c))
+    axios.api(`signin/${userData.username}/${userData.password}`).then((res)=>{
+      try {
+        if(res.data.Res&&res.data.Res.bool){
+          console.log(res)
+          if(!dataContext.usuarioIniciado){
+            dataContext.usuarioIniciado = {}
+          }
+          dataContext.usuarioIniciado = res.data.Res.usuario
+          dataContext.usuarioIniciado.contrasena = userData.password
+          dataContext.usuarioIniciado.iniciado = true
+          localStorage.setItem("usuarioIniciado",JSON.stringify(dataContext.usuarioIniciado))
+          if(userData.username!==""&&(!dataContext.usuarioIniciado.nombre_usuario||dataContext.usuarioIniciado.nombre_usuario=="")){
+            dataContext.usuarioIniciado.nombre_usuario = userData.username
+          }
+
+          navigate("/ventana-principal-2");
+      
+        }
+      } catch (e) {}
+    })
+
     
-    //TODO quitar las siguientes 4 líneas
-    if(userData.username!==""){
-      dataContext.usuarioIniciado.nombre_usuario = userData.username
-    }
-    dataContext.usuarioIniciado.contrasena = userData.password
-
-    dataContext.usuarioIniciado.iniciado = true
-    localStorage.setItem("usuarioIniciado",JSON.stringify(dataContext.usuarioIniciado))
-
-
-    navigate("/ventana-principal-2");
+    
   }, [userData, navigate]);
 
   const handleInputChange = (event) => {
@@ -55,7 +66,7 @@ const Framebutton = () => {
       </div>
 
       <div className={styles.inputusername}>
-        <form className={styles.labelpassword}>
+        <div className={styles.labelpassword}>
           <div className={styles.grouplogin}>
             <div className={styles.textoUsuario}>Usuario</div>
             <input
@@ -85,7 +96,7 @@ const Framebutton = () => {
               INICIAR SESIÓN
             </button>
           </div>
-        </form>
+        </div>
         <div className={styles.inputFieldGroup}>
           <div className={styles.questionButtons}>
             <div className={styles.botonPregunta1}>¿Olvidó su contraseña?</div>

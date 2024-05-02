@@ -12,11 +12,9 @@ const FrameFullNameIDAddressEm = () => {
   }
 
   const [currentUser, setCurrentUser] = useState(dataContext.usuarioIniciado);
-  console.log(currentUser.nombre_real)
   const onBotonEditarInformacionClick = useCallback(() => {
     navigate("/ventana-de-editar-informacin-personal");
   }, [navigate]);
-
 
   return (
     <div className={styles.frameFullNameIDAddressEm}>
