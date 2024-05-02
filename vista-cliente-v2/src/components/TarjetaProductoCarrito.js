@@ -2,11 +2,22 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./BackgroundFrame.module.css";
 
-const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha_inicio,fecha_fin}) => {
+const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha_inicio,fecha_fin,object,setProductosCarrito}) => {
   const navigate = useNavigate();
 
-  const onBotonConsultarPrecioClick = ()=>{
+  const onEliminarDelCarritoClick = ()=>{
+    let productosCarrito
+    if(localStorage.getItem("productosCarrito")&&localStorage.getItem("productosCarrito")!=""){
+      productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+    }
+    if(!productosCarrito){
+      productosCarrito = []
+    }
+    
+    productosCarrito = productosCarrito.filter((producto)=>producto.idproductos!=object.idproductos)
+    setProductosCarrito(productosCarrito)
 
+    localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
   }
 
   return (
@@ -17,7 +28,7 @@ const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha
             className={styles.imagenMaquinaCarrito}
             loading="lazy"
             alt=""
-            src = {imagen}
+            src = {imagen&&imagen!=""?imagen:"/boton-logo-6@3x.png"}
           />
           <div className={styles.cartBorder}>
             <div className={styles.deleteProductButton}>
@@ -49,7 +60,7 @@ const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha
             <div className={styles.yTButtonChild} />
             <div
               className={styles.botonConsultarPrecio}
-              onClick={onBotonConsultarPrecioClick}
+              onClick={onEliminarDelCarritoClick}
             >
               <b className={styles.consultarPrecio}>ELIMINAR PRODUCTO</b>
             </div>

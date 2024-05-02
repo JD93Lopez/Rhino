@@ -92,6 +92,8 @@ const VentanaCarritoDeCompras = () => {
               fecha_fin={producto.fecha_fin}
               marca={producto.marca}
               modelo={producto.modelo}
+              object={producto}
+              setProductosCarrito={setProductosCarrito}
             />  
           })}
           {!productosCarrito&&
