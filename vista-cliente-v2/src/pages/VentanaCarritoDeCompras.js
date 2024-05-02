@@ -107,7 +107,7 @@ const VentanaCarritoDeCompras = () => {
               setProductosCarrito={setProductosCarrito}
             />  
           })}
-          {!productosCarrito&&
+          {(!productosCarrito||productosCarrito.length==0)&&
             <b>NO HAY PRODUCTOS EN EL CARRITO</b>
           }
           {/* <TarjetaProductoCarrito
