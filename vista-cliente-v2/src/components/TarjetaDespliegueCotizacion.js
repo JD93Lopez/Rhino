@@ -26,6 +26,15 @@ export const TarjetaDespliegueCotizacion = ({object}) => {
         navigate('/ventana-para-clientes')
     }
 
+    if(object){
+        object.subtotal = 0
+        if(producto_agendas){
+            for (const producto of producto_agendas){
+                object.subtotal += (producto.precio_alquiler-(producto.precio_alquiler*(producto.p_descuento/100)))
+            }
+        }
+    }
+
     return (
         <div className={styles.rectangleGroup}>
             <div className={styles.frameInner} />
