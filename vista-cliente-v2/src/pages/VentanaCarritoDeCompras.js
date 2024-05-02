@@ -22,10 +22,11 @@ const VentanaCarritoDeCompras = () => {
   const solicitarCotizacion = () =>{
     if( productosCarrito && productosCarrito.length != 0 ){
       let alquiler = {producto_agendas: productosCarrito}
-      axios.post(`123/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,alquiler)
+      axios.post(`123/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,alquiler).then(()=>{
+        navigate(`/historial-cotizaciones`)
+      })
       localStorage.setItem("productosCarrito","")
       setProductosCarrito(undefined)
-      navigate(`/historial-cotizaciones`)
     }
   }
 
