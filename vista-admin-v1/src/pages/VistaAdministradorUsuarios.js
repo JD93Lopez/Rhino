@@ -78,7 +78,7 @@ const VistaAdministradorUsuarios = () => {
   //resetear seleccionados
 
   dataContext.selectedUsers = []
-
+ 
   //cargar usuarios de la lista
 
   // const [usuarios, setUsuarios] = useState(arrayUsuarios);
