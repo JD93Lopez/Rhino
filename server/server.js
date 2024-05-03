@@ -39,7 +39,7 @@ server.get('/api/saludo/:nombre', (req, res) => {
     res.json({ mensaje: `¡Hola, ${nombre}! Bienvenido a nuestra API.2` });
 });
 //prueba
-server.get('/api/prueba/:texto', async (req, res) => {
+server.get('/api/prueba/:texto', async (req, res) => { 
     try {
 
         //TODO comprobar permisos
