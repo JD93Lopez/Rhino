@@ -29,12 +29,23 @@ const VistaAdministradorProducto = () => {
     navigate("/vista-administrador-agregar-productoeditar-producto");
   }, [navigate, dataContext]);
 
+  const [productos, setProductos] = useState();
+
+  const eliminarProductoSeleccionado = useCallback(() => {
+    for ( let producto of dataContext.selectedProducts) {
+      console.log(producto)
+      axios.api(`eliminar/producto/${producto.idproductos}/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then(()=>{
+        setProductos(null)
+      })
+    }
+    dataContext.selectedProducts = []
+  }, [dataContext, setProductos]);
+
   const onBotonActualizarClick = useCallback(() => { 
       if (dataContext.selectedProducts.length === 1) {
         navigate("/vista-administrador-productoeditar-producto");
       }
 
-    
   }, [navigate, dataContext]);
 
   //resetear seleccionados
@@ -44,7 +55,7 @@ const VistaAdministradorProducto = () => {
   dataContext.imagenProducto = undefined
 
 
-  const [productos, setProductos] = useState();
+
 
   if(!productos){
     axios.api(`obtener/productos`).then((res)=>{
@@ -105,7 +116,8 @@ const VistaAdministradorProducto = () => {
                       Actualizar Producto
                     </div>
                   </button>
-                  <button className={styles.powerfulExcavator2}>
+                  <button className={styles.powerfulExcavator2}
+                  onClick={eliminarProductoSeleccionado}>
                     <div className={styles.powerfulExcavatorItem} />
                     <div className={styles.eliminarProducto}>
                       Eliminar Producto
