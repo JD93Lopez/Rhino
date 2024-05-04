@@ -34,7 +34,7 @@
   height: 34px;
   position: absolute;
   top: 65px;
-  left: 350px;
+  left: 325px;
   display: inline-block;
   flex-shrink: 0;
   cursor: pointer;
@@ -55,7 +55,7 @@
 .productos {
   position: absolute;
   top: 65px;
-  left: 520px;
+  left: 455px;
   height: 34px;
   display: inline-block;
   cursor: pointer;
@@ -78,7 +78,7 @@
 .mantenimiento {
   position: absolute;
   top: 65px;
-  left: 700px;
+  left: 600px;
   height: 34px;
   display: inline-block;
   cursor: pointer;
@@ -87,7 +87,7 @@
 .cotizacion{
   position: absolute;
   top: 65px;
-  left: 920px;
+  left: 775px;
   height: 34px;
   display: inline-block;
   cursor: pointer;
@@ -96,12 +96,30 @@
 .compras{
     position: absolute;
     top: 65px;
-    left: 1100px;
+    left: 915px;
     height: 34px;
     display: inline-block;
     cursor: pointer;
     z-index: 2;
-  }
+}
+.proveedores {
+  position: absolute;
+  top: 65px;
+  left: 1037px;
+  height: 34px;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 2;
+}
+.informes{
+  position: absolute;
+  top: 65px;
+  left: 1185px;
+  height: 34px;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 2;
+}
 
 .productsFrame,
 .userProjecsFrame {
@@ -116,7 +134,7 @@
   padding: 0 var(--padding-11xs) 0 0;
   gap: var(--gap-xl);
   text-align: left;
-  font-size: 30px;
+  font-size: 23px;
   color: var(--color-black);
   font-family: var(--font-impact);
 }

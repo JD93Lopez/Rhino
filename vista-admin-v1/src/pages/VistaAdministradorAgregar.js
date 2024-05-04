@@ -10,7 +10,7 @@ import axios from "../axios";
 import { DataContext } from "../components/DataProvider";
 
 const VistaAdministradorAgregar = () => {
-  const dataContext = useContext(DataContext)
+  const dataContext = useContext(DataContext);
 
   const navigate = useNavigate();
 
@@ -30,25 +30,32 @@ const VistaAdministradorAgregar = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
-  const [opciones,setOpciones] = useState()
+  const onveragendaClick = useCallback(() => {
+    navigate("/vista-administrador-agenda");
+  }, [navigate]);
 
-  if(!opciones){
-    axios.api(`obtener/categorias`).then((res)=>{
+  const [opciones, setOpciones] = useState();
+
+  if (!opciones) {
+    axios.api(`obtener/categorias`).then((res) => {
       try {
-        let categorias = res.data.Res
-        let opciones = []
-        for (const categoria of categorias){
-          opciones.push({label:categoria.nombre_categoria,value:categoria.idcategorias})
+        let categorias = res.data.Res;
+        let opciones = [];
+        for (const categoria of categorias) {
+          opciones.push({
+            label: categoria.nombre_categoria,
+            value: categoria.idcategorias,
+          });
         }
-        setOpciones(opciones)
+        setOpciones(opciones);
       } catch (e) {}
-    })
+    });
   }
 
   const seleccionCategorias = (e) => {
-    console.log(e)
-    dataContext.categoriasSeleccionadas = e
-  }
+    console.log(e);
+    dataContext.categoriasSeleccionadas = e;
+  };
 
   return (
     <div className={styles.vistaAdministradorAgregar}>
@@ -72,34 +79,50 @@ const VistaAdministradorAgregar = () => {
                     <div className={styles.nombreDelProducto}>
                       Nombre del Producto
                     </div>
-                    <input className={styles.frame} type="text" id ="inputNombreProducto" useref={ "inputNombreProducto"} />
+                    <input
+                      className={styles.frame}
+                      type="text"
+                      id="inputNombreProducto"
+                      useref={"inputNombreProducto"}
+                    />
                   </div>
                   <div className={styles.nombreIDFrame1}>
-                    <div className={styles.idDelProducto}>Identificador del Producto</div>
-                    <input className={styles.nombreIDFrame1} type="text" id ="inputIdProducto" useref={ "inputIdProducto"} />
+                    <div className={styles.idDelProducto}>
+                      Identificador del Producto
+                    </div>
+                    <input
+                      className={styles.nombreIDFrame1}
+                      type="text"
+                      id="inputIdProducto"
+                      useref={"inputIdProducto"}
+                    />
                   </div>
                   <div className={styles.pRODUCTOS}>
-                  <div className={styles.descripcin}>Descripción</div>
+                    <div className={styles.descripcin}>Descripción</div>
                     <textarea
                       className={styles.mantenimientoText}
                       placeholder="Escribe"
                       rows={18}
                       cols={28}
-                      style={{color:"black"}}
-                      id ="inputdescripcionproducto" useref={ "inputdescripcionproducto"}
+                      style={{ color: "black" }}
+                      id="inputdescripcionproducto"
+                      useref={"inputdescripcionproducto"}
                     />
-                   
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
-                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T "/>
+                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T " />
                       <div className={styles.descargarSOAT}>
                         <div
                           className={styles.cargarTcnicoMecnica}
                         >{`Cargar Técnico Mecánica `}</div>
                         <div className={styles.imagenFrame}>
                           <div className={styles.precioTipoFrame}>
-                          <input type='file' id ="inputTecnoMecanica" useref={ "inputTecnoMecanica"}/> 
+                            <input
+                              type="file"
+                              id="inputTecnoMecanica"
+                              useref={"inputTecnoMecanica"}
+                            />
                           </div>
                         </div>
                       </div>
@@ -107,16 +130,20 @@ const VistaAdministradorAgregar = () => {
                   </div>
                   <ListaDesplegable1
                     className={null}
-                    titulo={'Seleccione las categorías'}
-                    opciones={opciones?opciones:[]}
-                    onChange={(e)=>{seleccionCategorias(e)}}
+                    titulo={"Seleccione las categorías"}
+                    opciones={opciones ? opciones : []}
+                    onChange={(e) => {
+                      seleccionCategorias(e);
+                    }}
                   />
                 </div>
               </div>
-              <div className={styles.frameParent}>
-              </div>
+              <div className={styles.frameParent}></div>
             </div>
           </div>
+          <button className={styles.button} onClick={onveragendaClick} type="submit">
+               Ver Agenda
+              </button>
           <FrameComponent2 />
         </section>
       </main>
