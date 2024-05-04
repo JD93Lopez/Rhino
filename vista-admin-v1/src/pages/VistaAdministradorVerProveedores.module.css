@@ -1,0 +1,86 @@
+/* VistaAdministradorProveedores.module.css */
+.vistaAdministradorProveedores {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    height: 1135px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-13xl);
+    color: var(--color-black);
+    font-family: var(--font-impact);
+  }
+  .vistaAdministradorProveedores {
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .vistaAdministradorProveedores {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    overflow: hidden;
+    flex-direction: column;
+    padding: 33px 0 62px;
+    gap: 34px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  .vistaAdministradorProveedoresChild {
+    align-self: stretch;
+    height: -94px;
+    position: relative;
+    background-color: var(--color-black);
+    display: none;
+  }
+  .tituloProveedores {
+    position: relative;
+    font-size: 200%;
+    font-weight: 400%;
+    font-family: inherit;
+    font-size: 60px;
+    display: inline-block;
+    max-width: 100%;
+    margin: 30px;
+  }
+  .tarjetaproveedor{
+    position: absolute;
+    top: 370px;
+    left: 100px;    
+  }
+  
+  .button {
+    height: 27px;
+    position: relative;
+    font-size: var(--font-size-mid);
+    font-family: var(--font-impact);
+    color: var(--color-black);
+    text-align: left;
+    display: inline-block;
+    z-index: 1;
+    position: absolute;
+    top: 220px;
+    right: 700px;
+    cursor: pointer;
+    border: 1px solid var(--color-gray-200);
+    padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+      var(--padding-24xl);
+    background-color: var(--color-orange);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
+  .button:hover {
+    background-color: var(--color-darkgoldenrod);
+    border: 1px solid var(--color-darkslategray);
+    box-sizing: border-box;
+  }
+
+  

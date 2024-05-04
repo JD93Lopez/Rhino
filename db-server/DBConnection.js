@@ -121,6 +121,7 @@ const obtenerUsuarios = async () => {
     // console.log(DBRes.rows);
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al obtener los usuarios");
   }
   pool.end();

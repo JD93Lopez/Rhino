@@ -5,15 +5,13 @@ import { useContext, useState } from "react";
 import orden from "../OrdenamientoSimilitud";
 import axios from "../axios";
 
-const SearchProjectFrame = () => {
+const SearchProjectFrame = ({proyectos,setProyectos}) => {
   
   const dataContext = useContext(DataContext);
   
   if (!dataContext.Loaded) {
     return <div>Cargando... Por favor espere.</div>;
   }
-
-  const [proyectos, setProyectos] = useState();
 
   if(!proyectos){
     axios.api(`obtener/proyectos/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{

@@ -239,6 +239,35 @@
   color: var(--color-black);
   font-family: var(--font-impact);
 }
+.button {
+  height: 40px;
+  position: relative;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  z-index: 1;
+  position: absolute;
+  top: 1250px;
+  right: 900px;
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  padding: var(--padding-smi) var(--padding-20xl) var(--padding-sm)
+    var(--padding-24xl);
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: var(--color-darkgoldenrod);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
 @media screen and (max-width: 1350px) {
   .productInputFrame {
     flex: 1;

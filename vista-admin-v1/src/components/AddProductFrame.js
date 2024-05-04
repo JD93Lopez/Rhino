@@ -12,7 +12,9 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
   const onPRODUCTOSTextClick = () => navigate('/vista-administrador-productos'); 
   const onMANTENIMIENTOTextClick = () => navigate('/vista-administrador-mantenimiento');
   const onCOTIZACIONTextClick = () => navigate('/vista-administrador-cotizacion'); 
-  const onCOMPRASTextClick = () => navigate('/vista-administrador-all-compras')
+  const onCOMPRASTextClick = () => navigate('/vista-administrador-all-compras');
+  const onPROVEEDORESTextClick = () => navigate('/vista-administrador-ver-proveedores');
+  const onINFORMESTextClick = () => navigate('/vista-administrador-informes');
 
   const userProjecsFrameStyle = useMemo(() => ({
     padding: maintananceTextPadding,
@@ -87,6 +89,21 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
           return {textDecoration: "underline"}
         }
         break;
+      case 7:
+        if(
+          pathname==="/vista-administrador-proveedores" ||
+          pathname==="/vista-administrador-ver-proveedores"
+        ){
+          return {textDecoration: "underline"}
+        }
+        break;
+      case 8:
+        if(
+          pathname==="/vista-administrador-informes" 
+        ){
+          return {textDecoration: "underline"}
+        }
+        break;
       default:
     }
     return {}
@@ -123,6 +140,12 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
               </div>
               <div className={styles.compras} onClick={onCOMPRASTextClick} style={subrayado(6)}>
                 COMPRAS
+              </div>
+              <div className={styles.proveedores} onClick={onPROVEEDORESTextClick} style={subrayado(7)}>
+                PROVEEDORES
+              </div>
+              <div className={styles.informes} onClick={onINFORMESTextClick} style={subrayado(8)}>
+                INFORMES
               </div>
             </nav>
           </div>

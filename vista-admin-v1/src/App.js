@@ -24,6 +24,10 @@ import VistaAdministradorACtualizarMant from "./pages/VistaAdministradorActualiz
 import VistaAdministradorConductoresProductos from "./pages/VistaAdministradorConductoresProductos";
 import VistaAdministradorCompras from "./pages/VistaAdministradorCompras";
 import VistaAdministradorAllCompras from "./pages/VistaAdministradorAllCompras";
+import VistaAdministradorProveedores from "./pages/VistaAdministradorProveedores";
+import VistaAdministradorVerProveedores from "./pages/VistaAdministradorVerProveedores";
+import VistaAdministradorInformes from "./pages/VistaAdministradorInformes";
+import VistaAdministradorAgenda from "./pages/VistaAdministradorAgenda";
 import { DataProvider } from "./components/DataProvider";
 
 function App() {
@@ -106,6 +110,22 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/vista-administrador-proveedores":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-ver-proveedores":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/vista-administrador-informes":
+        title = "";
+        metaDescription = "";
+        break;
+        case "/vista-administrador-agenda":
+          title = "";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -197,6 +217,22 @@ function App() {
         <Route
           path="/vista-administrador-all-compras"
           element={<VistaAdministradorAllCompras />}
+        />
+        <Route
+          path="/vista-administrador-proveedores"
+          element={<VistaAdministradorProveedores />}
+        />
+        <Route
+          path="/vista-administrador-ver-proveedores"
+          element={<VistaAdministradorVerProveedores />}
+        />
+        <Route
+          path="/vista-administrador-informes"
+          element={<VistaAdministradorInformes />}
+        />
+        <Route
+          path="/vista-administrador-agenda"
+          element={<VistaAdministradorAgenda />}
         />
       </Routes>
     </DataProvider>
