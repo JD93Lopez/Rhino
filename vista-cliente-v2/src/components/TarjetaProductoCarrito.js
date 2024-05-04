@@ -1,8 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./BackgroundFrame.module.css";
+import { DataContext } from "./DataProvider";
 
 const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha_inicio,fecha_fin,object,setProductosCarrito}) => {
+  const dataContext = useContext(DataContext)
   const navigate = useNavigate();
 
   const onEliminarDelCarritoClick = ()=>{
@@ -14,10 +16,11 @@ const TarjetaProductoCarrito = ({nombre,imagen,modelo,identificacion,marca,fecha
       productosCarrito = []
     }
     
-    productosCarrito = productosCarrito.filter((producto)=>producto.idproductos!=object.idproductos)
+    productosCarrito = productosCarrito.filter((producto)=>(!(producto.idproductos==object.idproductos&&producto.fecha_inicio==object.fecha_inicio&&producto.fecha_fin==object.fecha_fin)))
     setProductosCarrito(productosCarrito)
 
     localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
+    dataContext.setCatidadProductosCarrito(dataContext.catidadProductosCarrito-1)
   }
 
   return (

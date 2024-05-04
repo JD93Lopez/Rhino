@@ -31,6 +31,8 @@ const TarjetaProductoDisponibilidad = ({nombre, identificacion, precio_alquiler,
         productosCarrito.push(object)
 
         localStorage.setItem("productosCarrito",JSON.stringify(productosCarrito))
+
+        dataContext.setCatidadProductosCarrito(dataContext.catidadProductosCarrito+1)
       }
     }
   }

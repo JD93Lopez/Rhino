@@ -6,7 +6,6 @@ const FrameFullNameIDAddressEm = () => {
 
   const navigate = useNavigate();
   const dataContext = useContext(DataContext);
-  console.log(dataContext)
   if(!dataContext.Loaded){
     return <p>Cargando...</p>
   }

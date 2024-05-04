@@ -86,7 +86,10 @@ const LogoButton = ({
     productosCarrito = []
   }
 
-  const cantidadProductos = productosCarrito.length
+  const [cantidadProductos, setCatidadProductos] = useState(productosCarrito.length)
+
+  dataContext.catidadProductosCarrito = cantidadProductos
+  dataContext.setCatidadProductosCarrito = setCatidadProductos
 
   return (
     <div className={styles.logoButton}>
