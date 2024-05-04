@@ -5,6 +5,7 @@ import { DataContext } from "../components/DataProvider";
 import TarjetaMantenimiento from "../components/TarjetaMantenimiento";
 import orden from "../OrdenamientoSimilitud";
 import AddProductFrame from '../components/AddProductFrame';
+import axios from '../axios';
 
 export const SearchContext = React.createContext();
 
@@ -24,13 +25,13 @@ const VistaMantenimProducto = () => {
   }
 
   let busqueda = '';
-  const [mantenimientos, setMantenimientos] = useState(
-    mantenimientosContext.filter(
-      (mantenimiento)=>{
-        return mantenimiento.identificacion == selectedProducts[0].identificacion
-      }
-    )
-  );
+  const [mantenimientos, setMantenimientos] = useState();
+
+  if(!mantenimientos){
+    axios.api(`obtenerMantenimientosConIdproductos/${selectedProducts[0].idproductos}`).then((res)=>{
+      setMantenimientos(res.data.Res)
+    })
+  }
 
   const buscar = () => {
     if (!mantenimientos) {
@@ -49,15 +50,17 @@ const VistaMantenimProducto = () => {
   };
 
   let dibujarMantenimientos = ()=>{
-    if(mantenimientos.length !== 0){
+    if(mantenimientos&&mantenimientos.length !== 0){
       let key = 0
       return mantenimientos.map(mantenimiento => {
         key++;
+        mantenimiento.producto = selectedProducts[0]
+        console.log(mantenimiento)
         return <TarjetaMantenimiento
           object={mantenimiento}
           nombreMaquinaria={mantenimiento.nombreMaquinaria}
           identificacion={mantenimiento.identificacion}
-          fecha={mantenimiento.fecha}
+          fecha={mantenimiento.fechamantenimiento}
           key={key}
         ></TarjetaMantenimiento>
       })

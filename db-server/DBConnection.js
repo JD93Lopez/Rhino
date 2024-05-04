@@ -571,7 +571,7 @@ const idProductoPorIdentificacion = async (
     return DBRes;
   } catch (error) {
     console.log(error)
-    console.log("Error al insertar mantenimiento");
+    console.log("Error idProductoPorIdentificacion");
   }
   pool.end();
 };

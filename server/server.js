@@ -522,6 +522,17 @@ server.get('/api/conductorPorIdconductores/:idconductores', async (req, res) => 
         res.json({ Res: error });
     }
 });
+//obtenerMantenimientosConIdproductos
+server.get('/api/obtenerMantenimientosConIdproductos/:idproductos', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const idproductos = req.params.idproductos
+
+        res.json({ Res: (await Fetch.fetchApi(`obtenerMantenimientosConIdproductos/${idproductos}`)).DBRes.rows });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 
 //FIN FUNCIONES OBTENER

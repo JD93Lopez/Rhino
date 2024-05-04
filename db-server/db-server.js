@@ -387,6 +387,17 @@ server.get('/dbapi/obtenerCategorias', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+//obtenerMantenimientosConIdproductos
+server.get('/dbapi/obtenerMantenimientosConIdproductos/:idproductos', async (req, res) => {
+    try {
+
+        const idproductos = req.params.idproductos
+
+        res.json({ DBRes: (await funcionesBD.obtenerMantenimientosConIdproductos(idproductos)) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
 
 
 

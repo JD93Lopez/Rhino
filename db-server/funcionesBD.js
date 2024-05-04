@@ -474,6 +474,18 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  funciones.obtenerMantenimientosConIdproductos = async (idproductos) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`SELECT * FROM historial_mantenimientos where productos_idproductos = $1 `, 
+      [idproductos]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }
