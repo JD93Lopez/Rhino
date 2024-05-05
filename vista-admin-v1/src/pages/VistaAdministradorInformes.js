@@ -58,6 +58,14 @@ const VistaAdministradorInformes = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
+  if(startDate==''){
+    const now = Date.now()
+    const date = new Date(now-31557600000)
+    setStartDate(date.toISOString().substring(0,10))
+    const date2 = new Date(now+86400000)
+    setEndDate(date2.toISOString().substring(0,10))
+  }
+
   const [products,setProducts] = useState()
 
   if(!products){

@@ -81,7 +81,7 @@ const VistaAdministradorActualizar = () => {
     })
   }
 
-  if(!categoriasProducto&&dataContext.Loaded){
+  if(!categoriasProducto&&dataContext.Loaded&&dataContext.selectedProducts[0].idproductos){
     axios.api(`obtener/categoriasPorIdproductos/${dataContext.selectedProducts[0].idproductos}`).then((res)=>{
       try {
         let categorias = res.data.Res
