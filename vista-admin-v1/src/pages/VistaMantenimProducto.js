@@ -69,6 +69,10 @@ const VistaMantenimProducto = () => {
     }
   }
 
+  const regresar = () => {
+    navigate('/vista-administrador-productoeditar-producto')
+  }
+
   return (
     <DataContext.Provider value={{ Loaded, mantenimientos: mantenimientosContext, usuarios }}>
       <SearchContext.Provider value={{ busqueda }}>
@@ -78,6 +82,9 @@ const VistaMantenimProducto = () => {
           <main className={styles.vistaAdministradorMantenimInner}>
             <section className={styles.mantenimientoParent}>
               <h1 className={styles.mantenimiento}>MANTENIMIENTOS DEL PRODUCTO</h1>
+              <div onClick={regresar} className={styles.backButton}>
+                Regresar
+              </div>
               <div className={styles.buscarUsuario}>
                 <div className={styles.buscarUsuarioChild} />
                 <img className={styles.lupa4Icon} alt="" src="/lupa-4@2x.png" />

@@ -23,7 +23,7 @@ const ImageUpload = () => {
 
   return (
     <div className={styles.imagen}>
-        <p>Imagen</p>
+      <p>Imagen</p>
       <input
         type="file"
         accept="image/*"
@@ -36,6 +36,7 @@ const ImageUpload = () => {
           className={styles.imageUpload}
           id= "imagenProducto"
           useref="imagenProducto"
+          style={{objectFit:"contain"}}
         />
       )}
     </div>

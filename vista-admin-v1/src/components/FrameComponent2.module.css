@@ -5,7 +5,8 @@
 }
 .imagen{
   position: relative;
-
+  width:"800px";
+  height:"420px"
 }
 .productDetailsParent {
   width: 519px;

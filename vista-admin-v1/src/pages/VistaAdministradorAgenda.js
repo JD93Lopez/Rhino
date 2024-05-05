@@ -21,11 +21,15 @@ const VistaAdministradorAgenda = () => {
     })  
   }
 
+  const regresar = () => {
+    navigate('/vista-administrador-productoeditar-producto')
+  }
+
   return (
     <div className={styles.container}>
-      <Link to="/vista-administrador-agregar-productoeditar-producto" className={styles.backButton}>
+      <div onClick={regresar} className={styles.backButton}>
         Regresar
-      </Link>
+      </div>
 
       <div className={styles.agendasContainer}>
         {agendas&&agendas.map((agenda) => (

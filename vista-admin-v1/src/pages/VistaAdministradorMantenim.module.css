@@ -215,3 +215,15 @@
     font-size: var(--font-size-19xl);
   }
 }
+.backButton {
+  display: inline-block;
+  background-color: var(--color-orange);
+  color: #000000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-impact);
+  color: var(--color-black);
+}
