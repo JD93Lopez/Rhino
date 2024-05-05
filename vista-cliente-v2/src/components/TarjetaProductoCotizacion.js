@@ -31,8 +31,8 @@ export const TarjetaProductoCotizacion = ({object}) => {
         </div>
         <div style={{display:"flex", flexDirection:"column"}}>
             <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{object.precio_alquiler}</b>
+            {object.p_descuento&&object.p_descuento!=0&&<b style={{textAlign:"right"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-{(object.precio_alquiler*(object.p_descuento/100))}</b>}
             <br/><br/>
-            <b>&nbsp;</b>
             <br/><br/><br/><br/>
             <b>&nbsp;</b>
         </div>
