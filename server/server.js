@@ -566,7 +566,12 @@ server.get('/api/agendasPorIdproductos/:idproductos', async (req, res) => {
         //TODO comprobar permisos
         const idproductos = req.params.idproductos
 
-        res.json({ Res: (await Fetch.fetchApi(`agendasPorProducto/${idproductos}`)).DBRes });
+        const agendas = (await Fetch.fetchApi(`agendasPorProducto/${idproductos}`)).DBRes
+        for await(const agenda of agendas){
+            agenda.conductor = (await Fetch.fetchApi(`conductorPorIdconductores/${agenda.conductores_idconductores}`)).DBRes.rows[0]
+        }
+
+        res.json({ Res: agendas });
     } catch (error) {
         res.json({ Res: error });
     }

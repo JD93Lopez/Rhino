@@ -1,28 +1,22 @@
-import React from 'react';
+import React,{useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import styles from './VistaAdministradorAgenda.module.css';
+import {DataContext} from '../components/DataProvider'
+import axios from '../axios';
 
-const VistaAdministradorAgenda = ({ product }) => {
-  const agendas = [
-    {
-      id: 1,
-      fechaInicio: '2023-05-01',
-      fechaFin: '2023-05-07',
-      cliente: 'Cliente 1',
-    },
-    {
-      id: 2,
-      fechaInicio: '2023-05-10',
-      fechaFin: '2023-05-15',
-      cliente: 'Cliente 2',
-    },
-    {
-      id: 3,
-      fechaInicio: '2023-05-20',
-      fechaFin: '2023-05-25',
-      cliente: 'Cliente 3',
-    },
-  ];
+const VistaAdministradorAgenda = () => {
+
+  const dataContext = useContext(DataContext)
+
+  const [agendas,setAgendas] = useState()
+
+  if(!agendas&&dataContext.selectedProducts&&dataContext.selectedProducts[0]){
+    axios.api(`agendasPorIdproductos/${dataContext.selectedProducts[0].idproductos}`).then((res)=>{
+      try {
+        setAgendas(res.data.Res)
+      } catch (e) {}
+    })
+  }
 
   return (
     <div className={styles.container}>
@@ -31,16 +25,16 @@ const VistaAdministradorAgenda = ({ product }) => {
       </Link>
 
       <div className={styles.agendasContainer}>
-        {agendas.map((agenda) => (
+        {agendas&&agendas.map((agenda) => (
           <div key={agenda.id} className={styles.agendaCard}>
             <p>
-              <strong>Fecha Inicio:</strong> {agenda.fechaInicio}
+              <strong>Fecha Inicio:</strong> {agenda.fecha_inicio.substring(0,10)}
             </p>
             <p>
-              <strong>Fecha Fin:</strong> {agenda.fechaFin}
+              <strong>Fecha Fin:</strong> {agenda.fecha_fin.substring(0,10)}
             </p>
             <p>
-              <strong>Cliente:</strong> {agenda.cliente}
+              <strong>Conductor:</strong> {agenda.conductor.nombre}
             </p>
           </div>
         ))}

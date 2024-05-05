@@ -30,7 +30,9 @@ const VistaAdministradorVerProveedores = () => {
 
   if(!proveedores&&dataContext.usuarioIniciado){
     axios.api(`obtener/proveedores/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
-      setProveedores(res.data.Res)
+      try {
+        setProveedores(res.data.Res)
+      } catch (e) {}
     })
   }
 
