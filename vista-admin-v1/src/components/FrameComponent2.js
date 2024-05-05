@@ -27,7 +27,7 @@ const FrameComponent2 = () => {
       descripcion,
       identificacion,
       precio_alquiler,
-      precio_compra: precio_alquiler,
+      precio_compra: 0,
       marca, 
       modelo,
       tipo_vehiculo,

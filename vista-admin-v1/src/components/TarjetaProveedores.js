@@ -24,6 +24,7 @@ const TarjetaProveedores = ({ nombre, nit, direccion, descripcion, telefono, obj
       onClick={handleCardClick}
       onMouseEnter={(e) => e.currentTarget.classList.add(styles.hover)}
       onMouseLeave={(e) => e.currentTarget.classList.remove(styles.hover)}
+      style={{width:"1400px"}}
     >
       <div className={styles.info}>
         <div className={styles.infoItem}>

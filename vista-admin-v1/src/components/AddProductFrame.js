@@ -145,7 +145,7 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
                 PROVEEDORES
               </div>
               <div className={styles.informes} onClick={onINFORMESTextClick} style={subrayado(8)}>
-                INFORMES
+                INFORME ACTIVOS
               </div>
             </nav>
           </div>

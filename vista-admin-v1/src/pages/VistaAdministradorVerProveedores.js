@@ -4,6 +4,7 @@ import AddProductFrame from "../components/AddProductFrame";
 import TarjetaProveedores from "../components/TarjetaProveedores";
 import styles from "./VistaAdministradorVerProveedores.module.css";
 import { DataContext } from "../components/DataProvider";
+import axios from "../axios";
 
 const VistaAdministradorVerProveedores = () => {
   const navigate = useNavigate();
@@ -25,11 +26,13 @@ const VistaAdministradorVerProveedores = () => {
     navigate("/vista-administrador-proveedores");
   }, [navigate]);
 
-  const [proveedores, setProveedores] = useState([]);
+  const [proveedores, setProveedores] = useState();
 
-  useEffect(() => {
-    // Lógica para obtener los proveedores desde la API o base de datos
-  }, []);
+  if(!proveedores&&dataContext.usuarioIniciado){
+    axios.api(`obtener/proveedores/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`).then((res)=>{
+      setProveedores(res.data.Res)
+    })
+  }
 
   return (
     <div className={styles.vistaAdministradorProveedores}>
@@ -43,7 +46,16 @@ const VistaAdministradorVerProveedores = () => {
       <main>
         <section>
           <div className={styles.tarjetaproveedor}>
-          <TarjetaProveedores/>
+          {proveedores&&proveedores.map((proveedor)=>{
+            return <TarjetaProveedores
+              nombre = {proveedor.nombre}
+              nit = {proveedor.nit}
+              direccion = {proveedor.direccion}
+              descripcion = {proveedor.descripcion}
+              telefono = {proveedor.telefono}
+              object = {proveedor}
+            />
+          })}
           </div>
             
             <button className={styles.button} onClick={onAgregarClick} type="submit">

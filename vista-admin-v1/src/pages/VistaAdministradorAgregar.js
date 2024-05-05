@@ -30,10 +30,6 @@ const VistaAdministradorAgregar = () => {
     navigate("/vista-administrador-mantenimiento");
   }, [navigate]);
 
-  const onveragendaClick = useCallback(() => {
-    navigate("/vista-administrador-agenda");
-  }, [navigate]);
-
   const [opciones, setOpciones] = useState();
 
   if (!opciones) {
@@ -53,7 +49,6 @@ const VistaAdministradorAgregar = () => {
   }
 
   const seleccionCategorias = (e) => {
-    console.log(e);
     dataContext.categoriasSeleccionadas = e;
   };
 
@@ -141,9 +136,6 @@ const VistaAdministradorAgregar = () => {
               <div className={styles.frameParent}></div>
             </div>
           </div>
-          <button className={styles.button} onClick={onveragendaClick} type="submit">
-               Ver Agenda
-              </button>
           <FrameComponent2 />
         </section>
       </main>

@@ -533,7 +533,44 @@ server.get('/api/obtenerMantenimientosConIdproductos/:idproductos', async (req, 
         res.json({ Res: error });
     }
 });
+//TODO obtener productos en la fecha
+server.get('/api/obtener/productosEnUnaFecha/:fechaInicial/:fechaFinal', async (req, res) => {
+    try {
 
+        const fechaInicial = req.params.fechaInicial
+        const fechaFinal = req.params.fechaFinal
+        
+        let productos = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+
+        productos = productos.filter((producto)=>{
+            verificarFecha(producto.fecha,fechaInicial,fechaFinal)
+        })
+        
+        res.json({ Res: productos });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+function verificarFecha(fechaBuscada, fechaInicial, fechaFinal) {
+    // Convertir las cadenas de fecha en objetos Date
+    const fechaBuscadaObj = new Date(fechaBuscada);
+    const fechaInicialObj = new Date(fechaInicial);
+    const fechaFinalObj = new Date(fechaFinal);
+  
+    // Verificar si la fecha buscada está entre la fecha inicial y final
+    return fechaBuscadaObj >= fechaInicialObj && fechaBuscadaObj <= fechaFinalObj;
+}
+//consultar agendas por idproductos
+server.get('/api/agendasPorIdproductos/:idproductos', async (req, res) => {
+    try {
+        //TODO comprobar permisos
+        const idproductos = req.params.idproductos
+
+        res.json({ Res: (await Fetch.fetchApi(`agendasPorProducto/${idproductos}`)).DBRes });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 
 //FIN FUNCIONES OBTENER
 
@@ -554,12 +591,12 @@ server.post('/api/agregar/usuario/:usuario/:contrasena', async (req, res) => {
 });
 
 //Agregar proveedor
-server.get('/api/agregar/proveedor/:JSONObject/:usuario/:contrasena', async (req, res) => {
+server.post('/api/agregar/proveedor/:usuario/:contrasena', async (req, res) => {
     try {
 
-        const JSONObject = req.params.JSONObject;
+        const object = req.body;
         //TODO comprobar permisos
-        await Fetch.fetchApi(`insert/proveedores/${JSONObject}`)
+        await axios.post(`insert/proveedores`,object)
         
         res.json({ Res: true });
     } catch (error) {

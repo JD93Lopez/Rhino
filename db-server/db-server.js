@@ -419,11 +419,10 @@ server.post('/dbapi/insert/usuarios', async (req, res) => {
 });
 
 //Insertar proveedor
-server.get('/dbapi/insert/proveedores/:JSONProveedor', async (req, res) => {
+server.post('/dbapi/insert/proveedores', async (req, res) => {
     try {
         
-        const JSONProveedor = req.params.JSONProveedor;
-        const proveedorInsertar = JSON.parse(JSONProveedor)
+        const proveedorInsertar = req.body
         DBConnection.insertarProveedor(proveedorInsertar.nombre, proveedorInsertar.nit, proveedorInsertar.direccion, proveedorInsertar.descripcion, proveedorInsertar.telefono)
         res.json({ DBRes: "Insercion Finalizada" });
     } catch (error) {

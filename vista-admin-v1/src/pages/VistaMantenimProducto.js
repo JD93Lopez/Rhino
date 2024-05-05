@@ -97,11 +97,6 @@ const VistaMantenimProducto = () => {
           </main>
         </div>
         <div className={styles.actualizarUsuarioParent}>
-                <button
-                  className={styles.eliminarUsuariosSeleccionados}>
-                  <div calssName={styles.eliminarusuarioChild} />
-                  <div className={styles.EliminarSeleccionados} >Agregar</div>
-                </button>
               </div>
       </SearchContext.Provider>
     </DataContext.Provider>

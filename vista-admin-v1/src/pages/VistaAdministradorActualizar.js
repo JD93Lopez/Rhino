@@ -116,6 +116,10 @@ const VistaAdministradorActualizar = () => {
     }
   }
 
+  const onveragendaClick = useCallback(() => {
+    navigate("/vista-administrador-agenda");
+  }, [navigate]);
+
   return (
     <div className={styles.vistaAdministradorAgregar}>
       <div className={styles.vistaAdministradorAgregarChild} />
@@ -202,6 +206,11 @@ const VistaAdministradorActualizar = () => {
               <div>
                 <button onClick={mantenimientos} style={{fontSize: "25px", backgroundColor: "orange"}}>
                   Historial de Mantenimientos
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={{fontSize: "25px", backgroundColor: "orange"}} onClick={onveragendaClick}>
+                  Ver Agendas
                 </button>
               </div>
             </div>

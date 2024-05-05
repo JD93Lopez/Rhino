@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AddProductFrame from "../components/AddProductFrame";
 import styles from "./VistaAdministradorProveedores.module.css";
 import { DataContext } from "../components/DataProvider";
+import axios from "../axios";
 
 const VistaAdministradorProveedores = () => {
   const navigate = useNavigate();
@@ -26,6 +27,18 @@ const VistaAdministradorProveedores = () => {
   const [descripcion, setDescripcion] = useState("");
   const [telefono, setTelefono] = useState("");
 
+  const [hayProveedor,setHayProveedor] = useState(true);
+  if(dataContext.proveedorSeleccionado){
+    const proveedor = dataContext.proveedorSeleccionado
+    setNombre(proveedor.nombre)
+    setNit(proveedor.nit)
+    setDireccion(proveedor.direccion)
+    setDescripcion(proveedor.descripcion)
+    setTelefono(proveedor.telefono)
+    dataContext.proveedorSeleccionado = undefined
+    setHayProveedor(false)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -37,8 +50,7 @@ const VistaAdministradorProveedores = () => {
       telefono,
     };
 
-    // Enviar datos a la API o base de datos
-    console.log("Proveedor:", proveedor);
+    axios.post(`agregar/proveedor/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,proveedor)
 
     // Restablecer los valores del formulario
     setNombre("");
@@ -127,9 +139,9 @@ const VistaAdministradorProveedores = () => {
                   required
                 />
               </div>
-              <button className={styles.button} type="submit">
+              {hayProveedor&&<button className={styles.button} type="submit">
                 Agregar
-              </button>
+              </button>}
             </form>
 
           </div>
