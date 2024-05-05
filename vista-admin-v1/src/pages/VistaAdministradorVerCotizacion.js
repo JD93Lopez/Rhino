@@ -65,6 +65,7 @@ const VistaAdministradorVerCotizacion = () => {
         cotizacion.total_descuento += producto_agenda.precio_alquiler*(producto_agenda.p_descuento/100)
         //TODO porcentaje impuestos
       }
+      cotizacion.subtotal = cotizacion.subtotal - cotizacion.total_descuento
     }
   }
 
