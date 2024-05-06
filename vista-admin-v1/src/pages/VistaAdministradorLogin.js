@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import './VistaAdministradorLogin.css'; 
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from "../components/DataProvider";
+import axios from '../axios';
 
 const VistaAdministradorLogin = () => {
   
@@ -14,11 +15,15 @@ const VistaAdministradorLogin = () => {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica para manejar el envío del formulario
-
-    //TODO iniciar sesion AXIOS
-
-    navigate('/vista-administrador-usuarios'); //TODO solo cambia pantalla si se inicia sesion
+    
+    axios.api(`signin/${dataContext.usuarios.usuarioIniciado.nombre_usuario}
+    /${dataContext.usuarios.usuarioIniciado.contrasena}`).then((res)=>{
+      try {
+        if(res.data.Res&&res.data.Res.bool){
+          navigate('/vista-administrador-usuarios');
+        }
+      } catch (e) {}
+    })
   };
 
   let nombreChange = (e)=>{

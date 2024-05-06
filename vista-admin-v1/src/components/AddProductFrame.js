@@ -109,6 +109,10 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
     return {}
   }
 
+  const iniciarSesion = () => {
+    navigate(`/`)
+  }
+
   return (
     <header className={styles.addProductFrame}>
       <div className={styles.editProductFrame}>
@@ -150,7 +154,7 @@ const AddProductFrame = ({ maintananceTextPadding }) => {
             </nav>
           </div>
           <div className={styles.adminProfilePicture}>
-            <button className={styles.perfilAdmin}>
+            <button className={styles.perfilAdmin} onClick={iniciarSesion}>
               <img className={styles.usuario1Icon} alt="" src="/usuario-1@2x.png" />
               <div className={styles.perfilAdminChild} />
               <div className={styles.administrador}>{nombre_usuario}</div>

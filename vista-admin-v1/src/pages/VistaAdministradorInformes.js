@@ -6,7 +6,7 @@ import axios from '../axios';
 const ProductCard = ({ product }) => {
   return (
     <div className={styles.productCard}>
-      <h2>Informe de Producto</h2>
+      <h2>Informacion del producto:</h2>
       <div className={styles.productImage}>
         <img src={product.imagen&&product.imagen!=""?product.imagen:"logofinalremovebgpreview-1@2x.png"} alt={product.name} />
       </div>
@@ -99,6 +99,7 @@ const VistaAdministradorInformes = () => {
 
   return (
     <div className={styles.adminReports}> 
+      <h1>Informe de Productos</h1>
       <div className={styles.productReport}>
         <label>Fecha de inicio:</label>
         <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
