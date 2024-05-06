@@ -38,14 +38,20 @@ const SaveButtonFrame = () => {
       tipo_usuario
     };
 
-    if(selectedUsers&&selectedUsers.length!=0){
-      if(!Loaded){
-        return
+    if(
+      nombre_usuario!=""&&contrasena!=""&&nombre_real!=""&&
+      direccion!=""&&telefono!=""&&identificacion!=""&&
+      correo!=""&&tipo_identificacion!=""&&tipo_usuario!=""
+    ) {
+      if(selectedUsers&&selectedUsers.length!=0){
+        if(!Loaded){
+          return
+        }
+        usuarioInsertar.idusuarios = selectedUsers[0].idusuarios
+        axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
+      }else{
+        axios.post(`agregar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
       }
-      usuarioInsertar.idusuarios = selectedUsers[0].idusuarios
-      axios.post(`actualizar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
-    }else{
-      axios.post(`agregar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
     }
   };
 

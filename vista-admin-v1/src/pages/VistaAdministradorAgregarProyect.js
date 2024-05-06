@@ -33,8 +33,13 @@ const VistaAdministradorAgregarProyect = () => {
       estado_avance
     };
 
-    axios.post(`agregar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
-
+    if (
+      nombre!=""&&identificacion!=""&&
+      tipo_identificacion!=""&&telefono!=""&&
+      descripcion!=""&&fecha_entrega!=""&&estado_avance!=""
+    ) {
+      axios.post(`agregar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
+    }
   };
 
   const dataContext = useContext(DataContext);

@@ -36,22 +36,30 @@ const FrameComponent2 = () => {
       categorias
     };
 
-    if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
-      product.idproductos = dataContext.selectedProducts[0].idproductos
-      axios.post(`actualizar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
-    }else{
-      axios.post(`agregar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
+    if(
+      nombre!=""&&descripcion!=""&&
+      identificacion!=""&&precio_alquiler!=""&&
+      precio_compra!=""&&marca!=""&&
+      modelo!=""&&tipo_vehiculo!=""&&
+      estado!=""&&imagen!=""&&categorias!=""
+    ) {
+      if(dataContext.selectedProducts && dataContext.selectedProducts[0]){
+        product.idproductos = dataContext.selectedProducts[0].idproductos
+        axios.post(`actualizar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
+      }else{
+        axios.post(`agregar/producto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,product)
+      }
+
+      //Contenido de la notificación
+      setNotificationContent("¡Guardado exitoso!");
+
+      setShowNotification(true);
+
+      //Ocultar la notificación después de 2 segundos
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);
     }
-
-    //Contenido de la notificación
-    setNotificationContent("¡Guardado exitoso!");
-
-    setShowNotification(true);
-
-    //Ocultar la notificación después de 2 segundos
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 2000);
   };
 
   const drowpdownTipo = [

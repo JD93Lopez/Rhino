@@ -50,14 +50,19 @@ const VistaAdministradorProveedores = () => {
       telefono,
     };
 
-    axios.post(`agregar/proveedor/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,proveedor)
+    if (
+      nombre!=""&&nit!=""&&direccion!=""&&descripcion!=""&&telefono!=""
+    ) {
+      axios.post(`agregar/proveedor/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,proveedor)
+  
+      // Restablecer los valores del formulario
+      setNombre("");
+      setNit("");
+      setDireccion("");
+      setDescripcion("");
+      setTelefono("");
+    }
 
-    // Restablecer los valores del formulario
-    setNombre("");
-    setNit("");
-    setDireccion("");
-    setDescripcion("");
-    setTelefono("");
   };
 
   return (

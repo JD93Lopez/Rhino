@@ -33,14 +33,18 @@ const VistaAdministradorCompras = () => {
             total_impuestos
         };
         
-        axios.api(`8/${nitproveedor}/${responsable}/${p_descuento}/${total_impuestos}`).then((res)=>{
-            try {
-                if(res.data.Res&&res.data.Res!=0){
-                    CompraInsertar.idcompras = res.data.Res
-                    setCompra(CompraInsertar)
-                }
-            } catch (e) {}
-        })
+        if (
+            nitproveedor!=""&&responsable!=""&&p_descuento!=""&&total_impuestos!=""
+        ) {
+            axios.api(`8/${nitproveedor}/${responsable}/${p_descuento}/${total_impuestos}`).then((res)=>{
+                try {
+                    if(res.data.Res&&res.data.Res!=0){
+                        CompraInsertar.idcompras = res.data.Res
+                        setCompra(CompraInsertar)
+                    }
+                } catch (e) {}
+            })
+        }
     };
 
     const onEliminarCompraClick = () => {

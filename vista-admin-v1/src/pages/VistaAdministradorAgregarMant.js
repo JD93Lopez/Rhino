@@ -29,15 +29,18 @@ const VistaAdministradorAgregarMant = () => {
       precio:0 // TODO agregar precio front
     };
 
-    if(dataContext.selectedMant&&dataContext.selectedMant.length!=0){
-      mantenimientoInsertar.idhistorialmantenimientos = dataContext.selectedMant[0].idhistorialmantenimientos
-      mantenimientoInsertar.productos_idproductos = dataContext.selectedMant[0].producto.idproductos
-      axios.post(`actualizar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
-    }else{
-      mantenimientoInsertar.productos_idproductos = productos_idproductos
-      axios.post(`agregar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+    if (
+      fechamantenimiento!=""&&descripcion!=""
+    ) {
+      if(dataContext.selectedMant&&dataContext.selectedMant.length!=0){
+        mantenimientoInsertar.idhistorialmantenimientos = dataContext.selectedMant[0].idhistorialmantenimientos
+        mantenimientoInsertar.productos_idproductos = dataContext.selectedMant[0].producto.idproductos
+        axios.post(`actualizar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+      }else{
+        mantenimientoInsertar.productos_idproductos = productos_idproductos
+        axios.post(`agregar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
+      }
     }
-
   };
 
   return (
