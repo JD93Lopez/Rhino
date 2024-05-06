@@ -54,11 +54,37 @@ const TarjetaCompras = ({ responsable, empresa, total, fecha, object }) => {
         </div>
         <div className={styles.infoItem}>
           <span>Total: </span>
-          <span style={{fontWeight:"lighter"}}>&nbsp;{total?total:"0"}</span>
+          <span style={{fontWeight:"lighter"}}>&nbsp;{total?agregarPuntos(total):"0"}</span>
         </div>
       </div>
     </div>
   );
 };
+
+function agregarPuntos(numero) {
+  // Convertir el número a string para poder manipularlo
+  let numeroString = numero.toString();
+
+  // Obtener la longitud del número
+  let longitud = numeroString.length;
+
+  // Calcular la cantidad de puntos a agregar
+  let cantidadPuntos = Math.floor((longitud - 1) / 3);
+
+  // Crear un array para almacenar las partes del número
+  let partes = [];
+
+  // Recorrer el número de atrás hacia adelante para separarlo en partes de 3 dígitos
+  for (let i = longitud - 1; i >= 0; i -= 3) {
+      let inicio = Math.max(0, i - 2); // Índice inicial de la subcadena
+      let parte = numeroString.substring(inicio, i + 1); // Obtener la parte de 3 dígitos
+      partes.unshift(parte); // Agregar la parte al principio del array
+  }
+
+  // Unir las partes con puntos
+  let numeroFormateado = partes.join('.');
+
+  return numeroFormateado;
+}
 
 export default TarjetaCompras;
