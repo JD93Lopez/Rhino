@@ -1044,6 +1044,35 @@ server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) 
     }
 });
 
+//Eliminar compra
+server.get('/api/eliminar/compra/:id/:usuario/:contrasena', async (req, res) => {
+    try {
+        
+        //TODO comprobar permisos
+
+        const id = req.params.id;
+        await Fetch.fetchApi(`delete/compras/${id}`)
+
+        res.json({ Res: true });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
+//Eliminar mantenimiento
+server.get('/api/eliminar/mantenimiento/:id/:usuario/:contrasena', async (req, res) => {
+    try {
+        
+        //TODO comprobar permisos
+
+        const id = req.params.id;
+        await Fetch.fetchApi(`delete/mantenimientos/${id}`)
+
+        res.json({ Res: true });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
 //FIN FUNCIONES CRUD
 
 
