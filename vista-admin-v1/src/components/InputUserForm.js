@@ -33,6 +33,7 @@ const InputUserForm = () => {
       document.getElementById("inputcorreousuario").value = selectedUsers[0].correo
       document.getElementById("inputtipoidentificacion").value = selectedUsers[0].tipo_identificacion
       document.getElementById("inputtipodeusuario").value = selectedUsers[0].tipo_usuario
+      document.getElementById("inputestadodeusuario").value = selectedUsers[0].estado
     }
   }, [ selectedUsers]);
   return (
