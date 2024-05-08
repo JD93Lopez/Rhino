@@ -411,7 +411,7 @@ server.post('/dbapi/insert/usuarios', async (req, res) => {
     try {
 
         const usuarioInsertar = req.body
-        DBConnection.insertarUsuario(usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
+        DBConnection.insertarUsuario(usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario, usuarioInsertar.estado)
         res.json({ DBRes: "Insercion Finalizada" });
     } catch (error) {
         res.json({ DBRes: error });
@@ -633,11 +633,12 @@ server.get('/dbapi/get/categorias', async (req, res) => {
 server.post('/dbapi/update/usuarios', async (req, res) => {
     try {
         
-        const usuarioInsertar = req.body;
+        const usuarioInsertar = req.body
         
-        DBConnection.actualizarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario)
+        DBConnection.actualizarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario, usuarioInsertar.estado)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
+        console.log(error)
         res.json({ DBRes: error });
     }
 });

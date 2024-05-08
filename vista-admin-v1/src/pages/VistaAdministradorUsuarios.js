@@ -151,7 +151,7 @@ const VistaAdministradorUsuarios = () => {
                           nombreCompleto={usuario.nombre_real}
                           email={usuario.correo}
                           telefono={usuario.telefono}
-                          estado={"Activo"}
+                          estado={usuario.estado}
                           key={usuario.correo}
                           id={"usuario" + usuario.correo}
                           useref={"usuario" + usuario.correo}

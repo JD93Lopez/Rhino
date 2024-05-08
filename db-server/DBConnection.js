@@ -22,12 +22,13 @@ const insertarUsuario = async (
   identificacion,
   correo,
   tipo_identificacion,
-  tipo_usuario
+  tipo_usuario,
+  estado
 ) => {
   const pool = new Pool(config);
   try {
     const texto =
-      "insert into usuarios(nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario) values($1, $2, $3, $4, $5, $6, $7, $8, $9)";
+      "insert into usuarios(nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario, estado) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
     const values = [
       nombre_usuario,
       contrasena,
@@ -38,6 +39,7 @@ const insertarUsuario = async (
       correo,
       tipo_identificacion,
       tipo_usuario,
+      estado
     ];
     const DBRes = await pool.query(texto, values);
     return DBRes;
@@ -57,7 +59,8 @@ const actualizarUsuario = async (
   identificacion,
   correo,
   tipo_identificacion,
-  tipo_usuario
+  tipo_usuario,
+  estado
 ) => {
   const pool = new Pool(config);
   try {
@@ -65,7 +68,7 @@ const actualizarUsuario = async (
     let values
     if(contrasena&&contrasena!=""){
       texto =
-        "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10 WHERE idUsuarios = $1";
+        "UPDATE USUARIOS SET nombre_usuario = $2, contrasena = $3, nombre_real = $4, direccion = $5, telefono = $6, identificacion = $7, correo = $8, tipo_identificacion = $9, tipo_usuario = $10, estado = $11 WHERE idUsuarios = $1";
       values = [
         idUsuarios,
         nombre_usuario,
@@ -76,11 +79,12 @@ const actualizarUsuario = async (
         identificacion,
         correo,
         tipo_identificacion,
-        tipo_usuario
+        tipo_usuario,
+        estado
       ];
     }else{
       texto =
-        "UPDATE USUARIOS SET nombre_usuario = $2, nombre_real = $3, direccion = $4, telefono = $5, identificacion = $6, correo = $7, tipo_identificacion = $8, tipo_usuario = $9 WHERE idUsuarios = $1";
+        "UPDATE USUARIOS SET nombre_usuario = $2, nombre_real = $3, direccion = $4, telefono = $5, identificacion = $6, correo = $7, tipo_identificacion = $8, tipo_usuario = $9, estado = $10 WHERE idUsuarios = $1";
       values = [
         idUsuarios,
         nombre_usuario,
@@ -90,12 +94,14 @@ const actualizarUsuario = async (
         identificacion,
         correo,
         tipo_identificacion,
-        tipo_usuario
+        tipo_usuario,
+        estado
       ];
     }
     const DBRes = await pool.query(texto, values);
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al actualizar el usuario");
   }
   pool.end();

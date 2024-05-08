@@ -55,10 +55,6 @@ const InputUserForm = () => {
           identificacin="Tipo de Usuario"
           propPadding="0px 0px var(--padding-50xl)"
         />
-        <div className={styles.casillaContrasea}>
-          <div className={styles.contrasea}>Contraseña</div>
-          <input className={styles.backButtonFrame} type="text" id= "inputcontrasenausuario" useref={"inputcontrasenausuario"} />
-        </div>
       </div>
     </section>
   );
