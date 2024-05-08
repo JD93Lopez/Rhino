@@ -265,17 +265,50 @@ const insertarProducto = async (
   }
 };
 
-const eliminarProducto = async (idProductos) => {
-  const pool = new Pool(config);
+const eliminarProducto = async (idproductos) => {
+  let pool
   try {
-    const texto = "DELETE FROM PRODUCTOS WHERE idProductos = $1";
-    const values = [idProductos];
+    pool = new Pool(config)
+
+    let texto = `DELETE FROM productos_has_categorias WHERE productos_idproductos = ${idproductos}`;
+    let values = [];
+    await pool.query(texto, values);
+
+    pool.end()
+    pool = new Pool(config);
+
+    texto = "DELETE FROM PRODUCTOS WHERE idProductos = $1";
+    values = [idproductos];
     const DBRes = await pool.query(texto, values);
+    pool.end();
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al eliminar el producto");
   }
-  pool.end();
+};
+
+const eliminarCompra = async (idcompras) => {
+  let pool
+  try {
+    pool = new Pool(config)
+
+    let texto = `DELETE FROM productos_has_compras WHERE compras_idcompras = ${idcompras}`;
+    let values = [];
+    await pool.query(texto, values);
+
+    pool.end()
+    pool = new Pool(config);
+
+    texto = "DELETE FROM COMPRAS WHERE idcompras = $1";
+    values = [idcompras];
+    const DBRes = await pool.query(texto, values);
+    pool.end();
+    return DBRes;
+  } catch (error) {
+    console.log(error)
+    console.log("Error al eliminar la compra");
+  }
 };
 
 const actualizarProducto = async (
@@ -512,6 +545,20 @@ const actualizarMantenimientos = async (idhistorialmantenimientos,fecharegistro,
   pool.end();
 };
 
+const eliminarMantenimientos = async (idhistorialmantenimientos) => {
+  const pool = new Pool(config);
+  try {
+    const texto = "DELETE FROM HISTORIAL_MANTENIMIENTOS WHERE idhistorialmantenimientos = $1";
+    const values = [idhistorialmantenimientos];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log("Error al eliminar el usuario");
+  }
+  pool.end();
+};
+
+
 const obtenerConductores = async () => {
   const pool = new Pool(config);
   try {
@@ -650,9 +697,12 @@ module.exports = {
   obtenerContrasenaUsuario, 
   
   insertarMantenimientos,actualizarMantenimientos,
+  eliminarMantenimientos,
   idProductoPorIdentificacion,
 
   sqlQuery, sqlQueryValues,
+
+  eliminarCompra,
 
   objetoFuncionesLogicaNegocioBD
 };

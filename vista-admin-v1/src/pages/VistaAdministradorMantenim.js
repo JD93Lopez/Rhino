@@ -24,6 +24,20 @@ const VistaAdministradorMantenim = () => {
   
   }, [navigate, dataContext]);
 
+  const onEliminarMantenimientoClick = useCallback(() => {
+    if (dataContext.selectedMant.length === 1) {
+      axios.api(`eliminar/mantenimiento/${dataContext.selectedMant[0].idhistorialmantenimientos}/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`)
+        .then(() => {
+          // Remove the deleted maintenance from the local state
+          setMantenimientos(mantenimientos.filter(m => m.idhistorialmantenimientos !== dataContext.selectedMant[0].idhistorialmantenimientos));
+          // Navigate to the main maintenance view
+        })
+        .catch(err => {
+          console.error("Error al eliminar el mantenimiento", err);
+        });
+    }
+  }, [dataContext, mantenimientos, setMantenimientos, navigate]);
+
   dataContext.selectedMant = []
 
   if(!mantenimientos){
@@ -107,7 +121,9 @@ const VistaAdministradorMantenim = () => {
                     >Actualizar</div>
                   </button>
                   <button 
-                    className={styles.eliminarUsuariosSeleccionados}>
+                    className={styles.eliminarUsuariosSeleccionados}
+                    onClick={onEliminarMantenimientoClick}
+                    >
                     <div calssName={styles.eliminarusuarioChild} />
                     <div className={styles.EliminarSeleccionados} >Eliminar</div>
                   </button>

@@ -39,8 +39,8 @@ const FrameComponent2 = () => {
     if(
       nombre!=""&&descripcion!=""&&
       identificacion!=""&&precio_alquiler!=""&&
-      precio_compra!=""&&marca!=""&&
-      modelo!=""&&tipo_vehiculo!=""&&
+      marca!=""&&modelo!=""&&
+      tipo_vehiculo!=""&&
       estado!=""&&imagen!=""&&categorias!=""
     ) {
       if(dataContext.selectedProducts && dataContext.selectedProducts[0]){

@@ -4,10 +4,12 @@ import { TarjetaProductoCompras } from "../components/TarjetaProductoCompras";
 import styles from "./VistaAdministradorCompras.module.css";
 import axios from "../axios";
 import { DataContext } from "../components/DataProvider";
+import { useNavigate } from "react-router-dom";
 
 const VistaAdministradorCompras = () => {
 
     const dataContext = useContext(DataContext)
+    const navigate = useNavigate()
 
     const [compra, setCompra] = useState()
     const [productos, setProductos] = useState()
@@ -47,9 +49,19 @@ const VistaAdministradorCompras = () => {
         }
     };
 
-    const onEliminarCompraClick = () => {
-
-    }
+    const onEliminarCompraClick = useCallback(() => {
+        if (compra && compra.idcompras) {
+          axios.api(`eliminar/compra/${compra.idcompras}/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`)
+            .then(() => {
+              setCompra(null);
+              setProductos(null);
+              navigate('/vista-administrador-all-compras')
+            })
+            .catch((error) => {
+              console.error("Error al eliminar la compra", error);
+            });
+        }
+      }, [dataContext, setCompra, setProductos, compra]);
     
     const onAgregarProductoClick = () => {
     

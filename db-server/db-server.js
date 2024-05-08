@@ -735,7 +735,7 @@ server.get('/dbapi/delete/productos/:id', async (req, res) => {
     try {
         
         const id = req.params.id;
-        DBConnection.eliminarProducto(id)
+        await DBConnection.eliminarProducto(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
     } catch (error) {
         res.json({ DBRes: error });
@@ -766,6 +766,32 @@ server.get('/dbapi/delete/conductores/:id', async (req, res) => {
         res.json({ DBRes: error });
     }
 });
+
+//Eliminar compra
+server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
+    try {
+        
+        const id = req.params.id;
+        await DBConnection.eliminarMantenimientos(id)
+        res.json({ DBRes: "Eliminacion Finalizada" });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
+//Eliminar mantenimiento
+server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
+    try {
+        
+        const id = req.params.id;
+        DBConnection.eliminarUsuario(id)
+        res.json({ DBRes: "Eliminacion Finalizada" });
+    } catch (error) {
+        console.log(error)
+        res.json({ DBRes: error });
+    }
+});
+
 
 //Consulta personalizada
 server.get('/dbapi/sqlquery/:sqlQuery/:JSONValues', async (req, res) => {
