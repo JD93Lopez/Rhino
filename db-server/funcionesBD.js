@@ -486,6 +486,32 @@ const funcionesLogicaNegocioBD = (config) => {
     }
     pool.end();
   }
+  //cargar soat
+  funciones.cargarSoat = async (idproductos, soat) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`UPDATE productos SET soat = $2 WHERE idproductos = $1 `, 
+      [idproductos, soat]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
+  //cargar tecnicomecanica
+  funciones.cargarTM = async (idproductos, tm) => {
+    const pool = new Pool(config);
+    try {
+      const DBRes = await pool.query(`UPDATE productos SET tecnicomecanica = $2 WHERE idproductos = $1 `, 
+      [idproductos, tm]);
+      return DBRes;
+    } catch (error) {
+      console.log(error)
+      console.log("Error en la operacion ");
+    }
+    pool.end();
+  }
   
   return funciones
 }

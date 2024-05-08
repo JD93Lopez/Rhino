@@ -106,20 +106,7 @@ const VistaAdministradorAgregar = () => {
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
-                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T " />
                       <div className={styles.descargarSOAT}>
-                        <div
-                          className={styles.cargarTcnicoMecnica}
-                        >{`Cargar Técnico Mecánica `}</div>
-                        <div className={styles.imagenFrame}>
-                          <div className={styles.precioTipoFrame}>
-                            <input
-                              type="file"
-                              id="inputTecnoMecanica"
-                              useref={"inputTecnoMecanica"}
-                            />
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>

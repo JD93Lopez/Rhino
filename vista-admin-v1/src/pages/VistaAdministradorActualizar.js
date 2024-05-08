@@ -60,6 +60,14 @@ const VistaAdministradorActualizar = () => {
         dataContext.imagenProducto = selectedProducts[0].imagen
         document.getElementById("imagenProducto").src = selectedProducts[0].imagen;
       }
+      if(selectedProducts[0].soat!=null){
+        dataContext.soat = selectedProducts[0].soat
+        setMostrarDescargarSoat(true)
+      }
+      if(selectedProducts[0].tecnicomecanica!=null){
+        dataContext.tm = selectedProducts[0].tecnicomecanica
+        setMostrarDescargarTM(true)
+      }
 
     }
   }, [dataContext.Loaded, dataContext]);
@@ -120,6 +128,47 @@ const VistaAdministradorActualizar = () => {
     navigate("/vista-administrador-agenda");
   }, [navigate]);
 
+  const [mostrarDescargarSoat, setMostrarDescargarSoat] = useState(false)
+  
+  const handleDownloadSoat = () => {
+    if (dataContext.soat) {
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataContext.soat;
+      downloadLink.download = `SOAT Producto ${dataContext.selectedProducts[0].identificacion}`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  };
+
+  const [mostrarDescargarTM, setMostrarDescargarTM] = useState(false)
+
+  const handleDownloadTM = () => {
+    if (dataContext.tm) {
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataContext.tm;
+      downloadLink.download = `Técnico Mecánica Producto ${dataContext.selectedProducts[0].identificacion}`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        axios.post(`cargarTM`,{idproductos: dataContext.selectedProducts[0].idproductos,tecnicomecanica: reader.result}).then(()=>{
+          dataContext.tm = reader.result;
+          setMostrarDescargarTM(true)
+        })
+      };
+    }
+  };
+
   return (
     <div className={styles.vistaAdministradorAgregar}>
       <div className={styles.vistaAdministradorAgregarChild} />
@@ -162,14 +211,14 @@ const VistaAdministradorActualizar = () => {
                   </div>
                   <div className={styles.tituloCrearUsuarioFrame}>
                     <div className={styles.frameCargarSOAT}>
-                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T " />
+                      <SeleccionarArchivoText cargarSOAT="Cargar S.O.A.T " setMostrarDescargarSoat={setMostrarDescargarSoat} idproductos={dataContext.selectedProducts[0]&&dataContext.selectedProducts[0].idproductos}/>
                       <div className={styles.descargarSOAT}>
                         <div
                           className={styles.cargarTcnicoMecnica}
                         >{`Cargar Técnico Mecánica `}</div>
                         <div className={styles.imagenFrame}>
                           <div className={styles.precioTipoFrame}>
-                          <input type='file' id ="inputImagenProducto" useref={ "inputImagenProducto"}/> 
+                          <input type='file' id ="inputTM" useref={ "inputTM"} onChange={handleFileChange}/> 
                           </div>
                         </div>
                       </div>
@@ -178,18 +227,18 @@ const VistaAdministradorActualizar = () => {
                 </div>
               </div>
               <div className={styles.frameParent}>
-                <div className={styles.descargarSoatWrapper}>
+                {mostrarDescargarSoat&&dataContext.soat&&<div className={styles.descargarSoatWrapper}>
                   <div
                     className={styles.descargarSoat}
                   >{`Descargar S.O.A.T `}</div>
-                  <button>Descargar</button>
-                </div>
-                <div
+                  <button onClick={handleDownloadSoat}>Descargar</button>
+                </div>}
+                {mostrarDescargarTM&&dataContext.tm&&<div
                   className={styles.descargarTcnicoMecnica}
                 >
                   {`Descargar Técnico Mecánica `}
-                  <button>Descargar</button>
-                </div>
+                  <button onClick={handleDownloadTM}>Descargar</button>
+                </div>}
               </div>
               <div style={{width:"635px"}}>
                 {/* lista desplegable con opciones de categorias label categoria y value el id*/}

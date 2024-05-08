@@ -10,7 +10,7 @@ let server = express();
 const PORT = config.port; // Puerto del servidor
 const IP = config.ip; // Ip del servidor
 
-//Puertos e ips permitidas 
+//Puertos e ips permitidas
 const corsLinks = config.corsLinks
 corsLinks.forEach(link => {
     server.use(cors({ origin: link }));
@@ -54,7 +54,7 @@ let funcionesBD = DBConnection.objetoFuncionesLogicaNegocioBD
 //1 Crear Alquiler
 server.get('/dbapi/clienteAgregarAlquiler1/:Usuarios_idUsuarios', async (req, res) => {
     try {
-    
+
         const Usuarios_idUsuarios = req.params.Usuarios_idUsuarios
 
         res.json({ DBRes: (await funcionesBD.clienteAgregarAlquiler1(Usuarios_idUsuarios)).rows[0].idalquileres });
@@ -65,7 +65,7 @@ server.get('/dbapi/clienteAgregarAlquiler1/:Usuarios_idUsuarios', async (req, re
 //2 Crear Agenda
 server.get('/dbapi/clienteAgregarAgenda2/:fecha_inicio/:fecha_fin/:lugar_origen/:lugar_destino', async (req, res) => {
     try {
-    
+
         const fecha_inicio = req.params.fecha_inicio
         const fecha_fin = req.params.fecha_fin
         const lugar_origen = req.params.lugar_origen
@@ -76,10 +76,10 @@ server.get('/dbapi/clienteAgregarAgenda2/:fecha_inicio/:fecha_fin/:lugar_origen/
         res.json({ DBRes: error });
     }
 });
-//3 cliente agregar en tabla productos has alquileres 
+//3 cliente agregar en tabla productos has alquileres
 server.get('/dbapi/clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/:ALQUILERES_idAlquileres/:ALQUILERES_Usuarios_idUsuarios/:AGENDAS_idAgenda', async (req, res) => {
     try {
-    
+
         const PRODUCTOS_idProductos = req.params.PRODUCTOS_idProductos
         const ALQUILERES_idAlquileres = req.params.ALQUILERES_idAlquileres
         const ALQUILERES_Usuarios_idUsuarios = req.params.ALQUILERES_Usuarios_idUsuarios
@@ -93,7 +93,7 @@ server.get('/dbapi/clienteAgregarProductosHasAlquileres3/:PRODUCTOS_idProductos/
 //3.5 administrador agregar conductor
 server.get('/dbapi/administradorAgregarConductor3_5/:nombre/:cedula/:telefono', async (req, res) => {
     try {
-    
+
         const nombre = req.params.nombre
         const cedula = req.params.cedula
         const telefono = req.params.telefono
@@ -106,7 +106,7 @@ server.get('/dbapi/administradorAgregarConductor3_5/:nombre/:cedula/:telefono', 
 //3.51 administrador actualizar idConductores para tabla agenda
 server.get('/dbapi/administradorActualizarConductorDeAgenda3_51/:idAgenda/:idConductores', async (req, res) => {
     try {
-    
+
         const idAgenda = req.params.idAgenda
         const idConductores = req.params.idConductores
 
@@ -118,7 +118,7 @@ server.get('/dbapi/administradorActualizarConductorDeAgenda3_51/:idAgenda/:idCon
 //4 administrador actualizar alquiler tras rellenar campos restantes
 server.get('/dbapi/administradorActualizarAlquiler4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impuestos/:valor_conductores/:gastos_adicionales/:justificacion_ga', async (req, res) => {
     try {
-    
+
         const idAlquileres = req.params.idAlquileres
         const subtotal = req.params.subtotal
         const total = req.params.total
@@ -136,7 +136,7 @@ server.get('/dbapi/administradorActualizarAlquiler4/:idAlquileres/:subtotal/:tot
 //5 cliente actualizar alquiler al pagar cotizacion
 server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) => {
     try {
-    
+
         const idAlquileres = req.params.idAlquileres
 
         res.json({ DBRes: await funcionesBD.clienteActualizarAlquiler5( idAlquileres ) });
@@ -145,10 +145,10 @@ server.get('/dbapi/clienteActualizarAlquiler5/:idAlquileres', async (req, res) =
     }
 });
 //TODO 6 y 7
-//8 administrador agregar compras 
+//8 administrador agregar compras
 server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:responsable/:p_descuento/:p_impuestos', async (req, res) => {
     try {
-    
+
         const Proveedores_idProveedores = req.params.Proveedores_idProveedores
         const responsable = req.params.responsable
         const p_descuento = req.params.p_descuento
@@ -162,7 +162,7 @@ server.get('/dbapi/administradorAgregarCompras8/:Proveedores_idProveedores/:resp
 //8.5 administrador actualizar compras
 server.get('/dbapi/administradorActualizarCompras8_5/:idcompras/:total/:subtotal/:total_descuento/:total_impuestos', async (req, res) => {
     try {
-    
+
         const idcompras = req.params.idcompras
         const total = req.params.total
         const subtotal = req.params.subtotal
@@ -174,10 +174,10 @@ server.get('/dbapi/administradorActualizarCompras8_5/:idcompras/:total/:subtotal
         res.json({ DBRes: error });
     }
 });
-//9 administrador agregar en la tabla productos has compras 
+//9 administrador agregar en la tabla productos has compras
 server.get('/dbapi/administradorAgregarProductosHasCompras9/:PRODUCTOS_idProductos/:COMPRAS_idCompras/:COMPRAS_Proveedores_idProveedores', async (req, res) => {
     try {
-    
+
         const PRODUCTOS_idProductos = req.params.PRODUCTOS_idProductos
         const COMPRAS_idCompras = req.params.COMPRAS_idCompras
         const COMPRAS_Proveedores_idProveedores = req.params.COMPRAS_Proveedores_idProveedores
@@ -277,9 +277,9 @@ server.get('/dbapi/agendasPorProducto/:idproductos', async (req, res) => {
 //Consultar alquileres por usuario
 server.get('/dbapi/alquileresPorUsuario/:idusuarios', async (req, res) => {
     try {
-        
+
         const idusuarios = req.params.idusuarios
-        
+
         res.json({ DBRes: (await funcionesBD.alquileresPorUsuario( idusuarios )).rows });
     } catch (error) {
         res.json({ DBRes: error });
@@ -398,6 +398,29 @@ server.get('/dbapi/obtenerMantenimientosConIdproductos/:idproductos', async (req
         res.json({ DBRes: error });
     }
 });
+//cargar soat
+server.post('/dbapi/cargarSoat', async (req, res) => {
+    try {
+
+        const producto = req.body
+
+        res.json({ DBRes: (await funcionesBD.cargarSoat(producto.idproductos,producto.soat)) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+//cargar tecnico mecanica
+server.post('/dbapi/cargarTM', async (req, res) => {
+    try {
+
+        const producto = req.body
+
+        res.json({ DBRes: (await funcionesBD.cargarTM(producto.idproductos,producto.tecnicomecanica)) });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 
 
 
@@ -421,7 +444,7 @@ server.post('/dbapi/insert/usuarios', async (req, res) => {
 //Insertar proveedor
 server.post('/dbapi/insert/proveedores', async (req, res) => {
     try {
-        
+
         const proveedorInsertar = req.body
         DBConnection.insertarProveedor(proveedorInsertar.nombre, proveedorInsertar.nit, proveedorInsertar.direccion, proveedorInsertar.descripcion, proveedorInsertar.telefono)
         res.json({ DBRes: "Insercion Finalizada" });
@@ -433,7 +456,7 @@ server.post('/dbapi/insert/proveedores', async (req, res) => {
 //Insertar producto
 server.post('/dbapi/insert/productos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         DBConnection.insertarProducto(objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen, objetoAInsertar.categorias)
         res.json({ DBRes: "Insercion Finalizada" });
@@ -445,7 +468,7 @@ server.post('/dbapi/insert/productos', async (req, res) => {
 //Insertar proyecto
 server.post('/dbapi/insert/proyectos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         DBConnection.insertarProyecto(objetoAInsertar.nombre, objetoAInsertar.identificacion, objetoAInsertar.tipo_identificacion, objetoAInsertar.telefono, objetoAInsertar.descripcion, objetoAInsertar.fecha_entrega, objetoAInsertar.estado_avance)
         res.json({ DBRes: "Insercion Finalizada" });
@@ -457,7 +480,7 @@ server.post('/dbapi/insert/proyectos', async (req, res) => {
 //Insertar conductor
 server.get('/dbapi/insert/conductores/:JSONObject', async (req, res) => {
     try {
-        
+
         const JSONObject = req.params.JSONObject;
         const objetoAInsertar = JSON.parse(JSONObject)
         DBConnection.insertarConductor(objetoAInsertar.nombre, objetoAInsertar.cedula, objetoAInsertar.telefono)
@@ -470,7 +493,7 @@ server.get('/dbapi/insert/conductores/:JSONObject', async (req, res) => {
 //Insertar mantenimiento
 server.post('/dbapi/insert/mantenimientos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         const productoRes = (await DBConnection.idProductoPorIdentificacion(objetoAInsertar.productos_idproductos))
         if(productoRes&&productoRes.rows[0]&&productoRes.rows[0].idproductos){
@@ -497,7 +520,7 @@ server.get('/dbapi/get/constrasenatipo/:nUsuario', async (req, res) => {
 //Obtener usuarios
 server.get('/dbapi/get/usuarios', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerUsuarios() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -509,7 +532,7 @@ server.get('/dbapi/get/usuarioporid/:idusuarios', async (req, res) => {
     try {
 
         const idusuarios = req.params.idusuarios
-        
+
         res.json({ DBRes: await funcionesBD.usuarioPorID(idusuarios) });
     } catch (error) {
         res.json({ DBRes: error });
@@ -521,7 +544,7 @@ server.get('/dbapi/consultarCategoriasDeProducto/:idproductos', async (req, res)
     try {
 
         const idproductos = req.params.idproductos
-        
+
         res.json({ DBRes: await funcionesBD.consultarCategoriasDeProducto(idproductos) });
     } catch (error) {
         res.json({ DBRes: error });
@@ -531,7 +554,7 @@ server.get('/dbapi/consultarCategoriasDeProducto/:idproductos', async (req, res)
 //Obtener proveedores
 server.get('/dbapi/get/proveedores', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerProveedores() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -541,7 +564,7 @@ server.get('/dbapi/get/proveedores', async (req, res) => {
 //Obtener productos
 server.get('/dbapi/get/productos', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerProductos() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -551,7 +574,7 @@ server.get('/dbapi/get/productos', async (req, res) => {
 //Obtener productos diferente modelo
 server.get('/dbapi/get/productosDifModelo', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerProductosDistintoModelo() });
     } catch (error) {
         console.log(error)
@@ -562,7 +585,7 @@ server.get('/dbapi/get/productosDifModelo', async (req, res) => {
 //Obtener proyectos
 server.get('/dbapi/get/proyectos', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerProyectos() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -572,7 +595,7 @@ server.get('/dbapi/get/proyectos', async (req, res) => {
 //Obtener conductores
 server.get('/dbapi/get/conductores', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await DBConnection.obtenerConductores() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -582,7 +605,7 @@ server.get('/dbapi/get/conductores', async (req, res) => {
 //Obtener mantenimientos
 server.get('/dbapi/get/mantenimientos', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await funcionesBD.obtenerMantenimientos() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -592,7 +615,7 @@ server.get('/dbapi/get/mantenimientos', async (req, res) => {
 //Obtener alquileres
 server.get('/dbapi/get/alquileres', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await funcionesBD.obtenerAlquileres() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -602,7 +625,7 @@ server.get('/dbapi/get/alquileres', async (req, res) => {
 //Obtener categorias transporte
 server.get('/dbapi/get/categorias/transporte', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await funcionesBD.obtenerCategoriasTransporte() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -612,7 +635,7 @@ server.get('/dbapi/get/categorias/transporte', async (req, res) => {
 //Obtener categorias maquinaria
 server.get('/dbapi/get/categorias/maquinaria', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await funcionesBD.obtenerCategoriasMaquinaria() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -622,7 +645,7 @@ server.get('/dbapi/get/categorias/maquinaria', async (req, res) => {
 //Obtener categorias
 server.get('/dbapi/get/categorias', async (req, res) => {
     try {
-        
+
         res.json({ DBRes: await funcionesBD.obtenerCategorias() });
     } catch (error) {
         res.json({ DBRes: error });
@@ -632,9 +655,9 @@ server.get('/dbapi/get/categorias', async (req, res) => {
 //Actualizar usuario
 server.post('/dbapi/update/usuarios', async (req, res) => {
     try {
-        
+
         const usuarioInsertar = req.body
-        
+
         DBConnection.actualizarUsuario(usuarioInsertar.idusuarios, usuarioInsertar.nombre_usuario, usuarioInsertar.contrasena, usuarioInsertar.nombre_real, usuarioInsertar.direccion, usuarioInsertar.telefono, usuarioInsertar.identificacion, usuarioInsertar.correo, usuarioInsertar.tipo_identificacion, usuarioInsertar.tipo_usuario, usuarioInsertar.estado)
         res.json({ DBRes: "Actualizacion Finalizada" });
     } catch (error) {
@@ -646,7 +669,7 @@ server.post('/dbapi/update/usuarios', async (req, res) => {
 //Actualizar proveedor
 server.get('/dbapi/update/proveedores/:JSONProveedor', async (req, res) => {
     try {
-        
+
         const JSONProveedor = req.params.JSONProveedor;
         const proveedorInsertar = JSON.parse(JSONProveedor)
         DBConnection.actualizarProveedor(proveedorInsertar.idproveedores, proveedorInsertar.nombre, proveedorInsertar.nit, proveedorInsertar.direccion, proveedorInsertar.descripcion, proveedorInsertar.telefono)
@@ -659,7 +682,7 @@ server.get('/dbapi/update/proveedores/:JSONProveedor', async (req, res) => {
 //Actualizar producto
 server.post('/dbapi/update/productos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         DBConnection.actualizarProducto(objetoAInsertar.idproductos, objetoAInsertar.nombre, objetoAInsertar.descripcion, objetoAInsertar.identificacion, objetoAInsertar.precio_alquiler, objetoAInsertar.precio_compra, objetoAInsertar.marca, objetoAInsertar.modelo, objetoAInsertar.tipo_vehiculo, objetoAInsertar.estado, objetoAInsertar.imagen, objetoAInsertar.categorias)
         res.json({ DBRes: "Actualizacion Finalizada" });
@@ -672,7 +695,7 @@ server.post('/dbapi/update/productos', async (req, res) => {
 //Actualizar proyecto
 server.post('/dbapi/update/proyectos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         DBConnection.actualizarProyecto(objetoAInsertar.idproyectos, objetoAInsertar.nombre, objetoAInsertar.identificacion, objetoAInsertar.tipo_identificacion, objetoAInsertar.telefono, objetoAInsertar.descripcion, objetoAInsertar.fecha_entrega, objetoAInsertar.estado_avance)
         res.json({ DBRes: "Actualizacion Finalizada" });
@@ -684,7 +707,7 @@ server.post('/dbapi/update/proyectos', async (req, res) => {
 //Actualizar conductor
 server.get('/dbapi/update/conductores/:JSONObject', async (req, res) => {
     try {
-        
+
         const JSONObject = req.params.JSONObject;
         const objetoAInsertar = JSON.parse(JSONObject)
         DBConnection.actualizarConductor(objetoAInsertar.idconductores, objetoAInsertar.nombre, objetoAInsertar.cedula, objetoAInsertar.telefono)
@@ -697,7 +720,7 @@ server.get('/dbapi/update/conductores/:JSONObject', async (req, res) => {
 //Actualizar mantenimiento
 server.post('/dbapi/update/mantenimientos', async (req, res) => {
     try {
-        
+
         const objetoAInsertar = req.body
         DBConnection.actualizarMantenimientos(objetoAInsertar.idhistorialmantenimientos,objetoAInsertar.fecharegistro, objetoAInsertar.fechamantenimiento, objetoAInsertar.precio, objetoAInsertar.productos_idproductos, objetoAInsertar.descripcion)
         res.json({ DBRes: "Actualizacion Finalizada" });
@@ -709,7 +732,7 @@ server.post('/dbapi/update/mantenimientos', async (req, res) => {
 //Eliminar usuario
 server.get('/dbapi/delete/usuarios/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         DBConnection.eliminarUsuario(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -722,7 +745,7 @@ server.get('/dbapi/delete/usuarios/:id', async (req, res) => {
 //Eliminar proveedores
 server.get('/dbapi/delete/proveedores/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         DBConnection.eliminarProveedor(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -734,7 +757,7 @@ server.get('/dbapi/delete/proveedores/:id', async (req, res) => {
 //Eliminar productos
 server.get('/dbapi/delete/productos/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         await DBConnection.eliminarProducto(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -746,7 +769,7 @@ server.get('/dbapi/delete/productos/:id', async (req, res) => {
 //Eliminar proyectos
 server.get('/dbapi/delete/proyectos/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         DBConnection.eliminarProyecto(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -758,7 +781,7 @@ server.get('/dbapi/delete/proyectos/:id', async (req, res) => {
 //Eliminar conductores
 server.get('/dbapi/delete/conductores/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         DBConnection.eliminarConductor(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -771,7 +794,7 @@ server.get('/dbapi/delete/conductores/:id', async (req, res) => {
 //Eliminar compra
 server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         await DBConnection.eliminarMantenimientos(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -783,7 +806,7 @@ server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
 //Eliminar mantenimiento
 server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
     try {
-        
+
         const id = req.params.id;
         DBConnection.eliminarUsuario(id)
         res.json({ DBRes: "Eliminacion Finalizada" });
@@ -798,10 +821,10 @@ server.get('/dbapi/delete/mantenimientos/:id', async (req, res) => {
 server.get('/dbapi/sqlquery/:sqlQuery/:JSONValues', async (req, res) => {
     let bool = false
     try {
-        
+
         const sqlQuery = req.params.sqlQuery
         const JSONValues = req.params.JSONValues
-        
+
         const values = JSON.parse(JSONValues)
         res.json({ DBRes: await DBConnection.sqlQueryValues(sqlQuery, values) });
 
@@ -814,9 +837,9 @@ server.get('/dbapi/sqlquery/:sqlQuery/:JSONValues', async (req, res) => {
 server.get('/dbapi/sqlquery/:sqlQuery', async (req, res) => {
     let bool = false
     try {
-        
+
         const sqlQuery = req.params.sqlQuery
-        
+
         res.json({ DBRes: await DBConnection.sqlQuery(sqlQuery) });
 
     } catch (error) {

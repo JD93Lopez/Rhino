@@ -352,6 +352,26 @@ server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, re
         res.json({ Res: error });
     }
 });
+//cargar SOAT
+server.post('/api/cargarSoat', async (req, res) => {
+    try {
+        const producto = req.body
+
+        res.json({ Res: await axios.post(`cargarSoat`,producto) });
+    } catch (error) {
+        res.json({ Res: {error} });
+    }
+});
+//cargar Tecnico Macanica
+server.post('/api/cargarTM', async (req, res) => {
+    try {
+        const producto = req.body
+
+        res.json({ Res: await axios.post(`cargarTM`,producto) });
+    } catch (error) {
+        res.json({ Res: {error} });
+    }
+});
 
 
 
