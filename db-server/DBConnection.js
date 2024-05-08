@@ -486,15 +486,37 @@ const actualizarProyecto = async (
 };
 
 const obtenerProyectos = async () => {
-  const pool = new Pool(config);
+  let pool = new Pool(config);
   try {
     const DBRes = await pool.query("select * from proyectos");
+    pool.end();
+
+    for (const proyecto of DBRes.rows){
+      if(proyecto.estado_avance!="FINALIZADO"&&!isDateValid(proyecto.fecha_entrega.toString().substring(0,10))){
+        pool = new Pool(config);
+        await pool.query(`UPDATE proyectos SET estado_avance = 'FINALIZADO' WHERE idproyectos = ${proyecto.idproyectos}`);
+        pool.end();
+        proyecto.estado_avance = 'FINALIZADO'
+      }
+    }
+
     return DBRes;
   } catch (error) {
+    console.log(error)
     console.log("Error al obtener los proyectos");
   }
-  pool.end();
 };
+
+function isDateValid(dateString) {
+  // Obtener la fecha actual
+  const currentDate = new Date();
+
+  // Obtener la fecha proporcionada como argumento
+  const providedDate = new Date(dateString);
+
+  // Comparar las fechas
+  return providedDate >= currentDate;
+}
 
 const insertarConductor = async (nombre, cedula, telefono) => {
   const pool = new Pool(config);
