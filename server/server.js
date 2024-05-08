@@ -45,7 +45,7 @@ server.get('/api/prueba/:texto', async (req, res) => {
         //TODO comprobar permisos
         const texto = req.params.texto
         
-        res.json({ Res: (await Fetch.fetchApi(`prueba/${texto}`)).DBRes });
+        res.json({ Res: (await axios.api(`prueba/${texto}`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -68,7 +68,7 @@ server.get('/api/signin/:nUsuario/:contrasena', async (req, res) => {
 const iniciarSesion = async (nUsuario,contrasena) => {
     let bool = false
     //Comprobar usuario y contrasena
-    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${nUsuario}`)).DBRes
+    const dbRes = (await axios.api(`get/constrasenatipo/${nUsuario}`)).data.DBRes
     if(dbRes && dbRes.rows && dbRes.rows[0]){
         const contrasenaReal = dbRes.rows[0].contrasena
         dbRes.rows[0].contrasena = ''
@@ -101,7 +101,7 @@ server.get('/api/permiso/:usuario/:contrasena/:tipoUsuario', async (req, res) =>
 const comprobarPermisos = async (usuario,contrasena,tiposUsuarioPermitido) => {
     let res = false
 
-    const dbRes = (await Fetch.fetchApi(`get/constrasenatipo/${usuario}`)).DBRes
+    const dbRes = (await axios.api(`get/constrasenatipo/${usuario}`)).data.DBRes
     if(dbRes && dbRes.rows && dbRes.rows[0]){
         if(dbRes.rows[0].contrasena === contrasena){
             if( tiposUsuarioPermitido.includes(dbRes.rows[0].tipo_usuario) ){
@@ -127,7 +127,7 @@ server.post('/api/123/:nUsuario/:contrasena', async (req, res) => {
 
             const idusuarios = ResIniciarSesion.usuario.idusuarios
 
-            const idalquileres = (await Fetch.fetchApi(`clienteAgregarAlquiler1/${idusuarios}`)).DBRes
+            const idalquileres = (await axios.api(`clienteAgregarAlquiler1/${idusuarios}`)).data.DBRes
 
             if(alquiler&&alquiler.producto_agendas){
                 
@@ -136,9 +136,9 @@ server.post('/api/123/:nUsuario/:contrasena', async (req, res) => {
                 for await ( let producto_agenda of producto_agendas ){
 
                     const idproductos = producto_agenda.idproductos
-                    const idagenda = (await Fetch.fetchApi(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).DBRes
+                    const idagenda = (await axios.api(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).data.DBRes
 
-                    await Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
+                    await axios.api(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
 
                 }
                 
@@ -166,7 +166,7 @@ server.post('/api/pedido/alianza/:nUsuario/:contrasena', async (req, res) => {
 
             const idusuarios = ResIniciarSesion.usuario.idusuarios
 
-            const idalquileres = (await Fetch.fetchApi(`clienteAgregarAlquiler1/${idusuarios}`)).DBRes
+            const idalquileres = (await axios.api(`clienteAgregarAlquiler1/${idusuarios}`)).data.DBRes
 
             if(arrayProductoAgendas){
                 
@@ -175,9 +175,9 @@ server.post('/api/pedido/alianza/:nUsuario/:contrasena', async (req, res) => {
                 for await ( let producto_agenda of producto_agendas ){
 
                     const idproductos = producto_agenda.idproductos
-                    const idagenda = (await Fetch.fetchApi(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).DBRes
+                    const idagenda = (await axios.api(`clienteAgregarAgenda2/${producto_agenda.fecha_inicio}/${producto_agenda.fecha_fin}/${producto_agenda.lugar_origen}/${producto_agenda.lugar_destino}`)).data.DBRes
 
-                    await Fetch.fetchApi(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
+                    await axios.api(`clienteAgregarProductosHasAlquileres3/${idproductos}/${idalquileres}/${idusuarios}/${idagenda}`)
 
                 }
                 
@@ -198,10 +198,10 @@ server.get('/api/3_51/:idagenda/:cedula/:nUsuario/:contrasena', async (req, res)
         const idagenda = req.params.idagenda
         const cedula = req.params.cedula
 
-        const ResConductor = (await Fetch.fetchApi(`conductorPorCedula/${cedula}`))
+        const ResConductor = (await axios.api(`conductorPorCedula/${cedula}`)).data
         if(ResConductor&&ResConductor.DBRes&&ResConductor.DBRes.rows&&ResConductor.DBRes.rows[0]&&ResConductor.DBRes.rows[0].idconductores){
             idconductores = ResConductor.DBRes.rows[0].idconductores
-            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+            await axios.api(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
         }
         
         res.json({ Res: idconductores });
@@ -219,13 +219,13 @@ server.get('/api/3_53_51/:idagenda/:cedula/:nombre/:telefono/:nUsuario/:contrase
         const nombre = req.params.nombre
         const telefono = req.params.telefono
 
-        const ResConductor = (await Fetch.fetchApi(`conductorPorCedula/${cedula}`))
+        const ResConductor = (await axios.api(`conductorPorCedula/${cedula}`)).data
         if(ResConductor&&ResConductor.DBRes&&ResConductor.DBRes.rows&&ResConductor.DBRes.rows[0]&&ResConductor.DBRes.rows[0].idconductores){
             idconductores = ResConductor.DBRes.rows[0].idconductores
-            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+            await axios.api(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
         }else{
-            idconductores = (await Fetch.fetchApi(`administradorAgregarConductor3_5/${nombre}/${cedula}/${telefono}`)).DBRes
-            await Fetch.fetchApi(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
+            idconductores = (await axios.api(`administradorAgregarConductor3_5/${nombre}/${cedula}/${telefono}`)).data.DBRes
+            await axios.api(`administradorActualizarConductorDeAgenda3_51/${idagenda}/${idconductores}`)
         }
         
         res.json({ Res: idconductores });
@@ -247,7 +247,7 @@ server.get('/api/4/:idAlquileres/:subtotal/:total/:total_descuento/:total_impues
         const gastos_adicionales = req.params.gastos_adicionales
         const justificacion_ga = req.params.justificacion_ga
 
-        await Fetch.fetchApi(`administradorActualizarAlquiler4/${idAlquileres}/${subtotal}/${total}/${total_descuento}/${total_impuestos}/${valor_conductores}/${gastos_adicionales}/${justificacion_ga}`)
+        await axios.api(`administradorActualizarAlquiler4/${idAlquileres}/${subtotal}/${total}/${total_descuento}/${total_impuestos}/${valor_conductores}/${gastos_adicionales}/${justificacion_ga}`)
 
         bool = true
 
@@ -263,7 +263,7 @@ server.get('/api/5/:idAlquileres/:nUsuario/:contrasena', async (req, res) => {
         //TODO comprobar permisos
         const idAlquileres = req.params.idAlquileres
 
-        await Fetch.fetchApi(`clienteActualizarAlquiler5/${idAlquileres}`)
+        await axios.api(`clienteActualizarAlquiler5/${idAlquileres}`)
 
         bool = true
 
@@ -281,14 +281,14 @@ server.get('/api/8/:nit/:responsable/:p_descuento/:p_impuestos', async (req, res
         const p_descuento = req.params.p_descuento
         const p_impuestos = req.params.p_impuestos
     
-        const proveedores = (await Fetch.fetchApi(`proveedoresPorNit/${nit}`)).DBRes
+        const proveedores = (await axios.api(`proveedoresPorNit/${nit}`)).data.DBRes
 
         let idcompras = 0
         if(proveedores&&proveedores[0]&&proveedores[0].idproveedores){
 
             const proveedores_idproveedores = proveedores[0].idproveedores
 
-            idcompras = (await Fetch.fetchApi(`administradorAgregarCompras8/${proveedores_idproveedores}/${responsable}/${p_descuento}/${p_impuestos}`)).DBRes.rows[0].idcompras
+            idcompras = (await axios.api(`administradorAgregarCompras8/${proveedores_idproveedores}/${responsable}/${p_descuento}/${p_impuestos}`)).data.DBRes.rows[0].idcompras
         }
 
         res.json({ Res: idcompras });
@@ -305,12 +305,12 @@ server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, re
         const identificacion = req.params.identificacion
         const precio_compra = parseInt(req.params.precio_compra)
         
-        const productos = (await Fetch.fetchApi(`productosPorIdentificacion/${identificacion}`)).DBRes
+        const productos = (await axios.api(`productosPorIdentificacion/${identificacion}`)).data.DBRes
         if(productos&&productos[0]&&productos[0].idproductos){
             const idproductos = productos[0].idproductos;
             (await axios.api(`actualizarPreciocompraProducto/${idproductos}/${precio_compra}`));
             
-            const compras = (await Fetch.fetchApi(`compraPorIdcompras/${idcompras}`)).DBRes
+            const compras = (await axios.api(`compraPorIdcompras/${idcompras}`)).data.DBRes
             if(compras&&compras[0]&&compras[0].proveedores_idproveedores){
                 //subtotal, total_descuento, total_impuestos, p_descuento, p_impuestos
                 const compra = compras[0]
@@ -335,10 +335,10 @@ server.get('/api/8_59/:idcompras/:identificacion/:precio_compra', async (req, re
                 } */
                 
                 const total = subtotal + total_impuestos - total_descuento;
-                (await Fetch.fetchApi(`administradorActualizarCompras8_5/${idcompras}/${total}/${subtotal}/${total_descuento}/${total_impuestos}`));
+                (await axios.api(`administradorActualizarCompras8_5/${idcompras}/${total}/${subtotal}/${total_descuento}/${total_impuestos}`));
                 
                 const idproveedores = compra.proveedores_idproveedores;
-                (await Fetch.fetchApi(`administradorAgregarProductosHasCompras9/${idproductos}/${idcompras}/${idproveedores}`));
+                (await axios.api(`administradorAgregarProductosHasCompras9/${idproductos}/${idcompras}/${idproveedores}`));
 
                 bool = true
             }
@@ -364,7 +364,7 @@ server.get('/api/productosPorModelo/:modelo', async (req, res) => {
         //TODO comprobar permisos
         const modelo = req.params.modelo
 
-        res.json({ Res: (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes });
+        res.json({ Res: (await axios.api(`productosPorModelo/${modelo}`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -377,10 +377,10 @@ server.get('/api/productosPorModelo/:modelo/:fecha_inicio/:fecha_fin', async (re
 
         let productosDisponibles = []
 
-        let productos = (await Fetch.fetchApi(`productosPorModelo/${modelo}`)).DBRes
+        let productos = (await axios.api(`productosPorModelo/${modelo}`)).data.DBRes
         for await (let producto of productos){
             let disponible = true
-            const agendas = (await Fetch.fetchApi(`agendasPorProducto/${producto.idproductos}`)).DBRes
+            const agendas = (await axios.api(`agendasPorProducto/${producto.idproductos}`)).data.DBRes
             for (let agenda of agendas){
                 if(!DisponibilidadProducto(agenda,req.params)){
                     disponible = false
@@ -429,10 +429,10 @@ server.get('/api/alquileresPorUsuario/:nUsuario/:contrasena', async (req, res) =
 
             const idusuarios = ResIniciarSesion.usuario.idusuarios
 
-            alquileres = (await Fetch.fetchApi(`alquileresPorUsuario/${idusuarios}`)).DBRes
+            alquileres = (await axios.api(`alquileresPorUsuario/${idusuarios}`)).data.DBRes
 
             for await (let alquiler of alquileres){
-                let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
+                let res = (await axios.api(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).data.DBRes
                 alquiler.producto_agendas = res
             }
 
@@ -452,12 +452,12 @@ server.get('/api/obtener/alquileres/:nUsuario/:contrasena', async (req, res) => 
 
         let alquileres
 
-        alquileres = (await Fetch.fetchApi(`get/alquileres`)).DBRes.rows
+        alquileres = (await axios.api(`get/alquileres`)).data.DBRes.rows
 
         for await (let alquiler of alquileres){
             // let res = (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${alquiler.idalquileres}`)).DBRes
             // alquiler.producto_agendas = res
-            const res = (await Fetch.fetchApi(`get/usuarioporid/${alquiler.usuarios_idusuarios}`)).DBRes.rows[0]
+            const res = (await axios.api(`get/usuarioporid/${alquiler.usuarios_idusuarios}`)).data.DBRes.rows[0]
             alquiler.usuario = res
         }
 
@@ -475,7 +475,7 @@ server.get('/api/obtener/producto_agendas/alquiler/:nUsuario/:contrasena/:idalqu
         const contrasena = req.params.contrasena
         const idalquileres = req.params.idalquileres
 
-        res.json({ Res: (await Fetch.fetchApi(`productosYAgendasDeAlquiler/${idalquileres}`)).DBRes });
+        res.json({ Res: (await axios.api(`productosYAgendasDeAlquiler/${idalquileres}`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -486,7 +486,7 @@ server.get('/api/obtener/productosPorIdcompras/:idcompras', async (req, res) => 
         //TODO comprobar permisos
         const idcompras = req.params.idcompras
 
-        res.json({ Res: (await Fetch.fetchApi(`productosPorIdcompras/${idcompras}`)).DBRes });
+        res.json({ Res: (await axios.api(`productosPorIdcompras/${idcompras}`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -496,7 +496,7 @@ server.get('/api/consultarComprasConProveedor', async (req, res) => {
     try {
         //TODO comprobar permisos
 
-        res.json({ Res: (await Fetch.fetchApi(`consultarComprasConProveedor`)).DBRes });
+        res.json({ Res: (await axios.api(`consultarComprasConProveedor`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -506,7 +506,7 @@ server.get('/api/consultarProductosDescuento', async (req, res) => {
     try {
         //TODO comprobar permisos
 
-        res.json({ Res: (await Fetch.fetchApi(`consultarProductosDescuento`)).DBRes });
+        res.json({ Res: (await axios.api(`consultarProductosDescuento`)).data.DBRes });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -517,7 +517,7 @@ server.get('/api/conductorPorIdconductores/:idconductores', async (req, res) => 
         //TODO comprobar permisos
         const idconductores = req.params.idconductores
 
-        res.json({ Res: (await Fetch.fetchApi(`conductorPorIdconductores/${idconductores}`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`conductorPorIdconductores/${idconductores}`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -528,7 +528,7 @@ server.get('/api/obtenerMantenimientosConIdproductos/:idproductos', async (req, 
         //TODO comprobar permisos
         const idproductos = req.params.idproductos
 
-        res.json({ Res: (await Fetch.fetchApi(`obtenerMantenimientosConIdproductos/${idproductos}`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`obtenerMantenimientosConIdproductos/${idproductos}`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -540,7 +540,7 @@ server.get('/api/obtener/productosEnUnaFecha/:fechaInicial/:fechaFinal', async (
         const fechaInicial = req.params.fechaInicial
         const fechaFinal = req.params.fechaFinal
         
-        let productos = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+        let productos = (await axios.api(`get/productos`)).data.DBRes.rows
 
         productos = productos.filter((producto)=>{
             verificarFecha(producto.fecha,fechaInicial,fechaFinal)
@@ -566,9 +566,9 @@ server.get('/api/agendasPorIdproductos/:idproductos', async (req, res) => {
         //TODO comprobar permisos
         const idproductos = req.params.idproductos
 
-        const agendas = (await Fetch.fetchApi(`agendasPorProducto/${idproductos}`)).DBRes
+        const agendas = (await axios.api(`agendasPorProducto/${idproductos}`)).data.DBRes
         for await(const agenda of agendas){
-            agenda.conductor = (await Fetch.fetchApi(`conductorPorIdconductores/${agenda.conductores_idconductores}`)).DBRes.rows[0]
+            agenda.conductor = (await axios.api(`conductorPorIdconductores/${agenda.conductores_idconductores}`)).data.DBRes.rows[0]
         }
 
         res.json({ Res: agendas });
@@ -643,7 +643,7 @@ server.get('/api/agregar/conductor/:JSONObject/:usuario/:contrasena', async (req
 
         const JSONObject = req.params.JSONObject;
         //TODO comprobar permisos
-        await Fetch.fetchApi(`insert/conductores/${JSONObject}`)
+        await axios.api(`insert/conductores/${JSONObject}`)
         
         res.json({ Res: true });
     } catch (error) {
@@ -685,7 +685,7 @@ server.get('/api/obtener/usuarios/:usuario/:contrasena', async (req, res) => {
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/usuarios`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/usuarios`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -697,7 +697,7 @@ server.get('/api/obtener/proveedores/:usuario/:contrasena', async (req, res) => 
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/proveedores`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/proveedores`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -709,7 +709,7 @@ server.get('/api/obtener/productos', async (req, res) => {
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/productos`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/productos`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -720,12 +720,12 @@ server.get('/api/obtener/productosYCategorias', async (req, res) => {
     try {
 
         //TODO comprobar permisos
-        const productos = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+        const productos = (await axios.api(`get/productos`)).data.DBRes.rows
 
         for await(const producto of productos){
             producto.categorias = []
 
-            const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${producto.idproductos}`)).DBRes.rows
+            const categorias = (await axios.api(`consultarCategoriasDeProducto/${producto.idproductos}`)).data.DBRes.rows
             for (const categoria of categorias){
                 producto.categorias.push(categoria.nombre_categoria)
             }
@@ -744,12 +744,12 @@ server.get('/api/obtener/productosYCategoriasDifModelo', async (req, res) => {
     try {
 
         //TODO comprobar permisos
-        const productos = (await Fetch.fetchApi(`get/productosDifModelo`)).DBRes.rows
+        const productos = (await axios.api(`get/productosDifModelo`)).data.DBRes.rows
 
         for await(const producto of productos){
             producto.categorias = []
 
-            const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${producto.idproductos}`)).DBRes.rows
+            const categorias = (await axios.api(`consultarCategoriasDeProducto/${producto.idproductos}`)).data.DBRes.rows
             for (const categoria of categorias){
                 producto.categorias.push(categoria.nombre_categoria)
             }
@@ -769,7 +769,7 @@ server.get('/api/obtener/categoriasPorIdproductos/:idproductos', async (req, res
 
         const idproductos = req.params.idproductos
         //TODO comprobar permisos
-        const categorias = (await Fetch.fetchApi(`consultarCategoriasDeProducto/${idproductos}`)).DBRes.rows
+        const categorias = (await axios.api(`consultarCategoriasDeProducto/${idproductos}`)).data.DBRes.rows
         
         res.json({ Res: categorias });
     } catch (error) {
@@ -782,7 +782,7 @@ server.get('/api/obtener/categorias/transporte', async (req, res) => {
     try {
 
         //TODO comprobar permisos
-        const categorias = (await Fetch.fetchApi(`get/categorias/transporte`)).DBRes.rows
+        const categorias = (await axios.api(`get/categorias/transporte`)).data.DBRes.rows
         
         res.json({ Res: categorias });
     } catch (error) {
@@ -795,7 +795,7 @@ server.get('/api/obtener/categorias/maquinaria', async (req, res) => {
     try {
 
         //TODO comprobar permisos
-        const categorias = (await Fetch.fetchApi(`get/categorias/maquinaria`)).DBRes.rows
+        const categorias = (await axios.api(`get/categorias/maquinaria`)).data.DBRes.rows
         
         res.json({ Res: categorias });
     } catch (error) {
@@ -808,7 +808,7 @@ server.get('/api/obtener/categorias', async (req, res) => {
     try {
 
         //TODO comprobar permisos
-        const categorias = (await Fetch.fetchApi(`get/categorias`)).DBRes.rows
+        const categorias = (await axios.api(`get/categorias`)).data.DBRes.rows
         
         res.json({ Res: categorias });
     } catch (error) {
@@ -822,7 +822,7 @@ server.get('/api/obtener/productos/alianza', async (req, res) => {
 
         const productos = []
         //TODO comprobar permisos
-        let productosBD = (await Fetch.fetchApi(`get/productos`)).DBRes.rows
+        let productosBD = (await axios.api(`get/productos`)).data.DBRes.rows
         for (const producto of productosBD){
             const productoAlianza = {}
 
@@ -847,7 +847,7 @@ server.get('/api/obtener/proyectos/:usuario/:contrasena', async (req, res) => {
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/proyectos`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/proyectos`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -859,7 +859,7 @@ server.get('/api/obtener/conductores/:usuario/:contrasena', async (req, res) => 
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/conductores`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/conductores`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -871,7 +871,7 @@ server.get('/api/obtener/conductores/:usuario/:contrasena', async (req, res) => 
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/conductores`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/conductores`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -883,7 +883,7 @@ server.get('/api/obtener/mantenimientos/:usuario/:contrasena', async (req, res) 
 
         //TODO comprobar permisos
         
-        res.json({ Res: (await Fetch.fetchApi(`get/mantenimientos`)).DBRes.rows });
+        res.json({ Res: (await axios.api(`get/mantenimientos`)).data.DBRes.rows });
     } catch (error) {
         res.json({ Res: error });
     }
@@ -913,7 +913,7 @@ server.get('/api/actualizar/proveedor/:JSONActualizar/:usuario/:contrasena', asy
         
         const JSONActualizar = req.params.JSONActualizar;
 
-        Fetch.fetchApi(`update/proveedores/${JSONActualizar}`)
+        axios.api(`update/proveedores/${JSONActualizar}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -961,7 +961,7 @@ server.get('/api/actualizar/conductor/:JSONActualizar/:usuario/:contrasena', asy
         
         const JSONActualizar = req.params.JSONActualizar;
 
-        Fetch.fetchApi(`update/conductores/${JSONActualizar}`)
+        axios.api(`update/conductores/${JSONActualizar}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -976,7 +976,7 @@ server.get('/api/eliminar/usuario/:id/:usuario/:contrasena', async (req, res) =>
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/usuarios/${id}`)
+        await axios.api(`delete/usuarios/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -991,7 +991,7 @@ server.get('/api/eliminar/proveedor/:id/:usuario/:contrasena', async (req, res) 
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/proveedores/${id}`)
+        await axios.api(`delete/proveedores/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -1006,7 +1006,7 @@ server.get('/api/eliminar/producto/:id/:usuario/:contrasena', async (req, res) =
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/productos/${id}`)
+        await axios.api(`delete/productos/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -1021,7 +1021,7 @@ server.get('/api/eliminar/proyecto/:id/:usuario/:contrasena', async (req, res) =
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/proyectos/${id}`)
+        await axios.api(`delete/proyectos/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -1036,7 +1036,7 @@ server.get('/api/eliminar/conductor/:id/:usuario/:contrasena', async (req, res) 
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/conductores/${id}`)
+        await axios.api(`delete/conductores/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
