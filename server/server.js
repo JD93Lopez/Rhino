@@ -1051,7 +1051,7 @@ server.get('/api/eliminar/compra/:id/:usuario/:contrasena', async (req, res) => 
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/compras/${id}`)
+        await axios.api(`delete/compras/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
@@ -1066,7 +1066,7 @@ server.get('/api/eliminar/mantenimiento/:id/:usuario/:contrasena', async (req, r
         //TODO comprobar permisos
 
         const id = req.params.id;
-        await Fetch.fetchApi(`delete/mantenimientos/${id}`)
+        await axios.api(`delete/mantenimientos/${id}`)
 
         res.json({ Res: true });
     } catch (error) {
