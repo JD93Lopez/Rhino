@@ -71,8 +71,9 @@ const iniciarSesion = async (nUsuario,contrasena) => {
     const dbRes = (await axios.api(`get/constrasenatipo/${nUsuario}`)).data.DBRes
     if(dbRes && dbRes.rows && dbRes.rows[0]){
         const contrasenaReal = dbRes.rows[0].contrasena
+        const estado = dbRes.rows[0].estado
         dbRes.rows[0].contrasena = ''
-        if(contrasenaReal){
+        if(contrasenaReal&&estado!="FUERA_DE_SERVICIO"){
             bool = (contrasena === contrasenaReal)
         }
     }
