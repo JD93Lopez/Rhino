@@ -49,6 +49,40 @@ const insertarUsuario = async (
   pool.end();
 };
 
+const registrarUsuario = async (
+  direccion,
+  correo,
+  nombre_usuario,
+  identificacion,
+  telefono,
+  contrasena,
+  nombre_real
+) => {
+  const pool = new Pool(config);
+  try {
+    const texto =
+      "insert into usuarios(nombre_usuario, contrasena, nombre_real, direccion, telefono, identificacion, correo, tipo_identificacion, tipo_usuario, estado) values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
+    const values = [
+      nombre_usuario,
+      contrasena,
+      nombre_real,
+      direccion,
+      telefono,
+      identificacion,
+      correo,
+      "CEDULA",
+      "CLIENTE",
+      "ACTIVO"
+    ];
+    const DBRes = await pool.query(texto, values);
+    return DBRes;
+  } catch (error) {
+    console.log(error)
+    console.log("Error al registrar el usuario");
+  }
+  pool.end();
+};
+
 const actualizarUsuario = async (
   idUsuarios,
   nombre_usuario,
@@ -704,7 +738,7 @@ const sqlQueryValues = async (sqlQuery, values) => {
 const objetoFuncionesLogicaNegocioBD = funcionesLogicaNegocioBD(config)
 
 module.exports = {
-  obtenerUsuarios, insertarUsuario, 
+  obtenerUsuarios, insertarUsuario, registrarUsuario,
   actualizarUsuario, eliminarUsuario, 
 
   obtenerProveedores, insertarProveedor,

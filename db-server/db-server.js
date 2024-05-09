@@ -441,6 +441,26 @@ server.post('/dbapi/insert/usuarios', async (req, res) => {
     }
 });
 
+//Registrar usuario
+server.post('/dbapi/register/usuario', async (req, res) => {
+    try {
+
+        const usuarioInsertar = req.body
+        DBConnection.registrarUsuario(
+            usuarioInsertar.direccion,
+            usuarioInsertar.correo,
+            usuarioInsertar.nombre_usuario,
+            usuarioInsertar.identificacion,
+            usuarioInsertar.telefono,
+            usuarioInsertar.contrasena,
+            usuarioInsertar.nombre_real
+        )
+        res.json({ DBRes: "Insercion Finalizada" });
+    } catch (error) {
+        res.json({ DBRes: error });
+    }
+});
+
 //Insertar proveedor
 server.post('/dbapi/insert/proveedores', async (req, res) => {
     try {

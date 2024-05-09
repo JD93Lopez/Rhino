@@ -1,49 +1,61 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import GroupComponent from "../components/GroupComponent";
 import { useNavigate } from "react-router-dom";
 import styles from "./VetanaDeRegistro.module.css";
+import axios from "../axios";
 
 const VetanaDeRegistro = () => {
   const navigate = useNavigate();
+
+  const [direccion, setDireccion] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [nombre_usuario, setUsuario] = useState("");
+  const [identificacion, setIdentificacion] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [contrasena, setContrasenia] = useState("");
  
- /* const nombre=document.getElementById("inputNombre").value;
-  const apellido=document.getElementById("inputApellido").value;
-  const email=document.getElementById("inputEmail").value;
-  const password=document.getElementById("inputPassword").value;
-  const direccion=document.getElementById("inputDireccion").value;
-  const identificacion=document.getElementById("inputIdentificacion").value;
-  const telefono=document.getElementById("inputTelefono").value;*/
   const onBotonRegistrarse2Click = useCallback(() => {
-    const usuario=document.getElementById("inputUsuario").value;
-    /*const objUsuario = {
-      usuario, 
-      nombre,
-      apellido,
-      email,
-      password,
+    const usuario = {
       direccion, 
+      correo,
+      nombre_usuario, 
       identificacion,
-      telefono
+      telefono,
+      contrasena,
+      nombre_real:`${nombre} ${apellido}`,
     };
-    console.log(objUsuario);
-*/
-console.log(usuario)
-    navigate("/ventana-inicio-de-sesin");
-  }, [navigate, document]);
+
+    //TODO registrar usuario
+    axios.post(`registrar/usuario`,usuario).then(()=>{
+      navigate("/");
+    })
+
+  }, [direccion, correo, nombre_usuario, identificacion,telefono, nombre, apellido,contrasena, navigate]);
 
   return (
 
     <div className={styles.vetanaDeRegistro}>
       <h1 className={styles.bienvenido}>¡BIENVENIDO!</h1>
       <main className={styles.b8c39214f0aadd21f0e370d549a1d0Parent}>
-      <GroupComponent onBotonRegistrarse2Click={onBotonRegistrarse2Click} />
+      <GroupComponent onBotonRegistrarse2Click={onBotonRegistrarse2Click} 
+        setDireccion={setDireccion}
+        setCorreo={setCorreo}
+        setUsuario ={setUsuario}
+        setIdentificacion ={setIdentificacion}
+        setTelefono={setTelefono}
+        setNombre={setNombre}
+        setApellido ={setApellido}
+        setContrasenia={setContrasenia}
+      />
 
         <img
           className={styles.b8c39214f0aadd21f0e370d549a1d0Icon}
           alt=""
           src="/0b8c39214f0aadd21f0e370d549a1d02-1@2x.png"
         />
-        <GroupComponent />
+        {/* <GroupComponent /> */}
         <img
           className={styles.logoIcon}
           loading="lazy"

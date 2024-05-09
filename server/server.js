@@ -616,6 +616,20 @@ server.post('/api/agregar/usuario/:usuario/:contrasena', async (req, res) => {
     }
 });
 
+//Registrar usuario
+server.post('/api/registrar/usuario', async (req, res) => {
+    try {
+
+        const Object = req.body;
+        //TODO comprobar permisos
+        await axios.post(`register/usuario`,Object)
+        
+        res.json({ Res: true });
+    } catch (error) {
+        res.json({ Res: error });
+    }
+});
+
 //Agregar proveedor
 server.post('/api/agregar/proveedor/:usuario/:contrasena', async (req, res) => {
     try {
