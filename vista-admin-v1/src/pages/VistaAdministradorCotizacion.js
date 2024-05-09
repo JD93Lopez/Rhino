@@ -42,16 +42,20 @@ const VistaAdministradorCotizacion = () => {
     if (!cotizaciones) {
       return;
     }
-    const inputValue = document.getElementById("inputbuscarproducto").value;
-      let nuevasCotizaciones = cotizaciones.map((cotizacion) => {
-      const similitud = orden.calcularSimilitud(inputValue, cotizacion.usuario.nombre_usuario); // Ajusta según el dato relevante
-      return { cotizacion, similitud: similitud };
+    const inputValue = document.getElementById("inputbuscarcotizacion").value;
+    let nuevasCotizaciones = cotizaciones.map((cotizacion) => {
+      const idalquileresStr = String(cotizacion.idalquileres); 
+      if (typeof inputValue === 'string' && typeof idalquileresStr === 'string') {
+        const similitud = orden.calcularSimilitud(inputValue, idalquileresStr);
+        return { cotizacion, similitud: similitud };
+      } else {
+        return { cotizacion, similitud: 0 };
+      }
     }).sort((a, b) => b.similitud - a.similitud);
-    nuevasCotizaciones = nuevasCotizaciones.map(({ cotizacion })=> cotizacion);
+    nuevasCotizaciones = nuevasCotizaciones.map(({ cotizacion }) => cotizacion);
 
     setCotizaciones(nuevasCotizaciones);
   };
-
   return (
     <div className={styles.vistaAdministradorProducto}>
       <div className={styles.vistaAdministradorProductoChild} />
@@ -72,8 +76,8 @@ const VistaAdministradorCotizacion = () => {
                   placeholder="Buscar cotización"
                   type="text"
                   onChange={buscar}
-                  id="inputbuscarproducto"
-                  useref="inputbuscarproducto"
+                  id="inputbuscarcotizacion"
+                  useref="inputbuscarcotizacion"
                 />
               </div>
             </div>
@@ -88,6 +92,7 @@ const VistaAdministradorCotizacion = () => {
                 estado = {cotizacion.estado}
                 fecha = {cotizacion.fecha.substring(0,10)}
                 object = {cotizacion}
+                key = {cotizacion.idalquileres}
               />
             ))}
           </div>
