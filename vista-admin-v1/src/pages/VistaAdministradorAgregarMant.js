@@ -1,13 +1,14 @@
 import AddProductFrame from "../components/AddProductFrame.js";
 import styles from "./VistaAdministradorAgregarMant.module.css";
 import axios from "../axios.js";
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../components/DataProvider.js";
 
 const VistaAdministradorAgregarMant = () => {
   const dataContext = useContext(DataContext)
-
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationContent, setNotificationContent] = useState("");
   const navigate = useNavigate();
 
   const onBotonAtrsContainerClick = useCallback(() => {
@@ -40,6 +41,15 @@ const VistaAdministradorAgregarMant = () => {
         mantenimientoInsertar.productos_idproductos = productos_idproductos
         axios.post(`agregar/mantenimiento/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,mantenimientoInsertar)
       }
+      setNotificationContent("¡Guardado exitoso!");
+
+      setShowNotification(true);
+
+      //Ocultar la notificación después de 2 segundos
+      setTimeout(() => {
+        setShowNotification(false);
+        navigate("/vista-administrador-mantenimiento");
+      }, 2000);
     }
   };
 
@@ -78,6 +88,11 @@ const VistaAdministradorAgregarMant = () => {
           </button>
         </div>
       </div>
+      {showNotification && (
+        <div className={styles.notificationContainer}>
+          <div className={styles.notification}>{notificationContent}</div>
+        </div>
+      )}
     </div>
   );
 };
