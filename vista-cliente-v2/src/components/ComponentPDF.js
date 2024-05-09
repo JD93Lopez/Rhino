@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   header: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-end",
     marginBottom: 20,
   },
   title: {
@@ -31,7 +30,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     fontWeight: "bold",
-
     marginTop: 10,
   },
   text: {
@@ -61,11 +59,11 @@ const styles = StyleSheet.create({
     borderBottom: "1px solid #ccc",
     backgroundColor: "#eee",
   },
-  totalCell: {
-    display: "table-cell",
-    padding: 5,
-    borderRight: "1px solid #ccc",
-    fontWeight: "bold",
+  sectionProductos: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 15,
   },
   section: {
     display: "flex",
@@ -87,6 +85,17 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
   },
+  logoTable: {
+    width: 100,
+    height: 100,
+    position: "absolute",
+  },
+  logoIcon: {
+    width: 25,
+  },
+  contanierFactura: {
+    marginLeft: "370px",
+  }
 });
 
 function ComponentPDF({ usuario, alquiler, productos }) {
@@ -95,9 +104,19 @@ function ComponentPDF({ usuario, alquiler, productos }) {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.title}>FACTURA</Text>
-          <Text style={styles.subtitle}>Nº DE FACTURA:{alquiler && alquiler.idalquileres}</Text>
-          <Text style={styles.subtitle}>Fecha: {alquiler && alquiler.fecha.substring(0, 10)}</Text>
+          <View style={styles.logoTable}>
+            <Image
+              className={styles.logoIcon}
+              loading="lazy"
+              alt=""
+              src="/boton-logo-6@3x.png"
+            />
+          </View>
+          <View style={styles.contanierFactura}>
+            <Text style={styles.title}>FACTURA</Text>
+            <Text style={styles.subtitle}>Nº DE FACTURA:{alquiler && alquiler.idalquileres}</Text>
+            <Text style={styles.subtitle}>Fecha: {alquiler && alquiler.fecha.substring(0, 10)}</Text>
+          </View>
         </View>
         <View style={styles.table}>
           <View style={styles.section}>
@@ -110,29 +129,32 @@ function ComponentPDF({ usuario, alquiler, productos }) {
               <Text style={styles.text}>{usuario && usuario.correo}</Text>
             </View>
           </View>
-          <View style={styles.section}>
-            {productos &&
-              productos.map((producto) => {
-                return (
-                  <View>
-                    <View style={styles.item}>
-                      <Text style={styles.item}>Descripcion</Text>
-                      <Text style={styles.text}>{producto.nombre}</Text>
-                    </View>
-                    <View style={styles.item}>
-                      <Text style={styles.text}>Cantidad:</Text>
-                      <Text style={styles.text}>{producto.cantidad}</Text>
-                    </View>
-                    <View style={styles.item}>
-                      <Text style={styles.text}>Precio:</Text>
-                      <Text style={styles.text}>{producto.precio_alquiler}
-                      </Text>
-                    </View>
-                  </View>
-                );
-              })}
+        </View>
+        <View style={styles.table}>
+
+          <View style={styles.sectionFinal}>
+            <View style={styles.sectionFinal}>
+              <Text style={styles.text}>DESCRIPCIÓN</Text>
+            </View>
+            <View style={styles.sectionFinal}>
+              <Text style={styles.text}>PRECIO</Text>
+            </View>
           </View>
-          
+          {productos &&
+            productos.map((producto) => {
+              return (
+                <View style={styles.sectionFinal}>
+                  <View style={styles.sectionFinal}>
+                    <Text style={styles.text}>{producto.nombre}</Text>
+                  </View>
+                  <View style={styles.sectionFinal}>
+                    <Text style={styles.text}>{producto.precio_alquiler}</Text>
+                  </View>
+                </View>
+              );
+            })}
+        </View>
+        <View style={styles.table}>
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Subtotal:</Text>
             <Text style={styles.textSectionFinal}>{alquiler && alquiler.subtotal}</Text>
@@ -141,7 +163,6 @@ function ComponentPDF({ usuario, alquiler, productos }) {
             <Text style={styles.text}>Total Descuento:</Text>
             <Text style={styles.textSectionFinal}>{alquiler && alquiler.total_descuento}</Text>
           </View>
-
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Total Impuestos:</Text>
             <Text style={styles.textSectionFinal}>{alquiler && alquiler.total_impuestos}</Text>
@@ -154,8 +175,8 @@ function ComponentPDF({ usuario, alquiler, productos }) {
             <Text style={styles.text}>Total:</Text>
             <Text style={styles.textSectionFinal}>{alquiler && alquiler.total}</Text>
           </View>
-
         </View>
+
       </Page>
     </Document>
   );

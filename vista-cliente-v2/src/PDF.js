@@ -155,31 +155,27 @@ function PDF() {
               </View>
             </View>
           </View>
-          <View style={styles.section}>
-            <Text style={styles.text}>
-              Descripción: {alquiler && alquiler.justificacion_ga}
-            </Text>
-          </View>
 
-          <View style={styles.section}>
+          <View style={styles.table}>
             {productos &&
               productos.map((producto) => {
                 return (
-                  <View>
-                    <View style={styles.item}>
-                      <Text style={styles.text}>{producto.nombre}</Text>
+                  <View style={styles.table}>
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>Descripción</Text>
+                      <Text style={styles.tableCell}>{producto.nombre}</Text>
                     </View>
-                    <View style={styles.item}>
-                      <Text style={styles.text}>Cantidad:</Text>
-                      <Text style={styles.text}>1</Text>
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>Cantidad:</Text>
+                      <Text style={styles.tableCell}>1</Text>
                     </View>
-                    <View style={styles.item}>
-                      <Text style={styles.text}>Precio:</Text>
-                      <Text style={styles.text}>
-                        {producto.precio_alquiler}
+                    <View style={styles.tableRow}>
+                      <Text style={styles.tableCell}>Precio:</Text>
+                      <Text style={styles.tableCell}>{producto.precio_alquiler}
                       </Text>
                     </View>
                   </View>
+
                 );
               })}
           </View>
@@ -188,13 +184,12 @@ function PDF() {
             <Text style={styles.text}>{alquiler && alquiler.subtotal}</Text>
           </View>
           <View style={styles.sectionFinal}>
-            <Text style={styles.text}>Total Descuento:</Text>
+            <Text style={styles.text}>Total Descuento1:</Text>
             <View style={styles.sectionFinal}>
-                          <Text style={styles.text}>
-              {alquiler && alquiler.total_descuento}
-            </Text>
+              <Text style={styles.text}>
+                {alquiler && alquiler.total_descuento}
+              </Text>
             </View>
-
           </View>
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Total Impuestos:</Text>
@@ -205,9 +200,9 @@ function PDF() {
           <View style={styles.sectionFinal}>
             <Text style={styles.text}>Gastos Adicionales:</Text>
             <View>
-                          <Text style={styles.text}>
-              {alquiler && alquiler.gastos_adicionales}
-            </Text>
+              <Text style={styles.text}>
+                {alquiler && alquiler.gastos_adicionales}
+              </Text>
             </View>
 
           </View>
@@ -219,7 +214,7 @@ function PDF() {
       </Page>
     </Document>
   );
-  
+
 }
 
 /*
