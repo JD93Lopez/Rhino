@@ -29,7 +29,7 @@ const VetanaDeRegistro = () => {
 
     //TODO registrar usuario
     axios.post(`registrar/usuario`,usuario).then(()=>{
-      navigate("/");
+      navigate("/ventana-inicio-sesion");
     })
 
   }, [direccion, correo, nombre_usuario, identificacion,telefono, nombre, apellido,contrasena, navigate]);
