@@ -4,6 +4,7 @@ const FileReader = require('./FileReader.js');
 const Fetch = require('./db-fetch.js');
 const bodyParser = require('body-parser');
 const axios = require('./axios.js');
+const https = require('https');
 
 const config = FileReader.readServerConfig()
 
@@ -1111,7 +1112,7 @@ server.get('/api/eliminar/mantenimiento/:id/:usuario/:contrasena', async (req, r
 //FIN FUNCIONES CRUD
 
 
-// Iniciar
+//Iniciar
 server.listen(PORT, IP, () => {
 
     //Fetch de prueba
@@ -1124,7 +1125,6 @@ server.listen(PORT, IP, () => {
 /*     Fetch.fetchApi(`sqlquery/${"SELECT * FROM usuarios/null"}`).then((Res)=>{
         console.log(Res.DBRes.rows)
     }) */
-
 
     //Fetch operaciones logica negocio
     //1 Fetch.fetchApi(`clienteAgregarAlquiler1/2`).then((res)=>{
@@ -1175,7 +1175,14 @@ server.listen(PORT, IP, () => {
     //     console.log(Res.DBRes.rows)
     // })
 
-
-
     console.log(`Servidor corriendo en http://${IP}:${PORT}`);
 });
+
+/* const privateKey = FileReader.readFile('ruta/a/clave-privada.key', 'utf8');
+const certificate = FileReader.readFile('ruta/a/certificado-publico.crt', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
+const httpsServer = https.createServer(credentials, server);
+httpsServer.listen(PORT, IP, () => {
+    console.log(`Servidor corriendo en http://${IP}:${PORT}`);
+}); */

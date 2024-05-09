@@ -21,4 +21,4 @@ const readFetchConfig = () => {
     return JSON.parse(readFile(rutaFetchConfig))
 }
 
-module.exports = {readServerConfig, readFetchConfig}
+module.exports = {readServerConfig, readFetchConfig,readFile}

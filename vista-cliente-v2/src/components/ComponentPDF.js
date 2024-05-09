@@ -152,7 +152,8 @@ function ComponentPDF({ usuario, alquiler, productos }) {
                   </View>
                 </View>
               );
-            })}
+            })
+          }
         </View>
         <View style={styles.table}>
           <View style={styles.sectionFinal}>
