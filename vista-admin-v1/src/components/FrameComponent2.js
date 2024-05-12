@@ -6,8 +6,9 @@ import Select from 'react-select';
 import ImageUpload from './ImageUpload';
 import { DataContext, DataProvider } from "../components/DataProvider";
 import axios from "../axios";
+import { useNavigate } from "react-router-dom";
 const FrameComponent2 = () => {
-
+  const navigate = useNavigate()
   const [showNotification, setShowNotification] = useState(false);
   const [notificationContent, setNotificationContent] = useState("");
   const dataContext = useContext(DataContext);
@@ -58,6 +59,7 @@ const FrameComponent2 = () => {
       //Ocultar la notificación después de 2 segundos
       setTimeout(() => {
         setShowNotification(false);
+        navigate("/vista-administrador-productos");
       }, 2000);
     }
   };

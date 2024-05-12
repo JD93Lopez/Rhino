@@ -1,14 +1,15 @@
 import styles from "./VistaAdministradorAgregarProyect.module.css";
 import Select from "react-select";
 import axios from "../axios.js";
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext, DataProvider } from "../components/DataProvider";
 import AddProductFrame from "../components/AddProductFrame.js";
 
 const VistaAdministradorAgregarProyect = () => {
   const navigate = useNavigate();
-
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationContent, setNotificationContent] = useState("");
   const onBotonAtrsContainerClick = useCallback(() => {
     navigate("/vista-administrador-proyectos");
   }, [navigate]);
@@ -39,7 +40,17 @@ const VistaAdministradorAgregarProyect = () => {
       descripcion!=""&&fecha_entrega!=""&&estado_avance!=""
     ) {
       axios.post(`agregar/proyecto/${dataContext.usuarioIniciado.nombre_usuario}/${dataContext.usuarioIniciado.contrasena}`,usuarioInsertar)
+      setNotificationContent("¡Guardado exitoso!");
+
+      setShowNotification(true);
+
+      //Ocultar la notificación después de 2 segundos
+      setTimeout(() => {
+        setShowNotification(false);
+        navigate("/vista-administrador-proyectos");
+      }, 2000);
     }
+
   };
 
   const dataContext = useContext(DataContext);
@@ -124,7 +135,13 @@ const VistaAdministradorAgregarProyect = () => {
             <div className={styles.adminProfileFrameChild} />
             <div className={styles.guardar}>GUARDAR</div>
           </button>
+          {showNotification && (
+        <div className={styles.notificationContainer}>
+          <div className={styles.notification}>{notificationContent}</div>
         </div>
+      )}
+        </div>
+        
       </footer>
     </div>
   );

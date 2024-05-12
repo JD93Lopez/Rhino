@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./SaveButtonFrame.module.css";
 import axios from '../axios.js';
@@ -8,7 +8,8 @@ const SaveButtonFrame = () => {
   const dataContext = useContext(DataContext)
   const { Loaded, selectedUsers, usuarioIniciado } = dataContext;
   const navigate = useNavigate();
-
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationContent, setNotificationContent] = useState("");
   const onBotonAtrsContainerClick = useCallback(() => {
     navigate("/vista-administrador-usuarios");
   }, [navigate]);
@@ -56,6 +57,15 @@ const SaveButtonFrame = () => {
           axios.post(`agregar/usuario/${usuarioIniciado.nombre_usuario}/${usuarioIniciado.contrasena}`,usuarioInsertar)
         }
       }
+      setNotificationContent("¡Guardado exitoso!");
+
+      setShowNotification(true);
+
+      //Ocultar la notificación después de 2 segundos
+      setTimeout(() => {
+        setShowNotification(false);
+        navigate("/vista-administrador-usuarios");
+      }, 2000);
     }
   };
 
@@ -72,6 +82,11 @@ const SaveButtonFrame = () => {
           <div className={styles.adminProfileFrameChild} />
           <div className={styles.guardar}>GUARDAR</div>
         </button>
+        {showNotification && (
+        <div className={styles.notificationContainer}>
+          <div className={styles.notification}>{notificationContent}</div>
+        </div>
+      )}
       </div>
     </footer>
   );

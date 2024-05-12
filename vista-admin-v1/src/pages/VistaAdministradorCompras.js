@@ -11,6 +11,9 @@ const VistaAdministradorCompras = () => {
     const dataContext = useContext(DataContext)
     const navigate = useNavigate()
 
+    const [showNotification, setShowNotification] = useState(false);
+    const [notificationContent, setNotificationContent] = useState("");
+    
     const [compra, setCompra] = useState()
     const [productos, setProductos] = useState()
     if(!compra&&dataContext.compraSeleccionada){
@@ -46,6 +49,17 @@ const VistaAdministradorCompras = () => {
                     }
                 } catch (e) {}
             })
+            setNotificationContent("¡Guardado exitoso!");
+
+            setShowNotification(true);
+      
+            //Ocultar la notificación después de 2 segundos
+            setTimeout(() => {
+              setShowNotification(false);
+              navigate("/vista-administrador-all-compras");
+            }, 2000);
+      
+
         }
     };
 
@@ -168,6 +182,11 @@ const VistaAdministradorCompras = () => {
                     />
                 })}
             </div>
+            {showNotification && (
+        <div className={styles.notificationContainer}>
+          <div className={styles.notification}>{notificationContent}</div>
+        </div>
+      )}
             </div>
         </div>
     );

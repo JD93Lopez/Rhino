@@ -216,6 +216,20 @@
     box-sizing: border-box;
     display: none;
   }
+  .notificationContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .notification {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 999;
+  }
   .guardar {
     position: relative;
     font-size: var(--font-size-5xl);
